@@ -1,5 +1,7 @@
 # SpookyAction Ground Station
 
+WARNING: EXPERIMENTAL AND UNTESTED CODE AHEAD
+
 ## Hardware Requirements
 
 Wireless Interface:

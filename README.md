@@ -1,12 +1,19 @@
 # Spooky Action at a Distance
 
-Code for our quadrotor data system
+WARNING: EXPERIMENTAL AND UNTESTED CODE AHEAD
+
+Code for our wireless cinematography data system
 
 ## Contents
 
 - "GroundStation" Single Instance on your Laptop
 - "OdroidPerson" Multiple Instances, One Per Odroid On Person
 
+## Current Architecture:
+
+- Odroid launches, sends heartbeats to Ground Station. 
+- Ground Station holds list of Odroids in MultiCast object. Whenever a heartbeat arrives, it gets added to this list.
+- Ground Station sends SBP data to the entire list of Multicast recipients.
 
 ## TODO:
 
