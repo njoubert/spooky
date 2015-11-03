@@ -1,16 +1,13 @@
-# Send UDP broadcast packets
+import socket, sys
+dest = ('<broadcast>', 5000)
 
-MYPORT = 50000
-
-import sys, time
-from socket import *
-
-s = socket(AF_INET, SOCK_DGRAM)
-s.bind(('', 0))
-s.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
-s.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
-
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+s.sendto("Hello from client", dest)
+print "Listening for replies; press Ctrl-C to stop."
 while 1:
-    data, addr = s.recvfrom(1024)
-    print data, addr   
-    time.sleep(0.1)
+    (buf, address) = s.recvfrom(2048)
+    if not len(buf):
+        break
+    print "Received from %s: %s" % (address, buf)
+    break

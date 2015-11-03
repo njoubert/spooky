@@ -1,17 +1,19 @@
-# Send UDP broadcast packets
+import socket, traceback
 
-MYPORT = 50000
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+s.bind(('', 5000))
 
-import sys, time
-from socket import *
-
-s = socket(AF_INET, SOCK_DGRAM)
-s.bind(('', 0))
-s.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
-s.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
-
+print "Listening for broadcasts..."
 
 while 1:
-    data = repr(time.time()) + '\n'
-    s.sendto(data, ('<broadcast>', MYPORT))
-    time.sleep(2)
+    try:
+        message, address = s.recvfrom(8192)
+        print "Got message from %s: %s" % (address, message)
+        s.sendto("Hello from server", address)
+        print "Listening for broadcasts..."
+    except (KeyboardInterrupt, SystemExit):
+        raise
+    except:
+        traceback.print_exc()
