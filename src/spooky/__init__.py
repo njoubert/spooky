@@ -1,9 +1,24 @@
+__all__ = ["ip"]
+
+#====================================================================#
+
 import time, socket, sys
 from contextlib import closing
 
 
-class SimpleScheduler:
+#====================================================================#
 
+class SimpleScheduler:
+  """
+  SimpleScheduler
+
+  Provides a simple top-level scheduler for your application.
+  Each task is represented by a function call.
+  SimpleScheduler calls a task at a regular, given interval.
+
+  Call tick() from a mainloop at a regular interval
+  Call addTask() to to register tasks in the form of function calls 
+  """
   def __init__(self):
     self.tasks = []
     self.lastMs = time.time() * 1e3
@@ -35,6 +50,10 @@ class SimpleScheduler:
 
 
 class Multicast:
+  """
+  Multicast provides a homebrewed and inefficient but simple multicast solution
+  Multicast simply repeats a packet to all registered sockets. 
+  """
   def __init__(self):
     self.recipients = set([])
 

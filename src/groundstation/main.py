@@ -3,13 +3,15 @@
 #
 
 import time, socket, sys, os, sys, inspect
-import argparse
+import argparse, json
 from contextlib import closing
 
 from sbp.client.drivers.pyserial_driver import PySerialDriver
 from sbp.client import Handler, Framer
 from sbp.observation import SBP_MSG_OBS, MsgObs
 
+# This must be run from the src directory, 
+# to correctly have all imports relative to src/
 from spooky import *
 
 #====================================================================#
@@ -17,23 +19,18 @@ from spooky import *
 UDP_SERVER_IP = "127.0.0.1"
 UDP_SERVER_PORT = 19250
 
-DEFAULT_SERIAL_SBP_PORT = "/dev/ttyUSB0"
-DEFAULT_SERIAL_SBP_BAUD = 1000000
-
 class GroundStation:
 
-  def __init__(self, 
-      sbp_port=DEFAULT_SERIAL_SBP_PORT,
-      sbp_baud=DEFAULT_SERIAL_SBP_BAUD):
-    self.sbp_port = sbp_port
-    self.sbp_baud = sbp_baud
-
+  def __init__(self, config):
+    self.config = config
+    print "Launching with config"
+    print config
 
   def stop(self):
+    print "Shutting down!"
     pass
 
   def mainloop(self):
-    print "Firing up with port=%s, baud=%d" % (self.sbp_port, self.sbp_baud)
     try:
 
       while True:
@@ -46,20 +43,22 @@ class GroundStation:
 #=====================================================================#
 
 def main():
+  print "GroundStation"
+
+  #All arguments should live in a config file!
   parser = argparse.ArgumentParser(description="Spooky Action at a Distance! Ground Station")
-  parser.add_argument("-s", "--sbp-port",
-                      default=[DEFAULT_SERIAL_SBP_PORT], nargs=1,
-                      help="specify the serial port to read SBP from.")
-  parser.add_argument("-b", "--sbp-baud",
-                      default=[DEFAULT_SERIAL_SBP_BAUD], nargs=1,
-                      help="specify the baud rate to use.")
+  parser.add_argument("-c", "--config",
+                      default=['../config.json'], nargs=1,
+                      help="specify the configuration file")
+  parser.add_argument("-i", "--ident",
+                      default=["server"], nargs=1,
+                      help="spoof a custom identifier, by default uses 'server'")
   args = parser.parse_args()
 
+  with open(args.config[0]) as data_file:    
+    CONFIG = json.load(data_file)
 
-  gs = GroundStation(
-    sbp_port = args.sbp_port[0],
-    sbp_baud = args.sbp_baud[0])
-
+  gs = GroundStation(CONFIG[args.ident[0]])
   gs.mainloop()
 
 if __name__ == '__main__':
