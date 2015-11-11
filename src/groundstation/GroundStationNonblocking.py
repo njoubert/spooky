@@ -1,3 +1,17 @@
+# Copyright (C) 2015 Stanford University
+# Contact: Niels Joubert <niels@cs.stanford.edu>
+#
+
+import time, socket, sys, os, sys, inspect
+import argparse
+from contextlib import closing
+
+from sbp.client.drivers.pyserial_driver import PySerialDriver
+from sbp.client import Handler, Framer
+from sbp.observation import SBP_MSG_OBS, MsgObs
+
+from .spooky import *
+
 #=====================================================================#
 
 class GroundStationNonblocking:

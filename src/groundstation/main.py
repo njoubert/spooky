@@ -10,12 +10,6 @@ from sbp.client.drivers.pyserial_driver import PySerialDriver
 from sbp.client import Handler, Framer
 from sbp.observation import SBP_MSG_OBS, MsgObs
 
-def add_relative_to_current_source_file_path_to_sys_path(relpath):
-    path = os.path.realpath(os.path.abspath(os.path.join(os.path.split(inspect.getfile(inspect.currentframe()))[0],relpath)))
-    if path not in sys.path:
-        sys.path.insert(0,path)
-add_relative_to_current_source_file_path_to_sys_path("../../")
-
 from spooky import *
 
 #====================================================================#
