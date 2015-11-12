@@ -22,13 +22,15 @@ from spooky import *
 UDP_SERVER_IP = "127.0.0.1"
 UDP_SERVER_PORT = 19250
 
-class UDPBroadcastThread(threading.Thread):
+class SBPUDPBroadcastThread(threading.Thread):
 
   def __init__(self, 
+      main,
       dest=('192.168.2.255', 5000), 
       interval=0.1):
     '''Create a UDP Broadcast socket'''
     threading.Thread.__init__(self)
+    self.main     = main
     self.dest     = dest
     self.interval = interval
     self.daemon   = True
@@ -39,7 +41,6 @@ class UDPBroadcastThread(threading.Thread):
     '''Thread loop here'''
     try:  
       while True:
-        print "bcasting to %s:%s" % self.dest
         self.udp.sendto("Broadcasting a Message Here", self.dest)
         time.sleep(self.interval)
     except socket.error:
@@ -49,7 +50,9 @@ class GroundStation:
 
   def __init__(self, config):
     self.config = config
-    self.broadcastThread = UDPBroadcastThread(
+    self.dying = False
+    self.broadcastThread = SBPUDPBroadcastThread(
+      self,
       dest=(config['udp-bcast-ip'], config['sbp-udp-bcast-port']),
       interval=config['sbp-bcast-sleep'])
 
@@ -61,6 +64,7 @@ class GroundStation:
     print ""
     print "Shutting down"
     print ""
+    self.dying = True
     self.broadcastThread.join(0.5)
 
   def mainloop(self):
