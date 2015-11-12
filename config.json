@@ -1,9 +1,19 @@
 {
-	"server": {
-		"sbp-port": "/dev/ttyUSB0",
-		"sbp-baud": 1000000
+	"GLOBALS": {
+		"sbp-udp-bcast-port":   5000,
+		"sbp-bcast-sleep":      0.1
+	},
+	"actual-server": {
+		"udp-bcast-ip":          "192.168.2.255",
+		"sbp-port":              "/dev/ttyUSB0",
+		"sbp-baud":              1000000
+	},
+	"localhost-server": {
+		"udp-bcast-ip":           "127.0.0.255",
+		"sbp-port":               "/dev/ttyUSB0",
+		"sbp-baud":               1000000
 	},
 	"127.0.0.1": {
-		
+
 	}
 }

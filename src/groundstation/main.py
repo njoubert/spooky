@@ -6,6 +6,9 @@ import time, socket, sys, os, sys, inspect
 import argparse, json
 from contextlib import closing
 
+import threading
+from Queue import Queue
+
 from sbp.client.drivers.pyserial_driver import PySerialDriver
 from sbp.client import Handler, Framer
 from sbp.observation import SBP_MSG_OBS, MsgObs
@@ -19,10 +22,38 @@ from spooky import *
 UDP_SERVER_IP = "127.0.0.1"
 UDP_SERVER_PORT = 19250
 
+class UDPBroadcastThread(threading.Thread):
+
+  def __init__(self, 
+      dest=('192.168.2.255', 5000), 
+      interval=0.1):
+    '''Create a UDP Broadcast socket'''
+    threading.Thread.__init__(self)
+    self.daemon = True
+    self.udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    self.dest = dest
+    self.interval = interval
+
+  def run(self):
+    '''Thread loop here'''
+    try:  
+      while True:
+        print "Broadcasting UDP"
+        self.udp.sendto("Broadcasting a Message Here", self.dest)
+        time.sleep(self.interval)
+    except socket.error:
+      raise
+
 class GroundStation:
 
   def __init__(self, config):
     self.config = config
+    self.broadcastThread = UDPBroadcastThread(
+      dest=(config['udp-bcast-ip'], config['sbp-udp-bcast-port']),
+      interval=config['sbp-bcast-sleep'])
+
+    
     print "Launching with config"
     print config
 
@@ -31,6 +62,8 @@ class GroundStation:
     pass
 
   def mainloop(self):
+    #Fire off all out threads!
+    self.broadcastThread.start()
     try:
 
       while True:
@@ -51,14 +84,17 @@ def main():
                       default=['../config.json'], nargs=1,
                       help="specify the configuration file")
   parser.add_argument("-i", "--ident",
-                      default=["server"], nargs=1,
+                      default=["localhost-server"], nargs=1,
                       help="spoof a custom identifier, by default uses 'server'")
   args = parser.parse_args()
 
+  #Get configuration, with globals overwiting instances
   with open(args.config[0]) as data_file:    
     CONFIG = json.load(data_file)
+  config = CONFIG[args.ident[0]]
+  config.update(CONFIG["GLOBALS"])
 
-  gs = GroundStation(CONFIG[args.ident[0]])
+  gs = GroundStation(config)
   gs.mainloop()
 
 if __name__ == '__main__':
