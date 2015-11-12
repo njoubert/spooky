@@ -2,8 +2,11 @@
 # Contact: Niels Joubert <niels@cs.stanford.edu>
 #
 
-import time, socket, sys, os, sys, inspect
+import time, socket, sys, os, sys, inspect, traceback
 import argparse, json
+
+import threading
+from Queue import Queue
 from contextlib import closing
 
 # This must be run from the src directory, 
@@ -18,10 +21,30 @@ UDP_SERVER_PORT = 19250
 UDP_IP = "127.0.0.1"
 UDP_PORT = 5005
 
+class UDPBroadcastListenerThread(threading.Thread):
+
+  def __init__(self, port=5000):
+    threading.Thread.__init__(self)
+    self.udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    self.udp.bind(('', port))
+
+  def run(self):
+    try:
+      while True:
+        msg, addr = self.udp.recvfrom(4096)
+        print "Message from %s: %s" % (addr, msg)
+    except (KeyboardInterrupt, SystemExit):
+      raise
+    except socket.error:
+      traceback.print_exc()
+
 class OdroidPerson:
 
   def __init__(self, config):
     self.config = config
+    self.broadcastListenerThread = UDPBroadcastListenerThread(port=config['sbp-udp-bcast-port'])
     print "Launching with config"
     print config
 
@@ -30,6 +53,9 @@ class OdroidPerson:
     pass
 
   def mainloop(self):
+
+    self.broadcastListenerThread.start()
+    
     try:
 
       while True:
@@ -55,13 +81,17 @@ def main():
                         help="spoof a custom identifier, by default uses IP")
     args = parser.parse_args()
 
-    with open(args.config[0]) as data_file:    
-      CONFIG = json.load(data_file)
-
+    #Fill out default args
     if args.ident[0] == '':
       args.ident[0] = spooky.ip.get_lan_ip()
 
-    op = OdroidPerson(CONFIG[args.ident[0]])
+    #Get configuration, with globals overwiting instances
+    with open(args.config[0]) as data_file:    
+      CONFIG = json.load(data_file)
+    config = CONFIG[args.ident[0]]
+    config.update(CONFIG["GLOBALS"])
+
+    op = OdroidPerson(config)
     op.mainloop()
 
   except socket.gaierror:

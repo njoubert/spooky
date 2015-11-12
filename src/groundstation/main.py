@@ -4,10 +4,10 @@
 
 import time, socket, sys, os, sys, inspect
 import argparse, json
-from contextlib import closing
 
 import threading
 from Queue import Queue
+from contextlib import closing
 
 from sbp.client.drivers.pyserial_driver import PySerialDriver
 from sbp.client import Handler, Framer
@@ -29,17 +29,17 @@ class UDPBroadcastThread(threading.Thread):
       interval=0.1):
     '''Create a UDP Broadcast socket'''
     threading.Thread.__init__(self)
-    self.daemon = True
+    self.dest     = dest
+    self.interval = interval
+    self.daemon   = True
     self.udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    self.dest = dest
-    self.interval = interval
-
+    
   def run(self):
     '''Thread loop here'''
     try:  
       while True:
-        print "Broadcasting UDP"
+        print "bcasting to %s:%s" % self.dest
         self.udp.sendto("Broadcasting a Message Here", self.dest)
         time.sleep(self.interval)
     except socket.error:
@@ -58,12 +58,15 @@ class GroundStation:
     print config
 
   def stop(self):
-    print "Shutting down!"
-    pass
+    print ""
+    print "Shutting down"
+    print ""
+    self.broadcastThread.join(0.5)
 
   def mainloop(self):
-    #Fire off all out threads!
+    #Fire off all our threads!
     self.broadcastThread.start()
+
     try:
 
       while True:
