@@ -23,39 +23,51 @@ UDP_PORT = 5005
 
 class UDPBroadcastListenerThread(threading.Thread):
 
-  def __init__(self, port=5000):
+  def __init__(self, main, port=5000):
     threading.Thread.__init__(self)
+    self.main = main
     self.udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    self.udp.settimeout(1.0)
     self.udp.bind(('', port))
 
   def run(self):
-    try:
-      while True:
-        msg, addr = self.udp.recvfrom(4096)
-        print "Message from %s: %s" % (addr, msg)
-    except (KeyboardInterrupt, SystemExit):
-      raise
-    except socket.error:
-      traceback.print_exc()
+    while True:
+      try:
+          msg, addr = self.udp.recvfrom(4096)
+          print "Message from %s: %s" % (addr, msg)
+      except (KeyboardInterrupt, SystemExit):
+        raise
+      except socket.timeout:
+        if self.main.dying:
+          return
+      except socket.error:
+        traceback.print_exc()
+
+  def stop(self):
+    self.udp.setblocking(0)
 
 class OdroidPerson:
 
   def __init__(self, config):
     self.config = config
-    self.broadcastListenerThread = UDPBroadcastListenerThread(port=config['sbp-udp-bcast-port'])
+    self.dying = False
+    self.broadcastListenerThread = UDPBroadcastListenerThread(self, port=config['sbp-udp-bcast-port'])
     print "Launching with config"
     print config
 
   def stop(self):
+    print ""
     print "Shutting down!"
-    pass
+    print ""
+    self.dying = True
+    self.broadcastListenerThread.join(1)
 
   def mainloop(self):
 
     self.broadcastListenerThread.start()
-    
+
     try:
 
       while True:
