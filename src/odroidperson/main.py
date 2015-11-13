@@ -3,7 +3,7 @@
 #
 
 import time, socket, sys, os, sys, inspect, traceback
-import argparse, json
+import argparse, json, binascii
 
 import threading
 from Queue import Queue
@@ -11,7 +11,7 @@ from contextlib import closing
 
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
-import spooky.ip
+import spooky, spooky.ip
 
 #====================================================================#
 
@@ -21,22 +21,79 @@ UDP_SERVER_PORT = 19250
 UDP_IP = "127.0.0.1"
 UDP_PORT = 5005
 
-class UDPBroadcastListenerThread(threading.Thread):
+class SBPPump(threading.Thread):
+
+  def __init__(self, main, port, baud):
+    import serial
+    threading.Thread.__init__(self)
+    self.daemon = True
+    self.main = main
+    self.port = port
+    self.baud = baud
+
+    self._dumb_thread = threading.Thread(target=self._dumb_reader, name="Reader")
+    self._dumb_thread.daemon = True
+
+    try:
+      self.handle = serial.Serial(port, baud, timeout=1)
+      self._dumb_thread.start()
+    except (OSError, serial.SerialException):
+      print
+      print "Serial device '%s' not found" % port
+      print "The following serial devices were detected:"
+      print
+      import serial.tools.list_ports
+      for (name, desc, _) in serial.tools.list_ports.comports():
+        if desc[0:4] == "ttyS":
+          continue
+        if name == desc:
+          print "\t%s" % name
+        else:
+          print "\t%s (%s)" % (name, desc)
+      print
+      raise SystemExit
+  
+  def _dumb_reader(self):
+    try:
+      while True:
+        self.handle.read(1)
+    except (OSError, serial.SerialException):
+      print
+      print "Piksi disconnected"
+      print
+      raise SystemExit
+
+
+  def run(self):
+    import serial 
+    try:
+      while True:
+        print "spinning!"
+        time.sleep(1)
+
+
+    except (OSError, serial.SerialException):
+      print
+      print "Piksi disconnected"
+      print
+      raise SystemExit
+
+
+    
+
+class SBPUDPBroadcastListenerThread(threading.Thread, spooky.UDPBroadcastListener):
 
   def __init__(self, main, port=5000):
     threading.Thread.__init__(self)
+    spooky.UDPBroadcastListener.__init__(self, port=port)
+    self.daemon = True
     self.main = main
-    self.udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    self.udp.settimeout(1.0)
-    self.udp.bind(('', port))
 
   def run(self):
     while True:
       try:
-          msg, addr = self.udp.recvfrom(4096)
-          print "Message from %s: %s" % (addr, msg)
+          msg, addr = self.recvfrom(4096)
+          print binascii.hexlify(msg)
       except (KeyboardInterrupt, SystemExit):
         raise
       except socket.timeout:
@@ -53,7 +110,8 @@ class OdroidPerson:
   def __init__(self, config):
     self.config = config
     self.dying = False
-    self.broadcastListenerThread = UDPBroadcastListenerThread(self, port=config['sbp-udp-bcast-port'])
+    self.sbpBroadcastListenerThread = SBPUDPBroadcastListenerThread(self, port=config['sbp-udp-bcast-port'])
+    self.SBPPump = SBPPump(self, config['sbp-port'], config['sbp-baud'])
     print "Launching with config"
     print config
 
@@ -62,11 +120,13 @@ class OdroidPerson:
     print "Shutting down!"
     print ""
     self.dying = True
-    self.broadcastListenerThread.join(1)
+    self.sbpBroadcastListenerThread.join(1)
+    self.SBPPump.join(1)
 
   def mainloop(self):
 
-    self.broadcastListenerThread.start()
+    self.sbpBroadcastListenerThread.start()
+    self.SBPPump.start()
 
     try:
 

@@ -11,52 +11,61 @@ from contextlib import closing
 
 from sbp.client.drivers.pyserial_driver import PySerialDriver
 from sbp.client import Handler, Framer
-from sbp.observation import SBP_MSG_OBS, MsgObs
+from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
 
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
-from spooky import *
-
+import spooky
 #====================================================================#
 
 UDP_SERVER_IP = "127.0.0.1"
 UDP_SERVER_PORT = 19250
 
-class SBPUDPBroadcastThread(threading.Thread):
 
-  def __init__(self, 
-      main,
-      dest=('192.168.2.255', 5000), 
-      interval=0.1):
+class SBPUDPBroadcastThread(threading.Thread, spooky.UDPBroadcaster):
+  '''
+  For the moment, we just broadcast every OBS coming in.
+  If this gives us problems, we can split into two threads,
+  one reading OBS, another repeating the last OBS in some error-resilient way.
+  '''
+
+  def __init__(self, main, sbp_port, sbp_baud, dest=('192.168.2.255', 5000), interval=0.1):
     '''Create a UDP Broadcast socket'''
     threading.Thread.__init__(self)
-    self.main     = main
-    self.dest     = dest
-    self.interval = interval
+    spooky.UDPBroadcaster.__init__(self, dest=dest)
     self.daemon   = True
-    self.udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    
+    self.main     = main
+    self.interval = interval
+    self.sbp_port = sbp_port
+    self.sbp_baud = sbp_baud
+    self.last_msg = {} # Keep track of the last message of each type.
+
   def run(self):
     '''Thread loop here'''
-    try:  
-      while True:
-        self.udp.sendto("Broadcasting a Message Here", self.dest)
-        time.sleep(self.interval)
-    except socket.error:
-      raise
+    with PySerialDriver(self.sbp_port, baud=self.sbp_baud) as driver:
+      with Handler(Framer(driver.read, driver.write)) as handler:
+        try:
+          for msg, metadata in handler.filter(SBP_MSG_OBS, SBP_MSG_BASE_POS):
+            self.last_msg[msg.msg_type] = msg
+            self.broadcast(msg.pack())
+        except KeyboardInterrupt:
+          raise
+        except socket.error:
+          raise
 
 class GroundStation:
 
   def __init__(self, config):
     self.config = config
     self.dying = False
-    self.broadcastThread = SBPUDPBroadcastThread(
+    self.sbpBroadcastThread = SBPUDPBroadcastThread(
       self,
-      dest=(config['udp-bcast-ip'], config['sbp-udp-bcast-port']),
+      config['sbp-port'], 
+      config['sbp-baud'],
+      dest=(config['udp-bcast-ip'], 
+      config['sbp-udp-bcast-port']),
       interval=config['sbp-bcast-sleep'])
 
-    
     print "Launching with config"
     print config
 
@@ -65,15 +74,15 @@ class GroundStation:
     print "Shutting down"
     print ""
     self.dying = True
-    self.broadcastThread.join(0.5)
+    self.sbpBroadcastThread.join(1)
 
   def mainloop(self):
     #Fire off all our threads!
-    self.broadcastThread.start()
+    self.sbpBroadcastThread.start()
 
     try:
-
       while True:
+        print self.sbpBroadcastThread.last_msg
         time.sleep(1)
 
     except KeyboardInterrupt:

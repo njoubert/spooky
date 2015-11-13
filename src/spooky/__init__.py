@@ -8,6 +8,37 @@ from contextlib import closing
 
 #====================================================================#
 
+class UDPBroadcaster(object):
+  ''' 
+  Defines a udp socket in broadcast mode, 
+  along with a helper broadcast function
+  '''
+
+  def __init__(self, dest=('192.168.2.255', 5000)):
+    self.dest = dest
+    self.udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+
+  def broadcast(self, msg):
+    self.udp.sendto(msg, self.dest)
+
+class UDPBroadcastListener(object):
+  '''
+  Defines a udp socket bound to a broadcast address,
+  along with a helper recvfrom function.
+  DOES TIMEOUT!
+  '''
+
+  def __init__(self, port=5000, timeout=1.0):
+    self.udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    self.udp.settimeout(timeout) # Might be unnecessary with daemon=True
+    self.udp.bind(('', port))
+
+  def recvfrom(self, buffsize):
+    return self.udp.recvfrom(buffsize)
+
 class SimpleScheduler:
   """
   SimpleScheduler
