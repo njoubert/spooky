@@ -2,7 +2,7 @@
 # Contact: Niels Joubert <niels@cs.stanford.edu>
 #
 
-import time, socket, sys, os, sys, inspect
+import time, socket, sys, os, sys, inspect, signal, traceback
 import argparse, json
 
 import threading
@@ -16,6 +16,7 @@ from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
 import spooky
+
 #====================================================================#
 
 UDP_SERVER_IP = "127.0.0.1"
@@ -66,27 +67,68 @@ class GroundStation:
       config['sbp-udp-bcast-port']),
       interval=config['sbp-bcast-sleep'])
 
-    print "Launching with config"
-    print config
+    self.init_death()
 
-  def stop(self):
+  def init_death(self):  
+    '''Setup Graceful Death'''
+    def quit_handler(signum = None, frame = None):
+        #print 'Signal handler called with signal', signum
+        if self.dying:
+            print 'Clean shutdown impossible, forcing an exit'
+            sys.exit(0)
+        else:
+            self.dying = True
+
+    # Listen for kill signals to cleanly shutdown modules
+    fatalsignals = [signal.SIGTERM]
+    try:
+      fatalsignals.append(signal.SIGHUP, signal.SIGQUIT)
+    except Exception:
+      pass
+
+    for sig in fatalsignals:
+        signal.signal(sig, quit_handler)
+
+  def stop(self, hard=False):
     print ""
     print "Shutting down"
     print ""
     self.dying = True
     self.sbpBroadcastThread.join(1)
+    if hard:
+      sys.exit(1)
+
+  def process_stdin(self, line):
+    line = line.strip()
+
+    args = line.split()
+    cmd = args[0]
+
+    if cmd == 'help':
+      print "Spooky Version %v" % spooky.get_version()
 
   def mainloop(self):
     #Fire off all our threads!
     self.sbpBroadcastThread.start()
 
-    try:
-      while True:
-        print self.sbpBroadcastThread.last_msg
-        time.sleep(1)
+    # Main command line interface, ensures cleanup on exit 
+    while not self.dying:
+      # Error handling on the INSIDE so we don't kill app
+      try:
+        line = raw_input(">>> ")
+        if len(line) == 0:
+          continue
+        self.process_stdin(line)
+      except EOFError:
+        self.stop(hard=True)
+      except KeyboardInterrupt:
+        self.stop()
+      except Exception:
+        #CRUCIAL! This prevents death from exception
+        traceback.print_exc()
 
-    except KeyboardInterrupt:
-      self.stop()
+
+
 
 
 #=====================================================================#

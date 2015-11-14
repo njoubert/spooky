@@ -4,6 +4,11 @@ __all__ = ["ip"]
 
 import time, socket, sys
 from contextlib import closing
+import subprocess
+
+
+def get_version():
+  return subprocess.check_output(["git", "describe", "--dirty"])
 
 
 #====================================================================#

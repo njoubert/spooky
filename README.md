@@ -41,4 +41,18 @@ Required Features:
 	- OD: Secondary thread does all the work. In case of death, main error sends data 
 - System: Provisioning script, logs into odroids and sets up with latest code.
 
+## IDEAS ON ARCHITECTURE:
+
+UNIX-style many-small-applications versus single monolothic app?
+
+- PRO: If something crashes, we can just restart that section
+- PRO: Good way to think about problems!
+- CON: I'll have to fire up and run a whole bunch of applications, cumbersome
+
+Can we do UNIX-style, but wrapped behind a single UI the way MAVProxy does it?
+
+- PRO: Can still restart individual chunks, etc
+- CON: Have to do all that management myself.
+
+Let's try to do that!
 
