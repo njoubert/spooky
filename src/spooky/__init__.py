@@ -8,7 +8,7 @@ import subprocess
 
 
 def get_version():
-  return subprocess.check_output(["git", "describe", "--dirty"])
+  return subprocess.check_output(["git", "describe", "--dirty", "--always"]).strip()
 
 
 #====================================================================#

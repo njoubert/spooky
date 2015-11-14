@@ -54,9 +54,42 @@ class SBPUDPBroadcastThread(threading.Thread, spooky.UDPBroadcaster):
         except socket.error:
           raise
 
-class GroundStation:
+class CommandLineHandler(object):
+  ''' Responsible for all the command line console features'''
+  def __init__(self):
+    self.last_line = ""
+    self.command_map = {
+      'status'  : (self.cmd_status,   'show status')
+    }
+
+  def cmd_status(self):
+    print "status"
+
+  def process_stdin(self, line):
+    line = line.strip()
+    self.last_line = line
+    args = line.split()
+    cmd = args[0]
+
+    if cmd == 'help':
+      print "Spooky Version %s" % spooky.get_version()
+
+
+  def get_input(self):
+    line = raw_input(">>> ")
+    if len(line) == 0:
+      if len(self.last_line):
+        self.process_stdin(self.last_line)
+    else:
+      self.process_stdin(line)
+
+
+class GroundStation(CommandLineHandler):
 
   def __init__(self, config):
+    
+    CommandLineHandler.__init__(self)
+
     self.config = config
     self.dying = False
     self.sbpBroadcastThread = SBPUDPBroadcastThread(
@@ -68,6 +101,7 @@ class GroundStation:
       interval=config['sbp-bcast-sleep'])
 
     self.init_death()
+
 
   def init_death(self):  
     '''Setup Graceful Death'''
@@ -98,27 +132,16 @@ class GroundStation:
     if hard:
       sys.exit(1)
 
-  def process_stdin(self, line):
-    line = line.strip()
-
-    args = line.split()
-    cmd = args[0]
-
-    if cmd == 'help':
-      print "Spooky Version %v" % spooky.get_version()
-
   def mainloop(self):
     #Fire off all our threads!
     self.sbpBroadcastThread.start()
+
 
     # Main command line interface, ensures cleanup on exit 
     while not self.dying:
       # Error handling on the INSIDE so we don't kill app
       try:
-        line = raw_input(">>> ")
-        if len(line) == 0:
-          continue
-        self.process_stdin(line)
+        self.get_input()
       except EOFError:
         self.stop(hard=True)
       except KeyboardInterrupt:
