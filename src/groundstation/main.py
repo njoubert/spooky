@@ -16,16 +16,49 @@ import spooky
 import module_SBPUDPBroadcast
 import module_test
 
+class Configuration(object):
+
+  def __init__(self, filename, ident):
+    self.load(filename, ident)
+
+  def load(self, filename, ident):
+    with open(filename) as data_file:    
+      CONFIG = json.load(data_file)
+    self.data = CONFIG
+    self.ident = ident
+    
+  def __getitem__(self, key):
+    if key in self.data[self.ident]:
+      return self.data[self.ident][key]
+    elif key in self.data['GLOBALS']:
+      return self.data['GLOBALS'][key]
+    raise KeyError(key)
+
+  def cmd_config(self, args):
+    if len(args) < 1:
+      cmd = "list"
+    else:
+      cmd = args[0].strip()
+
+    if cmd == "help":
+      print "config <list|set|unset>"
+    elif cmd == "list":
+      import pprint
+      pp = pprint.PrettyPrinter(indent=4)
+      pp.pprint(self.data)
+
+
+
 #====================================================================#
 
 class CommandLineHandler(object):
   ''' Responsible for all the command line console features'''
   def __init__(self, main):
     self.main = main
-    self.last_line = ""
     self.command_map = {
-      'status'  : (self.cmd_status,   'show status'),
-      'module'  : (self.cmd_module,   'manage modules')
+      'status'  : (self.cmd_status,        'show status'),
+      'module'  : (self.cmd_module,        'manage modules'),
+      'config'  : (self.config.cmd_config, 'manage configuration')
     }
 
   def cmd_status(self, args):
@@ -33,7 +66,6 @@ class CommandLineHandler(object):
 
   def process_stdin(self, line):
     line = line.strip()
-    self.last_line = line
     args = line.split()
     cmd = args[0]
 
@@ -43,7 +75,6 @@ class CommandLineHandler(object):
 
     if not cmd in self.command_map:
       print "Unknown command '%s'" % line.encode('string-escape')
-      self.last_line = ""
       return
 
     (fn, help) = self.command_map[cmd]
@@ -56,11 +87,9 @@ class CommandLineHandler(object):
   def handle_terminal_input(self):
     line = raw_input(">>> ")
     if len(line) == 0:
-      if len(self.last_line):
-        self.process_stdin(self.last_line)
+      return
     else:
       self.process_stdin(line)
-
 
 #====================================================================#
 
@@ -68,8 +97,9 @@ class CommandLineHandler(object):
 class GroundStation(CommandLineHandler):
 
   def __init__(self, config):
-    CommandLineHandler.__init__(self, self)
+    
     self.config = config
+    CommandLineHandler.__init__(self, self)
     self.dying = False
     self.modules = []
     self.init_death()
@@ -94,7 +124,7 @@ class GroundStation(CommandLineHandler):
     for sig in fatalsignals:
         signal.signal(sig, quit_handler)
 
-  def load_module(self, modname):
+  def load_module(self, modname, force=False, forceReload=False):
 
     def clear_zipimport_cache():
       """Clear out cached entries from _zip_directory_cache.
@@ -126,6 +156,15 @@ class GroundStation(CommandLineHandler):
             mod = getattr(mod, comp)
         return mod
 
+    for (m,p) in self.modules:
+      if m.name == modname:
+        if not force and not forceReload:
+          print "Module '%s' already loaded" % (modname.encode('string-escape'))
+          return
+        elif forceReload:
+          self.unload_module(modname)
+        
+
     try:
       modpath = 'groundstation.module_%s' % modname
       package = import_package(modpath)
@@ -135,13 +174,19 @@ class GroundStation(CommandLineHandler):
     except ImportError as msg:
       print traceback.format_exc()
 
-  def unload_module(self, modname):
+  def unload_module(self, modname, quiet=False):
     for (m,p) in self.modules:
       if m.name == modname:
-        if hasattr(m, 'stop'):
-          m.stop()
-        self.modules.remove((m,p))
-        return True
+        try:
+          if hasattr(m, 'stop'):
+            m.stop(quiet=quiet)
+          self.modules.remove((m,p))
+          return True
+        except Exception as msg:
+          print "Failed to unload module"
+          traceback.print_exc()
+          return False
+
     print "Unable to find module '%s'" % modname
     return False
 
@@ -149,6 +194,8 @@ class GroundStation(CommandLineHandler):
     def print_module_help():
       print "module <status|load|unload>"
       return
+
+    self.check_modules_integrity()
 
     if len(args) == 0:
       return print_module_help()
@@ -161,21 +208,29 @@ class GroundStation(CommandLineHandler):
       print "Threads alive:"
       for t in threading.enumerate():
         print " ", t
-      return
-
-    if cmd == "load":
+      
+    elif cmd == "load":
       if len(args) < 2:
         return print_module_help()
-      self.load_module(args[1])
+      if "--reload" in args:
+        self.load_module(args[1], forceReload=True)
+      elif "--force" in args:
+        self.load_module(args[1], force=True)
+      else:
+        self.load_module(args[1])
 
-    if cmd == "unload":
+    elif cmd == "unload":
       if len(args) < 2:
         return print_module_help()
       print "unloading %s" % args[1]
       self.unload_module(args[1])
-
     else:
       return print_module_help()
+
+  def check_modules_integrity(self):
+    for (m,p) in self.modules:
+      if not m.isAlive():
+        self.unload_module(m.name, quiet=True)
 
   def stop(self, hard=False):
     print ""
@@ -198,6 +253,7 @@ class GroundStation(CommandLineHandler):
       # Error handling on the INSIDE so we don't kill app
       try:
         self.handle_terminal_input()
+        self.check_modules_integrity()
       except EOFError:
         self.stop(hard=True)
       except KeyboardInterrupt:
@@ -222,10 +278,7 @@ def main():
   args = parser.parse_args()
 
   #Get configuration, with globals overwiting instances
-  with open(args.config[0]) as data_file:    
-    CONFIG = json.load(data_file)
-  config = CONFIG[args.ident[0]]
-  config.update(CONFIG["GLOBALS"])
+  config = Configuration(args.config[0], args.ident[0])
 
   gs = GroundStation(config)
   gs.mainloop()

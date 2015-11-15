@@ -6,7 +6,20 @@ import time, socket, sys, os, sys, inspect, signal, traceback
 import threading, ctypes
 
 class SpookyModule(threading.Thread):
-  
+  '''
+  Fundamental building block for error-resistant and robust code.
+
+  Provides a threaded module:
+  - Can be hot-loaded and hot-reloaded 
+    from the ground station using the 'module' command
+  - Keeps exceptions within the scope of this module, 
+    so doesn't kill the rest of the app.
+  - Can be forced to quit by raising an exception from
+    the main thread.
+
+  USAGE:
+  - Please check self.stopped() in your run() loop and quit if necessary.
+  '''
   def __init__(self, name, main):
     threading.Thread.__init__(self)
     self.daemon   = True
@@ -18,12 +31,14 @@ class SpookyModule(threading.Thread):
   def start(self):
     super(SpookyModule, self).start()
 
-  def stop(self):
-    print "Stopping %s..." % (self.name)
+  def stop(self, quiet=False):
+    if not quiet:
+      print "Stopping %s..." % (self.name)
     self._stop.set()
     super(SpookyModule, self).join(1.0)
     if self.isAlive():
-      print "Join unsuccessful, attempting to raise SystemExit exception"
+      if not quiet:
+        print "Join unsuccessful, attempting to raise SystemExit exception"
       self.raiseExc(SystemExit)
 
   def stopped(self):

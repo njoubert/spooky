@@ -13,11 +13,15 @@ class TestModule(spooky.modules.SpookyModule):
 
   def run(self):
     '''Thread loop here'''
-    while True:
-      if self.stopped():
-        return
-      print "TestModule, here to annoy you!"
-      time.sleep(1.0)
+    try:
+      while True:
+        if self.stopped():
+          return
+        print "TestModule, here to annoy you!"
+        time.sleep(1.0)
+    except SystemExit:
+      print "Exit Forced. We're dead."
+      return
 
 def init(main):
   module = TestModule(main)
