@@ -7,9 +7,9 @@ class TestModule(spooky.modules.SpookyModule):
   This is a dumb test module
   '''
 
-  def __init__(self, instance_name, main):
+  def __init__(self, main, instance_name=None):
     '''Create a UDP Broadcast socket'''
-    spooky.modules.SpookyModule.__init__(self, "test", instance_name, main)
+    spooky.modules.SpookyModule.__init__(self, main, "test", instance_name=instance_name)
 
   def run(self):
     '''Thread loop here'''
@@ -23,7 +23,7 @@ class TestModule(spooky.modules.SpookyModule):
       print "Exit Forced. We're dead."
       return
 
-def init(main, instance_name, args=None):
-  module = TestModule(instance_name, main)
+def init(main, instance_name=None, args=None):
+  module = TestModule(main, instance_name=instance_name)
   module.start()
   return module

@@ -21,7 +21,7 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.UDPBroadcaster):
 
   def __init__(self, instance_name, main, sbp_port, sbp_baud, dest=('192.168.2.255', 5000), interval=0.1):
     '''Create a UDP Broadcast socket'''
-    spooky.modules.SpookyModule.__init__(self, "SBPUDPBroadcast", instance_name, main)
+    spooky.modules.SpookyModule.__init__(self, main, "SBPUDPBroadcast", singleton=True)
     spooky.UDPBroadcaster.__init__(self, dest=dest)
     self.interval = interval
     self.sbp_port = sbp_port

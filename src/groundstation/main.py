@@ -157,7 +157,10 @@ class GroundStation(CommandLineHandler):
         return mod
 
     for (m,p) in self.modules:
-      if m.module_name == module_name and m.instance_name == instance_name:
+      if m.module_name == module_name and (m.singleton or m.instance_name == instance_name):
+        if m.singleton:
+          print "Module '%s' only allows a single instance" % (module_name)
+          return
         if not forceReload:
           print "Module '%s' (instance '%s') already loaded" % (module_name, instance_name)
           return
