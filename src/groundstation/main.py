@@ -23,9 +23,11 @@ class CommandLineHandler(object):
   ''' Responsible for all the command line console features'''
   def __init__(self):
     self.command_map = {
-      'status'  : (self.cmd_status,        'show status'),
-      'module'  : (self.cmd_module,        'manage modules'),
-      'config'  : (self.config.cmd_config, 'manage configuration')
+      'exit'    : (self.cmd_stop,                      'exit gracefully'),
+      'status'  : (self.cmd_status,                    'show status'),
+      'module'  : (self.cmd_module,                    'manage modules'),
+      'config'  : (self.config.cmd_config,             'manage configuration'),
+      'reinit'  : (self.cmd_reinit,                    'reconfigures network from config')
     }
 
   def process_stdin(self, line):
@@ -102,10 +104,10 @@ class ModuleHandler(object):
     for (m,p) in self.modules:
       if m.module_name == module_name and (m.singleton or m.instance_name == instance_name):
         if m.singleton:
-          print "Module %s only allows a single instance" % (self)
+          print "Module %s only allows a single instance" % (m)
           return
         if not forceReload:
-          print "Module %s already loaded" % (self)
+          print "Module %s already loaded" % (m)
           return
         elif forceReload:
           self.unload_module(module_name, instance_name=instance_name)
@@ -114,7 +116,7 @@ class ModuleHandler(object):
       modpath = 'groundstation.module_%s' % module_name
       package = import_package(modpath)
       reload(package)
-      module = package.init(self, instance_name=instance_name, args=None)
+      module = package.init(self, instance_name=instance_name)
       self.modules.append((module, package))
       return module
     except ImportError as msg:
@@ -233,7 +235,6 @@ class GroundStation(CommandLineHandler, ModuleHandler):
     for sig in fatalsignals:
         signal.signal(sig, quit_handler)
 
-
   def stop(self, hard=False):
     print ""
     print "Shutting down"
@@ -243,6 +244,9 @@ class GroundStation(CommandLineHandler, ModuleHandler):
 
     if hard:
       sys.exit(1)
+
+  def cmd_stop(self, args):
+    self.stop()
 
   def cmd_status(self, args):
     print "status"
@@ -254,8 +258,11 @@ class GroundStation(CommandLineHandler, ModuleHandler):
     won't interact with remote processes
     '''
     self.load_module('SBPUDPBroadcast')
+    for client in self.config.network()['odroidperson']:
+      self.load_module('odroidperson', instance_name=client)
 
-
+  def cmd_reinit(self, args):
+    return self.configure_network_from_config()
 
   def mainloop(self):
 
