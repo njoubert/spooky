@@ -46,7 +46,7 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.UDPBroadcaster):
           print "Exit Forced. We're dead."
           return
 
-def init(main, instance_name, args=None):
+def init(main, instance_name=None, args=None):
   module = SBPUDPBroadcastModule(
       instance_name,
       main,

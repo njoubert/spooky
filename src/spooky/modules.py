@@ -28,20 +28,14 @@ class SpookyModule(threading.Thread):
     self.module_name     = module_name
     self.instance_name   = instance_name
     self.singleton       = singleton
-    if self.singleton:
-      print "Initializing module '%s' (singleton='%s')..." % (self.module_name, self.singleton)
-    else:
-      print "Initializing module '%s' (instance='%s')..." % (self.module_name, self.instance_name)
+    print "Initializing module %s..." % (self)
 
   def start(self):
     super(SpookyModule, self).start()
 
   def stop(self, quiet=False):
     if not quiet:
-      if self.singleton:
-        print "Stopping module '%s' (singleton)..." % (self.module_name)      
-      else:
-        print "Stopping module '%s' (instance='%s')..." % (self.module_name, self.instance_name)
+      print "Stopping module %s" % (self)      
     self._stop.set()
     super(SpookyModule, self).join(1.0)
     if self.isAlive():
@@ -54,9 +48,9 @@ class SpookyModule(threading.Thread):
 
   def __str__(self):
     if self.singleton:
-      return "%s (singleton)" % (self.module_name)
+      return "'%s' (singleton)" % (self.module_name)
     else:
-      return "%s (instance='%s')" % (self.module_name, self.instance_name)
+      return "'%s' (instance='%s')" % (self.module_name, self.instance_name)
 
   #See https://stackoverflow.com/questions/323972/is-there-any-way-to-kill-a-thread-in-python
   def _get_my_tid(self):

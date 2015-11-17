@@ -159,10 +159,10 @@ class GroundStation(CommandLineHandler):
     for (m,p) in self.modules:
       if m.module_name == module_name and (m.singleton or m.instance_name == instance_name):
         if m.singleton:
-          print "Module '%s' only allows a single instance" % (module_name)
+          print "Module %s only allows a single instance" % (self)
           return
         if not forceReload:
-          print "Module '%s' (instance '%s') already loaded" % (module_name, instance_name)
+          print "Module %s already loaded" % (self)
           return
         elif forceReload:
           self.unload_module(module_name, instance_name=instance_name)
@@ -214,7 +214,7 @@ class GroundStation(CommandLineHandler):
     if cmd == "status":
       print "Modules loaded:"
       for (m,p) in self.modules:
-        print "  %s (instance='%s')" % (m.module_name, m.instance_name)
+        print "  %s" % (m)
       print "Threads alive:"
       for t in threading.enumerate():
         print " ", t
