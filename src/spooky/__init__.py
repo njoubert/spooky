@@ -2,14 +2,64 @@ __all__ = ["ip", "modules"]
 
 #====================================================================#
 
-import time, socket, sys
+import time, socket, sys, os, sys, inspect, signal, traceback
+import argparse, json
+
+import threading
 from contextlib import closing
+
 import subprocess
 
 
 def get_version():
   return subprocess.check_output(["git", "describe", "--dirty", "--always"]).strip()
 
+
+#====================================================================#
+
+
+class Configuration(object):
+
+  def __init__(self, filename, ident):
+    self._lock = threading.Lock()
+    self.load(filename, ident)
+
+  def load(self, filename, ident):
+    self._lock.acquire()
+    with open(filename) as data_file:    
+      CONFIG = json.load(data_file)
+    self.data = CONFIG
+    self.ident = ident
+    self._lock.release()
+    
+  def __getitem__(self, key):
+    self._lock.acquire()
+    value = None
+    if key in self.data[self.ident]:
+      value = self.data[self.ident][key]
+    elif key in self.data['GLOBALS']:
+      value = self.data['GLOBALS'][key]
+    if value == None:
+      self._lock.release()
+      raise KeyError(key)
+    else:
+      self._lock.release()
+      return value
+
+  def cmd_config(self, args):
+    if len(args) < 1:
+      cmd = "list"
+    else:
+      cmd = args[0].strip()
+
+    if cmd == "help":
+      print "config <list|set|unset>"
+    elif cmd == "list":
+      import pprint
+      self._lock.acquire()
+      pp = pprint.PrettyPrinter(indent=4)
+      pp.pprint(self.data)
+      self._lock.release()
 
 #====================================================================#
 
@@ -27,6 +77,8 @@ class UDPBroadcaster(object):
   def broadcast(self, msg):
     self.udp.sendto(msg, self.dest)
 
+#====================================================================#
+
 class UDPBroadcastListener(object):
   '''
   Defines a udp socket bound to a broadcast address,
@@ -43,6 +95,8 @@ class UDPBroadcastListener(object):
 
   def recvfrom(self, buffsize):
     return self.udp.recvfrom(buffsize)
+
+#====================================================================#
 
 class SimpleScheduler:
   """
@@ -84,6 +138,7 @@ class SimpleScheduler:
   def monitor(self):
     print "Scheduler sleeping around", self.avgSleepMs, "ms between tasks"
 
+#====================================================================#
 
 class Multicast:
   """
@@ -102,3 +157,5 @@ class Multicast:
 
   def __str__(self):
     print self.recipients
+
+#====================================================================#

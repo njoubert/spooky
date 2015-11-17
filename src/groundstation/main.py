@@ -16,65 +16,17 @@ import spooky
 import module_SBPUDPBroadcast
 import module_test
 
-class Configuration(object):
-
-  def __init__(self, filename, ident):
-    self._lock = threading.Lock()
-    self.load(filename, ident)
-
-  def load(self, filename, ident):
-    self._lock.acquire()
-    with open(filename) as data_file:    
-      CONFIG = json.load(data_file)
-    self.data = CONFIG
-    self.ident = ident
-    self._lock.release()
-    
-  def __getitem__(self, key):
-    self._lock.acquire()
-    value = None
-    if key in self.data[self.ident]:
-      value = self.data[self.ident][key]
-    elif key in self.data['GLOBALS']:
-      value = self.data['GLOBALS'][key]
-    if value == None:
-      self._lock.release()
-      raise KeyError(key)
-    else:
-      self._lock.release()
-      return value
-
-  def cmd_config(self, args):
-    if len(args) < 1:
-      cmd = "list"
-    else:
-      cmd = args[0].strip()
-
-    if cmd == "help":
-      print "config <list|set|unset>"
-    elif cmd == "list":
-      import pprint
-      self._lock.acquire()
-      pp = pprint.PrettyPrinter(indent=4)
-      pp.pprint(self.data)
-      self._lock.release()
-
-
 
 #====================================================================#
 
 class CommandLineHandler(object):
   ''' Responsible for all the command line console features'''
-  def __init__(self, main):
-    self.main = main
+  def __init__(self):
     self.command_map = {
       'status'  : (self.cmd_status,        'show status'),
       'module'  : (self.cmd_module,        'manage modules'),
       'config'  : (self.config.cmd_config, 'manage configuration')
     }
-
-  def cmd_status(self, args):
-    print "status"
 
   def process_stdin(self, line):
     line = line.strip()
@@ -105,36 +57,10 @@ class CommandLineHandler(object):
 
 #====================================================================#
 
-# Also known as 'MAIN'
-class GroundStation(CommandLineHandler):
+class ModuleHandler(object):
 
-  def __init__(self, config):
-    
-    self.config = config
-    CommandLineHandler.__init__(self, self)
-    self.dying = False
+  def __init__(self):
     self.modules = []
-    self.init_death()
-
-  def init_death(self):  
-    '''Setup Graceful Death'''
-    def quit_handler(signum = None, frame = None):
-        #print 'Signal handler called with signal', signum
-        if self.dying:
-            print 'Clean shutdown impossible, forcing an exit'
-            sys.exit(0)
-        else:
-            self.dying = True
-
-    # Listen for kill signals to cleanly shutdown modules
-    fatalsignals = [signal.SIGTERM]
-    try:
-      fatalsignals.append(signal.SIGHUP, signal.SIGQUIT)
-    except Exception:
-      pass
-
-    for sig in fatalsignals:
-        signal.signal(sig, quit_handler)
 
   def load_module(self, module_name, instance_name=None, forceReload=False):
     ''' 
@@ -212,6 +138,10 @@ class GroundStation(CommandLineHandler):
       return False
     return True
 
+  def unload_all_modules(self):
+    for (m,p) in self.modules[:]:
+      self.unload_module(m.module_name)
+  
   def reload_module(self, module_name, instance_name=None):
     ''' Reload ALL instances of this module '''
     for (m,p) in self.modules:
@@ -269,16 +199,53 @@ class GroundStation(CommandLineHandler):
       if not m.isAlive():
         self.unload_module(m.module_name, instance_name=m.instance_name, quiet=True)
 
+#====================================================================#
+
+# Also known as 'MAIN'
+class GroundStation(CommandLineHandler, ModuleHandler):
+
+  def __init__(self, config_file, ident):
+    self.ident = ident
+    self.config = spooky.Configuration(config_file, ident)
+    CommandLineHandler.__init__(self)
+    ModuleHandler.__init__(self)
+    self.dying = False
+    self.init_death()
+
+  def init_death(self):  
+    '''Setup Graceful Death'''
+    def quit_handler(signum = None, frame = None):
+        #print 'Signal handler called with signal', signum
+        if self.dying:
+            print 'Clean shutdown impossible, forcing an exit'
+            sys.exit(0)
+        else:
+            self.dying = True
+            self.stop()
+
+    # Listen for kill signals to cleanly shutdown modules
+    fatalsignals = [signal.SIGTERM]
+    try:
+      fatalsignals.append(signal.SIGHUP, signal.SIGQUIT)
+    except Exception:
+      pass
+
+    for sig in fatalsignals:
+        signal.signal(sig, quit_handler)
+
+
   def stop(self, hard=False):
     print ""
     print "Shutting down"
     self.dying = True
 
-    for (m,p) in self.modules:
-      m.stop()
+    self.unload_all_modules()
 
     if hard:
       sys.exit(1)
+
+  def cmd_status(self, args):
+    print "status"
 
   def configure_network_from_config(self):
     '''
@@ -324,10 +291,7 @@ def main():
                       help="spoof a custom identifier, by default uses 'server'")
   args = parser.parse_args()
 
-  #Get configuration, with globals overwiting instances
-  config = Configuration(args.config[0], args.ident[0])
-
-  gs = GroundStation(config)
+  gs = GroundStation(args.config[0], args.ident[0])
   gs.mainloop()
 
 if __name__ == '__main__':
