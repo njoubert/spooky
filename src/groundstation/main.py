@@ -19,20 +19,30 @@ import module_test
 class Configuration(object):
 
   def __init__(self, filename, ident):
+    self._lock = threading.Lock()
     self.load(filename, ident)
 
   def load(self, filename, ident):
+    self._lock.acquire()
     with open(filename) as data_file:    
       CONFIG = json.load(data_file)
     self.data = CONFIG
     self.ident = ident
+    self._lock.release()
     
   def __getitem__(self, key):
+    self._lock.acquire()
+    value = None
     if key in self.data[self.ident]:
-      return self.data[self.ident][key]
+      value = self.data[self.ident][key]
     elif key in self.data['GLOBALS']:
-      return self.data['GLOBALS'][key]
-    raise KeyError(key)
+      value = self.data['GLOBALS'][key]
+    if value == None:
+      self._lock.release()
+      raise KeyError(key)
+    else:
+      self._lock.release()
+      return value
 
   def cmd_config(self, args):
     if len(args) < 1:
@@ -44,8 +54,10 @@ class Configuration(object):
       print "config <list|set|unset>"
     elif cmd == "list":
       import pprint
+      self._lock.acquire()
       pp = pprint.PrettyPrinter(indent=4)
       pp.pprint(self.data)
+      self._lock.release()
 
 
 
@@ -125,6 +137,11 @@ class GroundStation(CommandLineHandler):
         signal.signal(sig, quit_handler)
 
   def load_module(self, module_name, instance_name=None, forceReload=False):
+    ''' 
+    Loads and starts a module, 
+    stores a reference into self.modules,
+    returns a pointer to it
+    '''
 
     def clear_zipimport_cache():
       """Clear out cached entries from _zip_directory_cache.
@@ -173,6 +190,7 @@ class GroundStation(CommandLineHandler):
       reload(package)
       module = package.init(self, instance_name=instance_name, args=None)
       self.modules.append((module, package))
+      return module
     except ImportError as msg:
       print traceback.format_exc()
 
@@ -262,10 +280,20 @@ class GroundStation(CommandLineHandler):
     if hard:
       sys.exit(1)
 
+  def configure_network_from_config(self):
+    '''
+    Will attempt to instantiate everything on our end. 
+    Won't reinstantiate running threads, 
+    won't interact with remote processes
+    '''
+    self.load_module('SBPUDPBroadcast')
+
+
+
   def mainloop(self):
 
-    #Fire off all our modules!
-    self.load_module('SBPUDPBroadcast')
+    #Set up our network!
+    self.configure_network_from_config()
 
     # Main command line interface, ensures cleanup on exit 
     while not self.dying:
