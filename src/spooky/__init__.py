@@ -20,10 +20,22 @@ def get_version():
 
 class Configuration(object):
   '''
-  STILL NOT THREADSAFE!
+  Attempts to be threadsafe.
+
+  Assumes your config is a JSON Object containing at leasT:
+    'GLOBALS'
+    'NETWORK'
+    '<my identifier>'
+    '<foreign identifiers>'
+
+  And each identifier contains a list of key-value pairs.
+  Thread-safety is only valid for this two-level structure.
+  If the second level contains complex objects, thread-safety of 
+  modifications the returned value is not guaranteed.
   '''
-  
+
   def __init__(self, filename, ident):
+    self._lock = threading.Lock()
     self.load(filename, ident)
 
   def load(self, filename, ident):
@@ -33,23 +45,52 @@ class Configuration(object):
     self.data = CONFIG
     self.ident = ident
     self._lock.release()
-    
-  def __getitem__(self, key):
-    value = None
-    if key in self.data[self.ident]:
-      value = self.data[self.ident][key]
-    elif key in self.data['GLOBALS']:
-      value = self.data['GLOBALS'][key]
-    if value == None:
-      raise KeyError(key)
-    else:
+
+  def set_my(self, key, value):
+    try:
+      self._lock.acquire()
+      if key in self.data['GLOBALS']:
+        self.data['GLOBALS'][key] = value
+      else: 
+       self.data[self.ident][key] = value
+    finally:
+      self._lock.release()
+
+  def get_my(self, key):
+    try:
+      self._lock.acquire()
+      value = None
+      if key in self.data[self.ident]:
+        value = self.data[self.ident][key]
+      elif key in self.data['GLOBALS']:
+        value = self.data['GLOBALS'][key]
+      if value == None:
+        raise KeyError(key)
+      else:
+        return value
+    finally:
+      self._lock.release()
+
+  def get_foreign(self, ident, key):
+    try:
+      self._lock.acquire()
+      value = self.data[ident][key]
       return value
+    finally:
+      self._lock.release()
+  
+  def get_network(self, key):
+    try:
+      self._lock.acquire()
+      value = self.data['NETWORK'][key]
+      return value
+    finally:
+      self._lock.release()
 
-  def network(self):
-    return self.data['NETWORK']
-
-  def foreign(self,key):
-    return self.data[key]
+  def __str__(self):
+    z = self.data[self.ident].copy()
+    z.update(self.data['GLOBALS'])
+    return z.__str__()
 
   def cmd_config(self, args):
     if len(args) < 1:
@@ -61,8 +102,10 @@ class Configuration(object):
       print "config <list|set|unset>"
     elif cmd == "list":
       import pprint
+      self._lock.acquire()
       pp = pprint.PrettyPrinter(indent=4)
       pp.pprint(self.data)
+      self._lock.release()
 
 #====================================================================#
 

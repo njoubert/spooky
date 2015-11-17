@@ -258,7 +258,7 @@ class GroundStation(CommandLineHandler, ModuleHandler):
     won't interact with remote processes
     '''
     self.load_module('SBPUDPBroadcast')
-    for client in self.config.network()['odroidperson']:
+    for client in self.config.get_network('odroidperson'):
       self.load_module('odroidperson', instance_name=client)
 
   def cmd_reinit(self, args):

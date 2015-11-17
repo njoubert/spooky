@@ -50,9 +50,9 @@ def init(main, instance_name=None):
   module = SBPUDPBroadcastModule(
       instance_name,
       main,
-      main.config['sbp-port'], 
-      main.config['sbp-baud'],
-      dest=(main.config['udp-bcast-ip'], main.config['sbp-udp-bcast-port']),
-      interval=main.config['sbp-bcast-sleep'])
+      main.config.get_my('sbp-port'), 
+      main.config.get_my('sbp-baud'),
+      dest=(main.config.get_my('udp-bcast-ip'), main.config.get_my('sbp-udp-bcast-port')),
+      interval=main.config.get_my('sbp-bcast-sleep'))
   module.start()
   return module
