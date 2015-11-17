@@ -124,7 +124,7 @@ class GroundStation(CommandLineHandler):
     for sig in fatalsignals:
         signal.signal(sig, quit_handler)
 
-  def load_module(self, modname, force=False, forceReload=False):
+  def load_module(self, module_name, instance_name, force=False, forceReload=False):
 
     def clear_zipimport_cache():
       """Clear out cached entries from _zip_directory_cache.
@@ -157,26 +157,26 @@ class GroundStation(CommandLineHandler):
         return mod
 
     for (m,p) in self.modules:
-      if m.name == modname:
+      if m.module_name == module_name and m.instance_name == instance_name:
         if not force and not forceReload:
-          print "Module '%s' already loaded" % (modname.encode('string-escape'))
+          print "Module '%s' instance '%s' already loaded" % (module_name.encode('string-escape'), instance_name.encode('string-escape'))
           return
         elif forceReload:
-          self.unload_module(modname)
+          self.unload_module(module_name, instance_name)
         
 
     try:
-      modpath = 'groundstation.module_%s' % modname
+      modpath = 'groundstation.module_%s' % module_name
       package = import_package(modpath)
       reload(package)
-      module = package.init(self)
+      module = package.init(self, instance_name, args=None)
       self.modules.append((module, package))
     except ImportError as msg:
       print traceback.format_exc()
 
-  def unload_module(self, modname, quiet=False):
+  def unload_module(self, module_name, instance_name, quiet=False):
     for (m,p) in self.modules:
-      if m.name == modname:
+      if m.module_name == module_name and m.instance_name == instance_name:
         try:
           if hasattr(m, 'stop'):
             m.stop(quiet=quiet)
@@ -187,12 +187,12 @@ class GroundStation(CommandLineHandler):
           traceback.print_exc()
           return False
 
-    print "Unable to find module '%s'" % modname
+    print "Unable to find module '%s' instance '%s'" % (module_name, instance_name)
     return False
 
   def cmd_module(self, args):
     def print_module_help():
-      print "module <status|load|unload>"
+      print "module <status | load modulename instancename | unload modulename instancename>"
       return
 
     self.check_modules_integrity()
@@ -204,33 +204,33 @@ class GroundStation(CommandLineHandler):
     if cmd == "status":
       print "Modules loaded:"
       for (m,p) in self.modules:
-        print "  %s" % m.name
+        print "  <%s> %s" % (m.module_name, m.instance_name)
       print "Threads alive:"
       for t in threading.enumerate():
         print " ", t
       
     elif cmd == "load":
-      if len(args) < 2:
+      if len(args) < 3:
         return print_module_help()
       if "--reload" in args:
-        self.load_module(args[1], forceReload=True)
+        self.load_module(args[1], args[2], forceReload=True)
       elif "--force" in args:
-        self.load_module(args[1], force=True)
+        self.load_module(args[1], args[2], force=True)
       else:
-        self.load_module(args[1])
+        self.load_module(args[1], args[2])
 
     elif cmd == "unload":
-      if len(args) < 2:
+      if len(args) < 3:
         return print_module_help()
-      print "unloading %s" % args[1]
-      self.unload_module(args[1])
+      print "unloading <%s> %s" % (args[1], args[2])
+      self.unload_module(args[1], args[2])
     else:
       return print_module_help()
 
   def check_modules_integrity(self):
     for (m,p) in self.modules:
       if not m.isAlive():
-        self.unload_module(m.name, quiet=True)
+        self.unload_module(m.module_name, m.instance_name, quiet=True)
 
   def stop(self, hard=False):
     print ""
@@ -246,7 +246,7 @@ class GroundStation(CommandLineHandler):
   def mainloop(self):
 
     #Fire off all our modules!
-    self.load_module('SBPUDPBroadcast')
+    self.load_module('SBPUDPBroadcast', 'server')
 
     # Main command line interface, ensures cleanup on exit 
     while not self.dying:

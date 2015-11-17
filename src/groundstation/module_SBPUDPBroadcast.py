@@ -1,4 +1,4 @@
-# Copyright (C) 2015 Stanford University
+3# Copyright (C) 2015 Stanford University
 # Contact: Niels Joubert <niels@cs.stanford.edu>
 #
 
@@ -19,9 +19,9 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.UDPBroadcaster):
   one reading OBS, another repeating the last OBS in some error-resilient way.
   '''
 
-  def __init__(self, main, sbp_port, sbp_baud, dest=('192.168.2.255', 5000), interval=0.1):
+  def __init__(self, instance_name, main, sbp_port, sbp_baud, dest=('192.168.2.255', 5000), interval=0.1):
     '''Create a UDP Broadcast socket'''
-    spooky.modules.SpookyModule.__init__(self, "SBPUDPBroadcast", main)
+    spooky.modules.SpookyModule.__init__(self, "SBPUDPBroadcast", instance_name, main)
     spooky.UDPBroadcaster.__init__(self, dest=dest)
     self.interval = interval
     self.sbp_port = sbp_port
@@ -46,8 +46,9 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.UDPBroadcaster):
           print "Exit Forced. We're dead."
           return
 
-def init(main):
+def init(main, instance_name, args=None):
   module = SBPUDPBroadcastModule(
+      instance_name,
       main,
       main.config['sbp-port'], 
       main.config['sbp-baud'],

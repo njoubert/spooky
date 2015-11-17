@@ -20,20 +20,21 @@ class SpookyModule(threading.Thread):
   USAGE:
   - Please check self.stopped() in your run() loop and quit if necessary.
   '''
-  def __init__(self, name, main):
+  def __init__(self, module_name, instance_name, main):
     threading.Thread.__init__(self)
-    self.daemon   = True
-    self._stop    = threading.Event()
-    self.main     = main
-    self.name     = name
-    print "Initializing module '%s'..." % (self.name)
+    self.daemon          = True
+    self._stop           = threading.Event()
+    self.main            = main
+    self.module_name     = module_name
+    self.instance_name   = instance_name
+    print "Initializing module '%s' instance '%s'..." % (self.module_name, self.instance_name)
 
   def start(self):
     super(SpookyModule, self).start()
 
   def stop(self, quiet=False):
     if not quiet:
-      print "Stopping %s..." % (self.name)
+      print "Stopping module '%s' instance '%s'..." % (self.module_name, self.instance_name)
     self._stop.set()
     super(SpookyModule, self).join(1.0)
     if self.isAlive():
