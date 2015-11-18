@@ -17,13 +17,10 @@ from contextlib import closing
 
 import subprocess
 
-
 def get_version():
   return subprocess.check_output(["git", "describe", "--dirty", "--always"]).strip()
 
-
 #====================================================================#
-
 
 class Configuration(object):
   '''
@@ -175,6 +172,40 @@ class UDPBroadcastListener(object):
 
   def recvfrom(self, buffsize):
     return self.udp.recvfrom(buffsize)
+
+#====================================================================#    
+
+class UDPBroadcastListenerHandlerThread(threading.Thread, UDPBroadcastListener):
+  '''
+  Very simple repeater:
+    Listens for broadcast data coming in on given port
+    Send this data to the given data_callback.
+  '''
+
+  def __init__(self, main, data_callback, port=5000):
+    threading.Thread.__init__(self)
+    UDPBroadcastListener.__init__(self, port=port)
+    self.data_callback = data_callback
+    self.daemon = True
+    self.dying = False
+
+  def run(self):
+    while not self.dying:
+      try:
+          msg, addr = self.recvfrom(4096)
+          if msg:
+            self.data_callback(msg)
+      except (KeyboardInterrupt, SystemExit):
+        raise
+      except socket.timeout:
+        if self.dying:
+          return
+      except socket.error:
+        traceback.print_exc()
+
+  def stop(self):
+    self.dying = True
+    self.udp.setblocking(0)
 
 #====================================================================#
 
