@@ -1,3 +1,7 @@
+# Copyright (C) 2015 Stanford University
+# Contact: Niels Joubert <niels@cs.stanford.edu>
+#
+
 import time, socket, sys, os, sys, inspect, signal, traceback
 import threading
 from contextlib import closing
@@ -16,10 +20,9 @@ class SBPUDPDriver(BaseDriver):
   def __init__(self, bind_ip, bind_port):
     self.bind_ip = bind_ip
     self.bind_port = bind_port
-    self.handle = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    self.handle = spooky.BufferedUDPSocket()
     self.handle.setblocking(1)
     self.handle.settimeout(None)
-    self._databuffer = collections.deque()
     self.handle.bind((self.bind_ip, self.bind_port))
     BaseDriver.__init__(self, self.handle)
 
@@ -28,19 +31,7 @@ class SBPUDPDriver(BaseDriver):
     Invariant: will return size or less bytes.
     Invariant: will read and buffer ALL available bytes on given handle.
     '''
-    try:
-      self._databuffer.extend(self.handle.recv(4096))
-      data = ""
-      try:
-        while len(data) < size:
-          data += self._databuffer.popleft()
-        if len(data) == 0:
-          raise IOError
-        return data
-      except IndexError:
-        return data
-    except socket.error:
-      raise IOError
+    return self.handle.recv(size)
 
   def flush(self):
     pass
@@ -97,9 +88,6 @@ class OdroidPersonModule(spooky.modules.SpookyModule):
       f = Framer(driver.read, None, verbose=False)
       while True:
         print f.next()
-      # while True:
-      #   data = driver.read(1)
-      #   print "Recv:", binascii.hexlify(data)
 
       # with Handler(Framer(driver.read, None, verbose=False)) as source:
       #   try:

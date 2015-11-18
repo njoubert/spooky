@@ -23,7 +23,7 @@
 
 	"127.0.0.1": {
 		"my-ip":                  "127.0.0.1",
-		"sbp-port":               "/dev/cu.usbserial-00005414",
+		"sbp-port":               "/dev/cu.usbserial-00005014",
 		"sbp-baud":               1000000,
 		"cc-local-port":          19250,
 		"cc-server-port":         19251,
