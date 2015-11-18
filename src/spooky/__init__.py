@@ -1,3 +1,9 @@
+# Copyright (C) 2015 Stanford University
+# Contact: Niels Joubert <niels@cs.stanford.edu>
+#
+# A Zero-Dependency Network Management Library
+#
+
 __all__ = ["ip", "modules"]
 
 #====================================================================#
@@ -6,6 +12,7 @@ import time, socket, sys, os, sys, inspect, signal, traceback
 import argparse, json
 
 import threading
+import collections
 from contextlib import closing
 
 import subprocess
@@ -106,6 +113,33 @@ class Configuration(object):
       pp = pprint.PrettyPrinter(indent=4)
       pp.pprint(self.data)
       self._lock.release()
+
+#====================================================================#
+
+class BufferedUDPSocket(object):
+
+  def __init__(self):
+    self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    self._databuffer = collections.deque()
+    self.recv_size = 8192
+
+  def __getattr__(self, name):
+    return getattr(self._sock, name)
+
+  def recv(self, bufsize, *flags):
+    data, addr = self.recvfrom(bufsize)
+    return data
+
+  def recvfrom(self, bufsize, *flags):
+    recvd, addr = self._sock.recvfrom(self.recv_size)
+    try:
+      self._databuffer.extend(recvd)
+      data = collections.deque()
+      while len(data) < bufsize:
+        data.append(self._databuffer.popleft())
+      return "".join(data), addr
+    except IndexError:
+      return "".join(data), addr
 
 #====================================================================#
 
