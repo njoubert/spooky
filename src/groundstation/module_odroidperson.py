@@ -24,6 +24,10 @@ class SBPUDPDriver(BaseDriver):
     BaseDriver.__init__(self, self.handle)
 
   def read(self, size):
+    '''
+    Invariant: will return size or less bytes.
+    Invariant: will read and buffer ALL available bytes on given handle.
+    '''
     try:
       self._databuffer.extend(self.handle.recv(4096))
       data = ""
