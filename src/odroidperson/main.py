@@ -15,7 +15,15 @@ from contextlib import closing
 # to correctly have all imports relative to src/
 import spooky, spooky.ip
 
+from sbp.client.drivers.base_driver import BaseDriver
+from sbp.client import Handler, Framer
+from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
+from sbp.navigation import SBP_MSG_POS_LLH, MsgPosLLH
+
 #====================================================================#
+
+class QueueDriver(BaseDriver):
+  pass
 
 class PiksiHandler(threading.Thread):
   '''
@@ -60,17 +68,32 @@ class PiksiHandler(threading.Thread):
       print
       raise SystemExit
 
+
   def _reader(self):
+    with BaseDriver(self.handle) as driver:
+      with Handler(Framer(driver.read, None, verbose=True)) as source:
+        try:
+          for msg, metadata in source:
+            try:
+              self.sbp_udp.sendto(msg.pack(), (self.server_ip, self.sbp_server_port))
+              self._recvFromPiksi.put(msg.pack(), True, 0.05)
+            except Queue.Full:
+              print "Queue is full!"
+        except Exception:
+          traceback.print_exc()
+
+  def _reader2(self):
     import serial
     while True:
       try:
         data = self.handle.read(1)
         n = self.handle.inWaiting()
         if n:
-          data = data + self.handle.read()
+          data = data + self.handle.read(n)
         if data:
           try:
-            self._recvFromPiksi.put(data, False, 0.05)
+            self.sbp_udp.sendto(data, (self.server_ip, self.sbp_server_port))
+            #self._recvFromPiksi.put(data, True, 0.05)
           except Queue.Full:
             pass # Drop it like it's hot!
       except (OSError, serial.SerialException):
@@ -82,7 +105,6 @@ class PiksiHandler(threading.Thread):
         #CRUCIAL! This prevents death from exception
         traceback.print_exc()
         pass
-
 
   def send_to_piksi(self, data):
     '''
@@ -96,6 +118,7 @@ class PiksiHandler(threading.Thread):
   def run(self):
     import serial 
     try:
+      count = 0
       with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as sbp_udp:
         sbp_udp.setblocking(0)
         sbp_udp.settimeout(0.0)
@@ -109,15 +132,22 @@ class PiksiHandler(threading.Thread):
           except (Queue.Empty, serial.SerialException):
             pass
 
-          # Repeating data FROM Piksi
-          try:
-            data = self._recvFromPiksi.get(False)
-            sbp_udp.sendto(data, (self.server_ip, self.sbp_server_port))
-          except (Queue.Empty):
-            pass
-          except (socket.error, socket.timeout):
-            traceback.print_exc()
-            pass
+          # # Repeating data FROM Piksi
+          # try:
+          #   data = self._recvFromPiksi.get(False)
+          #   n = sbp_udp.sendto(data, (self.server_ip, self.sbp_server_port))
+          #   if len(data) != n:
+          #     print "DID NOT SEND ALL!"
+          #   else:
+          #     print "Sent:", binascii.hexlify(data)
+          #     count += 1
+          #     if count == 10:
+          #       sys.exit(1)
+          # except (Queue.Empty):
+          #   pass
+          # except (socket.error, socket.timeout):
+          #   traceback.print_exc()
+          #   pass
 
 
     except (OSError, serial.SerialException):
@@ -198,7 +228,7 @@ class OdroidPerson:
     self.PiksiHandler.join(1)
 
   def handle_cc(self, cc_data, cc_addr, cc_udp):
-    print "Handling cc from '%s':'%s'" % (cc_addr, cc_data)
+    #print "Handling cc from '%s':'%s'" % (cc_addr, cc_data)
     pass
 
   def mainloop(self):

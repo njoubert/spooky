@@ -1,9 +1,48 @@
 import time, socket, sys, os, sys, inspect, signal, traceback
+import threading
 from contextlib import closing
 import collections
+import binascii
+
+from sbp.client.drivers.base_driver import BaseDriver
+from sbp.client import Handler, Framer
+from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
+from sbp.navigation import SBP_MSG_POS_LLH, MsgPosLLH
 
 import spooky, spooky.modules
 
+class SBPUDPDriver(BaseDriver):
+
+  def __init__(self, bind_ip, bind_port):
+    self.bind_ip = bind_ip
+    self.bind_port = bind_port
+    self.handle = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    self.handle.setblocking(1)
+    self.handle.settimeout(None)
+    self._databuffer = collections.deque()
+    self.handle.bind((self.bind_ip, self.bind_port))
+    BaseDriver.__init__(self, self.handle)
+
+  def read(self, size):
+    try:
+      self._databuffer.extend(self.handle.recv(4096))
+      data = ""
+      try:
+        while len(data) < size:
+          data += self._databuffer.popleft()
+        if len(data) == 0:
+          raise IOError
+        return data
+      except IndexError:
+        return data
+    except socket.error:
+      raise IOError
+
+  def flush(self):
+    pass
+
+  def write(self, s):
+    raise IOError
 
 class OdroidPersonModule(spooky.modules.SpookyModule):
   '''
@@ -22,6 +61,9 @@ class OdroidPersonModule(spooky.modules.SpookyModule):
     self.sbp_port = self.main.config.get_foreign('127.0.0.1', 'sbp-server-port')
     self.mav_port = self.main.config.get_foreign('127.0.0.1', 'mav-server-port')
 
+    self._reader_thread = threading.Thread(target=self._thd_sbp)
+    self._reader_thread.daemon = True
+
     # from enum import Enum
     # class CCParserState(Enum):
     #   WAITING     = 0
@@ -37,9 +79,8 @@ class OdroidPersonModule(spooky.modules.SpookyModule):
     # self._c_len = 0
     # self._c_data = None
 
-
   def handle_cc(self, cc_data, cc_addr, cc_udp):
-    print "Handling CC from '%s':'%s'" % (cc_addr, cc_data)
+    #print "Handling CC from '%s':'%s'" % (cc_addr, cc_data)
     # self._incoming_cc.extend(cc_data)
     cc_udp.sendto("ACK", cc_addr)
 
@@ -47,9 +88,27 @@ class OdroidPersonModule(spooky.modules.SpookyModule):
     print "Handling SBP from '%s':'%s'" % (sbp_addr, sbp_data)
     pass
 
+  def _thd_sbp(self):
+    with SBPUDPDriver(self.bind_ip, self.sbp_port) as driver:
+      f = Framer(driver.read, None, verbose=False)
+      while True:
+        print f.next()
+      # while True:
+      #   data = driver.read(1)
+      #   print "Recv:", binascii.hexlify(data)
+
+      # with Handler(Framer(driver.read, None, verbose=False)) as source:
+      #   try:
+      #     for msg, metadata in source:
+      #       print "Received %s" % (msg)
+      #   except Exception:
+      #     traceback.print_exc()
+
+
   def run(self):
     '''Thread loop here'''
 
+    self._reader_thread.start()
 
     with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as cc_udp:
       cc_udp.setblocking(0)
@@ -57,33 +116,23 @@ class OdroidPersonModule(spooky.modules.SpookyModule):
       cc_udp.bind((self.bind_ip, self.cc_port))
       self.cc_udp = cc_udp
 
-      with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as sbp_udp:
-        sbp_udp.setblocking(0)
-        sbp_udp.settimeout(0.0)
-        sbp_udp.bind((self.bind_ip, self.sbp_port))
-        self.sbp_udp = sbp_udp
 
-        print "Module %s listening for Command & Control on %s and SBP on %s." % (self, self.cc_port, self.sbp_port)
-        try:
-          while True:
-            if self.stopped():
-              return
+      print "Module %s listening for Command & Control on %s" % (self, self.cc_port)
+      
+      try:
+        while True:
+          if self.stopped():
+            return
 
-            try:
-              cc_data, cc_addr   = self.cc_udp.recvfrom(4096)
-              self.handle_cc(cc_data, cc_addr, self.cc_udp)
-            except (socket.error, socket.timeout) as e:
-              pass
+          try:
+            cc_data, cc_addr   = self.cc_udp.recvfrom(4096)
+            self.handle_cc(cc_data, cc_addr, self.cc_udp)
+          except (socket.error, socket.timeout) as e:
+            pass
 
-            try:
-              sbp_data, sbp_addr = self.sbp_udp.recvfrom(4096)
-              self.handle_sbp(sbp_data, sbp_addr, self.sbp_udp)
-            except (socket.error, socket.timeout) as e:
-              pass    
-
-        except SystemExit:
-          print "Exit Forced. We're dead."
-          return
+      except SystemExit:
+        print "Exit Forced. We're dead."
+        return
 
 def init(main, instance_name=None):
   module = OdroidPersonModule(main, instance_name=instance_name)
