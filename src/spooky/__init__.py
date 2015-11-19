@@ -129,7 +129,7 @@ class BufferedUDPSocket(object):
 
   def recvfrom(self, bufsize, *flags):
     recvd, addr = self._sock.recvfrom(self.recv_size)
-    print "recevied %s bytes" % str(len(recvd))
+    print "recevied %i bytes (requested %i, have %i)" % (len(recvd), bufsize, len(self._databuffer))
     try:
       self._databuffer.extend(recvd)
       data = collections.deque()
