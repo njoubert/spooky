@@ -86,7 +86,7 @@ class SBPUDPBroadcastListenerHandlerThread(threading.Thread):
             if self.dying:
               return
             try:
-              self.self.data_callback(msg.pack())
+              self.data_callback(msg.pack())
             except Queue.Full:
               logger.warn("_recvFromPiksi Queue is full!")
         except Exception:
