@@ -52,9 +52,9 @@ class OdroidPersonModule(spooky.modules.SpookyModule):
   def __init__(self, main, instance_name=None):
     spooky.modules.SpookyModule.__init__(self, main, "odroidperson", instance_name=instance_name)
     self.bind_ip  = self.main.config.get_my('my-ip')
-    self.cc_port  = self.main.config.get_foreign('127.0.0.1', 'cc-server-port')
-    self.sbp_port = self.main.config.get_foreign('127.0.0.1', 'sbp-server-port')
-    self.mav_port = self.main.config.get_foreign('127.0.0.1', 'mav-server-port')
+    self.cc_port  = self.main.config.get_foreign(instance_name, 'cc-server-port')
+    self.sbp_port = self.main.config.get_foreign(instance_name, 'sbp-server-port')
+    self.mav_port = self.main.config.get_foreign(instance_name, 'mav-server-port')
 
     self._reader_thread = threading.Thread(target=self._thd_sbp)
     self._reader_thread.daemon = True

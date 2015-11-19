@@ -5,13 +5,13 @@
 	},
 	"NETWORK": {
 		"server": "actual-server",
-		"odroidperson": [ "192.168.2.53" ]
+		"odroidperson": [ "192.168.2.51", "192.168.2.52", "192.168.2.53" ]
 	},
 	
 	"actual-server": {
 		"my-ip":                 "192.168.2.1",
 		"udp-bcast-ip":          "192.168.2.255",
-		"sbp-port":              "/dev/ttyUSB0",
+		"sbp-port":              "/dev/cu.usbserial-00005214",
 		"sbp-baud":              1000000
 	},
 	"localhost-server": {
@@ -29,6 +29,25 @@
 		"cc-server-port":         19201,
 		"sbp-server-port":        19202,
 		"mav-server-port":        19203
+	},
+
+	"192.168.2.51": {
+		"my-ip":                  "192.168.2.51",
+		"sbp-port":               "/dev/ttyUSB0",
+		"sbp-baud":               1000000,
+		"cc-local-port":          19210,
+		"cc-server-port":         19211,
+		"sbp-server-port":        19212,
+		"mav-server-port":        19213
+	},
+	"192.168.2.52": {
+		"my-ip":                  "192.168.2.52",
+		"sbp-port":               "/dev/ttyUSB0",
+		"sbp-baud":               1000000,
+		"cc-local-port":          19220,
+		"cc-server-port":         19221,
+		"sbp-server-port":        19222,
+		"mav-server-port":        19223
 	},
 	"192.168.2.53": {
 		"my-ip":                  "192.168.2.53",

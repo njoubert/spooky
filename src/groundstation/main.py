@@ -294,7 +294,7 @@ def main():
                       default=['../config.json'], nargs=1,
                       help="specify the configuration file")
   parser.add_argument("-i", "--ident",
-                      default=["localhost-server"], nargs=1,
+                      default=["actual-server"], nargs=1,
                       help="spoof a custom identifier, by default uses 'server'")
   args = parser.parse_args()
 
