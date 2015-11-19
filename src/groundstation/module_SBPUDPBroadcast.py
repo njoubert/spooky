@@ -37,6 +37,7 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.UDPBroadcaster):
             if self.stopped():
               return
             self.last_msg[msg.msg_type] = msg
+            print "BCAST %d bytes" % len(msg.pack())
             self.broadcast(msg.pack())
         except KeyboardInterrupt:
           raise
