@@ -257,7 +257,7 @@ class OdroidPerson:
 
 def main():
   try:
-    
+    print "odriod launching!"
     logger.info("OdroidPerson Launching!")
 
     #All arguments should live in a config file!

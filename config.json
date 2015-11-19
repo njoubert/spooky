@@ -4,8 +4,8 @@
 		"sbp-bcast-sleep":      0.1
 	},
 	"NETWORK": {
-		"server": "localhost-server",
-		"odroidperson": [ "127.0.0.1" ]
+		"server": "actual-server",
+		"odroidperson": [ "192.168.2.53" ]
 	},
 	
 	"actual-server": {
@@ -25,9 +25,18 @@
 		"my-ip":                  "127.0.0.1",
 		"sbp-port":               "/dev/cu.usbserial-00005014",
 		"sbp-baud":               1000000,
-		"cc-local-port":          19250,
-		"cc-server-port":         19251,
-		"sbp-server-port":        19252,
-		"mav-server-port":        19253
+		"cc-local-port":          19200,
+		"cc-server-port":         19201,
+		"sbp-server-port":        19202,
+		"mav-server-port":        19203
+	},
+	"192.168.2.53": {
+		"my-ip":                  "192.168.2.53",
+		"sbp-port":               "/dev/ttyUSB0",
+		"sbp-baud":               1000000,
+		"cc-local-port":          19230,
+		"cc-server-port":         19231,
+		"sbp-server-port":        19232,
+		"mav-server-port":        19233
 	}
 }
