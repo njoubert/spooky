@@ -41,6 +41,64 @@ logger.addHandler(ch)
 
 #====================================================================#
 
+class SBPUDPBroadcastDriver(BaseDriver):
+
+  def __init__(self, bind_port):
+    self.bind_port = bind_port
+    self.handle = spooky.BufferedUDPBroadcastSocket()
+    self.last_addr = None
+    BaseDriver.__init__(self, self.handle)
+
+  def read(self, size):
+    '''
+    Invariant: will return size or less bytes.
+    Invariant: will read and buffer ALL available bytes on given handle.
+    '''
+    data, addr = self.handle.recvfrom(size)
+    self.last_addr = addr
+    return data
+
+  def flush(self):
+    pass
+
+  def write(self, s):
+    raise IOError
+
+class SBPUDPBroadcastListenerHandlerThread(threading.Thread):
+  '''
+  Very simple repeater:
+    Listens for broadcast data coming in on given port
+    Send this data to the given data_callback.
+  '''
+
+  def __init__(self, main, data_callback, port=5000):
+    threading.Thread.__init__(self)
+
+    self.data_callback = data_callback
+    self.daemon = True
+    self.dying = False
+
+  def run(self):
+    with SBPUDPBroadcastDriver() as driver:
+      with Handler(Framer(driver.read, None, verbose=True)) as source:
+        try:
+          for msg, metadata in source:
+            if self.dying:
+              return
+            try:
+              self.self.data_callback(msg.pack())
+            except Queue.Full:
+              logger.warn("_recvFromPiksi Queue is full!")
+        except (OSError, serial.SerialException):
+          logger.error("Piksi disconnected")
+          raise SystemExit          
+        except Exception:
+          traceback.print_exc()
+
+  def stop(self):
+    self.dying = True
+    self.udp.setblocking(0)
+
 class PiksiHandler(threading.Thread):
   '''
   Responsible for all interaction with Piksi.
@@ -128,7 +186,6 @@ class PiksiHandler(threading.Thread):
 
     This might block!
     '''
-    print "Data from Piksi"
     self._sendToPiksi.put(data, True)
 
   def run(self):
@@ -193,7 +250,7 @@ class OdroidPerson:
       self.server_ip,
       self.sbp_server_port)
     
-    self.sbpBroadcastListenerThread = spooky.UDPBroadcastListenerHandlerThread(self, 
+    self.sbpBroadcastListenerThread = SBPUDPBroadcastListenerHandlerThread(self, 
       self.PiksiHandler.send_to_piksi, 
       port=self.config.get_my('sbp-udp-bcast-port'))
     

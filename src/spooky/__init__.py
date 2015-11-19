@@ -138,6 +138,16 @@ class BufferedUDPSocket(object):
     except IndexError:
       return "".join(data), addr
 
+class BufferedUDPBroadcastSocket(BufferedUDPSocket):
+
+  def __init__(self, port=5000, timeout=None, blocking=1):
+    BufferedUDPSocket.__init__(self)
+    self._sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    self._sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    self._sock.settimeout(timeout)
+    self._sock.setblocking(blocking)
+    self._sock.bind(('', port))
+
 #====================================================================#
 
 class UDPBroadcaster(object):
