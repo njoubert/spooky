@@ -117,6 +117,8 @@ class BufferedUDPSocket(object):
 
   def __init__(self):
     self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    self._sock.setblocking(0)
+    self._sock.settimeout(0.0)
     self._databuffer = collections.deque()
     self.recv_size = 8192
 
@@ -128,10 +130,12 @@ class BufferedUDPSocket(object):
     return data
 
   def recvfrom(self, bufsize, *flags):
-    recvd, addr = self._sock.recvfrom(self.recv_size)
-    print "recevied %i bytes (requested %i, have %i)" % (len(recvd), bufsize, len(self._databuffer))
     try:
-      self._databuffer.extend(recvd)
+      addr = None
+      while len(self._databuffer) < bufsize:
+        recvd, addr = self._sock.recvfrom(self.recv_size)
+        self._databuffer.extend(recvd)
+      print "(requested %i, have %i)" % (bufsize, len(self._databuffer))
       data = collections.deque()
       while len(data) < bufsize:
         data.append(self._databuffer.popleft())
