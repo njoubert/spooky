@@ -294,7 +294,7 @@ def main():
                       default=['../config.json'], nargs=1,
                       help="specify the configuration file")
   parser.add_argument("-i", "--ident",
-                      default=[''], nargs=1,
+                      default=['192.168.2.1'], nargs=1,
                       help="spoof a custom identifier, by default uses your IP address")
   parser.add_argument("-n", "--network",
                       default=['NETWORK'], nargs=1,
