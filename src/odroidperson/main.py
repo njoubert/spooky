@@ -176,6 +176,8 @@ class OdroidPerson:
     self.dying  = False
     self.config = spooky.Configuration(config_file, ident)
     
+    print "ODRIOD launching as '%s'" % ident
+
     self.bind_ip           = self.config.get_my("my-ip")
     self.server_id         = self.config.get_network("server")
     self.server_ip         = self.config.get_foreign(self.server_id, "my-ip")
@@ -257,7 +259,6 @@ class OdroidPerson:
 
 def main():
   try:
-    print "odriod launching!"
     logger.info("OdroidPerson Launching!")
 
     #All arguments should live in a config file!
