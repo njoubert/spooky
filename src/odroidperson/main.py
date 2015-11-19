@@ -6,6 +6,7 @@
 import time, socket, sys, os, sys, inspect, traceback
 import argparse, json, binascii
 import struct
+import logging
 
 #Threading-related:
 import threading, Queue
@@ -20,6 +21,23 @@ from sbp.acquisition import SBP_MSG_ACQ_RESULT
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
 import spooky, spooky.ip
+
+#====================================================================#
+
+logger = logging.getLogger("odriodperson")
+
+# create console handler and set level to debug
+ch = logging.StreamHandler()
+ch.setLevel(logging.DEBUG)
+
+# create formatter
+formatter = logging.Formatter('%(asctime)s:%(name)s:%(levelname)s: %(message)s')
+
+# add formatter to ch
+ch.setFormatter(formatter)
+
+# add ch to logger
+logger.addHandler(ch)
 
 #====================================================================#
 
@@ -51,18 +69,16 @@ class PiksiHandler(threading.Thread):
       self.handle = serial.Serial(port, baud, timeout=1)
       self._reader_thread.start()
     except (OSError, serial.SerialException):
-      print
-      print "Serial device '%s' not found" % port
-      print "The following serial devices were detected:"
-      print
+      logger.error("Serial device '%s' not found" % port)
+      logger.error("The following serial devices were detected:")
       import serial.tools.list_ports
       for (name, desc, _) in serial.tools.list_ports.comports():
         if desc[0:4] == "ttyS":
           continue
         if name == desc:
-          print "\t%s" % name
+          logger.error("\t%s" % name)
         else:
-          print "\t%s (%s)" % (name, desc)
+          logger.error("\t%s (%s)" % (name, desc))
       print
       raise SystemExit
 
@@ -74,11 +90,9 @@ class PiksiHandler(threading.Thread):
             try:
               self._recvFromPiksi.put(msg.pack(), True, 0.05)
             except Queue.Full:
-              print "Queue is full!"
+              logger.warn("_recvFromPiksi Queue is full!")
         except (OSError, serial.SerialException):
-          print
-          print "Piksi disconnected"
-          print
+          logger.error("Piksi disconnected")
           raise SystemExit          
         except Exception:
           traceback.print_exc()
@@ -138,9 +152,9 @@ class PiksiHandler(threading.Thread):
             data = self._recvFromPiksi.get(False)
             n = sbp_udp.sendto(data, (self.server_ip, self.sbp_server_port))
             if len(data) != n:
-              print "DID NOT SEND ALL!"
+              logger.warn("Piksi->UDP relay, did not send all data!")
             else:
-              pass
+              logger.debug("Piksi->UDP, %s bytes sent" % str(n))
           except (Queue.Empty):
             pass
           except (socket.error, socket.timeout):
@@ -149,9 +163,7 @@ class PiksiHandler(threading.Thread):
 
 
     except (OSError, serial.SerialException):
-      print
-      print "Piksi disconnected"
-      print
+      logger.error("Piksi disconnected")
       raise SystemExit
 
 
@@ -182,13 +194,11 @@ class OdroidPerson:
       self.PiksiHandler.send_to_piksi, 
       port=self.config.get_my('sbp-udp-bcast-port'))
     
-    print "Launching with Config:"
-    print self.config
+    logger.info("Launching with Config:")
+    logger.info(self.config)
 
   def stop(self):
-    print ""
-    print "Shutting down!"
-    print ""
+    logger.info("Shutting down!")
     self.dying = True
     self.sbpBroadcastListenerThread.join(1)
     self.PiksiHandler.join(1)
@@ -248,7 +258,7 @@ class OdroidPerson:
 def main():
   try:
     
-    print "OdroidPerson"
+    logger.info("OdroidPerson Launching!")
 
     #All arguments should live in a config file!
     parser = argparse.ArgumentParser(description="Spooky Action at a Distance! Ground Station")
@@ -268,7 +278,7 @@ def main():
     op.mainloop()
 
   except socket.gaierror:
-    print "No internet connection"
+    logger.critical("No internet connection")
     return -1
 
 if __name__ == '__main__':
