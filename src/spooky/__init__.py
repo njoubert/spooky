@@ -162,6 +162,7 @@ class UDPBroadcaster(object):
     self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
   def broadcast(self, msg):
+    print "Sending message:", len(msg)
     self.udp.sendto(msg, self.dest)
 
 #====================================================================#
@@ -173,11 +174,12 @@ class UDPBroadcastListener(object):
   DOES TIMEOUT!
   '''
 
-  def __init__(self, port=5000, timeout=1.0):
+  def __init__(self, port=5000, timeout=None, blocking=1):
     self.udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    self.udp.settimeout(timeout) # Might be unnecessary with daemon=True
+    self.udp.settimeout(timeout)
+    self.udp.setblocking(blocking)
     self.udp.bind(('', port))
 
   def recvfrom(self, buffsize):
@@ -203,6 +205,7 @@ class UDPBroadcastListenerHandlerThread(threading.Thread, UDPBroadcastListener):
     while not self.dying:
       try:
           msg, addr = self.recvfrom(4096)
+          print "received %s bytes" % str(len(msg))
           if msg:
             self.data_callback(msg)
       except (KeyboardInterrupt, SystemExit):

@@ -247,7 +247,7 @@ class OdroidPerson:
       self.server_ip,
       self.sbp_server_port)
     
-    self.sbpBroadcastListenerThread = UDPBroadcastListenerHandlerThread(self, 
+    self.sbpBroadcastListenerThread = spooky.UDPBroadcastListenerHandlerThread(self, 
       self.PiksiHandler.send_to_piksi, 
       port=self.config.get_my('sbp-udp-bcast-port'))
     
