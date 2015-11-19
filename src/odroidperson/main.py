@@ -73,13 +73,13 @@ class SBPUDPBroadcastListenerHandlerThread(threading.Thread):
 
   def __init__(self, main, data_callback, port=5000):
     threading.Thread.__init__(self)
-
+    self.port = port
     self.data_callback = data_callback
     self.daemon = True
     self.dying = False
 
   def run(self):
-    with SBPUDPBroadcastDriver() as driver:
+    with SBPUDPBroadcastDriver(self.port) as driver:
       with Handler(Framer(driver.read, None, verbose=True)) as source:
         try:
           for msg, metadata in source:
