@@ -119,8 +119,10 @@ class BufferedUDPSocket(object):
 
   def __init__(self):
     self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    self._sock.setblocking(0) # This is important for buffers to work
-    self._sock.settimeout(0.0)
+    # IF we busy-wait in recvfrom ONLY if there's NOT enough data, 
+    # we can use blocking sockets. 
+    self._sock.setblocking(1)
+    self._sock.settimeout(None)
     self._databuffer = collections.deque()
     self.recv_size = 8192
 
@@ -133,12 +135,12 @@ class BufferedUDPSocket(object):
 
   def recvfrom(self, bufsize, *flags):
     try:
+      # Do we also want to run this socket once, even if we have data available?
+      # No: we leave it to the outer loop to service this fast enough, else our buffer grows unbounded
       addr = None
-      runOnce = True
-      while runOnce or len(self._databuffer) < bufsize: # Busy-loop
+      while len(self._databuffer) < bufsize: # Busy-loop
         recvd, addr = self._sock.recvfrom(self.recv_size)
         self._databuffer.extend(recvd)
-        runOnce = False
       data = collections.deque()
       while len(data) < bufsize:
         data.append(self._databuffer.popleft())

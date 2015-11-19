@@ -53,7 +53,6 @@ class SBPUDPBroadcastDriver(BaseDriver):
     Invariant: will return size or less bytes.
     Invariant: will read and buffer ALL available bytes on given handle.
     '''
-    print "TIME TO READ!"
     data, addr = self.handle.recvfrom(size)
     self.last_addr = addr
     return data
