@@ -24,6 +24,7 @@ class SBPUDPDriver(BaseDriver):
     self.handle.setblocking(1)
     self.handle.settimeout(None)
     self.handle.bind((self.bind_ip, self.bind_port))
+    self.last_addr = None
     BaseDriver.__init__(self, self.handle)
 
   def read(self, size):
@@ -31,7 +32,9 @@ class SBPUDPDriver(BaseDriver):
     Invariant: will return size or less bytes.
     Invariant: will read and buffer ALL available bytes on given handle.
     '''
-    return self.handle.recv(size)
+    data, addr = self.handle.recvfrom(size)
+    self.last_addr = addr
+    return data
 
   def flush(self):
     pass

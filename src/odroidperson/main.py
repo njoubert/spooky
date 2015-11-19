@@ -128,6 +128,7 @@ class PiksiHandler(threading.Thread):
 
     This might block!
     '''
+    print "Data from Piksi"
     self._sendToPiksi.put(data, True)
 
   def run(self):
