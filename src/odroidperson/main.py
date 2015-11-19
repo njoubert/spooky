@@ -44,7 +44,6 @@ logger.addHandler(ch)
 class SBPUDPBroadcastDriver(BaseDriver):
 
   def __init__(self, bind_port):
-    self.bind_port = bind_port
     self.handle = spooky.BufferedUDPBroadcastSocket(port=self.bind_port)
     self.last_addr = None
     BaseDriver.__init__(self, self.handle)
@@ -248,7 +247,7 @@ class OdroidPerson:
       self.server_ip,
       self.sbp_server_port)
     
-    self.sbpBroadcastListenerThread = SBPUDPBroadcastListenerHandlerThread(self, 
+    self.sbpBroadcastListenerThread = UDPBroadcastListenerHandlerThread(self, 
       self.PiksiHandler.send_to_piksi, 
       port=self.config.get_my('sbp-udp-bcast-port'))
     
