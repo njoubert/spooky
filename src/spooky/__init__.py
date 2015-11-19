@@ -117,7 +117,7 @@ class BufferedUDPSocket(object):
 
   def __init__(self):
     self._sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    self._sock.setblocking(0)
+    self._sock.setblocking(0) # This is important for buffers to work
     self._sock.settimeout(0.0)
     self._databuffer = collections.deque()
     self.recv_size = 8192
@@ -132,10 +132,11 @@ class BufferedUDPSocket(object):
   def recvfrom(self, bufsize, *flags):
     try:
       addr = None
-      while len(self._databuffer) < bufsize:
+      runOnce = True
+      while runOnce or len(self._databuffer) < bufsize: # Busy-loop
         recvd, addr = self._sock.recvfrom(self.recv_size)
         self._databuffer.extend(recvd)
-      print "(requested %i, have %i)" % (bufsize, len(self._databuffer))
+        runOnce = False
       data = collections.deque()
       while len(data) < bufsize:
         data.append(self._databuffer.popleft())
@@ -145,12 +146,10 @@ class BufferedUDPSocket(object):
 
 class BufferedUDPBroadcastSocket(BufferedUDPSocket):
 
-  def __init__(self, port=5000, timeout=None, blocking=1):
+  def __init__(self, port=5000):
     BufferedUDPSocket.__init__(self)
     self._sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     self._sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    self._sock.settimeout(timeout)
-    self._sock.setblocking(blocking)
     self._sock.bind(('', port))
 
 #====================================================================#
@@ -167,7 +166,6 @@ class UDPBroadcaster(object):
     self.udp.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
   def broadcast(self, msg):
-    print "Sending message:", len(msg)
     self.udp.sendto(msg, self.dest)
 
 #====================================================================#
@@ -194,6 +192,9 @@ class UDPBroadcastListener(object):
 
 class UDPBroadcastListenerHandlerThread(threading.Thread, UDPBroadcastListener):
   '''
+  
+  DEPRECATED
+
   Very simple repeater:
     Listens for broadcast data coming in on given port
     Send this data to the given data_callback.
