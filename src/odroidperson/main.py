@@ -89,9 +89,6 @@ class SBPUDPBroadcastListenerHandlerThread(threading.Thread):
               self.self.data_callback(msg.pack())
             except Queue.Full:
               logger.warn("_recvFromPiksi Queue is full!")
-        except (OSError, serial.SerialException):
-          logger.error("Piksi disconnected")
-          raise SystemExit          
         except Exception:
           traceback.print_exc()
 
