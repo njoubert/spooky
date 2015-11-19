@@ -3,12 +3,17 @@
 		"sbp-udp-bcast-port":   19100,
 		"sbp-bcast-sleep":      0.1
 	},
+
 	"NETWORK": {
-		"server": "actual-server",
+		"server": "192.168.2.1",
 		"odroidperson": [ "192.168.2.51", "192.168.2.52", "192.168.2.53" ]
 	},
+	"NETWORK-local": {
+		"server": "localhost-server",
+		"odroidperson": [ "127.0.0.1" ]
+	},
 	
-	"actual-server": {
+	"192.168.2.1": {
 		"my-ip":                 "192.168.2.1",
 		"udp-bcast-ip":          "192.168.2.255",
 		"sbp-port":              "/dev/cu.usbserial-00101114",

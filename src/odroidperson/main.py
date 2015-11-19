@@ -227,10 +227,10 @@ class PiksiHandler(threading.Thread):
 
 class OdroidPerson:
 
-  def __init__(self,  config_file, ident):
+  def __init__(self,  config, ident):
     self.ident  = ident
     self.dying  = False
-    self.config = spooky.Configuration(config_file, ident)
+    self.config = config
     
     print "ODRIOD launching as '%s'" % ident
 
@@ -325,13 +325,20 @@ def main():
     parser.add_argument("-i", "--ident",
                         default=[''], nargs=1,
                         help="spoof a custom identifier, by default uses IP")
+    parser.add_argument("-n", "--network",
+                        default=['NETWORK'], nargs=1,
+                        help="spoof a custom network, by default uses 'NETWORK'")
     args = parser.parse_args()
 
     #Fill out default args
     if args.ident[0] == '':
       args.ident[0] = spooky.ip.get_lan_ip()
 
-    op = OdroidPerson(args.config[0], args.ident[0])
+    network_ident = args.network[0]
+
+    config = spooky.Configuration(args.config[0], args.ident[0], network_ident)
+
+    op = OdroidPerson(config, args.ident[0])
     op.mainloop()
 
   except socket.gaierror:

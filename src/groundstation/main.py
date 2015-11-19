@@ -11,7 +11,7 @@ from contextlib import closing
 
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
-import spooky
+import spooky, spooky.ip
 
 import module_SBPUDPBroadcast
 import module_test
@@ -206,10 +206,10 @@ class ModuleHandler(object):
 # Also known as 'MAIN'
 class GroundStation(CommandLineHandler, ModuleHandler):
 
-  def __init__(self, config_file, ident):
+  def __init__(self, config, ident):
     print "GROUNDSTATION launching as '%s'" % ident
     self.ident = ident
-    self.config = spooky.Configuration(config_file, ident)
+    self.config = config
     CommandLineHandler.__init__(self)
     ModuleHandler.__init__(self)
     self.dying = False
@@ -294,11 +294,24 @@ def main():
                       default=['../config.json'], nargs=1,
                       help="specify the configuration file")
   parser.add_argument("-i", "--ident",
-                      default=["actual-server"], nargs=1,
-                      help="spoof a custom identifier, by default uses 'server'")
+                      default=[''], nargs=1,
+                      help="spoof a custom identifier, by default uses your IP address")
+  parser.add_argument("-n", "--network",
+                      default=['NETWORK'], nargs=1,
+                      help="spoof a custom network, by default uses 'NETWORK'")
   args = parser.parse_args()
 
-  gs = GroundStation(args.config[0], args.ident[0])
+  ident = args.ident[0]
+  if ident == '':
+      ident = spooky.ip.get_lan_ip()
+      if ident == "127.0.0.1":
+        ident = "localhost-server"
+
+  network_ident = args.network[0]
+
+  config = spooky.Configuration(args.config[0], ident, network_ident)
+
+  gs = GroundStation(config, ident)
   gs.mainloop()
 
 if __name__ == '__main__':

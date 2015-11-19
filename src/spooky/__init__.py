@@ -38,8 +38,10 @@ class Configuration(object):
   modifications the returned value is not guaranteed.
   '''
 
-  def __init__(self, filename, ident):
+  def __init__(self, filename, ident, network_ident):
     self._lock = threading.Lock()
+    self.ident = ident
+    self.network_ident = network_ident
     self.load(filename, ident)
 
   def load(self, filename, ident):
@@ -86,7 +88,7 @@ class Configuration(object):
   def get_network(self, key):
     try:
       self._lock.acquire()
-      value = self.data['NETWORK'][key]
+      value = self.data[self.network_ident][key]
       return value
     finally:
       self._lock.release()
