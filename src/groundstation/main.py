@@ -142,7 +142,7 @@ class ModuleHandler(object):
 
   def unload_all_modules(self):
     for (m,p) in self.modules[:]:
-      self.unload_module(m.module_name)
+      self.unload_module(m.module_name, m.instance_name)
   
   def reload_module(self, module_name, instance_name=None):
     ''' Reload ALL instances of this module '''

@@ -87,7 +87,7 @@ class OdroidPersonModule(spooky.modules.SpookyModule):
     with SBPUDPDriver(self.bind_ip, self.sbp_port) as driver:
       f = Framer(driver.read, None, verbose=False)
       while True:
-        print f.next()
+        f.next()
 
       # with Handler(Framer(driver.read, None, verbose=False)) as source:
       #   try:
