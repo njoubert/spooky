@@ -1,6 +1,6 @@
 {
 	"GLOBALS": {
-		"sbp-udp-bcast-port":   5000,
+		"sbp-udp-bcast-port":   19100,
 		"sbp-bcast-sleep":      0.1
 	},
 	"NETWORK": {
