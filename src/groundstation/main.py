@@ -207,6 +207,7 @@ class ModuleHandler(object):
 class GroundStation(CommandLineHandler, ModuleHandler):
 
   def __init__(self, config_file, ident):
+    print "GROUNDSTATION launching as '%s'" % ident
     self.ident = ident
     self.config = spooky.Configuration(config_file, ident)
     CommandLineHandler.__init__(self)
@@ -286,7 +287,6 @@ class GroundStation(CommandLineHandler, ModuleHandler):
 #=====================================================================#
 
 def main():
-  print "GroundStation"
 
   #All arguments should live in a config file!
   parser = argparse.ArgumentParser(description="Spooky Action at a Distance! Ground Station")
