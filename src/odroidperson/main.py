@@ -45,7 +45,7 @@ class SBPUDPBroadcastDriver(BaseDriver):
 
   def __init__(self, bind_port):
     self.bind_port = bind_port
-    self.handle = spooky.BufferedUDPBroadcastSocket()
+    self.handle = spooky.BufferedUDPBroadcastSocket(port=self.bind_port)
     self.last_addr = None
     BaseDriver.__init__(self, self.handle)
 
