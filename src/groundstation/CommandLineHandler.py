@@ -12,7 +12,7 @@ class CommandLineHandler(object):
     self.command_map = {
       'exit'    : (self.cmd_stop,                      'exit gracefully'),
       'status'  : (self.cmd_status,                    'show status'),
-      'module'  : (self.cmd_module,                    'manage modules'),
+      'module'  : (self.modules.cmd_module,                    'manage modules'),
       'config'  : (self.config.cmd_config,             'manage configuration'),
       'reinit'  : (self.cmd_reinit,                    'reconfigures network from config')
     }

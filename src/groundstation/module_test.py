@@ -16,7 +16,7 @@ class TestModule(spooky.modules.SpookyModule):
       while True:
         if self.stopped():
           return
-        print "TestModule, here to annoy you!"
+        print "TestModule (instance %s), here to annoy you!" % (self.instance_name)
         time.sleep(1.0)
     except SystemExit:
       print "Exit Forced. We're dead."

@@ -16,7 +16,8 @@ import spooky, spooky.ip
 
 class ModuleHandler(object):
 
-  def __init__(self):
+  def __init__(self, main):
+    self.main = main
     self.modules = []
 
   def get_modules(self, module_name, instance_name=None):
@@ -26,6 +27,21 @@ class ModuleHandler(object):
         mods.append((m,p))
     return mods
 
+  def listeners_for(self, attr):
+    ''' Iterator over functions on each module that supports this call'''
+    for (m,p) in self.modules:
+      if hasattr(m, attr):
+        yield getattr(m, attr)
+
+  def responds_to(self, attr):
+    ''' Iterator over modules that supports this call'''
+    for (m,p) in self.modules:
+      if hasattr(m, attr) 
+        yield m
+
+  def trigger(self, attr, *args, **kwargs):
+    for f in self.responds_to(attr):
+      f(*args, **kwargs)        
 
   def load_module(self, module_name, instance_name=None, forceReload=False):
     ''' 
@@ -79,7 +95,7 @@ class ModuleHandler(object):
       modpath = 'groundstation.module_%s' % module_name
       package = import_package(modpath)
       reload(package)
-      module = package.init(self, instance_name=instance_name)
+      module = package.init(self.main, instance_name=instance_name)
       self.modules.append((module, package))
       return module
     except ImportError as msg:

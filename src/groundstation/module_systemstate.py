@@ -19,15 +19,15 @@ class SystemStateModule(spooky.modules.SpookyModule):
     self._state = {}
     spooky.modules.SpookyModule.__init__(self, main, "systemstate", singleton=True)
 
-  def update_partial_state(component, new_state):
+  def update_partial_state(node, component, new_state):
     '''Push a new partial state update to the state vector'''
-    self._inputQueue.put((component, new_state))
+    self._inputQueue.put((node, component, new_state))
 
   def _handlePartialUpdate(item):
     '''INTERNAL: Handles a state up.'''
     self._stateLock.acquire()
-    (component, new_state) = item
-    self._state[component] = new_state
+    (node, component, new_state) = item
+    self._state[(node, component)] = new_state
     self._stateLock.release()
 
   def get_state_str(self):
@@ -40,9 +40,11 @@ class SystemStateModule(spooky.modules.SpookyModule):
 
   def run(self):
     '''Thread loop here'''
+    self.main.set_systemstate(self)
     try:
       while True:
         if self.stopped():
+          self.main.unset_systemstate()
           return
         try:
           self._handlePartialUpdate(self._inputQueue.get(True, self._inputQueueTimeout))

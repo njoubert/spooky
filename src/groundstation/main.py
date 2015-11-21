@@ -19,16 +19,16 @@ from CommandLineHandler import CommandLineHandler
 #====================================================================#
 
 # Also known as 'MAIN'
-class GroundStation(CommandLineHandler, ModuleHandler):
+class GroundStation(CommandLineHandler):
 
   def __init__(self, config, ident):
     print "GROUNDSTATION launching as '%s'" % ident
     self.ident = ident
     self.config = config
-    CommandLineHandler.__init__(self)
-    ModuleHandler.__init__(self)
+    self.modules = ModuleHandler(self)
     self.dying = False
     self.init_death()
+    CommandLineHandler.__init__(self)
 
   def init_death(self):  
     '''Setup Graceful Death'''
@@ -56,7 +56,7 @@ class GroundStation(CommandLineHandler, ModuleHandler):
     print "Shutting down"
     self.dying = True
 
-    self.unload_all_modules()
+    self.modules.unload_all_modules()
 
     if hard:
       sys.exit(1)
@@ -67,24 +67,35 @@ class GroundStation(CommandLineHandler, ModuleHandler):
   def cmd_status(self, args):
     print "status"
 
+  def cmd_reinit(self, args):
+    if len(args):
+      if "--force" in args:
+        self.modules.unload_all_modules()
+    return self.configure_network_from_config()
+
   def configure_network_from_config(self):
     '''
     Will attempt to instantiate everything on our end. 
     Won't reinstantiate running threads, 
     won't interact with remote processes
     '''
-    self.load_module('systemstate')
-    self.load_module('SBPUDPBroadcast')
+    self.modules.load_module('systemstate')
+    self.modules.load_module('SBPUDPBroadcast')
     for client in self.config.get_network('odroidperson'):
-      self.load_module('odroidperson_cc', instance_name=client)
-      self.load_module('odroidperson_sbp', instance_name=client)
+      self.modules.load_module('odroidperson_cc', instance_name=client)
+      self.modules.load_module('odroidperson_sbp', instance_name=client)
 
+  def set_systemstate(self, module):
+    self.systemstate = module
 
-  def cmd_reinit(self, args):
-    if len(args):
-      if "--force" in args:
-        self.unload_all_modules()
-    return self.configure_network_from_config()
+  def unset_systemstate(self):
+    self.systemstate = None
+
+  def get_systemstate(self):
+    if self.systemstate:
+      return self.systemstate
+    else:
+      return None
 
   def mainloop(self):
 
@@ -96,7 +107,7 @@ class GroundStation(CommandLineHandler, ModuleHandler):
       # Error handling on the INSIDE so we don't kill app
       try:
         self.handle_terminal_input()
-        self.check_modules_integrity()
+        self.modules.check_modules_integrity()
       except EOFError:
         self.stop(hard=True)
       except KeyboardInterrupt:

@@ -68,6 +68,7 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
       print "Module %s listening on %s" % (self, self.sbp_port)
 
       while True:
+        
         print f.next()
 
 def init(main, instance_name=None):
