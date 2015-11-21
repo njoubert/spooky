@@ -59,15 +59,13 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
     spooky.modules.SpookyModule.__init__(self, main, "odroidperson_sbp", instance_name=instance_name)
     self.bind_ip  = self.main.config.get_my('my-ip')
     self.sbp_port = self.main.config.get_foreign(instance_name, 'sbp-server-port')
-    self.mav_port = self.main.config.get_foreign(instance_name, 'mav-server-port')
-
 
   def run(self):
     '''Thread loop here'''
     with SBPUDPDriver(self.bind_ip, self.sbp_port) as driver:
       f = Framer(driver.read, None, verbose=False)
 
-      print "Module %s listening on %s" % (self, self.cc_port)
+      print "Module %s listening on %s" % (self, self.sbp_port)
 
       while True:
         print f.next()

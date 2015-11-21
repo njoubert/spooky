@@ -27,7 +27,6 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
     self.cc_port  = self.main.config.get_foreign(instance_name, 'cc-server-port')
 
   def handle_cc(self, cc_data, cc_addr, cc_udp):
-
     # from enum import Enum
     # class CCParserState(Enum):
     #   WAITING     = 0
@@ -71,6 +70,6 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
         return
 
 def init(main, instance_name=None):
-  module = OdroidPersonModule(main, instance_name=instance_name)
+  module = OdroidPersonCCModule(main, instance_name=instance_name)
   module.start()
   return module
