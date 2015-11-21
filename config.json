@@ -16,7 +16,7 @@
 	"192.168.2.1": {
 		"my-ip":                 "192.168.2.1",
 		"udp-bcast-ip":          "192.168.2.255",
-		"sbp-port":              "/dev/cu.usbserial-00101114",
+		"sbp-port":              "/dev/cu.usbserial-00001014",
 		"sbp-baud":              1000000
 	},
 	"localhost-server": {
@@ -42,7 +42,7 @@
 		"sbp-baud":               1000000,
 		"cc-local-port":          19210,
 		"cc-server-port":         19211,
-		"sbp-server-port":        19212,
+		"sbp-server-port":        9212,
 		"mav-server-port":        19213
 	},
 	"192.168.2.52": {

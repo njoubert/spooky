@@ -64,6 +64,14 @@ class ModuleHandler(object):
   def __init__(self):
     self.modules = []
 
+  def get_modules(self, module_name, instance_name=None):
+    mods = []
+    for (m,p) in self.modules:
+      if m.module_name == module_name and (instance_name == None or m.singleton or m.instance_name == instance_name):
+        mods.append((m,p))
+    return mods
+
+
   def load_module(self, module_name, instance_name=None, forceReload=False):
     ''' 
     Loads and starts a module, 
@@ -124,16 +132,16 @@ class ModuleHandler(object):
 
   def unload_module(self, module_name, instance_name=None, quiet=False):
     hasUnloaded = 0
-    for (m,p) in self.modules[:]:
-      if m.module_name == module_name and (instance_name == None or m.instance_name == instance_name):
-        try:
-          if hasattr(m, 'stop'):
-            m.stop(quiet=quiet)
-          self.modules.remove((m,p))
-          hasUnloaded += 1
-        except Exception as msg:
-          print "Failed to unload module"
-          traceback.print_exc()
+    modules = self.get_modules(module_name, instance_name=instance_name)
+    for (m,p) in modules:
+      try:
+        if hasattr(m, 'stop'):
+          m.stop(quiet=quiet)
+        self.modules.remove((m,p))
+        hasUnloaded += 1
+      except Exception as msg:
+        print "Failed to unload module"
+        traceback.print_exc()
 
     if hasUnloaded == 0:
       print "Unable to find module '%s' (instance '%s')" % (module_name, instance_name)
@@ -146,9 +154,9 @@ class ModuleHandler(object):
   
   def reload_module(self, module_name, instance_name=None):
     ''' Reload ALL instances of this module '''
-    for (m,p) in self.modules:
-      if m.module_name == module_name and (instance_name == None or m.instance_name == instance_name):
-        self.load_module(m.module_name, instance_name=m.instance_name, forceReload=True)
+    modules = self.get_modules(module_name, instance_name=instance_name)
+    for m in modules:
+      self.load_module(m.module_name, instance_name=m.instance_name, forceReload=True)
 
   def cmd_module(self, args):
     def print_module_help():
@@ -258,11 +266,15 @@ class GroundStation(CommandLineHandler, ModuleHandler):
     Won't reinstantiate running threads, 
     won't interact with remote processes
     '''
+    self.load_module('systemstate')
     self.load_module('SBPUDPBroadcast')
     for client in self.config.get_network('odroidperson'):
       self.load_module('odroidperson', instance_name=client)
 
   def cmd_reinit(self, args):
+    if len(args):
+      if "--force" in args:
+        self.unload_all_modules()
     return self.configure_network_from_config()
 
   def mainloop(self):
