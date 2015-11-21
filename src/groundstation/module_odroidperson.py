@@ -27,6 +27,14 @@ class SBPUDPDriver(BaseDriver):
     self.last_addr = None
     BaseDriver.__init__(self, self.handle)
 
+  def __enter__(self):
+    print "ENTERING"
+    return self
+  
+  def __exit__(self, type, value, traceback):
+    print "EXITING"
+    self.handle.close()
+
   def read(self, size):
     '''
     Invariant: will return size or less bytes.
@@ -90,7 +98,7 @@ class OdroidPersonModule(spooky.modules.SpookyModule):
     with SBPUDPDriver(self.bind_ip, self.sbp_port) as driver:
       f = Framer(driver.read, None, verbose=False)
       while True:
-        f.next()
+        print f.next()
 
       # with Handler(Framer(driver.read, None, verbose=False)) as source:
       #   try:
@@ -110,7 +118,6 @@ class OdroidPersonModule(spooky.modules.SpookyModule):
       cc_udp.settimeout(0.0)
       cc_udp.bind((self.bind_ip, self.cc_port))
       self.cc_udp = cc_udp
-
 
       print "Module %s listening for Command & Control on %s" % (self, self.cc_port)
       
