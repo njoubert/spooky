@@ -36,11 +36,11 @@ class ModuleHandler(object):
   def responds_to(self, attr):
     ''' Iterator over modules that supports this call'''
     for (m,p) in self.modules:
-      if hasattr(m, attr) 
+      if hasattr(m, attr):
         yield m
 
   def trigger(self, attr, *args, **kwargs):
-    for f in self.responds_to(attr):
+    for f in self.listeners_for(attr):
       f(*args, **kwargs)        
 
   def load_module(self, module_name, instance_name=None, forceReload=False):
@@ -82,14 +82,14 @@ class ModuleHandler(object):
 
     for (m,p) in self.modules:
       if m.module_name == module_name and (m.singleton or m.instance_name == instance_name):
-        if m.singleton:
+        if m.instance_name != instance_name and m.singleton:
           print "Module %s only allows a single instance" % (m)
           return
-        if not forceReload:
+        if forceReload:
+          self.unload_module(module_name, instance_name=instance_name)
+        else:
           print "Module %s already loaded" % (m)
           return
-        elif forceReload:
-          self.unload_module(module_name, instance_name=instance_name)
         
     try:
       modpath = 'groundstation.module_%s' % module_name
@@ -126,7 +126,7 @@ class ModuleHandler(object):
   def reload_module(self, module_name, instance_name=None):
     ''' Reload ALL instances of this module '''
     modules = self.get_modules(module_name, instance_name=instance_name)
-    for m in modules:
+    for (m,p) in modules:
       self.load_module(m.module_name, instance_name=m.instance_name, forceReload=True)
 
   def cmd_module(self, args):

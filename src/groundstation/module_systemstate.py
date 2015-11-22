@@ -14,20 +14,21 @@ class SystemStateModule(spooky.modules.SpookyModule):
 
   def __init__(self, main, instance_name=None):
     self._inputQueue = Queue.Queue()
-    self._inputQueueTimeout = 0.5
+    self._inputQueueTimeout = 0.1
     self._stateLock = threading.Lock()
     self._state = {}
     spooky.modules.SpookyModule.__init__(self, main, "systemstate", singleton=True)
 
-  def update_partial_state(node, component, new_state):
+  def update_partial_state(self, node, component, new_state):
     '''Push a new partial state update to the state vector'''
     self._inputQueue.put((node, component, new_state))
 
-  def _handlePartialUpdate(item):
+  def _handlePartialUpdate(self, item):
     '''INTERNAL: Handles a state up.'''
     self._stateLock.acquire()
     (node, component, new_state) = item
     self._state[(node, component)] = new_state
+    print "Just updated %s:%s to %s" % item
     self._stateLock.release()
 
   def get_state_str(self):

@@ -13,11 +13,8 @@ class TestModule(spooky.modules.SpookyModule):
   def run(self):
     '''Thread loop here'''
     try:
-      while True:
-        if self.stopped():
-          return
+      while not self.wait_on_stop(1.0):
         print "TestModule (instance %s), here to annoy you!" % (self.instance_name)
-        time.sleep(1.0)
     except SystemExit:
       print "Exit Forced. We're dead."
       return

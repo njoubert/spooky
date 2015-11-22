@@ -82,8 +82,8 @@ class GroundStation(CommandLineHandler):
     self.modules.load_module('systemstate')
     self.modules.load_module('SBPUDPBroadcast')
     for client in self.config.get_network('odroidperson'):
-      self.modules.load_module('odroidperson_cc', instance_name=client)
-      self.modules.load_module('odroidperson_sbp', instance_name=client)
+       self.modules.load_module('odroidperson_cc', instance_name=client)
+       self.modules.load_module('odroidperson_sbp', instance_name=client)
 
   def set_systemstate(self, module):
     self.systemstate = module

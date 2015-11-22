@@ -5,6 +5,8 @@
 import time, socket, sys, os, sys, inspect, signal, traceback
 
 from sbp.client.drivers.pyserial_driver import PySerialDriver
+from sbp.client.drivers.pyftdi_driver import PyFTDIDriver
+
 from sbp.client import Handler, Framer
 from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
 
@@ -26,17 +28,16 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.UDPBroadcaster):
     self.interval = interval
     self.sbp_port = sbp_port
     self.sbp_baud = sbp_baud
-    self.last_msg = {} # Keep track of the last message of each type.
 
   def run(self):
     '''Thread loop here'''
-    with PySerialDriver(self.sbp_port, baud=self.sbp_baud) as driver:
+    # Problems? See: https://pylibftdi.readthedocs.org/en/latest/troubleshooting.html
+    with PyFTDIDriver(self.sbp_baud) as driver:
       with Handler(Framer(driver.read, driver.write)) as handler:
         try:
           for msg, metadata in handler.filter(SBP_MSG_OBS, SBP_MSG_BASE_POS):
             if self.stopped():
               return
-            self.last_msg[msg.msg_type] = msg
             self.broadcast(msg.pack())
         except KeyboardInterrupt:
           raise

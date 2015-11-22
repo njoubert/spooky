@@ -47,8 +47,8 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
     '''Thread loop here'''
 
     with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as cc_udp:
-      cc_udp.setblocking(0)
-      cc_udp.settimeout(0.0)
+      cc_udp.setblocking(1)
+      cc_udp.settimeout(0.1)
       cc_udp.bind((self.bind_ip, self.cc_port))
       self.cc_udp = cc_udp
 

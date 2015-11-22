@@ -28,11 +28,9 @@ class SBPUDPDriver(BaseDriver):
     BaseDriver.__init__(self, self.handle)
 
   def __enter__(self):
-    print "ENTERING"
     return self
   
   def __exit__(self, type, value, traceback):
-    print "EXITING"
     self.handle.close()
 
   def read(self, size):
@@ -63,13 +61,13 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
   def run(self):
     '''Thread loop here'''
     with SBPUDPDriver(self.bind_ip, self.sbp_port) as driver:
-      f = Framer(driver.read, None, verbose=False)
+      framer = Framer(driver.read, None, verbose=False)
 
       print "Module %s listening on %s" % (self, self.sbp_port)
 
-      while True:
-        
-        print f.next()
+      while not self.stopped():
+        framer.next()
+        self.main.modules.trigger('update_partial_state', self.instance_name, 'sbp', {'x':1, 'y':2, 'z': 3})
 
 def init(main, instance_name=None):
   module = OdroidPersonSBPModule(main, instance_name=instance_name)

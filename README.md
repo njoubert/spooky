@@ -56,3 +56,10 @@ Can we do UNIX-style, but wrapped behind a single UI the way MAVProxy does it?
 
 Let's try to do that!
 
+
+## OTHER RESOURCES 
+
+I am not using, but am curious about:
+
+- [Twisted](https://twistedmatrix.com/trac/), "an event-driven networking engine written in Python"
+- NodeJS, why why why didn't I do this in NodeJS??? Sigh, all the UAV libraries are in python...

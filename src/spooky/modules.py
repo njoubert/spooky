@@ -46,6 +46,13 @@ class SpookyModule(threading.Thread):
   def stopped(self):
     return self._stop.isSet()
 
+  def wait_on_stop(self, timeout):
+    ''' 
+    Blocks on _stop event for given timeout or until set.
+    Returns true if event was triggered.
+    '''
+    return self._stop.wait(timeout)
+
   def __str__(self):
     if self.singleton:
       return "'%s' (singleton)" % (self.module_name)
