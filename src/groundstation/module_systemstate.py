@@ -28,29 +28,31 @@ class SystemStateModule(spooky.modules.SpookyModule):
     self._stateLock.acquire()
     (node, component, new_state) = item
     self._state[(node, component)] = new_state
-    print "Just updated %s:%s to %s" % item
+    #print "Just updated %s:%s to %s" % item
     self._stateLock.release()
 
   def get_state_str(self):
     self._stateLock.acquire()
     ret = "SYSTEM STATE:\n"
     for s in self._state:
-      " %s: %s\n" % (str(s), str(self._state[s]))
+      ret += " %s: %s\n" % (str(s), str(self._state[s]))
     self._stateLock.release()
     return ret
+
+  def stop(self, quiet=False):
+    self.main.unset_systemstate()
+    super(SystemStateModule, self).stop(quiet=quiet)
 
   def run(self):
     '''Thread loop here'''
     self.main.set_systemstate(self)
     try:
-      while True:
-        if self.stopped():
-          self.main.unset_systemstate()
-          return
-        try:
-          self._handlePartialUpdate(self._inputQueue.get(True, self._inputQueueTimeout))
-        except Queue.Empty:
-          pass
+      while not self.wait_on_stop(0.1):
+        #Process the queue at 10hz
+        while not self._inputQueue.empty():
+          self._handlePartialUpdate(self._inputQueue.get_nowait())
+        print self.get_state_str()
+
     except SystemExit:
       print "Exit Forced. We're dead."
       return
