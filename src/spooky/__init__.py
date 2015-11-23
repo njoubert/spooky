@@ -4,7 +4,7 @@
 # A Zero-Dependency Network Management Library
 #
 
-__all__ = ["ip", "modules"]
+__all__ = ["ip", "modules", "CommandLineHandler", "ModuleHandler"]
 
 #====================================================================#
 

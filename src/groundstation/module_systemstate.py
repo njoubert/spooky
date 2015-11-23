@@ -31,9 +31,12 @@ class SystemStateModule(spooky.modules.SpookyModule):
     #print "Just updated %s:%s to %s" % item
     self._stateLock.release()
 
+  def cmd_status(self):
+    print self, self.get_state_str()
+
   def get_state_str(self):
     self._stateLock.acquire()
-    ret = "SYSTEM STATE:\n"
+    ret = ""
     for s in self._state:
       ret += " %s: %s\n" % (str(s), str(self._state[s]))
     self._stateLock.release()
@@ -47,11 +50,11 @@ class SystemStateModule(spooky.modules.SpookyModule):
     '''Thread loop here'''
     self.main.set_systemstate(self)
     try:
-      while not self.wait_on_stop(0.1):
-        #Process the queue at 10hz
+      while not self.wait_on_stop(0.01):
+        #Process the queue at 100hz
         while not self._inputQueue.empty():
           self._handlePartialUpdate(self._inputQueue.get_nowait())
-        print self.get_state_str()
+        
 
     except SystemExit:
       print "Exit Forced. We're dead."

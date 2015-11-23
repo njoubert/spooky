@@ -12,9 +12,8 @@ from contextlib import closing
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
 import spooky, spooky.ip
-
-from ModuleHandler import ModuleHandler
-from CommandLineHandler import CommandLineHandler
+from spooky.ModuleHandler import ModuleHandler
+from spooky.CommandLineHandler import CommandLineHandler
 
 #====================================================================#
 
@@ -61,17 +60,33 @@ class GroundStation(CommandLineHandler):
     if hard:
       sys.exit(1)
 
+  def cmd_trigger(self, args):
+    if len(args) != 1:
+      print "we need one and only one argument"
+      return
+    self.modules.trigger(args[0])
+
   def cmd_stop(self, args):
     self.stop()
 
   def cmd_status(self, args):
-    print "status"
+    self.modules.trigger("cmd_status")
 
   def cmd_reinit(self, args):
     if len(args):
       if "--force" in args:
         self.modules.unload_all_modules()
     return self.configure_network_from_config()
+
+  def cmd_piksisim(self, args):
+    if len(args) > 0:
+      if "t" in args:
+        self.modules.trigger("enable_piksi_sim")
+      else:
+        self.modules.trigger("disable_piksi_sim")
+    else:
+      self.modules.trigger("enable_piksi_sim")
+      print "enabling. use 't' for true and 'f' for false to toggle state."
 
   def configure_network_from_config(self):
     '''

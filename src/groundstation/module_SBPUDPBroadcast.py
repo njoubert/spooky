@@ -9,6 +9,7 @@ from sbp.client.drivers.pyftdi_driver import PyFTDIDriver
 
 from sbp.client import Handler, Framer
 from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
+from sbp.settings import SBP_MSG_SETTINGS_WRITE, MsgSettingsWrite
 
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
@@ -28,16 +29,22 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.UDPBroadcaster):
     self.interval = interval
     self.sbp_port = sbp_port
     self.sbp_baud = sbp_baud
+    self.last_sent = None
 
   def run(self):
     '''Thread loop here'''
     # Problems? See: https://pylibftdi.readthedocs.org/en/latest/troubleshooting.html
-    with PyFTDIDriver(self.sbp_baud) as driver:
-      with Handler(Framer(driver.read, driver.write)) as handler:
+    #with PyFTDIDriver(self.sbp_baud) as driver:
+    with PySerialDriver(self.sbp_port, baud=self.sbp_baud) as driver:
+      self.driver = driver
+      self.framer = Framer(driver.read, driver.write)
+      with Handler(self.framer) as handler:
+        self.handler = handler
         try:
           for msg, metadata in handler.filter(SBP_MSG_OBS, SBP_MSG_BASE_POS):
             if self.stopped():
               return
+            self.last_sent = time.time()
             self.broadcast(msg.pack())
         except KeyboardInterrupt:
           raise
@@ -46,6 +53,35 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.UDPBroadcaster):
         except SystemExit:
           print "Exit Forced. We're dead."
           return
+
+  def disable_piksi_sim(self):
+    if not self.framer:
+      return False
+
+    section = "simulator"
+    name    = "enabled"
+    value   = "False"
+    msg = MsgSettingsWrite(setting='%s\0%s\0%s\0' % (section, name, value))
+    self.framer(msg)
+    return True
+
+  def enable_piksi_sim(self):
+    if not self.framer:
+      return False
+
+    section = "simulator"
+    name    = "enabled"
+    value   = "True"
+    msg = MsgSettingsWrite(setting='%s\0%s\0%s\0' % (section, name, value))
+    self.framer(msg)
+    return True
+
+  def cmd_status(self):
+    if self.last_sent == None:
+      print self, "no observation broadcasted yet. handle=",self.driver
+
+    else:
+      print self, "last broadcast message %.3fs ago" % (time.time() - self.last_sent)
 
 def init(main, instance_name=None):
   module = SBPUDPBroadcastModule(

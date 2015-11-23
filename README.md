@@ -56,6 +56,11 @@ Can we do UNIX-style, but wrapped behind a single UI the way MAVProxy does it?
 
 Let's try to do that!
 
+## Using PyFTDI:
+
+https://pylibftdi.readthedocs.org/en/latest/troubleshooting.html
+
+	sudo kextunload -bundle-id com.apple.driver.AppleUSBFTDI
 
 ## OTHER RESOURCES 
 
@@ -63,3 +68,24 @@ I am not using, but am curious about:
 
 - [Twisted](https://twistedmatrix.com/trac/), "an event-driven networking engine written in Python"
 - NodeJS, why why why didn't I do this in NodeJS??? Sigh, all the UAV libraries are in python...
+
+
+## DEAD KITTENS
+
+
+- Start using “with” everywhere, open the socket inside run()
+- Make sure we’re closing sockets when we destroy thread
+- 
+
+Q1: How do we structure modules with many threads so they cleanly shut down? currently odroidperson module is ugly and leaves orphaned threads.
+[DONE] - Each thread is its own module!
+
+Q2: How do we inject modules into one another, so odroidthread has the state vector thread?
+— can’t do it “statically” or “during runtime init” since we might reload that module.
+— can have it call to main every time.
+— can have adapter object that process everything for you
+[WE DID THIS] — alternatively, do a message-passing style where you inject a message into the message layer, and a different module registers to listen for that.
+
+TODO:
+[DONE] - split odroidperson into a module for each currently logical thread
+[DONE] - have the state space register itself with main, and have all the odroidperson threads send updates to state space through main (so an indirect reference can be replaced)

@@ -57,6 +57,9 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
     spooky.modules.SpookyModule.__init__(self, main, "odroidperson_sbp", instance_name=instance_name)
     self.bind_ip  = self.main.config.get_my('my-ip')
     self.sbp_port = self.main.config.get_foreign(instance_name, 'sbp-server-port')
+  
+  def cmd_status(self):
+    print self, "last received message at..."
 
   def run(self):
     '''Thread loop here'''

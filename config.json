@@ -22,13 +22,13 @@
 	"localhost-server": {
 		"my-ip":                  "127.0.0.1",
 		"udp-bcast-ip":           "127.0.0.1",
-		"sbp-port":               "/dev/cu.usbserial-00101114",
+		"sbp-port":               "/dev/cu.usbserial-14111",
 		"sbp-baud":               1000000
 	},
 
 	"127.0.0.1": {
 		"my-ip":                  "127.0.0.1",
-		"sbp-port":               "/dev/cu.usbserial-00101114",
+		"sbp-port":               "/dev/cu.usbserial-145",
 		"sbp-baud":               1000000,
 		"cc-local-port":          19200,
 		"cc-server-port":         19201,

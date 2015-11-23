@@ -1,4 +1,3 @@
-
 # Copyright (C) 2015 Stanford University
 # Contact: Niels Joubert <niels@cs.stanford.edu>
 #
