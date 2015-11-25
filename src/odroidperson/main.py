@@ -17,6 +17,8 @@ from sbp.client import Handler, Framer
 from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
 from sbp.navigation import SBP_MSG_POS_LLH, MsgPosLLH
 from sbp.acquisition import SBP_MSG_ACQ_RESULT
+from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
+from sbp.settings import SBP_MSG_SETTINGS_WRITE, MsgSettingsWrite
 
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
@@ -152,29 +154,19 @@ class PiksiHandler(threading.Thread):
         except Exception:
           traceback.print_exc()
 
+  def send_disable_sim_to_piksi(self):
+    section = "simulator"
+    name    = "enabled"
+    value   = "False"
+    msg = MsgSettingsWrite(setting='%s\0%s\0%s\0' % (section, name, value))
+    self.send_to_piksi(msg.to_binary())
 
-  # def _reader(self):
-  #   import serial
-  #   while True:
-  #     try:
-  #       data = self.handle.read(1)
-  #       n = self.handle.inWaiting()
-  #       if n:
-  #         data = data + self.handle.read(n)
-  #       if data:
-  #         try:
-  #           self._recvFromPiksi.put(data, True, 0.05)
-  #         except Queue.Full:
-  #           pass # Drop it like it's hot!
-  #     except (OSError, serial.SerialException):
-  #       print
-  #       print "Piksi disconnected"
-  #       print
-  #       raise SystemExit
-  #     except Exception:
-  #       #CRUCIAL! This prevents death from exception
-  #       traceback.print_exc()
-  #       pass
+  def send_enable_sim_to_piksi(self):
+    section = "simulator"
+    name    = "enabled"
+    value   = "True"
+    msg = MsgSettingsWrite(setting='%s\0%s\0%s\0' % (section, name, value))
+    self.send_to_piksi(msg.to_binary())
 
   def send_to_piksi(self, data):
     '''
@@ -197,14 +189,17 @@ class PiksiHandler(threading.Thread):
 
           # Uploading data TO Piksi
           try:
-            data = self._sendToPiksi.get(False)
+            data = self._sendToPiksi.get(True, 0.01)
             self.handle.write(data)
+            while not self._sendToPiksi.empty():
+              data = self._sendToPiksi.get(False)
+              self.handle.write(data)
           except (Queue.Empty, serial.SerialException):
             pass
 
           # Repeating data FROM Piksi
           try:
-            data = self._recvFromPiksi.get(False)
+            data = self._recvFromPiksi.get(True, 0.05)
             n = sbp_udp.sendto(data, (self.server_ip, self.sbp_server_port))
             if len(data) != n:
               logger.warn("Piksi->UDP relay, did not send all data!")
@@ -260,9 +255,69 @@ class OdroidPerson:
     self.sbpBroadcastListenerThread.join(1)
     self.PiksiHandler.join(1)
 
-  def handle_cc(self, cc_data, cc_addr, cc_udp):
-    #print "Handling cc from '%s':'%s'" % (cc_addr, cc_data)
+
+  def cc_ack(self, msg):
+    print "ACK RECEIVED"
+
+  def cc_nack(self, msg):
+    print "NACK RECEIVED"
+
+  def cc_simulator(self, msg):
+    try:
+      payload = msg['payload']
+      if payload == 'True':
+        print 'ENABLING PIKSI'
+        self.PiksiHandler.send_enable_sim_to_piksi()
+      else:
+        print 'DISABLING PIKSI'
+        self.PiksiHandler.send_disable_sim_to_piksi()
+        pass
+      return True
+    except:
+      traceback.print_exc()
+      return False
+
+  def cc_unrecognized(self, msg):
     pass
+
+  def cc_unsupported(self, msg):
+    pass
+
+  def send_cc(self, msgtype, json_payload=None):
+    try:
+      msg = {'msgtype':msgtype}
+      if json_payload:
+        msg['payload'] = json_payload
+      #print "sending message %s to %s, %s" % (msgtype, self.server_ip, self.cc_server_port)
+      self.cc_udp.sendto(json.dumps(msg), (self.server_ip, self.cc_server_port))
+    except socket.error:
+      traceback.print_exc()
+      raise
+
+
+  def handle_cc(self, cc_data, cc_addr):
+    msg = json.loads(cc_data)
+
+    msg_handler = {
+      'ACK':         self.cc_ack,
+      'NACK':        self.cc_nack,
+      'malformed':   self.cc_unrecognized,
+      'unsupported': self.cc_unsupported,
+
+      'simulator':   self.cc_simulator,       
+    }
+
+    if not 'msgtype' in msg:
+      self.send_cc('malformed', {'msg': 'message contains to \'msgtype\' field.'})
+      return
+
+    if not msg['msgtype'] in msg_handler:
+      self.send_cc('unsupported', {'msg': 'message type \'%s\' not supported.' % msg['msgtype']})
+      return
+
+    #print "Handling message type %s: %s" % (msg['msgtype'], str(msg))
+    msg_handler[msg['msgtype']](msg)
+
 
   def mainloop(self):
 
@@ -273,39 +328,26 @@ class OdroidPerson:
       
       # Here we do UDP command and control
       with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as cc_udp:
-        cc_udp.setblocking(0)
-        cc_udp.settimeout(0.0)
+        cc_udp.setblocking(1)
+        cc_udp.settimeout(0.01) # run this at 100hz
         cc_udp.bind((self.bind_ip, self.cc_local_port))
         self.cc_udp = cc_udp
 
+        print "CC bound to %s : %d" % (self.bind_ip, self.cc_local_port)
+
+        heartbeat = spooky.DoEvery(lambda: self.send_cc('heartbeat'), 1.0)
         while True:
           try:
-
-            # '''
-            # CC PACKET STRUCTURE:
-            # head (32 bits): 0xBEADBEEF
-            # len (16 bits): 0xFFFF (length of data)
-            # cmd (16 bits): 0xFFFF
-            # data (len bits): [...]
-            # tail (32 bits): 0xDEADBEEF
-
-            # COMMANDS:
-            # 0x0001 - heartbeat
-            # '''
-
-            # payload = ''
-            # length = len(payload)
-            # msg = struct.pack("<IHH", 0xBEADBEEF, length, 0x0001)
-            # msg += payload
-            # msg += struct.pack("<I", 0xDEADBEEF)
-            # cc_udp.sendto(msg, (self.server_ip, self.cc_server_port))
-            
-            cc_udp.sendto("heartbeat", (self.server_ip, self.cc_server_port))
+            # For command and control, we're going to use JSON over UDP
+            # UDP *already* has a simple checksum and delivers a complete packet at a time.
+            # It also returns exactly one datagram per recv() call, so it's all good!
+            # Our only requirement is, a cc message consists of at the very least:
+            # {'msgtype': 'something', 'payload': {}}
+            heartbeat.tick()
             cc_data, cc_addr = cc_udp.recvfrom(4096)
-            self.handle_cc(cc_data, cc_addr, cc_udp)
+            self.handle_cc(cc_data, cc_addr)
           except (socket.error, socket.timeout) as e:
             pass    
-          time.sleep(1)
 
     except KeyboardInterrupt:
       self.stop()

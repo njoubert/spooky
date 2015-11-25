@@ -22,6 +22,30 @@ def get_version():
 
 #====================================================================#
 
+class DoEvery(object):
+  '''
+  A simple way to call a function every 'period' seconds
+  inside a while loop. Doesn't block unless specified.
+  '''
+  def __init__(self, callback, period):
+    self.cb = callback
+    self.period = period
+    self._last_time = 0
+
+  def tick(self, block=False):
+    current_time = time.time()
+    if current_time - self._last_time > self.period:
+      self._last_time = current_time
+      return self.cb()
+    elif block:
+      sleepiness = self.period - (current_time - self._last_time)
+      print "blocking for %fs" % sleepiness
+      time.sleep(sleepiness)
+      return self.tick(block=True)
+    return False
+
+#====================================================================#
+
 class Configuration(object):
   '''
   Attempts to be threadsafe.

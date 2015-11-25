@@ -3,6 +3,7 @@
 #
 
 import time, socket, sys, os, sys, inspect, signal, traceback
+import json
 import threading
 from contextlib import closing
 import collections
@@ -25,23 +26,75 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
     spooky.modules.SpookyModule.__init__(self, main, "odroidperson_cc", instance_name=instance_name)
     self.bind_ip  = self.main.config.get_my('my-ip')
     self.cc_port  = self.main.config.get_foreign(instance_name, 'cc-server-port')
+    self.cc_remote_port = self.main.config.get_foreign(instance_name, 'cc-local-port')
+    self.cc_remote_ip   = self.main.config.get_foreign(instance_name, 'my-ip')
+    self.cc_send_addr = (self.cc_remote_ip, self.cc_remote_port)
 
-  def handle_cc(self, cc_data, cc_addr, cc_udp):
-    # from enum import Enum
-    # class CCParserState(Enum):
-    #   WAITING     = 0
-    #   GET_HEAD    = 1
-    #   GET_COMMAND = 2
-    #   GET_LEN     = 3
-    #   GET_DATA    = 4
-    #   GET_FOOTER  = 5
+  def cc_ack(self, msg):
+    print "ACK RECEIVED"
 
-    # self._incoming_cc = collections.deque()
-    # self._c_state = CCParserState.WAITING
-    # self._c_command = None
-    # self._c_len = 0
-    # self._c_data = None
-    cc_udp.sendto("ACK", cc_addr)
+  def cc_nack(self, msg):
+    print "NACK RECEIVED"
+
+  def cc_heartbeat(self, msg):
+    #print "RECEIVED HEARTBEAT"
+    return True
+
+  def cc_simulator(self, msg):
+    return False
+
+  def cc_malformed(self, msg):
+    print "CLIENT CLAIMS MALFORMED: %s" % msg['payload']
+    return True
+
+  def cc_unsupported(self, msg):
+    print "CLIENT CLAIMS UNSUPPORTED: %s" % msg['payload']
+    return True
+
+  def send_cc(self, msgtype, json_payload=None):
+    try:
+      msg = {'msgtype':msgtype}
+      if json_payload:
+        msg['payload'] = json_payload
+      #print "sending message %s to %s, %s" % (msgtype, addr[0], addr[1])
+      self.cc_udp.sendto(json.dumps(msg), self.cc_send_addr)
+    except socket.error:
+      traceback.print_exc()
+      raise
+
+
+  def handle_cc(self, cc_data, cc_addr):
+    msg = json.loads(cc_data)
+
+    msg_handler = {
+      'ACK':         self.cc_ack,
+      'NACK':        self.cc_nack,
+      'heartbeat':   self.cc_heartbeat,
+      'malformed':   self.cc_malformed,
+      'unsupported': self.cc_unsupported,       
+    }
+
+    if not 'msgtype' in msg:
+      print "MALFORMED: message contains no \'msgtype'\ field."
+      return
+
+    if not msg['msgtype'] in msg_handler:
+      print "UNSUPPORTED: message type \'%s\' not supported." % msg['msgtype']
+      return
+
+    #print "Handling message type %s: %s" % (msg['msgtype'], str(msg))
+    
+    if msg_handler[msg['msgtype']](msg):
+      self.send_cc('ACK')
+    else:
+      self.send_cc('NACK')
+
+
+  def enable_piksi_sim(self):
+    self.send_cc('simulator', 'True')
+
+  def disable_piksi_sim(self):
+    self.send_cc('simulator', 'False')
 
   def run(self):
     '''Thread loop here'''
@@ -60,8 +113,8 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
             return
 
           try:
-            cc_data, cc_addr   = self.cc_udp.recvfrom(4096)
-            self.handle_cc(cc_data, cc_addr, self.cc_udp)
+            cc_data, cc_addr = cc_udp.recvfrom(4096)
+            self.handle_cc(cc_data, cc_addr)
           except (socket.error, socket.timeout) as e:
             pass
 

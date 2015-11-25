@@ -1,7 +1,6 @@
-import sys, os, time
-
+import sys, os, time, copy
 import threading, Queue
-
+import cPickle as pickle
 import spooky, spooky.modules
 
 
@@ -19,6 +18,22 @@ class SystemStateModule(spooky.modules.SpookyModule):
     self._state = {}
     spooky.modules.SpookyModule.__init__(self, main, "systemstate", singleton=True)
 
+  def find_next_log_filename(basename):
+    i = 0
+    while os.path.exists("statelog%.7i.pickle" % i):
+      i += 1
+    return "statelog%.7i.pickle" % i
+
+  def dump_state(self, filelike):
+    pickle.dump(self.get_current(), filelike, pickle.HIGHEST_PROTOCOL)
+
+  def get_current(self):
+    self._stateLock.acquire()
+    current_state = copy.copy(self._state)
+    self._stateLock.release()
+    current_state['_timestamp'] = time.time()
+    return current_state
+
   def update_partial_state(self, node, component, new_state):
     '''Push a new partial state update to the state vector'''
     self._inputQueue.put((node, component, new_state))
@@ -28,7 +43,7 @@ class SystemStateModule(spooky.modules.SpookyModule):
     self._stateLock.acquire()
     (node, component, new_state) = item
     self._state[(node, component)] = new_state
-    #print "Just updated %s:%s to %s" % item
+    self._state['_lastupdate'] = time.time()
     self._stateLock.release()
 
   def cmd_status(self):
@@ -47,18 +62,24 @@ class SystemStateModule(spooky.modules.SpookyModule):
     super(SystemStateModule, self).stop(quiet=quiet)
 
   def run(self):
-    '''Thread loop here'''
+    '''
+    Thread loop here
+    '''
     self.main.set_systemstate(self)
-    try:
-      while not self.wait_on_stop(0.01):
-        #Process the queue at 100hz
-        while not self._inputQueue.empty():
-          self._handlePartialUpdate(self._inputQueue.get_nowait())
-        
+    filename = self.find_next_log_filename()
+    print "Opening logfile: %s" % filename 
+    with open(filename, 'wb') as f:
 
-    except SystemExit:
-      print "Exit Forced. We're dead."
-      return
+      try:
+        while not self.wait_on_stop(0.1):
+          while not self._inputQueue.empty():
+            self._handlePartialUpdate(self._inputQueue.get_nowait())
+
+          self.dump_state(f)
+      except SystemExit:
+        self.main.unset_systemstate()
+        print "Exit Forced. We're dead."
+        return
 
 def init(main, instance_name=None):
   module = SystemStateModule(main, instance_name=instance_name)
