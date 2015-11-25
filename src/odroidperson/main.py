@@ -23,6 +23,7 @@ from sbp.settings import SBP_MSG_SETTINGS_WRITE, MsgSettingsWrite
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
 import spooky, spooky.ip
+from spooky.Daemon import Daemon
 
 #====================================================================#
 
@@ -122,23 +123,6 @@ class PiksiHandler(threading.Thread):
     self._sendToPiksi   = Queue.Queue()
     self._recvFromPiksi = Queue.Queue()
 
-    try:
-      self.handle = serial.Serial(port, baud, timeout=1)
-      self._reader_thread.start()
-    except (OSError, serial.SerialException):
-      logger.error("Serial device '%s' not found" % port)
-      logger.error("The following serial devices were detected:")
-      import serial.tools.list_ports
-      for (name, desc, _) in serial.tools.list_ports.comports():
-        if desc[0:4] == "ttyS":
-          continue
-        if name == desc:
-          logger.error("\t%s" % name)
-        else:
-          logger.error("\t%s (%s)" % (name, desc))
-      print
-      raise SystemExit
-
   def _reader(self):
     with BaseDriver(self.handle) as driver:
       with Handler(Framer(driver.read, None, verbose=True)) as source:
@@ -179,6 +163,24 @@ class PiksiHandler(threading.Thread):
 
   def run(self):
     import serial 
+
+    try:
+      self.handle = serial.Serial(self.port, self.baud, timeout=1)
+      self._reader_thread.start()
+    except (OSError, serial.SerialException):
+      logger.error("Serial device '%s' not found" % port)
+      logger.error("The following serial devices were detected:")
+      import serial.tools.list_ports
+      for (name, desc, _) in serial.tools.list_ports.comports():
+        if desc[0:4] == "ttyS":
+          continue
+        if name == desc:
+          logger.error("\t%s" % name)
+        else:
+          logger.error("\t%s (%s)" % (name, desc))
+      print
+      raise SystemExit
+
     try:
       with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as sbp_udp:
         sbp_udp.setblocking(0)
@@ -354,6 +356,22 @@ class OdroidPerson:
 
 #=====================================================================#
 
+class OdroidPersonDaemon(Daemon):
+
+  def __init__(self, args, config):
+    self.args = args
+    self.config = config
+    Daemon.__init__(self, '/tmp/odroidperson.pid', 
+        stdin='/dev/null', 
+        stdout='/logs/odroidperson.stdout', 
+        stderr='/logs/odroidperson.stderr')
+
+  def run(self):
+    config = self.config
+    args = self.args
+    op = OdroidPerson(config, args.ident[0])
+    op.mainloop()
+
 def main():
   try:
     logger.info("OdroidPerson Launching!")
@@ -369,6 +387,9 @@ def main():
     parser.add_argument("-n", "--network",
                         default=['NETWORK'], nargs=1,
                         help="spoof a custom network, by default uses 'NETWORK'")
+    parser.add_argument("-d", "--daemon", 
+                        default=[''], nargs=1,
+                        help="control daemon. use start/stop/restart")
     args = parser.parse_args()
 
     #Fill out default args
@@ -376,11 +397,21 @@ def main():
       args.ident[0] = spooky.ip.get_lan_ip()
 
     network_ident = args.network[0]
-
     config = spooky.Configuration(args.config[0], args.ident[0], network_ident)
 
-    op = OdroidPerson(config, args.ident[0])
-    op.mainloop()
+    daemon = OdroidPersonDaemon(args, config)
+
+    if args.daemon[0] != '':
+      if args.daemon[0] == 'start':
+        daemon.start()
+      elif args.daemon[0] == 'stop':
+        daemon.stop()
+      elif args.daemon[0] == 'restart':
+        daemon.restart()
+      else:
+        print "usage: %s --daemon start|stop|restart" % sys.argv[0]
+    else:
+      daemon.run()
 
   except socket.gaierror:
     logger.critical("No internet connection")
