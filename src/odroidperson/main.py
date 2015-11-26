@@ -257,7 +257,6 @@ class OdroidPerson:
     self.sbpBroadcastListenerThread.join(1)
     self.PiksiHandler.join(1)
 
-
   def cc_ack(self, msg):
     print "ACK RECEIVED"
 
@@ -337,7 +336,7 @@ class OdroidPerson:
 
         print "CC bound to %s : %d" % (self.bind_ip, self.cc_local_port)
 
-        heartbeat = spooky.DoEvery(lambda: self.send_cc('heartbeat'), 1.0)
+        heartbeat = spooky.DoEvery(lambda: self.send_cc('heartbeat', payload=os.getuid()), 1.0)
         while True:
           try:
             # For command and control, we're going to use JSON over UDP

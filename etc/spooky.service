@@ -6,6 +6,8 @@
 
 # Making it wait on the network:
 #  https://wiki.freedesktop.org/www/Software/systemd/NetworkTarget/
+# and copied this:
+#  https://tickets.puppetlabs.com/browse/PUP-5402
 
 
 [Unit]
