@@ -8,6 +8,7 @@ cd ${ABS_PATH%%/}/etc/
 #cp spooky.conf /etc/init/spooky.conf
 #initctl reload-configuration
 
-cp spooky.service /lib/systemd/system/spooky.service && systemctl daemon-reload && systemctl enable spooky.service
+
+mkdir -p /logs && mkdir -p /tmp && cp spooky.service /lib/systemd/system/spooky.service && systemctl daemon-reload && systemctl enable spooky.service
 
 

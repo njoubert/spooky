@@ -1,10 +1,17 @@
 # Startup script for systemd (ubuntu 15.04 and up)
 # 
 
+
+# Oh god, systemd is confusing
+
+# Making it wait on the network:
+#  https://wiki.freedesktop.org/www/Software/systemd/NetworkTarget/
+
+
 [Unit]
 Description=Spooky OdroidPerson Daemon
-Wants=systemd-networkd.socket
-After=network.target network-online.target systemd-networkd.socket
+Wants=network.target network-online.target
+After=network.target network-online.target
 
 [Service]
 Type=forking
