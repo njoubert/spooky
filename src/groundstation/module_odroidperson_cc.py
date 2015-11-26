@@ -101,13 +101,17 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
   def disable_piksi_sim(self):
     self.send_cc('simulator', 'False')
 
-  def shutdown(self):
+  def cmd_shutdown(self):
     print 'Sending shutdown command to %s' % self.instance_name
     self.send_cc('shutdown')
 
-  def restart(self):
+  def cmd_restart(self):
     print 'Sending restart command to %s' % self.instance_name
     self.send_cc('restart')
+
+  def cmd_update(self):
+    print 'Sending update command to %s' % self.instance_name
+    self.send_cc('update')
 
   def run(self):
     '''Thread loop here'''

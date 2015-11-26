@@ -334,10 +334,9 @@ class OdroidPerson:
 
   def cc_update(self, msg):
     print "Updating now..."
-    os.system("touch TESTME.txt")
     os.system("git pull")
+    self.send_cc('restarting')
     os.system("systemctl restart spooky.service")
-    os.system("rm TESTME.txt")
 
   def cc_unrecognized(self, msg):
     pass
@@ -364,10 +363,7 @@ class OdroidPerson:
 
         print "CC bound to %s : %d" % (self.bind_ip, self.cc_local_port)
             
-
         heartbeat = spooky.DoEvery(lambda: self.send_heartbeat(), 1.0)
-        update = spooky.DoEvery(lambda: self.cc_update(None), 10.0)
-
         while True:
           try:
             # For command and control, we're going to use JSON over UDP
@@ -376,7 +372,6 @@ class OdroidPerson:
             # Our only requirement is, a cc message consists of at the very least:
             # {'msgtype': 'something', 'payload': {}}
             heartbeat.tick()
-            update.tick()
             cc_data, cc_addr = cc_udp.recvfrom(4096)
             self.handle_cc(cc_data, cc_addr)
           except (socket.error, socket.timeout) as e:

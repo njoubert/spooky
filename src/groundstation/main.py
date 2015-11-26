@@ -36,7 +36,8 @@ class GroundStation(CommandLineHandler):
       'trigger'  : (self.cmd_trigger,                   'triggers a message across modules'),
       'psim'     : (self.cmd_piksisim,                  'toggles the piksi simulator on connected piksis'),
       'shutdown' : (self.cmd_shutdown,                  'shuts down all nodes in network'),
-      'restart'  : (self.cmd_restart,                   'restarts all nodes in network')
+      'restart'  : (self.cmd_restart,                   'restarts all nodes in network'),
+      'update'   : (self.cmd_update,                    'does a git pull and restart on all nodes in network')
     }
     CommandLineHandler.__init__(self, self.command_map)
 
@@ -100,10 +101,13 @@ class GroundStation(CommandLineHandler):
       print "enabling. use 't' for true and 'f' for false to toggle state."
 
   def cmd_shutdown(self, args):
-    self.modules.trigger("shutdown")
+    self.modules.trigger("cmd_shutdown")
 
   def cmd_restart(self, args):
-    self.modules.trigger("restart")
+    self.modules.trigger("cmd_restart")
+
+  def cmd_update(self, args):
+    self.modules.trigger("cmd_update")
 
   def configure_network_from_config(self):
     '''
