@@ -53,6 +53,9 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
     print "CLIENT CLAIMS UNSUPPORTED: %s" % msg['payload']
     return True
 
+  def cc_restarting(self, msg):
+    print "CLIENT %s IS RESTARTING: %s" % (self.instance_name, msg)
+
   def send_cc(self, msgtype, payload=None):
     try:
       msg = {'msgtype':msgtype}
@@ -75,7 +78,8 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
       'NACK':        self.cc_nack,
       'heartbeat':   self.cc_heartbeat,
       'malformed':   self.cc_malformed,
-      'unsupported': self.cc_unsupported,       
+      'unsupported': self.cc_unsupported,
+      'restarting':  self.cc_restarting,       
     }
 
     if not 'msgtype' in msg:
