@@ -345,6 +345,9 @@ class OdroidPerson:
   def cc_unsupported(self, msg):
     pass
 
+  def send_heartbeat(self):
+    self.send_cc('heartbeat', payload={'git-describe': spooky.get_version, 'UID': os.getuid()})
+
   def mainloop(self):
 
     self.sbpBroadcastListenerThread.start()
@@ -362,7 +365,7 @@ class OdroidPerson:
         print "CC bound to %s : %d" % (self.bind_ip, self.cc_local_port)
             
 
-        heartbeat = spooky.DoEvery(lambda: self.send_cc('heartbeat', payload=os.getuid()), 1.0)
+        heartbeat = spooky.DoEvery(lambda: self.send_heartbeat(), 1.0)
         update = spooky.DoEvery(lambda: self.cc_update(None), 10.0)
 
         while True:
