@@ -284,11 +284,11 @@ class OdroidPerson:
   def cc_unsupported(self, msg):
     pass
 
-  def send_cc(self, msgtype, json_payload=None):
+  def send_cc(self, msgtype, payload=None):
     try:
       msg = {'msgtype':msgtype}
-      if json_payload:
-        msg['payload'] = json_payload
+      if payload:
+        msg['payload'] = payload
       #print "sending message %s to %s, %s" % (msgtype, self.server_ip, self.cc_server_port)
       self.cc_udp.sendto(json.dumps(msg), (self.server_ip, self.cc_server_port))
     except socket.error:

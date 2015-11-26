@@ -51,11 +51,11 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
     print "CLIENT CLAIMS UNSUPPORTED: %s" % msg['payload']
     return True
 
-  def send_cc(self, msgtype, json_payload=None):
+  def send_cc(self, msgtype, payload=None):
     try:
       msg = {'msgtype':msgtype}
-      if json_payload:
-        msg['payload'] = json_payload
+      if payload:
+        msg['payload'] = payload
       #print "sending message %s to %s, %s" % (msgtype, addr[0], addr[1])
       self.cc_udp.sendto(json.dumps(msg), self.cc_send_addr)
     except socket.error:
