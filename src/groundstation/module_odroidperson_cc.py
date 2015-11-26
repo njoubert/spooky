@@ -86,14 +86,18 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
       print "UNSUPPORTED: message type \'%s\' not supported." % msg['msgtype']
       return
 
-    #print "Handling message type %s: %s" % (msg['msgtype'], str(msg))
+    print "Handling message type %s: %s" % (msg['msgtype'], str(msg))
     
     success = msg_handler[msg['msgtype']](msg)
-    if not (msg['msgtype'] is 'ACK' or msg['msgtype'] is 'NACK'):
+    print "success: %s" % str(success)
+    if not ('ACK' in msg['msgtype'] or 'NACK' in msg['msgtype']):
       if success:
+        print "about to ack"
         self.send_cc('ACK', {'__ACK_ID__': msg['__ID__']})
       else:
+        print "about to nack"
         self.send_cc('NACK', {'__ACK_ID__': msg['__ID__']})
+    return
 
 
   def enable_piksi_sim(self):

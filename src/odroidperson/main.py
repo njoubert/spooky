@@ -294,7 +294,7 @@ class OdroidPerson:
 
     #print "Handling message type %s: %s" % (msg['msgtype'], str(msg))
     success = msg_handler[msg['msgtype']](msg)
-    if not (msg['msgtype'] is 'ACK' or msg['msgtype'] is 'NACK'):
+    if not ('ACK' in msg['msgtype'] or 'NACK' in msg['msgtype']):
       if success:
         self.send_cc('ACK', {'__ACK_ID__': msg['__ID__']})
       else:
