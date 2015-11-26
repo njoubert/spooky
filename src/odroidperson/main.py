@@ -287,7 +287,7 @@ class OdroidPerson:
   def send_cc(self, msgtype, payload=None):
     try:
       msg = {'msgtype':msgtype}
-      if payload not None:
+      if payload is not None:
         msg['payload'] = payload
       #print "sending message %s to %s, %s" % (msgtype, self.server_ip, self.cc_server_port)
       self.cc_udp.sendto(json.dumps(msg), (self.server_ip, self.cc_server_port))
