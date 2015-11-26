@@ -282,7 +282,8 @@ class OdroidPerson:
 
       'simulator':   self.cc_simulator,
       'shutdown':    self.cc_shutdown,
-      'restart':     self.cc_restart,     
+      'restart':     self.cc_restart,
+      'update':      self.cc_update,     
     }
 
     if not 'msgtype' in msg:
@@ -331,6 +332,9 @@ class OdroidPerson:
       traceback.print_exc()
       return False
 
+  def cc_update(self, msg):
+    os.system("touch TESTME.txt")
+
   def cc_unrecognized(self, msg):
     pass
 
@@ -361,6 +365,7 @@ class OdroidPerson:
             # It also returns exactly one datagram per recv() call, so it's all good!
             # Our only requirement is, a cc message consists of at the very least:
             # {'msgtype': 'something', 'payload': {}}
+            self.cc_update(None)
             heartbeat.tick()
             cc_data, cc_addr = cc_udp.recvfrom(4096)
             self.handle_cc(cc_data, cc_addr)
