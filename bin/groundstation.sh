@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 ABS_PATH=$(cd `dirname "${BASH_SOURCE[0]}"` && cd .. && pwd)
 
