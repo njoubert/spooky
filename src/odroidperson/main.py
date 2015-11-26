@@ -168,7 +168,7 @@ class PiksiHandler(threading.Thread):
       self.handle = serial.Serial(self.port, self.baud, timeout=1)
       self._reader_thread.start()
     except (OSError, serial.SerialException):
-      logger.error("Serial device '%s' not found" % port)
+      logger.error("Serial device '%s' not found" % self.port)
       logger.error("The following serial devices were detected:")
       import serial.tools.list_ports
       for (name, desc, _) in serial.tools.list_ports.comports():
