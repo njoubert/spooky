@@ -257,6 +257,41 @@ class OdroidPerson:
     self.sbpBroadcastListenerThread.join(1)
     self.PiksiHandler.join(1)
 
+  def send_cc(self, msgtype, payload=None):
+    try:
+      msg = {'msgtype':msgtype}
+      if payload is not None:
+        msg['payload'] = payload
+      #print "sending message %s to %s, %s" % (msgtype, self.server_ip, self.cc_server_port)
+      self.cc_udp.sendto(json.dumps(msg), (self.server_ip, self.cc_server_port))
+    except socket.error:
+      traceback.print_exc()
+      raise
+
+  def handle_cc(self, cc_data, cc_addr):
+    msg = json.loads(cc_data)
+
+    msg_handler = {
+      'ACK':         self.cc_ack,
+      'NACK':        self.cc_nack,
+      'malformed':   self.cc_unrecognized,
+      'unsupported': self.cc_unsupported,
+
+      'simulator':   self.cc_simulator,
+      'shutdown':    self.cc_shutdown       
+    }
+
+    if not 'msgtype' in msg:
+      self.send_cc('malformed', {'msg': 'message contains to \'msgtype\' field.'})
+      return
+
+    if not msg['msgtype'] in msg_handler:
+      self.send_cc('unsupported', {'msg': 'message type \'%s\' not supported.' % msg['msgtype']})
+      return
+
+    #print "Handling message type %s: %s" % (msg['msgtype'], str(msg))
+    msg_handler[msg['msgtype']](msg)
+
   def cc_ack(self, msg):
     print "ACK RECEIVED"
 
@@ -287,42 +322,6 @@ class OdroidPerson:
 
   def cc_unsupported(self, msg):
     pass
-
-  def send_cc(self, msgtype, payload=None):
-    try:
-      msg = {'msgtype':msgtype}
-      if payload is not None:
-        msg['payload'] = payload
-      #print "sending message %s to %s, %s" % (msgtype, self.server_ip, self.cc_server_port)
-      self.cc_udp.sendto(json.dumps(msg), (self.server_ip, self.cc_server_port))
-    except socket.error:
-      traceback.print_exc()
-      raise
-
-
-  def handle_cc(self, cc_data, cc_addr):
-    msg = json.loads(cc_data)
-
-    msg_handler = {
-      'ACK':         self.cc_ack,
-      'NACK':        self.cc_nack,
-      'malformed':   self.cc_unrecognized,
-      'unsupported': self.cc_unsupported,
-
-      'simulator':   self.cc_simulator,       
-    }
-
-    if not 'msgtype' in msg:
-      self.send_cc('malformed', {'msg': 'message contains to \'msgtype\' field.'})
-      return
-
-    if not msg['msgtype'] in msg_handler:
-      self.send_cc('unsupported', {'msg': 'message type \'%s\' not supported.' % msg['msgtype']})
-      return
-
-    #print "Handling message type %s: %s" % (msg['msgtype'], str(msg))
-    msg_handler[msg['msgtype']](msg)
-
 
   def mainloop(self):
 
