@@ -263,6 +263,10 @@ class OdroidPerson:
   def cc_nack(self, msg):
     print "NACK RECEIVED"
 
+  def cc_shutdown(self, msg):
+    os.system("shutdown now -h")
+    return True
+
   def cc_simulator(self, msg):
     try:
       payload = msg['payload']
