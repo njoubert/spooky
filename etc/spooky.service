@@ -3,7 +3,8 @@
 
 [Unit]
 Description=Spooky OdroidPerson Daemon
-After=network.target
+Wants=systemd-networkd.socket
+After=network.target network-online.target systemd-networkd.socket
 
 [Service]
 Type=forking
