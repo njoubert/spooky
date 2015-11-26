@@ -9,16 +9,8 @@ import spooky
 
 class CommandLineHandler(object):
   ''' Responsible for all the command line console features'''
-  def __init__(self):
-    self.command_map = {
-      'exit'     : (self.cmd_stop,                      'exit gracefully'),
-      'status'   : (self.cmd_status,                    'show status'),
-      'module'   : (self.modules.cmd_module,            'manage modules'),
-      'config'   : (self.config.cmd_config,             'manage configuration'),
-      'reinit'   : (self.cmd_reinit,                    'reconfigures network from config'),
-      'trigger'  : (self.cmd_trigger,                   'triggers a message across modules'),
-      'psim'     : (self.cmd_piksisim,                  'toggles the piksi simulator on connected piksis')
-    }
+  def __init__(self, command_map={}):
+    self.command_map = command_map
 
   def process_stdin(self, line):
     line = line.strip()

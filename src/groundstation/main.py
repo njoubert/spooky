@@ -27,7 +27,18 @@ class GroundStation(CommandLineHandler):
     self.modules = ModuleHandler(self)
     self.dying = False
     self.init_death()
-    CommandLineHandler.__init__(self)
+    self.command_map = {
+      'exit'     : (self.cmd_stop,                      'exit gracefully'),
+      'status'   : (self.cmd_status,                    'show status'),
+      'module'   : (self.modules.cmd_module,            'manage modules'),
+      'config'   : (self.config.cmd_config,             'manage configuration'),
+      'reinit'   : (self.cmd_reinit,                    'reconfigures network from config'),
+      'trigger'  : (self.cmd_trigger,                   'triggers a message across modules'),
+      'psim'     : (self.cmd_piksisim,                  'toggles the piksi simulator on connected piksis'),
+      'shutdown' : (self.cmd_shutdown,                  'shuts down all nodes in network'),
+      'restart'  : (self.cmd_restart,                   'restarts all nodes in network')
+    }
+    CommandLineHandler.__init__(self, self.command_map)
 
   def init_death(self):  
     '''Setup Graceful Death'''
@@ -87,6 +98,12 @@ class GroundStation(CommandLineHandler):
     else:
       self.modules.trigger("enable_piksi_sim")
       print "enabling. use 't' for true and 'f' for false to toggle state."
+
+  def cmd_shutdown(self, args):
+    self.modules.trigger("shutdown")
+
+  def cmd_restart(self, args):
+    self.modules.trigger("restart")
 
   def configure_network_from_config(self):
     '''

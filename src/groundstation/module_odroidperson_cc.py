@@ -85,17 +85,12 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
     if not msg['msgtype'] in msg_handler:
       print "UNSUPPORTED: message type \'%s\' not supported." % msg['msgtype']
       return
-
-    print "Handling message type %s: %s" % (msg['msgtype'], str(msg))
     
     success = msg_handler[msg['msgtype']](msg)
-    print "success: %s" % str(success)
     if not ('ACK' in msg['msgtype'] or 'NACK' in msg['msgtype']):
       if success:
-        print "about to ack"
         self.send_cc('ACK', {'__ACK_ID__': msg['__ID__']})
       else:
-        print "about to nack"
         self.send_cc('NACK', {'__ACK_ID__': msg['__ID__']})
     return
 
@@ -109,6 +104,10 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
   def shutdown(self):
     print 'Sending shutdown command to %s' % self.instance_name
     self.send_cc('shutdown')
+
+  def restart(self):
+    print 'Sending restart command to %s' % self.instance_name
+    self.send_cc('restart')
 
   def run(self):
     '''Thread loop here'''

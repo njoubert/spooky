@@ -281,7 +281,8 @@ class OdroidPerson:
       'unsupported': self.cc_unsupported,
 
       'simulator':   self.cc_simulator,
-      'shutdown':    self.cc_shutdown       
+      'shutdown':    self.cc_shutdown,
+      'restart':     self.cc_restart,     
     }
 
     if not 'msgtype' in msg:
