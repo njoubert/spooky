@@ -227,6 +227,7 @@ class OdroidPerson:
     self.ident  = ident
     self.dying  = False
     self.config = config
+    self.send_id = 0
     
     print "ODRIOD launching as '%s'" % ident
 
@@ -262,6 +263,8 @@ class OdroidPerson:
       msg = {'msgtype':msgtype}
       if payload is not None:
         msg['payload'] = payload
+      msg['__ID__'] = self.send_id
+      self.send_id += 1
       #print "sending message %s to %s, %s" % (msgtype, self.server_ip, self.cc_server_port)
       self.cc_udp.sendto(json.dumps(msg), (self.server_ip, self.cc_server_port))
     except socket.error:
@@ -290,16 +293,26 @@ class OdroidPerson:
       return
 
     #print "Handling message type %s: %s" % (msg['msgtype'], str(msg))
-    msg_handler[msg['msgtype']](msg)
+    success = msg_handler[msg['msgtype']](msg)
+    if msg['msgtype'] is not 'ACK' and msg['msgtype'] is not 'NACK':
+      if success:
+        self.send_cc('ACK', {'__ACK_ID__': msg['__ID__']})
+      else:
+        self.send_cc('NACK', {'__ACK_ID__': msg['__ID__']})
+
 
   def cc_ack(self, msg):
-    print "ACK RECEIVED"
+    print "ACK RECEIVED for %s" % msg['payload']
 
   def cc_nack(self, msg):
-    print "NACK RECEIVED"
+    print "NACK RECEIVED for %s" % msg['payload']
 
   def cc_shutdown(self, msg):
     os.system("shutdown now -h")
+    return True
+
+  def cc_restart(self, msg):
+    os.system("reboot")
     return True
 
   def cc_simulator(self, msg):

@@ -30,11 +30,13 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
     self.cc_remote_ip   = self.main.config.get_foreign(instance_name, 'my-ip')
     self.cc_send_addr = (self.cc_remote_ip, self.cc_remote_port)
 
+    self.send_id = 0
+
   def cc_ack(self, msg):
-    print "ACK RECEIVED"
+    print "ACK RECEIVED for %s" % msg['payload']
 
   def cc_nack(self, msg):
-    print "NACK RECEIVED"
+    print "NACK RECEIVED for %s" % msg['payload']
 
   def cc_heartbeat(self, msg):
     print "RECEIVED HEARTBEAT from %s, msg=%s" % (self.cc_remote_ip, msg)
@@ -56,6 +58,8 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
       msg = {'msgtype':msgtype}
       if payload:
         msg['payload'] = payload
+      msg['__ID__'] = self.send_id
+      self.send_id += 1
       #print "sending message %s to %s, %s" % (msgtype, addr[0], addr[1])
       self.cc_udp.sendto(json.dumps(msg), self.cc_send_addr)
     except socket.error:
@@ -84,10 +88,12 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
 
     #print "Handling message type %s: %s" % (msg['msgtype'], str(msg))
     
-    if msg_handler[msg['msgtype']](msg):
-      self.send_cc('ACK')
-    else:
-      self.send_cc('NACK')
+    success = msg_handler[msg['msgtype']](msg)
+    if msg['msgtype'] is not 'ACK' and msg['msgtype'] is not 'NACK':
+      if success:
+        self.send_cc('ACK', {'__ACK_ID__': msg['__ID__']})
+      else:
+        self.send_cc('NACK', {'__ACK_ID__': msg['__ID__']})
 
 
   def enable_piksi_sim(self):
