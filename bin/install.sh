@@ -14,7 +14,7 @@ mkdir -p /logs && \
 	cp spooky.service /lib/systemd/system/spooky.service && \
 	systemctl enable NetworkManager-wait-online.service && \
 	systemctl enable systemd-networkd-wait-online.service && \
-	ln -s /usr/lib/systemd/system/spooky.service /usr/lib/systemd/system/network-online.target.wants/ && \
+	ln -s /lib/systemd/system/spooky.service /lib/systemd/system/network-online.target.wants/ && \
 	systemctl daemon-reload && \
 	systemctl enable spooky.service
 
