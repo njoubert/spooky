@@ -346,7 +346,7 @@ class OdroidPerson:
     pass
 
   def send_heartbeat(self):
-    self.send_cc('heartbeat', payload={'git-describe': spooky.get_version, 'UID': os.getuid()})
+    self.send_cc('heartbeat', payload={'git-describe': spooky.get_version(), 'UID': os.getuid()})
 
   def mainloop(self):
 
