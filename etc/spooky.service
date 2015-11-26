@@ -1,0 +1,19 @@
+# Startup script for systemd (ubuntu 15.04 and up)
+# 
+
+[Unit]
+Description=Spooky OdroidPerson Daemon
+After=network.target
+
+[Service]
+Type=forking
+# The PID file is optional, but recommended in the manpage
+# "so that systemd can identify the main process of the daemon"
+PIDFile=/tmp/odroidperson.pid
+ExecStart=/home/odroid/Code/spooky/bin/odroidperson-daemon.sh start
+ExecStop=/home/odroid/Code/spooky/bin/odroidperson-daemon.sh stop
+ExecReload=/home/odroid/Code/spooky/bin/odroidperson-daemon.sh restart
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
