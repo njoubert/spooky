@@ -12,10 +12,16 @@ cd ${ABS_PATH%%/}/etc/
 mkdir -p /logs && \
 	mkdir -p /tmp && \
 	cp spooky.service /lib/systemd/system/spooky.service && \
-	systemctl enable NetworkManager-wait-online.service && \
-	systemctl enable systemd-networkd-wait-online.service && \
 	ln -s /lib/systemd/system/spooky.service /lib/systemd/system/network-online.target.wants/ && \
 	systemctl daemon-reload && \
 	systemctl enable spooky.service
 
 
+
+
+# sudo systemctl stop spooky.service
+# sudo systemctl disable spooky.service
+# sudo rm -f /lib/systemd/system/network-online.target.wants/spooky.service
+# sudo systemctl disable NetworkManager-wait-online.service
+# sudo systemctl disable systemd-networkd-wait-online.service
+# sudo rm -f /lib/systemd/system/spooky.service

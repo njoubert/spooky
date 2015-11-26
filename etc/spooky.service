@@ -8,11 +8,10 @@
 #  https://wiki.freedesktop.org/www/Software/systemd/NetworkTarget/
 
 
-
 [Unit]
 Description=Spooky OdroidPerson Daemon
-Wants=network.target network-online.target systemd-networkd.socket
-After=network.target network-online.target systemd-networkd.socket
+Requires=network-online.target
+After=network-online.target
 
 [Service]
 Type=forking
@@ -25,4 +24,4 @@ ExecReload=/home/odroid/Code/spooky/bin/odroidperson-daemon.sh restart
 Restart=on-abort
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=network-online.target
