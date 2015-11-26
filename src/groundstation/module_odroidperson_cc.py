@@ -89,7 +89,7 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
     #print "Handling message type %s: %s" % (msg['msgtype'], str(msg))
     
     success = msg_handler[msg['msgtype']](msg)
-    if msg['msgtype'] is not 'ACK' and msg['msgtype'] is not 'NACK':
+    if not (msg['msgtype'] is 'ACK' or msg['msgtype'] is 'NACK'):
       if success:
         self.send_cc('ACK', {'__ACK_ID__': msg['__ID__']})
       else:
