@@ -18,12 +18,6 @@ class SystemStateModule(spooky.modules.SpookyModule):
     self._state = {}
     spooky.modules.SpookyModule.__init__(self, main, "systemstate", singleton=True)
 
-  def find_next_log_filename(basename):
-    i = 0
-    while os.path.exists("statelog%.7i.pickle" % i):
-      i += 1
-    return "statelog%.7i.pickle" % i
-
   def dump_state(self, filelike):
     pickle.dump(self.get_current(), filelike, pickle.HIGHEST_PROTOCOL)
 
@@ -66,7 +60,7 @@ class SystemStateModule(spooky.modules.SpookyModule):
     Thread loop here
     '''
     self.main.set_systemstate(self)
-    filename = self.find_next_log_filename()
+    filename = spooky.find_next_log_filename("statelog")
     print "Opening logfile: %s" % filename 
     with open(filename, 'wb') as f:
 

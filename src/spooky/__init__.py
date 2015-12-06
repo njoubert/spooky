@@ -20,6 +20,13 @@ import subprocess
 def get_version():
   return subprocess.check_output(["git", "describe", "--dirty", "--always"]).strip()
 
+
+def find_next_log_filename(prefix):
+  i = 0
+  while os.path.exists(prefix + "%.7i.pickle" % i):
+    i += 1
+  return prefix + "%.7i.pickle" % i
+    
 #====================================================================#
 
 class DoEvery(object):

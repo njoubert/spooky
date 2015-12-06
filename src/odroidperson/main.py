@@ -13,6 +13,8 @@ import threading, Queue
 from contextlib import closing
 
 from sbp.client.drivers.base_driver import BaseDriver
+from sbp.client.loggers.json_logger import JSONLogger
+from sbp.client.loggers.byte_logger import ByteLogger
 from sbp.client import Handler, Framer
 from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
 from sbp.navigation import SBP_MSG_POS_LLH, MsgPosLLH
@@ -107,15 +109,18 @@ class PiksiHandler(threading.Thread):
 
   '''
 
-  def __init__(self, main, port, baud, server_ip, sbp_server_port):
+  def __init__(self, main, port, baud, server_ip, sbp_server_port, raw_sbp_logs_prefix):
     import serial
     threading.Thread.__init__(self)
-    self.daemon          = True
-    self.main            = main
-    self.port            = port
-    self.baud            = baud
-    self.server_ip       = server_ip
-    self.sbp_server_port = sbp_server_port
+    self.daemon              = True
+    self.main                = main
+    self.port                = port
+    self.baud                = baud
+    self.server_ip           = server_ip
+    self.sbp_server_port     = sbp_server_port
+    self.raw_sbp_logs_prefix = raw_sbp_logs_prefix
+    self.raw_sbp_log_filename = spooky.find_next_log_filename(
+      raw_sbp_logs_prefix + "_" + self.main.ident + "_")
 
     self._reader_thread = threading.Thread(target=self._reader, name="Reader")
     self._reader_thread.daemon = True
@@ -126,17 +131,20 @@ class PiksiHandler(threading.Thread):
   def _reader(self):
     with BaseDriver(self.handle) as driver:
       with Handler(Framer(driver.read, None, verbose=True)) as source:
-        try:
-          for msg, metadata in source:
-            try:
-              self._recvFromPiksi.put(msg.pack(), True, 0.05)
-            except Queue.Full:
-              logger.warn("_recvFromPiksi Queue is full!")
-        except (OSError, serial.SerialException):
-          logger.error("Piksi disconnected")
-          raise SystemExit          
-        except Exception:
-          traceback.print_exc()
+        with JSONLogger(self.raw_sbp_log_filename) as logger:
+          source.add_callback(logger)
+
+          try:
+            for msg, metadata in source:
+              try:
+                self._recvFromPiksi.put(msg.pack(), True, 0.05)
+              except Queue.Full:
+                logger.warn("_recvFromPiksi Queue is full!")
+          except (OSError, serial.SerialException):
+            logger.error("Piksi disconnected")
+            raise SystemExit          
+          except Exception:
+            traceback.print_exc()
 
   def send_disable_sim_to_piksi(self):
     section = "simulator"
@@ -243,7 +251,8 @@ class OdroidPerson:
       self.config.get_my('sbp-port'), 
       self.config.get_my('sbp-baud'), 
       self.server_ip,
-      self.sbp_server_port)
+      self.sbp_server_port,
+      self.config.get_my('raw-sbp-logs-prefix'))
     
     self.sbpBroadcastListenerThread = SBPUDPBroadcastListenerHandlerThread(self, 
       self.PiksiHandler.send_to_piksi, 

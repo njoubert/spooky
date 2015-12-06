@@ -1,7 +1,8 @@
 {
 	"GLOBALS": {
 		"sbp-udp-bcast-port":   19100,
-		"sbp-bcast-sleep":      0.1
+		"sbp-bcast-sleep":      0.1,
+		"raw-sbp-logs-prefix":     "/logs/sbplog"
 	},
 
 	"NETWORK": {
@@ -28,7 +29,7 @@
 
 	"127.0.0.1": {
 		"my-ip":                  "127.0.0.1",
-		"sbp-port":               "/dev/cu.usbserial-00101114",
+		"sbp-port":               "/dev/cu.usbserial-00001214",
 		"sbp-baud":               1000000,
 		"cc-local-port":          19200,
 		"cc-server-port":         19201,
