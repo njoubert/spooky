@@ -60,7 +60,7 @@ class SystemStateModule(spooky.modules.SpookyModule):
     Thread loop here
     '''
     self.main.set_systemstate(self)
-    filename = spooky.find_next_log_filename("statelog")
+    filename = spooky.find_next_log_filename(self.main.config.get_my("full-state-logs-prefix"))
     print "Opening logfile: %s" % filename 
     with open(filename, 'wb') as f:
 
