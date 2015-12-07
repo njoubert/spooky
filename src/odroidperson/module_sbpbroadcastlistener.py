@@ -20,7 +20,6 @@ from spooky.ModuleHandler import ModuleHandler
 
 from sbp.client.drivers.base_driver import BaseDriver
 from sbp.client.loggers.json_logger import JSONLogger
-from sbp.client.loggers.byte_logger import ByteLogger
 from sbp.client import Handler, Framer
 from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
 from sbp.navigation import SBP_MSG_POS_LLH, MsgPosLLH

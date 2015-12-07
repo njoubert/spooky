@@ -93,6 +93,7 @@ class ModuleHandler(object):
         
     modpaths = ['%s.module_%s' % (self.module_root, module_name), 'spooky.module_%s' % module_name]
     for modpath in modpaths:
+      print "ATTEMPTING TO LOAD %s" % modpath
       try:
         package = import_package(modpath)
         reload(package)
