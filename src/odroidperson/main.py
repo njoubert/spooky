@@ -407,6 +407,8 @@ class OdroidPersonDaemon(Daemon):
     op = OdroidPerson(config, args.ident[0])
     op.mainloop()
 
+#=====================================================================#
+ 
 def main():
   try:
     logger.info("OdroidPerson Launching!")

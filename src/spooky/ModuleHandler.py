@@ -90,15 +90,23 @@ class ModuleHandler(object):
           print "Module %s already loaded" % (m)
           return
         
-    try:
-      modpath = 'groundstation.module_%s' % module_name
-      package = import_package(modpath)
-      reload(package)
-      module = package.init(self.main, instance_name=instance_name)
-      self.modules.append((module, package))
-      return module
-    except ImportError as msg:
-      print traceback.format_exc()
+    modpaths = ['groundstation.module_%s' % module_name, 'spooky.module_%s' % module_name]
+    for modpath in modpaths:
+      try:
+        package = import_package(modpath)
+        reload(package)
+        module = package.init(self.main, instance_name=instance_name)
+        if isinstance(module, spooky.modules.SpookyModule):
+          self.modules.append((module, package))
+          return module
+        else:
+          ex = "%s.init didn't return instance of SpookyModule" % module_name
+          break
+      except ImportError as msg:
+        ex = msg
+        print traceback.format_exc()
+    print "Failed to load module: %s" % ex
+    return None
 
   def unload_module(self, module_name, instance_name=None, quiet=False):
     hasUnloaded = 0
