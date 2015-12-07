@@ -17,7 +17,7 @@
 	},
 	
 	"192.168.2.1": {
-		"be-the-basestation":     true,
+		"be-the-basestation":     false,
 		"my-ip":                 "192.168.2.1",
 		"sbp-port":              "/dev/cu.usbserial-00101114",
 		"sbp-baud":              1000000
@@ -42,7 +42,7 @@
 	},
 
 	"192.168.2.51": {
-		"be-the-basestation":     false,
+		"be-the-basestation":     true,
 		"my-ip":                  "192.168.2.51",
 		"sbp-port":               "/dev/ttyUSB0",
 		"sbp-baud":               1000000,
