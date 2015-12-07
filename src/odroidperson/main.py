@@ -12,20 +12,11 @@ import logging
 import threading, Queue
 from contextlib import closing
 
-from sbp.client.drivers.base_driver import BaseDriver
-from sbp.client.loggers.json_logger import JSONLogger
-from sbp.client.loggers.byte_logger import ByteLogger
-from sbp.client import Handler, Framer
-from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
-from sbp.navigation import SBP_MSG_POS_LLH, MsgPosLLH
-from sbp.acquisition import SBP_MSG_ACQ_RESULT
-from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
-from sbp.settings import SBP_MSG_SETTINGS_WRITE, MsgSettingsWrite
-
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
 import spooky, spooky.ip
 from spooky.Daemon import Daemon
+from spooky.ModuleHandler import ModuleHandler
 
 #====================================================================#
 
@@ -44,189 +35,6 @@ ch.setFormatter(formatter)
 # add ch to logger
 logger.addHandler(ch)
 
-#====================================================================#
-
-class SBPUDPBroadcastDriver(BaseDriver):
-
-  def __init__(self, bind_port):
-    self.handle = spooky.BufferedUDPBroadcastSocket(port=bind_port)
-    self.last_addr = None
-    BaseDriver.__init__(self, self.handle)
-
-  def read(self, size):
-    '''
-    Invariant: will return size or less bytes.
-    Invariant: will read and buffer ALL available bytes on given handle.
-    '''
-    data, addr = self.handle.recvfrom(size)
-    self.last_addr = addr
-    return data
-
-  def flush(self):
-    pass
-
-  def write(self, s):
-    raise IOError
-
-class SBPUDPBroadcastListenerHandlerThread(threading.Thread):
-  '''
-  Very simple repeater:
-    Listens for broadcast data coming in on given port
-    Send this data to the given data_callback.
-  '''
-
-  def __init__(self, main, data_callback, port=5000):
-    threading.Thread.__init__(self)
-    self.port = port
-    self.data_callback = data_callback
-    self.daemon = True
-    self.dying = False
-
-  def run(self):
-    with SBPUDPBroadcastDriver(self.port) as driver:
-      with Handler(Framer(driver.read, None, verbose=True)) as source:
-        try:
-          for msg, metadata in source:
-            if self.dying:
-              return
-            try:
-              print "Received %i" % len(msg.pack())
-              self.data_callback(msg.pack())
-            except Queue.Full:
-              logger.warn("_recvFromPiksi Queue is full!")
-        except Exception:
-          traceback.print_exc()
-
-  def stop(self):
-    self.dying = True
-    self.udp.setblocking(0)
-
-class PiksiHandler(threading.Thread):
-  '''
-  Responsible for all interaction with Piksi.
-  To send data TO piksi, call send_to_piksi() with data.
-  Any data received FROM piksi, is transmitted on given UDP socket.
-
-  '''
-
-  def __init__(self, main, port, baud, server_ip, sbp_server_port, raw_sbp_logs_prefix):
-    import serial
-    threading.Thread.__init__(self)
-    self.daemon              = True
-    self.main                = main
-    self.port                = port
-    self.baud                = baud
-    self.server_ip           = server_ip
-    self.sbp_server_port     = sbp_server_port
-    self.raw_sbp_logs_prefix = raw_sbp_logs_prefix
-    self.raw_sbp_log_filename = spooky.find_next_log_filename(
-      raw_sbp_logs_prefix + "_" + self.main.ident + "_")
-
-    self._reader_thread = threading.Thread(target=self._reader, name="Reader")
-    self._reader_thread.daemon = True
-
-    self._sendToPiksi   = Queue.Queue()
-    self._recvFromPiksi = Queue.Queue()
-
-  def _reader(self):
-    with BaseDriver(self.handle) as driver:
-      with Handler(Framer(driver.read, None, verbose=True)) as source:
-        with JSONLogger(self.raw_sbp_log_filename) as logger:
-          source.add_callback(logger)
-
-          try:
-            for msg, metadata in source:
-              try:
-                self._recvFromPiksi.put(msg.pack(), True, 0.05)
-              except Queue.Full:
-                logger.warn("_recvFromPiksi Queue is full!")
-          except (OSError, serial.SerialException):
-            logger.error("Piksi disconnected")
-            raise SystemExit          
-          except Exception:
-            traceback.print_exc()
-
-  def send_disable_sim_to_piksi(self):
-    section = "simulator"
-    name    = "enabled"
-    value   = "False"
-    msg = MsgSettingsWrite(setting='%s\0%s\0%s\0' % (section, name, value))
-    self.send_to_piksi(msg.to_binary())
-
-  def send_enable_sim_to_piksi(self):
-    section = "simulator"
-    name    = "enabled"
-    value   = "True"
-    msg = MsgSettingsWrite(setting='%s\0%s\0%s\0' % (section, name, value))
-    self.send_to_piksi(msg.to_binary())
-
-  def send_to_piksi(self, data):
-    '''
-    Call from an external thread to enqueue data
-    for this thread to upload to Piksi.
-
-    This might block!
-    '''
-    self._sendToPiksi.put(data, True)
-
-  def run(self):
-    import serial 
-
-    try:
-      self.handle = serial.Serial(self.port, self.baud, timeout=1)
-      self._reader_thread.start()
-    except (OSError, serial.SerialException):
-      logger.error("Serial device '%s' not found" % self.port)
-      logger.error("The following serial devices were detected:")
-      import serial.tools.list_ports
-      for (name, desc, _) in serial.tools.list_ports.comports():
-        if desc[0:4] == "ttyS":
-          continue
-        if name == desc:
-          logger.error("\t%s" % name)
-        else:
-          logger.error("\t%s (%s)" % (name, desc))
-      print
-      raise SystemExit
-
-    try:
-      with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as sbp_udp:
-        sbp_udp.setblocking(0)
-        sbp_udp.settimeout(0.0)
-        self.sbp_udp = sbp_udp
-
-        while True:
-
-          # Uploading data TO Piksi
-          try:
-            data = self._sendToPiksi.get(True, 0.01)
-            self.handle.write(data)
-            while not self._sendToPiksi.empty():
-              data = self._sendToPiksi.get(False)
-              self.handle.write(data)
-          except (Queue.Empty, serial.SerialException):
-            pass
-
-          # Repeating data FROM Piksi
-          try:
-            data = self._recvFromPiksi.get(True, 0.05)
-            n = sbp_udp.sendto(data, (self.server_ip, self.sbp_server_port))
-            if len(data) != n:
-              logger.warn("Piksi->UDP relay, did not send all data!")
-            else:
-              logger.debug("Piksi->UDP, %s bytes sent" % str(n))
-          except (Queue.Empty):
-            pass
-          except (socket.error, socket.timeout):
-            traceback.print_exc()
-            pass
-
-
-    except (OSError, serial.SerialException):
-      logger.error("Piksi disconnected")
-      raise SystemExit
-
-
 #====================================================================#    
 
 class OdroidPerson:
@@ -239,6 +47,8 @@ class OdroidPerson:
     
     print "ODRIOD launching as '%s'" % ident
 
+    self.modules = ModuleHandler(self, 'odroidperson')
+
     self.bind_ip           = self.config.get_my("my-ip")
     self.server_id         = self.config.get_network("server")
     self.server_ip         = self.config.get_foreign(self.server_id, "my-ip")
@@ -246,26 +56,17 @@ class OdroidPerson:
     self.cc_server_port    = self.config.get_my("cc-server-port")
     self.sbp_server_port   = self.config.get_my("sbp-server-port")
     self.mav_server_port   = self.config.get_my("mav-server-port")
-    
-    self.PiksiHandler = PiksiHandler(self, 
-      self.config.get_my('sbp-port'), 
-      self.config.get_my('sbp-baud'), 
-      self.server_ip,
-      self.sbp_server_port,
-      self.config.get_my('raw-sbp-logs-prefix'))
-    
-    self.sbpBroadcastListenerThread = SBPUDPBroadcastListenerHandlerThread(self, 
-      self.PiksiHandler.send_to_piksi, 
-      port=self.config.get_my('sbp-udp-bcast-port'))
-    
+        
     logger.info("Launching with Config:")
     logger.info(self.config)
 
   def stop(self):
     logger.info("Shutting down!")
     self.dying = True
-    self.sbpBroadcastListenerThread.join(1)
-    self.PiksiHandler.join(1)
+
+    self.modules.unload_all_modules()
+    # self.sbpBroadcastListenerThread.join(1)
+    # self.PiksiHandler.join(1)
 
   def send_cc(self, msgtype, payload=None):
     try:
@@ -331,10 +132,10 @@ class OdroidPerson:
       payload = msg['payload']
       if payload == 'True':
         print 'ENABLING PIKSI'
-        self.PiksiHandler.send_enable_sim_to_piksi()
+        self.modules.trigger('enable_piksi_sim')
       else:
         print 'DISABLING PIKSI'
-        self.PiksiHandler.send_disable_sim_to_piksi()
+        self.modules.trigger('disable_piksi_sim')
         pass
       return True
     except:
@@ -358,8 +159,14 @@ class OdroidPerson:
 
   def mainloop(self):
 
-    self.sbpBroadcastListenerThread.start()
-    self.PiksiHandler.start()
+    if self.config.get_my("be-the-basestation"):
+      print "I AM THE BASE STATION"
+      self.modules.load_module('SBPUDPBroadcast')
+    else:
+      print "I AM NOT THE BASE STATION"
+      piksi = self.modules.load_module('piksihandler')
+      bcastmodule = self.modules.load_module('sbpbroadcastlistener')
+      bcastmodule.set_data_callback(piksi.send_to_piksi)
 
     try:
       
@@ -408,7 +215,7 @@ class OdroidPersonDaemon(Daemon):
     op.mainloop()
 
 #=====================================================================#
- 
+
 def main():
   try:
     logger.info("OdroidPerson Launching!")

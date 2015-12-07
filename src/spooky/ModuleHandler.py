@@ -15,8 +15,9 @@ import spooky, spooky.ip
 
 class ModuleHandler(object):
 
-  def __init__(self, main):
+  def __init__(self, main, module_root):
     self.main = main
+    self.module_root = module_root
     self.modules = []
 
   def get_modules(self, module_name, instance_name=None):
@@ -90,7 +91,7 @@ class ModuleHandler(object):
           print "Module %s already loaded" % (m)
           return
         
-    modpaths = ['groundstation.module_%s' % module_name, 'spooky.module_%s' % module_name]
+    modpaths = ['%s.module_%s' % (self.module_root, module_name), 'spooky.module_%s' % module_name]
     for modpath in modpaths:
       try:
         package = import_package(modpath)
@@ -103,8 +104,7 @@ class ModuleHandler(object):
           ex = "%s.init didn't return instance of SpookyModule" % module_name
           break
       except ImportError as msg:
-        ex = msg
-        print traceback.format_exc()
+        ex = '%s\n%s' % (msg, traceback.format_exc())
     print "Failed to load module: %s" % ex
     return None
 

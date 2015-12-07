@@ -24,7 +24,7 @@ class GroundStation(CommandLineHandler):
     print "GROUNDSTATION launching as '%s'" % ident
     self.ident = ident
     self.config = config
-    self.modules = ModuleHandler(self)
+    self.modules = ModuleHandler(self, 'groundstation')
     self.dying = False
     self.init_death()
     self.command_map = {
@@ -116,7 +116,13 @@ class GroundStation(CommandLineHandler):
     won't interact with remote processes
     '''
     self.modules.load_module('systemstate')
-    self.modules.load_module('SBPUDPBroadcast')
+
+    if self.config.get_my("be-the-basestation"):
+      print "I AM THE BASE STATION"
+      self.modules.load_module('SBPUDPBroadcast')
+    else:
+      print "I AM NOT THE BASE STATION"
+    
     for client in self.config.get_network('odroidperson'):
        self.modules.load_module('odroidperson_cc', instance_name=client)
        self.modules.load_module('odroidperson_sbp', instance_name=client)

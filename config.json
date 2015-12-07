@@ -23,14 +23,15 @@
 		"sbp-baud":              1000000
 	},
 	"localhost-server": {
-		"be-the-basestation":     true,
+		"be-the-basestation":     false,
 		"my-ip":                  "127.0.0.1",
 		"udp-bcast-ip":           "127.0.0.1",
-		"sbp-port":               "/dev/cu.usbserial-14111",
+		"sbp-port":               "/dev/cu.usbserial-00001114",
 		"sbp-baud":               1000000
 	},
 
 	"127.0.0.1": {
+		"be-the-basestation":     true,
 		"my-ip":                  "127.0.0.1",
 		"sbp-port":               "/dev/cu.usbserial-00001214",
 		"sbp-baud":               1000000,
