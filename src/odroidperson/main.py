@@ -45,7 +45,7 @@ class OdroidPerson:
     self.config = config
     self.send_id = 0
     
-    print "ODRIOD launching as '%s'" % ident
+    print "ODRIOD launching as 't%s'" % ident
 
     self.modules = ModuleHandler(self, 'odroidperson')
 

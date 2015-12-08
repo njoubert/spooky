@@ -39,7 +39,7 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
     print "NACK RECEIVED for %s" % msg['payload']
 
   def cc_heartbeat(self, msg):
-    print "RECEIVED HEARTBEAT from %s, msg=%s" % (self.cc_remote_ip, msg)
+    #print "RECEIVED HEARTBEAT from %s, msg=%s" % (self.cc_remote_ip, msg)
     return True
 
   def cc_simulator(self, msg):

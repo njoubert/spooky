@@ -37,7 +37,8 @@ class GroundStation(CommandLineHandler):
       'psim'     : (self.cmd_piksisim,                  'toggles the piksi simulator on connected piksis'),
       'shutdown' : (self.cmd_shutdown,                  'shuts down all nodes in network'),
       'restart'  : (self.cmd_restart,                   'restarts all nodes in network'),
-      'update'   : (self.cmd_update,                    'does a git pull and restart on all nodes in network')
+      'update'   : (self.cmd_update,                    'does a git pull and restart on all nodes in network'),
+      'record'   : (self.cmd_record,                    'start or stop recording data for a session')
     }
     CommandLineHandler.__init__(self, self.command_map)
 
@@ -80,6 +81,16 @@ class GroundStation(CommandLineHandler):
 
   def cmd_stop(self, args):
     self.stop()
+
+  def cmd_record(self, args):
+    if len(args) > 0:
+      if 'start' in args:
+        return self.modules.trigger('cmd_record_start')
+      elif 'stop' in args:
+        return self.modules.trigger('cmd_record_stop')
+      elif 'next' in args:
+        return self.modules.trigger('cmd_record_next')
+    print 'USAGE: record (start|stop|next)'
 
   def cmd_status(self, args):
     self.modules.trigger("cmd_status")

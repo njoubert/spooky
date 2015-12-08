@@ -16,6 +16,7 @@ class SystemStateModule(spooky.modules.SpookyModule):
     self._inputQueueTimeout = 0.1
     self._stateLock = threading.Lock()
     self._state = {}
+    self.RECORDING = False
     spooky.modules.SpookyModule.__init__(self, main, "systemstate", singleton=True)
 
   def dump_state(self, filelike):
@@ -45,11 +46,23 @@ class SystemStateModule(spooky.modules.SpookyModule):
 
   def get_state_str(self):
     self._stateLock.acquire()
-    ret = ""
+    ret = "\n"
     for s in self._state:
       ret += " %s: %s\n" % (str(s), str(self._state[s]))
     self._stateLock.release()
     return ret
+
+  def cmd_record_start(self):
+    print "Recording system state to %s" % self.log_filename
+    self.RECORDING = True
+
+  def cmd_record_stop(self):
+    print "Pausing recording system state to %s" % self.log_filename 
+    self.RECORDING = False
+
+  def cmd_record_next(self):
+    self.RECORDING = False
+    print "NOT IMPLEMENTED YET."
 
   def stop(self, quiet=False):
     self.main.unset_systemstate()
@@ -60,16 +73,17 @@ class SystemStateModule(spooky.modules.SpookyModule):
     Thread loop here
     '''
     self.main.set_systemstate(self)
-    filename = spooky.find_next_log_filename(self.main.config.get_my("full-state-logs-prefix"))
-    print "Opening logfile: %s" % filename 
-    with open(filename, 'wb') as f:
+    self.log_filename = spooky.find_next_log_filename(self.main.config.get_my("full-state-logs-prefix"))
+    print "Opening logfile: %s" % self.log_filename 
+    with open(self.log_filename, 'wb') as f:
 
       try:
         while not self.wait_on_stop(0.1):
           while not self._inputQueue.empty():
             self._handlePartialUpdate(self._inputQueue.get_nowait())
 
-          self.dump_state(f)
+          if self.RECORDING:
+            self.dump_state(f)
       except SystemExit:
         self.main.unset_systemstate()
         print "Exit Forced. We're dead."
