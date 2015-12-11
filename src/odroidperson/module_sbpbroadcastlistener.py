@@ -66,22 +66,28 @@ class SBPUDPBroadcastListenerHandlerThread(spooky.modules.SpookyModule):
   def set_data_callback(self, data_callback):
     self.data_callback = data_callback
 
-  def run(self):
-    with SBPUDPBroadcastDriver(self.port) as driver:
-      with Handler(Framer(driver.read, None, verbose=True)) as source:
-        try:
-          for msg, metadata in source:
-            if self.stopped():
-              return
+  def handle_incoming(self, msg, **metadata):
+    try:
+      print "Received %i" % len(msg.pack())
+      if self.data_callback:
+        self.data_callback(msg.pack())
+    except Queue.Full:
+      logger.warn("_recvFromPiksi Queue is full!")
 
-            try:
-              print "Received %i" % len(msg.pack())
-              if self.data_callback:
-                self.data_callback(msg.pack())
-            except Queue.Full:
-              logger.warn("_recvFromPiksi Queue is full!")
-        except Exception:
-          traceback.print_exc()
+
+  def run(self):
+    try:
+
+      with SBPUDPBroadcastDriver(self.port) as driver:
+        with Handler(Framer(driver.read, None, verbose=True)) as source:
+
+          source.add_callback(self.handle_incoming)
+
+          while not self.wait_on_stop(1.0):
+            pass
+
+    except Exception:
+      traceback.print_exc()
 
   # def stop(self):
   #   self.dying = True

@@ -53,21 +53,28 @@ class PiksiHandler(spooky.modules.SpookyModule):
     self._sendToPiksi   = Queue.Queue()
     self._recvFromPiksi = Queue.Queue()
 
+  def handle_incoming(self, msg, **metadata):
+    '''
+    Callback for handling incoming SBP messages
+    '''
+    try:
+      self._recvFromPiksi.put(msg.pack(), True, 0.05)
+    except Queue.Full:
+      print "_recvFromPiksi Queue is full!"
+          
   def _reader(self):
     with BaseDriver(self.handle) as driver:
       with Handler(Framer(driver.read, None, verbose=True)) as source:
         with JSONLogger(self.raw_sbp_log_filename) as logger:
+          source.add_callback(self.handle_incoming)
           source.add_callback(logger)
-          #TODO(bugfix): Are we growing queues like mad? 
-          #TODO(improvement): don't do busy loop, use callback
-          try:
 
-            self.enable_piksi_sim()
-            for msg, metadata in source:
-              try:
-                self._recvFromPiksi.put(msg.pack(), True, 0.05)
-              except Queue.Full:
-                print "_recvFromPiksi Queue is full!"
+          try:
+            while not self.wait_on_stop(1.0):
+              # Sleep until we get killed. The callback above handles actual stuff.
+              # This is very nice for clean shutdown.
+              pass
+
           except (OSError, serial.SerialException):
             print("Piksi disconnected")
             raise SystemExit          
@@ -121,16 +128,14 @@ class PiksiHandler(spooky.modules.SpookyModule):
 
     try:
       with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as sbp_udp:
-        sbp_udp.setblocking(0)
-        sbp_udp.settimeout(0.0)
+        sbp_udp.setblocking(1)
+        sbp_udp.settimeout(0.05)
         self.sbp_udp = sbp_udp
 
-        while True:
+        while not self.stopped():
 
           # Uploading data TO Piksi
           try:
-            data = self._sendToPiksi.get(True, 0.01)
-            self.handle.write(data)
             while not self._sendToPiksi.empty():
               data = self._sendToPiksi.get(False)
               self.handle.write(data)
@@ -139,13 +144,14 @@ class PiksiHandler(spooky.modules.SpookyModule):
 
           # Repeating data FROM Piksi
           try:
-            data = self._recvFromPiksi.get(True, 0.05)
-            n = sbp_udp.sendto(data, (self.server_ip, self.sbp_server_port))
-            if len(data) != n:
-              print("Piksi->UDP relay, did not send all data!")
-            else:
-              #print("Piksi->UDP, %s bytes sent" % str(n))
-              pass
+            while not self._recvFromPiksi.empty():
+              data = self._recvFromPiksi.get(False)
+              n = sbp_udp.sendto(data, (self.server_ip, self.sbp_server_port))  
+              if len(data) != n:
+                print("Piksi->UDP relay, did not send all data!")
+              else:
+                #print("Piksi->UDP sent %d bytes" % n)
+                pass
           except (Queue.Empty):
             pass
           except (socket.error, socket.timeout):

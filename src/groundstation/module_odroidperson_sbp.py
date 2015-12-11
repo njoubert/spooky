@@ -41,9 +41,12 @@ class SBPUDPDriver(BaseDriver):
     Invariant: will return size or less bytes.
     Invariant: will read and buffer ALL available bytes on given handle.
     '''
-    data, addr = self.handle.recvfrom(size)
-    self.last_addr = addr
-    return data
+    try:
+      data, addr = self.handle.recvfrom(size)
+      self.last_addr = addr
+      return data
+    except:
+      return None
 
   def flush(self):
     pass
@@ -82,7 +85,7 @@ class SbpMsgCache(object):
     self._current_expected_last_flags = None
     self.IGNORED_LAST_MSG_NAME = ['MsgIarState']
 
-  def dump_and_clear(self, destination, quiet=True):
+  def dump_and_clear(self, destination, quiet=False):
     '''
     Returns and clears the current cache, if there's something in it.
     Also updates our expectation of what should be in the cache.
@@ -99,7 +102,7 @@ class SbpMsgCache(object):
         print ">>> Pushing status update of %d messages." % len(cache_temp)
         print "    Last message is %s" % _current_last_msg_name
         print "    Last expected message is %s" % self._current_expected_last_msg_name
-        print "    Time we kept this is... %.2f" % (time.time() - self._cache_start)
+        print "    Current node latency is %.4fs" % (time.time() - self._cache_start)
         print "    msgs = [%s]" % ",".join(msgs) 
 
       # Update our expectation of the last message type, including whether it has flags...
@@ -161,7 +164,7 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
 
   def handle_incoming(self, msg, **metadata):
     '''
-    Handles incoming SBP messaes
+    Callback for handling incoming SBP messages
     '''
     self.last_update = time.time()
     msg_instance = msg.__class__.__name__
@@ -174,18 +177,21 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
 
   def run(self):
     '''Thread loop here'''
-    with SBPUDPDriver(self.bind_ip, self.sbp_port) as driver:
-      with Handler(Framer(driver.read, None, verbose=True)) as source:
+    try:
+      with SBPUDPDriver(self.bind_ip, self.sbp_port) as driver:
+        with Handler(Framer(driver.read, None, verbose=True)) as source:
 
-        print "Module %s listening on %s" % (self, self.sbp_port)
+          print "Module %s listening on %s" % (self, self.sbp_port)
 
-        source.add_callback(self.handle_incoming, 
-          msg_type=[SBP_MSG_POS_LLH, SBP_MSG_GPS_TIME, SBP_MSG_DOPS, SBP_MSG_BASELINE_NED, SBP_MSG_VEL_NED, SBP_MSG_BASELINE_HEADING, SBP_MSG_IAR_STATE])
+          source.add_callback(self.handle_incoming, 
+            msg_type=[SBP_MSG_POS_LLH, SBP_MSG_GPS_TIME, SBP_MSG_DOPS, SBP_MSG_BASELINE_NED, SBP_MSG_VEL_NED, SBP_MSG_BASELINE_HEADING, SBP_MSG_IAR_STATE])
 
-        while not self.wait_on_stop(1.0):
-          # Sleep until we get killed. The callback above handles actual stuff.
-          # This is very nice for clean shutdown.
-          pass
+          while not self.wait_on_stop(1.0):
+            # Sleep until we get killed. The callback above handles actual stuff.
+            # This is very nice for clean shutdown.
+            pass
+    except:
+      print "FUUU"
 
 def init(main, instance_name=None):
   module = OdroidPersonSBPModule(main, instance_name=instance_name)

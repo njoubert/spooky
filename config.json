@@ -26,7 +26,7 @@
 		"be-the-basestation":     true,
 		"my-ip":                  "127.0.0.1",
 		"udp-bcast-ip":           "127.0.0.1",
-		"sbp-port":               "/dev/cu.usbserial-00001114",
+		"sbp-port":               "/dev/cu.usbserial-00001014",
 		"sbp-baud":               1000000
 	},
 

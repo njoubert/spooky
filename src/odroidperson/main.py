@@ -170,11 +170,12 @@ class OdroidPerson:
 
     try:
       
+
       # Here we do UDP command and control
       with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as cc_udp:
         cc_udp.setblocking(1)
         #TODO(bugfix): We might be starving threads?
-        cc_udp.settimeout(0.01) # run this at 100hz
+        cc_udp.settimeout(0.1) # run this at 10hz
         cc_udp.bind((self.bind_ip, self.cc_local_port))
         self.cc_udp = cc_udp
 
@@ -193,7 +194,7 @@ class OdroidPerson:
             self.handle_cc(cc_data, cc_addr)
           except (socket.error, socket.timeout) as e:
             #print "timeout"
-            pass    
+            pass 
 
     except KeyboardInterrupt:
       self.stop()
