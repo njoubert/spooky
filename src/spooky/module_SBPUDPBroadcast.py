@@ -30,6 +30,8 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.UDPBroadcaster):
     self.sbp_port = sbp_port
     self.sbp_baud = sbp_baud
     self.last_sent = None
+    self.framer = None
+    self.driver = None
 
   def run(self):
     '''Thread loop here'''

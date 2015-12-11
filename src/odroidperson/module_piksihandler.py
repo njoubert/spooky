@@ -58,8 +58,11 @@ class PiksiHandler(spooky.modules.SpookyModule):
       with Handler(Framer(driver.read, None, verbose=True)) as source:
         with JSONLogger(self.raw_sbp_log_filename) as logger:
           source.add_callback(logger)
-
+          #TODO(bugfix): Are we growing queues like mad? 
+          #TODO(improvement): don't do busy loop, use callback
           try:
+
+            self.enable_piksi_sim()
             for msg, metadata in source:
               try:
                 self._recvFromPiksi.put(msg.pack(), True, 0.05)

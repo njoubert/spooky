@@ -29,9 +29,13 @@ class SystemStateModule(spooky.modules.SpookyModule):
     current_state['_timestamp'] = time.time()
     return current_state
 
-  def update_partial_state(self, node, component, new_state):
-    '''Push a new partial state update to the state vector'''
-    self._inputQueue.put((node, component, new_state))
+  def update_partial_state(self, node, iter):
+    '''
+    Push a new partial state update to the state vector.
+    This assumes iter is of the form [(component, new_state),...]
+    '''
+    for component, new_state in iter: 
+      self._inputQueue.put((node, component, new_state))
 
   def _handlePartialUpdate(self, item):
     '''INTERNAL: Handles a state up.'''
@@ -46,7 +50,7 @@ class SystemStateModule(spooky.modules.SpookyModule):
 
   def get_state_str(self):
     self._stateLock.acquire()
-    ret = "\n"
+    ret = "RECORDING = %s\n" % str(self.RECORDING)
     for s in self._state:
       ret += " %s: %s\n" % (str(s), str(self._state[s]))
     self._stateLock.release()
@@ -78,6 +82,8 @@ class SystemStateModule(spooky.modules.SpookyModule):
     with open(self.log_filename, 'wb') as f:
 
       try:
+        # TODO(njoubert): Why not wait on the queue itself? 
+        # Cause what if nothing comes in, we still wanna update?
         while not self.wait_on_stop(0.1):
           while not self._inputQueue.empty():
             self._handlePartialUpdate(self._inputQueue.get_nowait())
