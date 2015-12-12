@@ -74,7 +74,6 @@ class SBPUDPBroadcastListenerHandlerThread(spooky.modules.SpookyModule):
     except Queue.Full:
       logger.warn("_recvFromPiksi Queue is full!")
 
-
   def run(self):
     try:
 
@@ -88,10 +87,6 @@ class SBPUDPBroadcastListenerHandlerThread(spooky.modules.SpookyModule):
 
     except Exception:
       traceback.print_exc()
-
-  # def stop(self):
-  #   self.dying = True
-  #   self.udp.setblocking(0)  
 
 def init(main, instance_name=None):
   module = SBPUDPBroadcastListenerHandlerThread(main, 
