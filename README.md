@@ -7,7 +7,7 @@ Code for our wireless cinematography data system
 ## Dependencies
 
 - libsbp https://github.com/swift-nav/libsbp
-- mavlink https://github.com/mavlink/mavlink
+- pymavlink https://github.com/mavlink/mavlink
 
 ## Contents
 

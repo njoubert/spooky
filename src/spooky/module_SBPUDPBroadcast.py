@@ -8,7 +8,7 @@ from sbp.client.drivers.pyserial_driver import PySerialDriver
 from sbp.client.drivers.pyftdi_driver import PyFTDIDriver
 
 from sbp.client import Handler, Framer
-from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
+from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS_LLH, MsgObs
 from sbp.settings import SBP_MSG_SETTINGS_WRITE, MsgSettingsWrite
 
 # This must be run from the src directory, 
@@ -43,7 +43,7 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.UDPBroadcaster):
       with Handler(self.framer) as handler:
         self.handler = handler
         try:
-          for msg, metadata in handler.filter(SBP_MSG_OBS, SBP_MSG_BASE_POS):
+          for msg, metadata in handler.filter(SBP_MSG_OBS, SBP_MSG_BASE_POS_LLH):
             if self.stopped():
               return
             self.last_sent = time.time()

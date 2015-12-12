@@ -21,10 +21,9 @@ from spooky.ModuleHandler import ModuleHandler
 from sbp.client.drivers.base_driver import BaseDriver
 from sbp.client.loggers.json_logger import JSONLogger
 from sbp.client import Handler, Framer
-from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
 from sbp.navigation import SBP_MSG_POS_LLH, MsgPosLLH
 from sbp.acquisition import SBP_MSG_ACQ_RESULT
-from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS, MsgObs
+from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS_LLH, MsgObs
 from sbp.settings import SBP_MSG_SETTINGS_WRITE, MsgSettingsWrite
 
 class SBPUDPBroadcastDriver(BaseDriver):
