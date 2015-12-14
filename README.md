@@ -7,6 +7,21 @@ A Library and Toolkit for Wireless Distributed State Estimation and Control of M
 This code runs a wireless multi-node sensor networks, powering our wireless cinematography system.
 It currently assumes a python-compatible Linux computers at each node. (In our case, ODROID XU4 running Ubuntu and Python 2.7)
 
+## TL;DR: Running
+
+Fire up a local debug odroidperson instance:
+
+	./bin/odroidperson-local.sh
+
+Fire up a local groundstation instance:
+
+	./bin/odroidperson-local.sh
+
+Start playing with the CLI:
+
+	>>> help
+	>>> status
+
 ## Dependencies and Submodules
 
 **[This project uses git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**
