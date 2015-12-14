@@ -2,8 +2,10 @@
 
 WARNING: EXPERIMENTAL AND UNTESTED CODE
 
-Code for wireless multi-node sensor networks, powering our wireless cinematography system.
-Assumes python-compatible Linux computers at each node. (In our case, ODROID XU4 running Ubuntu)
+A Library and Toolkit for Wireless Distributed State Estimation and Control of Multiple Drones and Subjects. Named after the Quantum Entanglement phenomenon.
+
+This code runs a wireless multi-node sensor networks, powering our wireless cinematography system.
+It currently assumes a python-compatible Linux computers at each node. (In our case, ODROID XU4 running Ubuntu and Python 2.7)
 
 ## Dependencies and Submodules
 
@@ -18,16 +20,16 @@ These are the dependencies, and how to install them on a node:
 
 - libsbp https://github.com/swift-nav/libsbp
 
-	git clone https://github.com/swift-nav/libsbp
+	```git clone https://github.com/swift-nav/libsbp
 	cd libsbp
-	sudo python setup.py insta..
+	sudo python setup.py install```
 
 - pymavlink https://github.com/mavlink/mavlink
 
-	sudo apt-get install python-dev
+	```sudo apt-get install python-dev
 	git clone https://github.com/mavlink/mavlink
 	cd mavlink/pymavlink
-	sudo python setup.py install
+	sudo python setup.py install```
 
 
 
