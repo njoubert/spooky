@@ -102,7 +102,7 @@ class SystemStateModule(spooky.modules.SpookyModule):
       if len(data) != n:
         print("%s State Output did not send all data!" % self)
       else:
-        print("%s State Output sent %d bytes" % (self,n))
+        #print("%s State Output sent %d bytes" % (self,n))
         pass
 
   def run(self):

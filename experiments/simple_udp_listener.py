@@ -20,7 +20,7 @@ def main(ip, port, buffer):
     print "Listening on udp:%s:%s" % (ip, port)
     while True:
       data, addr = udp.recvfrom(buffer)
-      print "(%s): %s" % (str(addr), str(data))
+      print "%s: %s" % (str(addr), str(data))
 
 
 if __name__ == "__main__":
