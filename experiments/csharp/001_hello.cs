@@ -3,7 +3,8 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Text;
-using System.Runtime.Serialization.Json;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 public class HelloWorld
 {
@@ -23,7 +24,10 @@ public class HelloWorld
 	  Byte[] receiveBytes = u.EndReceive(ar, ref e);
 	  string receiveString = Encoding.ASCII.GetString(receiveBytes);
 
-	  Console.WriteLine("Received: {0}", receiveString);
+	  //Console.WriteLine("Received: {0}", receiveString);
+
+	  dynamic jsonVal = JObject.Parse(receiveString);
+	  Console.WriteLine("\t" + jsonVal._lastupdate);
 
 	  u.BeginReceive(new AsyncCallback(ReceiveCallback), null);
 
