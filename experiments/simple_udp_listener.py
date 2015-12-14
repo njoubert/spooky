@@ -15,6 +15,8 @@ from contextlib import closing
 def main(ip, port, buffer):
   with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as udp:
     udp.setblocking(1)
+    udp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    udp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
     udp.bind((ip, port))
 
     print "Listening on udp:%s:%s" % (ip, port)

@@ -70,6 +70,7 @@ class OdroidPersonMAVModule(spooky.modules.SpookyModule):
     print self, "last received message at %.2f (%.2fs ago)" % (self.last_update, time.time() - self.last_update)
 
   def handle_incoming(self, msg):
+    self.last_update = time.time()
     maybe_batch = self.cache.cache(msg)
     if maybe_batch:
       update = [(msg.name, msg.to_dict()) for msg in maybe_batch]

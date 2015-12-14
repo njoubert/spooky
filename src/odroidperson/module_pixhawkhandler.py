@@ -47,6 +47,8 @@ class PixhawkHandler(spooky.modules.SpookyModule):
     spooky.modules.SpookyModule.__init__(self, main, "pixhawkhandler", singleton=True)
 
   def run(self):
+    master=None
+    dest_mav_udp=None
     try:
       print "Firing up PIXHAWK Handler on %s" % self.mav_port
       master = mavutil.mavlink_connection(self.mav_port)
@@ -82,8 +84,10 @@ class PixhawkHandler(spooky.modules.SpookyModule):
     except:
       traceback.print_exc()  
     finally:
-      master.close()
-      dest_mav_udp.close()
+      if master:
+        master.close()
+      if dest_mav_udp:
+        dest_mav_udp.close()
 
 
 def init(main, instance_name=None):

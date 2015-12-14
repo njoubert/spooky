@@ -3,10 +3,10 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Text;
+using System.Runtime.Serialization.Json;
 
 public class HelloWorld
 {
-    public static bool messageReceived = false;
 
    	public static IPEndPoint e;
 	public static UdpClient u;
