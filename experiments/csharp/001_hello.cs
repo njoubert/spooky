@@ -27,7 +27,10 @@ public class HelloWorld
 	  //Console.WriteLine("Received: {0}", receiveString);
 
 	  dynamic jsonVal = JObject.Parse(receiveString);
-	  Console.WriteLine("\t" + jsonVal._lastupdate);
+	  dynamic attitude = jsonVal.GetValue("127.0.0.1").GetValue("ATTITUDE");
+	  dynamic yaw_radians = attitude.yaw;
+	  dynamic yaw_degrees = yaw_radians * 57.2958;
+	  Console.WriteLine("  yaw = " + yaw_degrees + " degrees");
 
 	  u.BeginReceive(new AsyncCallback(ReceiveCallback), null);
 
