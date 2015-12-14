@@ -33,7 +33,6 @@ class SBPUDPDriver(BaseDriver):
     return self
   
   def __exit__(self, type, value, traceback):
-    print "SBPUDPDriver closing handle and exiting..."
     self.handle.close()
 
   def read(self, size):

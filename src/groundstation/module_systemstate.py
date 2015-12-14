@@ -1,7 +1,19 @@
-import sys, os, time, copy
-import threading, Queue
+# Copyright (C) 2015 Stanford University
+# Contact: Niels Joubert <niels@cs.stanford.edu>
+#
+
+import time, socket, sys, os, sys, inspect, signal, traceback
+import threading, collections, Queue
+from contextlib import closing
+
+# Serialization Related
 import cPickle as pickle
+import json
+import copy
+
+# SPOOKY-related
 import spooky, spooky.modules
+
 
 
 class SystemStateModule(spooky.modules.SpookyModule):
@@ -12,12 +24,15 @@ class SystemStateModule(spooky.modules.SpookyModule):
   '''
 
   def __init__(self, main, instance_name=None):
+
+    spooky.modules.SpookyModule.__init__(self, main, "systemstate", singleton=True)
     self._inputQueue = Queue.Queue()
     self._inputQueueTimeout = 0.1
     self._stateLock = threading.Lock()
     self._state = {}
     self.RECORDING = False
-    spooky.modules.SpookyModule.__init__(self, main, "systemstate", singleton=True)
+    dests = self.main.config.get_my('state_destinations')
+    self.state_destinations = [(d[0], d[1]) for d in dests]
 
   def dump_state(self, filelike):
     pickle.dump(self.get_current(), filelike, pickle.HIGHEST_PROTOCOL)
@@ -41,7 +56,9 @@ class SystemStateModule(spooky.modules.SpookyModule):
     '''INTERNAL: Handles a state up.'''
     self._stateLock.acquire()
     (node, component, new_state) = item
-    self._state[(node, component)] = new_state
+    if str(node) not in self._state:
+      self._state[str(node)] = dict()
+    self._state[str(node)][str(component)] = new_state
     self._state['_lastupdate'] = time.time()
     self._stateLock.release()
 
@@ -73,27 +90,45 @@ class SystemStateModule(spooky.modules.SpookyModule):
     super(SystemStateModule, self).stop(quiet=quiet)
 
   def run(self):
-    '''
-    Thread loop here
-    '''
-    self.main.set_systemstate(self)
-    self.log_filename = spooky.find_next_log_filename(self.main.config.get_my("full-state-logs-prefix"))
-    print "Opening logfile: %s" % self.log_filename 
-    with open(self.log_filename, 'wb') as f:
+    try:
+      self.main.set_systemstate(self)
 
-      try:
-        # TODO(njoubert): Why not wait on the queue itself? 
-        # Cause what if nothing comes in, we still wanna update?
-        while not self.wait_on_stop(0.1):
-          while not self._inputQueue.empty():
-            self._handlePartialUpdate(self._inputQueue.get_nowait())
+      self.log_filename = spooky.find_next_log_filename(self.main.config.get_my("full-state-logs-prefix"))
+      print "Opening logfile: %s" % self.log_filename 
+      with open(self.log_filename, 'wb') as f:
 
-          if self.RECORDING:
-            self.dump_state(f)
-      except SystemExit:
-        self.main.unset_systemstate()
-        print "Exit Forced. We're dead."
-        return
+        with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as state_udp_out:
+          state_udp_out.setblocking(1)
+          state_udp_out.settimeout(0.05)
+
+          print "Module %s sending data on %s" % (self, str(self.state_destinations))
+
+          # TODO(njoubert): Why not wait on the queue itself? 
+          # Cause what if nothing comes in, we still wanna update?
+          while not self.wait_on_stop(0.1):
+            while not self._inputQueue.empty():
+              self._handlePartialUpdate(self._inputQueue.get_nowait())
+
+            if self.RECORDING:
+              self.dump_state(f)
+
+            data = json.dumps(self.get_current())
+            for dest in self.state_destinations:
+              n = state_udp_out.sendto(data, dest)  
+              if len(data) != n:
+                print("%s State Output did not send all data!" % self)
+              else:
+                #print("Piksi->UDP sent %d bytes" % n)
+                pass
+
+
+    except SystemExit:
+      print "Exit Forced. We're dead."
+    except:
+      traceback.print_exc()
+    finally:
+      self.main.unset_systemstate()
+      
 
 def init(main, instance_name=None):
   module = SystemStateModule(main, instance_name=instance_name)

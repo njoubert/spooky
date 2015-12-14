@@ -1,5 +1,6 @@
 {
 	"GLOBALS": {
+		"state_destinations":	   [["127.0.0.1", 19000]],
 		"udp-bcast-ip":            "192.168.2.255",
 		"sbp-udp-bcast-port":      19100,
 		"sbp-bcast-sleep":         0.1,
@@ -32,13 +33,15 @@
 
 	"127.0.0.1": {
 		"be-the-basestation":     false,
-		"my-ip":                  "127.0.0.1",
-		"sbp-port":               "/dev/cu.usbserial-00005014",
+		"my-ip":                  "127.0.0.1",					
+		"sbp-port":               "/dev/cu.usbserial-00005014", 
 		"sbp-baud":               1000000,
-		"cc-local-port":          19200,
-		"cc-server-port":         19201,
-		"sbp-server-port":        19202,
-		"mav-server-port":        19203
+		"mav-port":               "/dev/tty.usbmodem1",
+		"mav-streamrate":         10,			
+		"cc-local-port":          19200,						
+		"cc-server-port":         19201,						
+		"sbp-server-port":        19202,						
+		"mav-server-port":        19203							
 	},
 
 	"192.168.2.51": {

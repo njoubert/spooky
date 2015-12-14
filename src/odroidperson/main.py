@@ -63,10 +63,7 @@ class OdroidPerson:
   def stop(self):
     logger.info("Shutting down!")
     self.dying = True
-
     self.modules.unload_all_modules()
-    # self.sbpBroadcastListenerThread.join(1)
-    # self.PiksiHandler.join(1)
 
   def send_cc(self, msgtype, payload=None):
     try:
@@ -164,17 +161,16 @@ class OdroidPerson:
       self.modules.load_module('SBPUDPBroadcast')
     else:
       print "I AM NOT THE BASE STATION"
-      piksi = self.modules.load_module('piksihandler')
+      pixhawk     = self.modules.load_module('pixhawkhandler')
+      piksi       = self.modules.load_module('piksihandler')
       bcastmodule = self.modules.load_module('sbpbroadcastlistener')
       bcastmodule.set_data_callback(piksi.send_to_piksi)
 
     try:
-      
 
       # Here we do UDP command and control
       with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as cc_udp:
         cc_udp.setblocking(1)
-        #TODO(bugfix): We might be starving threads?
         cc_udp.settimeout(0.1) # run this at 10hz
         cc_udp.bind((self.bind_ip, self.cc_local_port))
         self.cc_udp = cc_udp
@@ -193,7 +189,6 @@ class OdroidPerson:
             cc_data, cc_addr = cc_udp.recvfrom(4096)
             self.handle_cc(cc_data, cc_addr)
           except (socket.error, socket.timeout) as e:
-            #print "timeout"
             pass 
 
     except KeyboardInterrupt:
