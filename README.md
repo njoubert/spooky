@@ -7,7 +7,7 @@ Assumes python-compatible Linux computers at each node. (In our case, ODROID XU4
 
 ## Dependencies and Submodules
 
-**This project uses git submodules**
+**[https://git-scm.com/book/en/v2/Git-Tools-Submodules](This project uses git submodules)**
 
 After checkout:
 
@@ -33,24 +33,24 @@ These are the dependencies, and how to install them on a node:
 
 ## Contents
 
-- "GroundStation" Single Instance on your Laptop
-- "OdroidPerson" Multiple Instances, One Per Odroid On Person
-- "Spooky" Underlying shared library
+- `bin/groundstation(-local).sh`: Launch an instance of the grounstation.
+- `bin/groundstation(-local).sh`: Launch an instance of the odroidperson.
+- `bin/install.sh`: For nodes: Installs "spooky" systemctl daemon to start odroidperson.sh on boot.
+- `bin/update-and-restart.sh`: For nodes: Pulls the latest git repo and relaunches daemon.
+- `src/groundstation`: Main controller, single instance on your Laptop
+- `src/odroidperson`: Multiple Instances, One Per Odroid On Person
+- `src/spooky`: Underlying shared library used by both parts
 
-## IDEAS ON ARCHITECTURE:
+## Archtecture
 
-UNIX-style many-small-applications versus single monolothic app?
+We do a UNIX-style "many-independent-small-applications" approach, but wrapped behind a single python CLI (similar to MAVProxy)
 
 - PRO: If something crashes, we can just restart that section
 - PRO: Good way to think about problems!
-- CON: I'll have to fire up and run a whole bunch of applications, cumbersome
-
-Can we do UNIX-style, but wrapped behind a single UI the way MAVProxy does it?
-
 - PRO: Can still restart individual chunks, etc
 - CON: Have to do all that management myself.
 
-Let's try to do that!
+Components are engineered to depend on as few other parts of the system as possible. Different components can be rebooted on-the-fly without crashing anything.
 
 ## Using PyFTDI:
 
@@ -66,7 +66,9 @@ I am not using, but am curious about:
 - NodeJS, why why why didn't I do this in NodeJS??? Sigh, all the UAV libraries are in python...
 
 
-## DEAD KITTENS
+
+
+# DEAD KITTENS
 
 
 
