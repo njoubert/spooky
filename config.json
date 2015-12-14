@@ -21,7 +21,7 @@
 	},
 	
 	"192.168.2.1": {
-		"be-the-basestation":    false,
+		"be-the-basestation":    true,
 		"my-ip":                 "192.168.2.1",
 		"sbp-port":              "/dev/cu.usbserial-00101114",
 		"sbp-baud":              1000000
@@ -47,11 +47,11 @@
 	},
 
 	"192.168.2.51": {
-		"be-the-basestation":     true,
+		"be-the-basestation":     false,
 		"my-ip":                  "192.168.2.51",
 		"sbp-port":               "/dev/ttyUSB0",
 		"sbp-baud":               1000000,
-		"mav-port":               "/dev/tty.usbmodem1",		
+		"mav-port":               "/dev/ttyACM0",		
 		"cc-local-port":          19210,
 		"cc-server-port":         19211,
 		"sbp-server-port":        19212,
@@ -62,7 +62,7 @@
 		"my-ip":                  "192.168.2.52",
 		"sbp-port":               "/dev/ttyUSB0",
 		"sbp-baud":               1000000,
-		"mav-port":               "/dev/tty.usbmodem1",		
+		"mav-port":               "/dev/ttyACM0",		
 		"cc-local-port":          19220,
 		"cc-server-port":         19221,
 		"sbp-server-port":        19222,
@@ -73,7 +73,7 @@
 		"my-ip":                  "192.168.2.53",
 		"sbp-port":               "/dev/ttyUSB0",
 		"sbp-baud":               1000000,
-		"mav-port":               "/dev/tty.usbmodem1",	
+		"mav-port":               "/dev/ttyACM0",	
 		"cc-local-port":          19230,
 		"cc-server-port":         19231,
 		"sbp-server-port":        19232,
