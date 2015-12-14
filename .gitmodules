@@ -1,0 +1,6 @@
+[submodule "libsbp"]
+	path = libsbp
+	url = https://github.com/swift-nav/libsbp.git
+[submodule "mavlink"]
+	path = mavlink
+	url = https://github.com/mavlink/mavlink.git

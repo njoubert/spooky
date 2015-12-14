@@ -1,10 +1,20 @@
 # Spooky Action at a Distance
 
-WARNING: EXPERIMENTAL AND UNTESTED CODE AHEAD
+WARNING: EXPERIMENTAL AND UNTESTED CODE
 
-Code for our wireless cinematography data system
+Code for wireless multi-node sensor networks, powering our wireless cinematography system.
+Assumes python-compatible Linux computers at each node. (In our case, ODROID XU4 running Ubuntu)
 
-## Dependencies
+## Dependencies and Submodules
+
+**This project uses git submodules**
+
+After checkout:
+
+	git submodule init
+	git submodule update
+
+These are the dependencies, and how to install them on a node:
 
 - libsbp https://github.com/swift-nav/libsbp
 
