@@ -39,4 +39,4 @@ if __name__ == "__main__":
                       help="Size of UDP buffer in bytes")
   args = parser.parse_args()
 
-  main(args.ip[0], args.port[0], args.buffer[0])
+  main(args.ip[0], int(args.port[0]), int(args.buffer[0]))

@@ -1,6 +1,5 @@
 {
 	"GLOBALS": {
-		"state_destinations":	     [["127.0.0.1", 19000], ["172.27.76.48", 19000]],
 		"state_transmit_period":     0.1,
 		"state_service_queue_period":0.02,
 		"mav-streamrate":         	 10,	
@@ -21,12 +20,16 @@
 	},
 	
 	"192.168.2.1": {
+		"state_destinations":	 [["127.0.0.1", 19001], ["172.27.76.48", 19001]],
+		"camera_cc_port":        19000,
 		"be-the-basestation":    true,
 		"my-ip":                 "192.168.2.1",
 		"sbp-port":              "/dev/cu.usbserial-00101114",
 		"sbp-baud":              1000000
 	},
 	"localhost-server": {
+		"state_destinations":	  [["127.0.0.1", 19000], ["172.27.76.48", 19000]],
+		"camera_cc_port":         19000,
 		"be-the-basestation":     true,
 		"my-ip":                  "127.0.0.1",
 		"udp-bcast-ip":           "127.0.0.1",

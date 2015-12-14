@@ -4,7 +4,7 @@
 # A Zero-Dependency Network Management Library
 #
 
-__all__ = ["ip", "modules", "CommandLineHandler", "ModuleHandler", "Daemon"]
+__all__ = ["ip", "modules", "swift", "Daemon"]
 
 #====================================================================#
 
@@ -26,7 +26,7 @@ def find_next_log_filename(prefix):
   while os.path.exists(prefix + "%.7i.pickle" % i):
     i += 1
   return prefix + "%.7i.pickle" % i
-    
+
 #====================================================================#
 
 class DoPeriodically(object):
@@ -69,6 +69,42 @@ class DoEvery(object):
       self._iters_so_far = 0
       return self.cb()
     return False
+
+#====================================================================#
+
+class CommandLineHandler(object):
+  ''' Responsible for all the command line console features'''
+  def __init__(self, command_map={}):
+    self.command_map = command_map
+
+  def process_stdin(self, line):
+    line = line.strip()
+    args = line.split()
+    cmd = args[0]
+
+    if cmd == 'help':
+      print "Spooky Version %s" % spooky.get_version()
+      for cmd in self.command_map:
+        print cmd.ljust(16), self.command_map[cmd][1]
+      return
+
+    if not cmd in self.command_map:
+      print "Unknown command '%s'" % line.encode('string-escape')
+      return
+
+    (fn, help) = self.command_map[cmd]
+    try:
+      fn(args[1:])
+    except Exception as e:
+      print "ERROR in command: %s" % str(e)
+      traceback.print_exc()
+
+  def handle_terminal_input(self):
+    line = raw_input(">>> ")
+    if len(line) == 0:
+      return
+    else:
+      self.process_stdin(line)
 
 #====================================================================#
 

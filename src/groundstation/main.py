@@ -12,8 +12,8 @@ from contextlib import closing
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
 import spooky, spooky.ip
-from spooky.ModuleHandler import ModuleHandler
-from spooky.CommandLineHandler import CommandLineHandler
+from spooky import CommandLineHandler
+from spooky.modules import ModuleHandler
 
 #====================================================================#
 
@@ -36,7 +36,7 @@ class GroundStation(CommandLineHandler):
       'trigger'  : (self.cmd_trigger,                   'triggers a message across modules'),
       'psim'     : (self.cmd_piksisim,                  'toggles the piksi simulator on connected piksis'),
       'shutdown' : (self.cmd_shutdown,                  'shuts down all nodes in network'),
-      'restart'  : (self.cmd_restart,                   'restarts all nodes in network'),
+      'restart'  : (self.cmd_restart,                   'restart a single or all nodes in network (specify an IP to restart a specific node)'),
       'update'   : (self.cmd_update,                    'does a git pull and restart on all nodes in network'),
       'record'   : (self.cmd_record,                    'start or stop recording data for a session')
     }
@@ -115,7 +115,10 @@ class GroundStation(CommandLineHandler):
     self.modules.trigger("cmd_shutdown")
 
   def cmd_restart(self, args):
-    self.modules.trigger("cmd_restart")
+    if len(args) > 0:
+      self.modules.trigger_on("odroidperson_cc", args[0], "cmd_restart")
+    else:
+      self.modules.trigger("cmd_restart")
 
   def cmd_update(self, args):
     self.modules.trigger("cmd_update")

@@ -6,6 +6,7 @@ cd ${ABS_PATH%%/}
 
 systemctl stop spooky.service
 git pull
+find . -name "*.pyc" | xargs rm
 ./bin/install.sh
 systemctl start spooky.service
 

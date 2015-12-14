@@ -8,6 +8,8 @@ from contextlib import closing
 import collections
 import binascii
 
+import spooky.swift
+
 from sbp.client.drivers.base_driver import BaseDriver
 from sbp.client import Handler, Framer
 from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS_LLH, MsgObs
@@ -84,7 +86,7 @@ class SbpMsgCache(object):
     self._current_expected_last_flags = None
     self.IGNORED_LAST_MSG_NAME = ['MsgIarState']
 
-  def dump_and_clear(self, destination, quiet=False):
+  def dump_and_clear(self, quiet=True):
     '''
     Returns and clears the current cache, if there's something in it.
     Also updates our expectation of what should be in the cache.
@@ -136,13 +138,13 @@ class SbpMsgCache(object):
     ret = None
     # Looks like time rolled over!
     if self.is_newer_than_current_cache(msg):
-      ret = self.dump_and_clear(None)
+      ret = self.dump_and_clear()
     
     self.cache_it(msg)
 
     # Looks like we found our final message!
     if self.is_last_expected_message(msg):
-      ret = self.dump_and_clear(None)    
+      ret = self.dump_and_clear()    
 
     return ret
 
@@ -171,7 +173,7 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
     maybe_batch = self.msg_cache.handle_new_message(msg)
 
     if maybe_batch:
-      update = [(msg.__class__.__name__, msg) for msg in maybe_batch]
+      update = [(msg.__class__.__name__, spooky.swift.fmt_dict(msg)) for msg in maybe_batch]
       self.main.modules.trigger('update_partial_state', self.instance_name, update)
 
   def run(self):

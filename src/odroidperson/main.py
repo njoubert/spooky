@@ -16,7 +16,7 @@ from contextlib import closing
 # to correctly have all imports relative to src/
 import spooky, spooky.ip
 from spooky.Daemon import Daemon
-from spooky.ModuleHandler import ModuleHandler
+from spooky.modules import ModuleHandler
 
 #====================================================================#
 
@@ -45,7 +45,7 @@ class OdroidPerson:
     self.config = config
     self.send_id = 0
     
-    print "ODRIOD launching as 't%s'" % ident
+    print "ODRIOD launching as '%s'" % ident
 
     self.modules = ModuleHandler(self, 'odroidperson')
 

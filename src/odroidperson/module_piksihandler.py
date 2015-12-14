@@ -14,8 +14,6 @@ from contextlib import closing
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
 import spooky, spooky.ip, spooky.modules
-from spooky.Daemon import Daemon
-from spooky.ModuleHandler import ModuleHandler
 
 from sbp.client.drivers.base_driver import BaseDriver
 from sbp.client.loggers.json_logger import JSONLogger

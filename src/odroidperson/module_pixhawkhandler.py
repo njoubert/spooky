@@ -15,8 +15,6 @@ from pymavlink import mavutil
 
 # SPOOKY-related
 import spooky, spooky.ip, spooky.modules
-from spooky.Daemon import Daemon
-from spooky.ModuleHandler import ModuleHandler
 
 #
 # SEE THE MAVLINK SPEC HERE https://pixhawk.ethz.ch/mavlink/
