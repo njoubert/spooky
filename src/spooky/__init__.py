@@ -83,7 +83,7 @@ class CommandLineHandler(object):
     cmd = args[0]
 
     if cmd == 'help':
-      print "Spooky Version %s" % spooky.get_version()
+      print "Spooky Version %s" % get_version()
       for cmd in self.command_map:
         print cmd.ljust(16), self.command_map[cmd][1]
       return

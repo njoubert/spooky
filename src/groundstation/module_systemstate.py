@@ -69,11 +69,10 @@ class SystemStateModule(spooky.modules.SpookyModule):
     print self, self.get_state_str()
 
   def get_state_str(self):
-    self._stateLock.acquire()
+    current = self.get_current()
     ret = "RECORDING = %s\n" % str(self.RECORDING)
-    for s in self._state:
-      ret += " %s: %s\n" % (str(s), str(self._state[s]))
-    self._stateLock.release()
+    ret += json.dumps(current, sort_keys=True,
+                        indent=4, separators=(',', ': '))
     return ret
 
   def cmd_record_start(self):
