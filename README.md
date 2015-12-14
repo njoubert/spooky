@@ -20,16 +20,20 @@ These are the dependencies, and how to install them on a node:
 
 - libsbp https://github.com/swift-nav/libsbp
 
-	```git clone https://github.com/swift-nav/libsbp
+	```
+	git clone https://github.com/swift-nav/libsbp
 	cd libsbp
-	sudo python setup.py install```
+	sudo python setup.py install
+	```
 
 - pymavlink https://github.com/mavlink/mavlink
 
-	```sudo apt-get install python-dev
+	```
+	sudo apt-get install python-dev
 	git clone https://github.com/mavlink/mavlink
 	cd mavlink/pymavlink
-	sudo python setup.py install```
+	sudo python setup.py install
+	```
 
 
 
