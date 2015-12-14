@@ -1,11 +1,13 @@
 {
 	"GLOBALS": {
-		"state_destinations":	   [["127.0.0.1", 19000]],
-		"udp-bcast-ip":            "192.168.2.255",
-		"sbp-udp-bcast-port":      19100,
-		"sbp-bcast-sleep":         0.1,
-		"raw-sbp-logs-prefix":     "/logs/sbplog",
-		"full-state-logs-prefix":  "/logs/state"
+		"state_destinations":	     [["127.0.0.1", 19000]],
+		"state_transmit_period":     0.1,
+		"state_service_queue_period":0.02,
+		"udp-bcast-ip":              "192.168.2.255",
+		"sbp-udp-bcast-port":        19100,
+		"sbp-bcast-sleep":           0.1,
+		"raw-sbp-logs-prefix":       "/logs/sbplog",
+		"full-state-logs-prefix":    "/logs/state"
 	},
 
 	"NETWORK": {

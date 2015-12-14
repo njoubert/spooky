@@ -29,7 +29,7 @@ def find_next_log_filename(prefix):
     
 #====================================================================#
 
-class DoEvery(object):
+class DoPeriodically(object):
   '''
   A simple way to call a function every 'period' seconds
   inside a while loop. Doesn't block unless specified.
@@ -49,6 +49,25 @@ class DoEvery(object):
       print "blocking for %fs" % sleepiness
       time.sleep(sleepiness)
       return self.tick(block=True)
+    return False
+
+#====================================================================#
+
+class DoEvery(object):
+  '''
+  A simple way to call a function every 'x' calls
+  inside a while loop. Cannot block.
+  '''
+  def __init__(self, callback, iterations):
+    self.cb = callback
+    self.iterations = iterations
+    self._iters_so_far = 0
+
+  def tick(self):
+    self._iters_so_far += 1
+    if self._iters_so_far > self.iterations:
+      self._iters_so_far = 0
+      return self.cb()
     return False
 
 #====================================================================#

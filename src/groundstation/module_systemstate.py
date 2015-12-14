@@ -21,13 +21,16 @@ class SystemStateModule(spooky.modules.SpookyModule):
   THREAD-SAFE MODULE to CENTRALIZE SENSOR NETWORK "STATE VECTOR"
   Other modules stream state updates to this module in a thread-safe way,
   This module coordinates everything, producing a complete system state output
+
+  *** THREAD-SAFETY: If you touch _state, FIRST AQUIRE _stateLock ***
   '''
 
   def __init__(self, main, instance_name=None):
 
     spooky.modules.SpookyModule.__init__(self, main, "systemstate", singleton=True)
     self._inputQueue = Queue.Queue()
-    self._inputQueueTimeout = 0.1
+    self._service_queue_period = self.main.config.get_my('state_service_queue_period')
+    self._state_transmit_period = self.main.config.get_my('state_transmit_period')
     self._stateLock = threading.Lock()
     self._state = {}
     self.RECORDING = False
@@ -89,6 +92,19 @@ class SystemStateModule(spooky.modules.SpookyModule):
     self.main.unset_systemstate()
     super(SystemStateModule, self).stop(quiet=quiet)
 
+  def send_state_as_json(self, dest_socket):
+    if self.RECORDING:
+      self.dump_state(f)
+
+    data = json.dumps(self.get_current())
+    for dest in self.state_destinations:
+      n = dest_socket.sendto(data, dest)  
+      if len(data) != n:
+        print("%s State Output did not send all data!" % self)
+      else:
+        print("%s State Output sent %d bytes" % (self,n))
+        pass
+
   def run(self):
     try:
       self.main.set_systemstate(self)
@@ -104,23 +120,14 @@ class SystemStateModule(spooky.modules.SpookyModule):
           print "Module %s sending data on %s" % (self, str(self.state_destinations))
 
           # TODO(njoubert): Why not wait on the queue itself? 
-          # Cause what if nothing comes in, we still wanna update?
-          while not self.wait_on_stop(0.1):
+          # Cause what if nothing comes in, we still wanna update!
+
+          send_state = spooky.DoPeriodically(lambda: self.send_state_as_json(state_udp_out), self._state_transmit_period)
+          
+          while not self.wait_on_stop(self._service_queue_period):
             while not self._inputQueue.empty():
               self._handlePartialUpdate(self._inputQueue.get_nowait())
-
-            if self.RECORDING:
-              self.dump_state(f)
-
-            data = json.dumps(self.get_current())
-            for dest in self.state_destinations:
-              n = state_udp_out.sendto(data, dest)  
-              if len(data) != n:
-                print("%s State Output did not send all data!" % self)
-              else:
-                #print("Piksi->UDP sent %d bytes" % n)
-                pass
-
+            send_state.tick()
 
     except SystemExit:
       print "Exit Forced. We're dead."

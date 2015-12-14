@@ -177,7 +177,7 @@ class OdroidPerson:
 
         print "CC bound to %s : %d" % (self.bind_ip, self.cc_local_port)
             
-        heartbeat = spooky.DoEvery(lambda: self.send_heartbeat(), 1.0)
+        heartbeat = spooky.DoPeriodically(lambda: self.send_heartbeat(), 1.0)
         while True:
           try:
             # For command and control, we're going to use JSON over UDP
