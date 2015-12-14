@@ -9,7 +9,7 @@ It currently assumes a python-compatible Linux computers at each node. (In our c
 
 ## Dependencies and Submodules
 
-**[https://git-scm.com/book/en/v2/Git-Tools-Submodules](This project uses git submodules)**
+**[This project uses git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)**
 
 After checkout:
 
