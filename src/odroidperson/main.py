@@ -75,8 +75,9 @@ class OdroidPerson:
       #print "sending message %s to %s, %s" % (msgtype, self.server_ip, self.cc_server_port)
       self.cc_udp.sendto(json.dumps(msg), (self.server_ip, self.cc_server_port))
     except socket.error:
+      print self.server_ip
+      print self.server_cc_port
       traceback.print_exc()
-      raise
 
   def handle_cc(self, cc_data, cc_addr):
     msg = json.loads(cc_data)

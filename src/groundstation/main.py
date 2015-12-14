@@ -35,9 +35,9 @@ class GroundStation(CommandLineHandler):
       'reinit'   : (self.cmd_reinit,                    'reconfigures network from config'),
       'trigger'  : (self.cmd_trigger,                   'triggers a message across modules'),
       'psim'     : (self.cmd_piksisim,                  'toggles the piksi simulator on connected piksis'),
-      'shutdown' : (self.cmd_shutdown,                  'shuts down all nodes in network'),
-      'restart'  : (self.cmd_restart,                   'restart a single or all nodes in network (specify an IP to restart a specific node)'),
-      'update'   : (self.cmd_update,                    'does a git pull and restart on all nodes in network'),
+      'shutdown' : (self.cmd_shutdown,                  '(IP) shuts down a single or all nodes in network'),
+      'restart'  : (self.cmd_restart,                   '(IP) restart a single or all nodes in network (specify an IP to restart a specific node)'),
+      'update'   : (self.cmd_update,                    '(IP) does a git pull and restart on a single or all nodes in network'),
       'record'   : (self.cmd_record,                    'start or stop recording data for a session')
     }
     CommandLineHandler.__init__(self, self.command_map)
@@ -112,7 +112,10 @@ class GroundStation(CommandLineHandler):
       print "enabling. use 't' for true and 'f' for false to toggle state."
 
   def cmd_shutdown(self, args):
-    self.modules.trigger("cmd_shutdown")
+    if len(args) > 0:
+      self.modules.trigger_on("odroidperson_cc", args[0], "cmd_shutdown")
+    else:
+      self.modules.trigger("cmd_shutdown")
 
   def cmd_restart(self, args):
     if len(args) > 0:
@@ -121,7 +124,11 @@ class GroundStation(CommandLineHandler):
       self.modules.trigger("cmd_restart")
 
   def cmd_update(self, args):
-    self.modules.trigger("cmd_update")
+    if len(args) > 0:
+      self.modules.trigger_on("odroidperson_cc", args[0], "cmd_update")
+    else:
+      self.modules.trigger("cmd_update")
+
 
   def configure_network_from_config(self):
     '''

@@ -17,6 +17,10 @@ Fire up a local groundstation instance:
 
 	./bin/odroidperson-local.sh
 
+Fire up a UDP listener to check your output:
+
+	python experiments/simple_udp_listener.py --port 19000
+
 Start playing with the CLI:
 
 	>>> help
