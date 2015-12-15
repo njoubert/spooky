@@ -15,7 +15,7 @@ from contextlib import closing
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
 import spooky, spooky.ip
-from spooky.Daemon import Daemon
+from spooky import Daemon
 from spooky.modules import ModuleHandler
 
 #====================================================================#
