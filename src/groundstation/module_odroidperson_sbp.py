@@ -8,8 +8,6 @@ from contextlib import closing
 import collections
 import binascii
 
-import spooky.swift
-
 from sbp.client.drivers.base_driver import BaseDriver
 from sbp.client import Handler, Framer
 from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS_LLH, MsgObs
@@ -17,14 +15,14 @@ from sbp.navigation import SBP_MSG_POS_LLH, SBP_MSG_GPS_TIME, SBP_MSG_DOPS, SBP_
 from sbp.navigation import MsgPosLLH, MsgGPSTime, MsgDops, MsgBaselineNED, MsgVelNED, MsgBaselineHeading
 from sbp.piksi import SBP_MSG_IAR_STATE, MsgIarState
 
-import spooky, spooky.modules
+import spooky, spooky.modules, spooky.ip, spooky.swift
 
 class SBPUDPDriver(BaseDriver):
 
   def __init__(self, bind_ip, bind_port):
     self.bind_ip = bind_ip
     self.bind_port = bind_port
-    self.handle = spooky.BufferedUDPSocket()
+    self.handle = spooky.ip.BufferedUDPSocket()
     self.handle.setblocking(1)
     self.handle.settimeout(1.0) # I THINK this is what we want......
     self.handle.bind((self.bind_ip, self.bind_port))
@@ -192,6 +190,7 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
             # This is very nice for clean shutdown.
             pass
     except:
+      traceback.print_exc()
       print "FUUU"
 
 def init(main, instance_name=None):

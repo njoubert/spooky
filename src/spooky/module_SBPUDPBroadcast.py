@@ -13,9 +13,9 @@ from sbp.settings import SBP_MSG_SETTINGS_WRITE, MsgSettingsWrite
 
 # This must be run from the src directory, 
 # to correctly have all imports relative to src/
-import spooky, spooky.modules
+import spooky, spooky.modules, spooky.ip
 
-class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.UDPBroadcaster):
+class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.ip.UDPBroadcaster):
   '''
   For the moment, we just broadcast every OBS coming in.
   If this gives us problems, we can split into two threads,
@@ -25,7 +25,7 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.UDPBroadcaster):
   def __init__(self, instance_name, main, sbp_port, sbp_baud, dest=('192.168.2.255', 5000), interval=0.1):
     '''Create a UDP Broadcast socket'''
     spooky.modules.SpookyModule.__init__(self, main, "SBPUDPBroadcast", singleton=True)
-    spooky.UDPBroadcaster.__init__(self, dest=dest)
+    spooky.ip.UDPBroadcaster.__init__(self, dest=dest)
     self.interval = interval
     self.sbp_port = sbp_port
     self.sbp_baud = sbp_baud

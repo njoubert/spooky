@@ -27,7 +27,7 @@ from sbp.settings import SBP_MSG_SETTINGS_WRITE, MsgSettingsWrite
 class SBPUDPBroadcastDriver(BaseDriver):
 
   def __init__(self, bind_port):
-    self.handle = spooky.BufferedUDPBroadcastSocket(port=bind_port)
+    self.handle = spooky.ip.BufferedUDPBroadcastSocket(port=bind_port)
     self.last_addr = None
     BaseDriver.__init__(self, self.handle)
 
