@@ -62,7 +62,7 @@ class SystemStateModule(spooky.modules.SpookyModule):
     if str(node) not in self._state:
       self._state[str(node)] = dict()
     self._state[str(node)][str(component)] = new_state
-    self._state['_lastupdate'] = time.time()
+    self._state[str(node)]['_lastupdate'] = time.time()
     self._stateLock.release()
 
   def cmd_status(self):
