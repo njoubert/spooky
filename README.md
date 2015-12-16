@@ -35,7 +35,7 @@ After checkout:
 	git submodule init
 	git submodule update
 
-These are the dependencies, and how to install them on a node:
+These are the dependencies, and how to install them:
 
 - libsbp https://github.com/swift-nav/libsbp
 
@@ -54,7 +54,11 @@ These are the dependencies, and how to install them on a node:
 	sudo python setup.py install
 	```
 
+- dronekit https://github.com/dronekit/dronekit-python
 
+	```
+	sudo pip install dronekit
+	```
 
 ## Contents
 
@@ -66,7 +70,7 @@ These are the dependencies, and how to install them on a node:
 - `src/odroidperson`: Multiple Instances, One Per Odroid On Person
 - `src/spooky`: Underlying shared library used by both parts
 
-## Archtecture
+## Architecture
 
 We do a UNIX-style "many-independent-small-applications" approach, but wrapped behind a single python CLI (similar to MAVProxy)
 
@@ -76,6 +80,69 @@ We do a UNIX-style "many-independent-small-applications" approach, but wrapped b
 - CON: Have to do all that management myself.
 
 Components are engineered to depend on as few other parts of the system as possible. Different components can be rebooted on-the-fly without crashing anything.
+
+## Integration with 3DR Solo:
+
+Solo creates a wireless network. The controller, Solo, and any connected devices are on the same network subnet. The network layout is:
+
+	10.1.1.1    - Controller
+	10.1.1.10   - Solo
+	10.1.1.100+ - Connected Devices
+
+Connect to your solo's wifi: `SSID = SoloLink_XXX` and `password = sololink`.
+
+Ping your device:
+
+	ping -c 3 10.1.1.1
+	ping -c 3 10.1.1.10
+
+Install [solo cli](https://github.com/3drobotics/solo-cli) and check out [docs](http://dev.3dr.com/starting-utils.html):
+
+	pip install -UI git+https://github.com/3drobotics/solo-cli
+
+Update and provision Solo:
+
+	solo flash both latest --clean
+	solo wifi --name="wifi ssid" --password="wifi password"
+	solo resize
+	<restart by hand>
+	solo resize
+	solo info	
+	solo provision
+
+Get started with [dronekit from the ground station](http://python.dronekit.io/guide/getting_started.html):
+
+	sudo pip install dronekit
+
+Attempt to connect from your laptop in `python`:
+
+```
+from dronekit import connect
+vehicle = connect('0.0.0.0:14550', wait_ready=True)
+print "Vehicle state:"
+print " Global Location: %s" % vehicle.location.global_frame
+print " Global Location (relative altitude): %s" % vehicle.location.global_relative_frame
+print " Local Location: %s" % vehicle.location.local_frame
+print " Attitude: %s" % vehicle.attitude
+print " Velocity: %s" % vehicle.velocity
+print " Battery: %s" % vehicle.battery
+print " Last Heartbeat: %s" % vehicle.last_heartbeat
+print " Heading: %s" % vehicle.heading
+print " Groundspeed: %s" % vehicle.groundspeed
+print " Airspeed: %s" % vehicle.airspeed
+print " Mode: %s" % vehicle.mode.name
+print " Is Armable?: %s" % vehicle.is_armable
+print " Armed: %s" % vehicle.armed
+```
+
+or
+
+```
+from pymavlink import mavutil
+c = mavutil.mavlink_connection("10.1.1.10:14550")
+```
+
+Check out all the [sweet examples!](https://github.com/dronekit/dronekit-python/tree/master/examples)
 
 ## Using PyFTDI:
 
@@ -89,9 +156,6 @@ I am not using, but am curious about:
 
 - [Twisted](https://twistedmatrix.com/trac/), "an event-driven networking engine written in Python"
 - NodeJS, why why why didn't I do this in NodeJS??? Sigh, all the UAV libraries are in python...
-
-
-
 
 # DEAD KITTENS
 
