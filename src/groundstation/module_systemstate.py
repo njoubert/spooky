@@ -14,8 +14,6 @@ import copy
 # SPOOKY-related
 import spooky, spooky.modules
 
-
-
 class SystemStateModule(spooky.modules.SpookyModule):
   '''
   THREAD-SAFE MODULE to CENTRALIZE SENSOR NETWORK "STATE VECTOR"
@@ -26,7 +24,6 @@ class SystemStateModule(spooky.modules.SpookyModule):
   '''
 
   def __init__(self, main, instance_name=None):
-
     spooky.modules.SpookyModule.__init__(self, main, "systemstate", singleton=True)
     self._inputQueue = Queue.Queue()
     self._service_queue_period = self.main.config.get_my('state_service_queue_period')

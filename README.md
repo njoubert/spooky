@@ -15,13 +15,13 @@ Fire up a local debug odroidperson instance:
 
 Fire up a local groundstation instance:
 
-	./bin/odroidperson-local.sh
+	./bin/groundstation-local.sh
 
 Fire up a UDP listener to check your output:
 
 	python experiments/simple_udp_listener.py --port 19000
 
-Start playing with the CLI:
+Start playing with the CLI from `groundstation`:
 
 	>>> help
 	>>> status
@@ -143,6 +143,10 @@ c = mavutil.mavlink_connection("10.1.1.10:14550")
 ```
 
 Check out all the [sweet examples!](https://github.com/dronekit/dronekit-python/tree/master/examples)
+
+## Integrating with the Swift Binary Protocol
+
+[The documentation and protocol spec lives here.](http://docs.swift-nav.com/wiki/SBP)
 
 ## Using PyFTDI:
 

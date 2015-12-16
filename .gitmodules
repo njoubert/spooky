@@ -4,3 +4,6 @@
 [submodule "mavlink"]
 	path = mavlink
 	url = https://github.com/mavlink/mavlink.git
+[submodule "dronekit-python"]
+	path = dronekit-python
+	url = git@github.com:dronekit/dronekit-python.git

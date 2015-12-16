@@ -1,5 +1,12 @@
-import sys, os, time
+# Copyright (C) 2015 Stanford University
+# Contact: Niels Joubert <niels@cs.stanford.edu>
+#
 
+# General
+import sys, os, time
+import traceback
+
+# Spooky-related
 import spooky, spooky.modules
 
 class TestModule(spooky.modules.SpookyModule):
@@ -17,6 +24,7 @@ class TestModule(spooky.modules.SpookyModule):
         print "TestModule (instance %s), here to annoy you!" % (self.instance_name)
     except SystemExit:
       print "Exit Forced. We're dead."
+      traceback.print_exc()
       return
 
 def init(main, instance_name=None):

@@ -40,12 +40,22 @@ class ModuleHandler(object):
     self.module_root = module_root
     self.modules = []
 
-  def get_modules(self, module_name, instance_name=None):
+  def _get_modules(self, module_name, instance_name=None):
+    '''
+    Returns the raw internal representation to 
+    '''
     mods = []
     for (m,p) in self.modules:
       if m.module_name == module_name and (instance_name == None or m.singleton or m.instance_name == instance_name):
         mods.append((m,p))
     return mods
+
+  def get_modules(self, module_name, instance_name=None):
+    mods = self._get_modules(module_name, instance_name=instance_name)
+    if len(mods) > 0:
+      return [m[0] for m in mods]
+    else:
+      return []
 
   def listeners_for(self, attr, modules=None):
     if modules is None:
@@ -66,7 +76,7 @@ class ModuleHandler(object):
       f(*args, **kwargs)
 
   def trigger_on(self, module_name, instance_name, attr, *args, **kwargs):
-    mods = self.get_modules(module_name, instance_name=instance_name)
+    mods = self._get_modules(module_name, instance_name=instance_name)
     for f in self.listeners_for(attr, modules=mods):
       f(*args, **kwargs)
 
@@ -137,7 +147,7 @@ class ModuleHandler(object):
 
   def unload_module(self, module_name, instance_name=None, quiet=False):
     hasUnloaded = 0
-    modules = self.get_modules(module_name, instance_name=instance_name)
+    modules = self._get_modules(module_name, instance_name=instance_name)
     for (m,p) in modules:
       try:
         if hasattr(m, 'stop'):
@@ -159,7 +169,7 @@ class ModuleHandler(object):
   
   def reload_module(self, module_name, instance_name=None):
     ''' Reload ALL instances of this module '''
-    modules = self.get_modules(module_name, instance_name=instance_name)
+    modules = self._get_modules(module_name, instance_name=instance_name)
     for (m,p) in modules:
       self.load_module(m.module_name, instance_name=m.instance_name, forceReload=True)
 

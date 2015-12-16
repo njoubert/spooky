@@ -17,6 +17,9 @@ from contextlib import closing
 
 import subprocess
 
+# Enable command line history
+import readline
+
 def get_version():
   return subprocess.check_output(["git", "describe", "--dirty", "--always"]).strip()
 
