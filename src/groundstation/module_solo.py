@@ -12,6 +12,7 @@ import binascii
 
 # 3DR Solo-related
 import dronekit
+from pymavlink import mavutil # Needed for command message definitions
 
 # Spooky
 import spooky, spooky.modules
@@ -57,6 +58,9 @@ class SoloModule(spooky.modules.SpookyModule):
     spooky.modules.SpookyModule.__init__(self, main, "solo", singleton=True)
     self.bind_ip  = self.main.config.get_my('my-ip')
     self.bind_port = self.main.config.get_my('camera_cc_port')
+    self.dronekit_device = self.main.config.get_my('dronekit-device')
+    self.vehicle = None
+    self.vehicle_hb_threashold = 2.0
 
   # ===========================================================================
   # 3DR SOLO DRONEKIT INTERFACE
@@ -108,11 +112,31 @@ class SoloModule(spooky.modules.SpookyModule):
   # Command Line Access
   # ===========================================================================
 
+  def cmd_status(self):
+    if self.vehicle:
+      print "Vehicle state:"
+      print " Global Location: %s" % self.vehicle.location.global_frame
+      print " Global Location (relative altitude): %s" % self.vehicle.location.global_relative_frame
+      print " Local Location: %s" % self.vehicle.location.local_frame
+      print " Attitude: %s" % self.vehicle.attitude
+      print " Velocity: %s" % self.vehicle.velocity
+      print " Battery: %s" % self.vehicle.battery
+      print " Last Heartbeat: %s" % self.vehicle.last_heartbeat
+      print " Heading: %s" % self.vehicle.heading
+      print " Groundspeed: %s" % self.vehicle.groundspeed
+      print " Airspeed: %s" % self.vehicle.airspeed
+      print " Mode: %s" % self.vehicle.mode.name
+      print " Is Armable?: %s" % self.vehicle.is_armable
+      print " Armed: %s" % self.vehicle.armed
+
   def cmd_solo(self, args):
 
     def usage():
       print args
       print "solo (status|takeoff|land|go|no)"
+
+    if 'status' in args:
+      return self.cmd_status()
 
     return usage()
 
@@ -120,8 +144,26 @@ class SoloModule(spooky.modules.SpookyModule):
   # Main Module Runloop
   # ===========================================================================
 
+  def MAYDAY_stop_solo(self):
+    pass
+
+  def check_vehicle(self):
+    if self.vehicle.last_heartbeat > self.vehicle_hb_threashold:
+      print "SOLO LINK COMPROMISED: Last Heartbeat %.2fs ago" % self.vehicle.last_heartbeat
+      print "STOPPING EVERYTHING!"
+      self.MAYDAY_stop_solo()
+
   def run(self):
     try:
+
+      # Configure our SoloLink connection
+      print 'Connecting to vehicle on: %s' % self.dronekit_device
+      self.vehicle = dronekit.connect(self.dronekit_device, wait_ready=True)
+
+      #todo: set up a high streamrate? what's the solo default?
+
+
+      CheckIntegrity = spooky.DoPeriodically(self.check_vehicle, 1.0)
 
       with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as camapi_udp:
         camapi_udp.setblocking(1) 
@@ -129,6 +171,8 @@ class SoloModule(spooky.modules.SpookyModule):
         camapi_udp.bind((self.bind_ip, self.bind_port))
 
         print "Module %s listening on %s:%s" % (self, self.bind_ip, self.bind_port)
+
+        self.ready()
 
         while not self.stopped():
 
@@ -138,6 +182,9 @@ class SoloModule(spooky.modules.SpookyModule):
             self.handle_camapi(camapi_data, camapi_addr)
           except (socket.error, socket.timeout) as e:
             pass
+
+          CheckIntegrity.tick()
+
 
     except SystemExit:
       traceback.print_exc()

@@ -37,24 +37,32 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.ip.UDPBroadcaste
     '''Thread loop here'''
     # Problems? See: https://pylibftdi.readthedocs.org/en/latest/troubleshooting.html
     #with PyFTDIDriver(self.sbp_baud) as driver:
-    with PySerialDriver(self.sbp_port, baud=self.sbp_baud) as driver:
-      self.driver = driver
-      self.framer = Framer(driver.read, driver.write)
-      with Handler(self.framer) as handler:
-        self.handler = handler
-        try:
-          for msg, metadata in handler.filter(SBP_MSG_OBS, SBP_MSG_BASE_POS_LLH):
-            if self.stopped():
-              return
-            self.last_sent = time.time()
-            self.broadcast(msg.pack())
-        except KeyboardInterrupt:
-          raise
-        except socket.error:
-          raise
-        except SystemExit:
-          print "Exit Forced. We're dead."
-          return
+    try:
+      with PySerialDriver(self.sbp_port, baud=self.sbp_baud) as driver:
+        self.driver = driver
+        self.framer = Framer(driver.read, driver.write)
+        with Handler(self.framer) as handler:
+          self.handler = handler
+
+          self.ready()
+          
+          #TODO: Change to use a callback like the other modules.
+
+          try:
+            for msg, metadata in handler.filter(SBP_MSG_OBS, SBP_MSG_BASE_POS_LLH):
+              if self.stopped():
+                return
+              self.last_sent = time.time()
+              self.broadcast(msg.pack())
+          except KeyboardInterrupt:
+            raise
+          except socket.error:
+            raise
+          except SystemExit:
+            print "Exit Forced. We're dead."
+            return
+    except:
+      self.ready()
 
   def disable_piksi_sim(self):
     if not self.framer:

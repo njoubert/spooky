@@ -120,14 +120,15 @@ class PiksiHandler(spooky.modules.SpookyModule):
           print("\t%s" % name)
         else:
           print("\t%s (%s)" % (name, desc))
-      print
-      raise SystemExit
-
+      self.ready()
+      
     try:
       with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as sbp_udp:
         sbp_udp.setblocking(1)
         sbp_udp.settimeout(0.05)
         self.sbp_udp = sbp_udp
+
+        self.ready()
 
         while not self.stopped():
 

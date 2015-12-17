@@ -68,6 +68,8 @@ class PixhawkHandler(spooky.modules.SpookyModule):
       # TODO(njoubert): we might want to filter messages first before sending them!
       master.logfile_raw = dest_mav_udp
       
+      self.ready()
+
       while not self.stopped():
         msg = master.recv_match(type=self.listen_for_mav, blocking=True)
         if not msg or msg is None:

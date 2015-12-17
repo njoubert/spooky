@@ -144,6 +144,20 @@ c = mavutil.mavlink_connection("10.1.1.10:14550")
 
 Check out all the [sweet examples!](https://github.com/dronekit/dronekit-python/tree/master/examples)
 
+### Firing up Solo Simulator
+
+First, [set up Virtualbox and Vagrant](http://python.dronekit.io/guide/sitl_setup.html)
+
+Then, to fire up the simulator:
+
+	vagrant up
+	vagrant ssh
+	./sitl.sh
+	param load ../Tools/autotest/copter_params.parm
+	param set ARMING_CHECK 0
+
+This will start transmitting data on `0.0.0.0:14550`
+
 ## Integrating with the Swift Binary Protocol
 
 [The documentation and protocol spec lives here.](http://docs.swift-nav.com/wiki/SBP)

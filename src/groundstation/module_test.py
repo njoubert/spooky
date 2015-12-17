@@ -20,6 +20,9 @@ class TestModule(spooky.modules.SpookyModule):
   def run(self):
     '''Thread loop here'''
     try:
+
+      self.ready()
+
       while not self.wait_on_stop(1.0):
         print "TestModule (instance %s), here to annoy you!" % (self.instance_name)
     except SystemExit:

@@ -82,6 +82,8 @@ class OdroidPersonMAVModule(spooky.modules.SpookyModule):
       master = mavutil.mavlink_connection('udpin:%s:%d' % (self.bind_ip, self.mav_port))
       print "Module %s listening on %s" % (self, self.mav_port)
 
+      self.ready()
+
       while not self.stopped():
         msg = master.recv_match(type=self.listen_for_mav, blocking=True)
         if not msg or msg is None:

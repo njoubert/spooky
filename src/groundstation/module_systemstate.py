@@ -117,9 +117,8 @@ class SystemStateModule(spooky.modules.SpookyModule):
           state_udp_out.settimeout(0.05)
 
           print "Module %s sending data on %s" % (self, str(self.state_destinations))
-
-          # TODO(njoubert): Why not wait on the queue itself? 
-          # Cause what if nothing comes in, we still wanna update!
+    
+          self.ready()
 
           send_state = spooky.DoPeriodically(lambda: self.send_state_as_json(state_udp_out), self._state_transmit_period)
           

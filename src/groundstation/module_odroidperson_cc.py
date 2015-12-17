@@ -128,6 +128,8 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
 
       print "Module %s listening on %s" % (self, self.cc_port)
       
+      self.ready()
+      
       try:
         while True:
           if self.stopped():

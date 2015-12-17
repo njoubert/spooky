@@ -26,17 +26,17 @@
 		"my-ip":                 "192.168.2.1",
 		"sbp-port":              "/dev/cu.usbserial-00101114",
 		"sbp-baud":              1000000,
-		"dronekit-device":       "0.0.0.0:14500"
+		"dronekit-device":       "0.0.0.0:14550"
 	},
 	"localhost-server": {
 		"state_destinations":	  [["127.0.0.1", 19000], ["192.168.1.58", 19000]],
 		"camera_cc_port":         19010,
 		"be-the-basestation":     true,
-		"my-ip":                  "0.0.0.0",
+		"my-ip":                  "127.0.0.1",
 		"udp-bcast-ip":           "127.0.0.1",
 		"sbp-port":               "/dev/cu.usbserial-00001014",
 		"sbp-baud":               1000000,
-		"dronekit-device":        "127.0.0.1:14500"
+		"dronekit-device":        "127.0.0.1:14550"
 	},
 
 	"127.0.0.1": {

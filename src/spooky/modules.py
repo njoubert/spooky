@@ -80,7 +80,7 @@ class ModuleHandler(object):
     for f in self.listeners_for(attr, modules=mods):
       f(*args, **kwargs)
 
-  def load_module(self, module_name, instance_name=None, forceReload=False):
+  def load_module(self, module_name, instance_name=None, forceReload=False, waitTimeout=5.0):
     ''' 
     Loads and starts a module, 
     stores a reference into self.modules,
@@ -134,12 +134,16 @@ class ModuleHandler(object):
         package = import_package(modpath)
         reload(package)
         module = package.init(self.main, instance_name=instance_name)
-        if isinstance(module, spooky.modules.SpookyModule):
-          self.modules.append((module, package))
-          return module
+        if not module.wait_on_ready(waitTimeout):
+          print "Module %s loading timed out!" % module
+          return None
         else:
-          ex = "%s.init didn't return instance of SpookyModule" % module_name
-          break
+          if isinstance(module, spooky.modules.SpookyModule):
+            self.modules.append((module, package))
+            return module
+          else:
+            ex = "%s.init didn't return instance of SpookyModule" % module_name
+            break
       except ImportError as msg:
         ex = '%s\n%s' % (msg, traceback.format_exc())
     print "Failed to load module: %s" % ex
@@ -239,12 +243,15 @@ class SpookyModule(threading.Thread):
     the main thread.
 
   USAGE:
+  - Please call self.ready() once your module is initialized.
   - Please check self.stopped() in your run() loop and quit if necessary.
   '''
+
   def __init__(self, main, module_name, instance_name=None, singleton=False):
     threading.Thread.__init__(self)
     self.daemon          = True
     self._stop           = threading.Event()
+    self._ready          = threading.Event()
     self.main            = main
     self.module_name     = module_name
     self.instance_name   = instance_name
@@ -264,6 +271,12 @@ class SpookyModule(threading.Thread):
         print "Join unsuccessful, attempting to raise SystemExit exception"
       self.raiseExc(SystemExit)
 
+  def ready(self):
+    '''
+    Sets the "I'M READY" flag
+    '''
+    self._ready.set()
+
   def stopped(self):
     return self._stop.isSet()
 
@@ -273,6 +286,13 @@ class SpookyModule(threading.Thread):
     Returns true if event was triggered.
     '''
     return self._stop.wait(timeout)
+
+  def wait_on_ready(self, timeout):
+    ''' 
+    Blocks on _ready event for given timeout or until set.
+    Returns true if event was triggered.
+    '''
+    return self._ready.wait(timeout)
 
   def __str__(self):
     if self.singleton:

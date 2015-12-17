@@ -74,10 +74,11 @@ class OdroidPerson:
       self.send_id += 1
       #print "sending message %s to %s, %s" % (msgtype, self.server_ip, self.cc_server_port)
       self.cc_udp.sendto(json.dumps(msg), (self.server_ip, self.cc_server_port))
-    except socket.error:
-      print self.server_ip
-      print self.server_cc_port
-      traceback.print_exc()
+    except socket.error as e:
+      if e.errno == 65:
+        print "SEND_CC: No route to %s:%d" % (self.server_ip, self.cc_server_port)
+      else:
+        traceback.print_exc()
 
   def handle_cc(self, cc_data, cc_addr):
     msg = json.loads(cc_data)

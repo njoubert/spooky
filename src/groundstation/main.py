@@ -158,7 +158,9 @@ class GroundStation(CommandLineHandler):
        self.modules.load_module('odroidperson_sbp', instance_name=client)
        self.modules.load_module('odroidperson_mav', instance_name=client)
 
-    self.modules.load_module('solo');
+    self.modules.load_module('solo', waitTimeout=15.0);
+
+    print "CONFIGURATON DONE! Spooky is ready for your commands:"
     
   def set_systemstate(self, module):
     self.systemstate = module

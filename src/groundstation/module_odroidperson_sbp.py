@@ -185,6 +185,8 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
           source.add_callback(self.handle_incoming, 
             msg_type=[SBP_MSG_POS_LLH, SBP_MSG_GPS_TIME, SBP_MSG_DOPS, SBP_MSG_BASELINE_NED, SBP_MSG_VEL_NED, SBP_MSG_BASELINE_HEADING, SBP_MSG_IAR_STATE])
 
+          self.ready()
+
           while not self.wait_on_stop(1.0):
             # Sleep until we get killed. The callback above handles actual stuff.
             # This is very nice for clean shutdown.
