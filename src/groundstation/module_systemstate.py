@@ -94,11 +94,14 @@ class SystemStateModule(spooky.modules.SpookyModule):
 
     data = json.dumps(self.get_current())
     for dest in self.state_destinations:
-      n = dest_socket.sendto(data, dest)  
-      if len(data) != n:
-        print("%s State Output did not send all data!" % self)
-      else:
-        #print("%s State Output sent %d bytes" % (self,n))
+      try:
+        n = dest_socket.sendto(data, dest)  
+        if len(data) != n:
+          print("%s State Output did not send all data!" % self)
+        else:
+          #print("%s State Output sent %d bytes" % (self,n))
+          pass
+      except socket.error:
         pass
 
   def run(self):

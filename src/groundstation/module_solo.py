@@ -77,6 +77,12 @@ class SoloModule(spooky.modules.SpookyModule):
     print "PRETENDING TO SEND STUFF TO QUAD HERE:"
     print msg
 
+    '''
+    {u'shotName': u'Reverse: 1', u'shotDuration': 4.0, u'desiredstate': {u'positiondot': [0.0, 0.0, 0.0], u'gimbal': [0.0, 0.0, 4.18879032], u'gimbaldot': [0.0, 0.0, 0.0], u'coord': u'PiksiNED', u'lookat': [0.0, 0.0, -1272.421], u'lookatdot': [0.0, 0.0, 0.0], u'position': [653.4773, 1131.85583, -1272.421]}}
+    '''
+
+    return True
+
   def handle_camapi(self, data, addr):
     msg = json.loads(data)
 
@@ -105,7 +111,8 @@ class SoloModule(spooky.modules.SpookyModule):
   def cmd_solo(self, args):
 
     def usage():
-      print "solo (status|takeoff|land|override)"
+      print args
+      print "solo (status|takeoff|land|go|no)"
 
     return usage()
 
