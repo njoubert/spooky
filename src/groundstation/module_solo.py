@@ -56,16 +56,24 @@ class SoloModule(spooky.modules.SpookyModule):
 
   def __init__(self, main, instance_name=None):
     spooky.modules.SpookyModule.__init__(self, main, "solo", singleton=True)
-    self.bind_ip  = self.main.config.get_my('my-ip')
+    self.bind_ip  = self.main.config.get_my('listen-on-ip')
     self.bind_port = self.main.config.get_my('camera_cc_port')
     self.dronekit_device = self.main.config.get_my('dronekit-device')
     self.vehicle = None
     self.vehicle_hb_threashold = 2.0
+    self._ENABLE_API = False
 
   # ===========================================================================
   # 3DR SOLO DRONEKIT INTERFACE
   # ===========================================================================
 
+  def enable_API(self):
+    print "ENABLING CAMERA API"
+    self._ENABLE_API = True
+
+  def disable_API(self):
+    print "DISABLING CAMERA API"
+    self._ENABLE_API = False
 
 
   # ===========================================================================
@@ -113,6 +121,7 @@ class SoloModule(spooky.modules.SpookyModule):
   # ===========================================================================
 
   def cmd_status(self):
+    print "SOLO API ENABLED?", self._ENABLE_API
     if self.vehicle:
       print "Vehicle state:"
       print " Global Location: %s" % self.vehicle.location.global_frame
@@ -133,10 +142,22 @@ class SoloModule(spooky.modules.SpookyModule):
 
     def usage():
       print args
-      print "solo (status|takeoff|land|go|no)"
+      print "solo (status|arm|takeoff|land|go|no|mayday)"
 
-    if 'status' in args:
+    if 'mayday' in args:
+      return self.MAYDAY_stop_solo()
+    elif 'status' in args:
       return self.cmd_status()
+    elif 'arm' in args:
+      return
+    elif 'takeoff' in args:
+      return
+    elif 'land' in args:
+      return
+    elif 'go' in args:
+      return self.enable_API()
+    elif 'no' in args:
+      return self.disable_API()
 
     return usage()
 
@@ -145,7 +166,7 @@ class SoloModule(spooky.modules.SpookyModule):
   # ===========================================================================
 
   def MAYDAY_stop_solo(self):
-    pass
+    self.disable_API()
 
   def check_vehicle(self):
     if self.vehicle.last_heartbeat > self.vehicle_hb_threashold:
