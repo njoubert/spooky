@@ -24,6 +24,7 @@
 		"camera_cc_port":        19010,
 		"be-the-basestation":    true,
 		"my-ip":                 "192.168.2.1",
+		"listen-on-ip":           "0.0.0.0",
 		"sbp-port":              "/dev/cu.usbserial-00101114",
 		"sbp-baud":              1000000,
 		"dronekit-device":       "0.0.0.0:14550"
@@ -33,6 +34,7 @@
 		"camera_cc_port":         19010,
 		"be-the-basestation":     true,
 		"my-ip":                  "127.0.0.1",
+		"listen-on-ip":           "0.0.0.0",
 		"udp-bcast-ip":           "127.0.0.1",
 		"sbp-port":               "/dev/cu.usbserial-00001014",
 		"sbp-baud":               1000000,

@@ -12,6 +12,7 @@ import time, socket, sys, os, sys, inspect, signal, traceback
 import argparse, json
 
 import threading
+import Queue
 import collections
 from contextlib import closing
 
@@ -29,6 +30,31 @@ def find_next_log_filename(prefix):
   while os.path.exists(prefix + "%.7i.pickle" % i):
     i += 1
   return prefix + "%.7i.pickle" % i
+
+
+#====================================================================#
+
+class BusyWaitWithTimeout(object):
+  '''
+  Busy-waits on a call to return a True-ish value,
+  or until timeout elapses
+  '''
+  def __init__(self, callback, period, timeout):
+    self.cb = callback
+    self.period = period
+    self.timeout = timeout
+    self._start_time = 0
+
+  def wait(self):
+    self._start_time = time.time()
+    while True:
+      elapsed = time.time() - self._start_time
+      ret = self.cb()
+      if ret:
+        return ret
+      if elapsed > self.timeout:
+        return False
+      time.sleep(self.period)
 
 #====================================================================#
 
@@ -72,6 +98,60 @@ class DoEvery(object):
       self._iters_so_far = 0
       return self.cb()
     return False
+
+#====================================================================#
+
+class ExecutorThread(threading.Thread):
+  '''
+  This thread performs blocking operations passed to it, so you don't have to...
+  '''
+  def __init__(self):
+    threading.Thread.__init__(self)
+    self.daemon = True
+    self.queue = Queue.Queue()
+    self.queuePeriod = 0.1
+    self.isExecuting = False
+
+  def execute(self, blocking, callback=None, event=None):
+    '''
+    Hand me functions to execute. 
+    You can supply a callback and/or an event to trigger after completion.
+    Keep in mind that THIS thread will call the callback.
+    '''
+    self.queue.put((blocking, callback, event))
+
+  def cancel(self):
+    # Brutally replace the queue...
+    # TODO: Does this work?
+    self.queue = Queue.Queue()
+
+  def stop(self):
+    self._running = False
+
+  def status(self):
+    return (self.isExecuting, self.queue.qsize())
+
+  def run(self):
+    self._running = True
+    while self._running:
+      try:
+        blocking, callback, event = self.queue.get(True, self.queuePeriod) # Block!
+
+        try:
+          self.isExecuting = True
+          ret = blocking()
+          if callback:
+            callback(ret)
+          if event:
+            event.set()
+        except:
+          traceback.print_exc()
+        finally:
+          self.isExecuting = False
+          self.queue.task_done()
+
+      except Queue.Empty:
+        pass
 
 #====================================================================#
 

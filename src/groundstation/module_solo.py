@@ -62,10 +62,32 @@ class SoloModule(spooky.modules.SpookyModule):
     self.vehicle = None
     self.vehicle_hb_threashold = 2.0
     self._ENABLE_API = False
+    
+    self._executor = None
+    self.init_executor()
+
+  def init_executor(self):
+    if self._executor:
+      self._executor.stop()
+      # TODO: Potentially CRASH the executor thread here.
+    self._executor = spooky.ExecutorThread()
+    self._executor.start()
 
   # ===========================================================================
   # 3DR SOLO DRONEKIT INTERFACE
   # ===========================================================================
+
+
+  def MAYDAY_stop_solo(self):
+    self.disable_API()
+    self.init_executor()
+
+  def check_vehicle(self):
+    ''' We run this periodically in the thread runloop.'''
+    if self.vehicle.last_heartbeat > self.vehicle_hb_threashold:
+      print "SOLO LINK COMPROMISED: Last Heartbeat %.2fs ago" % self.vehicle.last_heartbeat
+      print "STOPPING EVERYTHING!"
+      self.MAYDAY_stop_solo()
 
   def enable_API(self):
     print "ENABLING CAMERA API"
@@ -75,6 +97,57 @@ class SoloModule(spooky.modules.SpookyModule):
     print "DISABLING CAMERA API"
     self._ENABLE_API = False
 
+  def arm(self, value=True, timeout=2.0):
+
+    def deferred():
+      if not self.vehicle or not self.vehicle.is_armable:
+        print " The vehicle is not ready to arm"
+        return False
+      if value:
+        print "Arming into GUIDED mode..."
+        self.vehicle.mode    = dronekit.VehicleMode("GUIDED")
+        self.vehicle.armed   = True
+        armingWait = spooky.BusyWaitWithTimeout(lambda: self.vehicle.armed, 0.1, 5.0)
+        if not armingWait.wait():
+          print "Vehicle didn't arm in the allotted time..."
+          self.vehicle.armed = False
+          return False
+        else:
+          return True
+      else:
+        print "Disarming"
+        self.vehicle.armed   = False
+
+    self._executor.execute(deferred)
+    
+  def takeoff(self, aTargetAltitude=10.0):
+
+    def deferred():
+      if not self.vehicle.armed:
+        print "Vehicle is not armed"
+        return False
+
+      print "Taking off!"
+      self.vehicle.simple_takeoff(aTargetAltitude) # Take off to target altitude
+
+      # Wait until the self.vehicle reaches a safe height before processing the goto (otherwise the command 
+      #  after Vehicle.simple_takeoff will execute immediately).
+      while True:
+          print " Altitude: ", self.vehicle.location.global_relative_frame.alt      
+          if self.vehicle.location.global_relative_frame.alt>=aTargetAltitude*0.95: #Trigger just below target alt.
+              print "Reached target altitude"
+              break
+          time.sleep(1)
+
+    self._executor.execute(deferred)
+
+  def land(self):
+    self._executor.cancel()
+    self.vehicle.mode    = dronekit.VehicleMode("Land")
+
+  def rtl(self):
+    self._executor.cancel()
+    self.vehicle.mode    = dronekit.VehicleMode("RTL")
 
   # ===========================================================================
   # UDP-BASED CAMERA API
@@ -121,7 +194,10 @@ class SoloModule(spooky.modules.SpookyModule):
   # ===========================================================================
 
   def cmd_status(self):
+
     print "SOLO API ENABLED?", self._ENABLE_API
+    exStatus = self._executor.status()
+    print "Executor: Executing? %s Commands in Queue? %d" % (str(exStatus[0]), exStatus[0])
     if self.vehicle:
       print "Vehicle state:"
       print " Global Location: %s" % self.vehicle.location.global_frame
@@ -142,17 +218,23 @@ class SoloModule(spooky.modules.SpookyModule):
 
     def usage():
       print args
-      print "solo (status|arm|takeoff|land|go|no|mayday)"
+      print "solo (status|arm|takeoff|land|rtl|go|no|mayday)"
 
     if 'mayday' in args:
       return self.MAYDAY_stop_solo()
     elif 'status' in args:
       return self.cmd_status()
     elif 'arm' in args:
+      self.arm()
       return
     elif 'takeoff' in args:
+      self.takeoff()
       return
     elif 'land' in args:
+      self.land()
+      return
+    elif 'rtl' in args:
+      self.rtl()
       return
     elif 'go' in args:
       return self.enable_API()
@@ -165,14 +247,6 @@ class SoloModule(spooky.modules.SpookyModule):
   # Main Module Runloop
   # ===========================================================================
 
-  def MAYDAY_stop_solo(self):
-    self.disable_API()
-
-  def check_vehicle(self):
-    if self.vehicle.last_heartbeat > self.vehicle_hb_threashold:
-      print "SOLO LINK COMPROMISED: Last Heartbeat %.2fs ago" % self.vehicle.last_heartbeat
-      print "STOPPING EVERYTHING!"
-      self.MAYDAY_stop_solo()
 
   def run(self):
     try:
