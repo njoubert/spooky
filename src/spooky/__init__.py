@@ -31,6 +31,12 @@ def find_next_log_filename(prefix):
     i += 1
   return prefix + "%.7i.pickle" % i
 
+def testBit(int_type, offset):
+  '''
+  testBit() returns a nonzero result, 2**offset, if the bit at 'offset' is one.
+  '''
+  mask = 1 << offset
+  return(int_type & mask)
 
 #====================================================================#
 

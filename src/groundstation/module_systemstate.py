@@ -14,6 +14,64 @@ import copy
 # SPOOKY-related
 import spooky, spooky.modules
 
+
+'''
+Example JSON-dumped System State
+{
+    "127.0.0.1": {
+        "MsgBaselineNED": {
+            "d": 0,
+            "e": -91681,
+            "flags": 1,
+            "h_accuracy": 0,
+            "n": -39933,
+            "n_sats": 9,
+            "tow": 88800,
+            "v_accuracy": 0
+        },
+        "MsgDops": {
+            "gdop": 180,
+            "hdop": 160,
+            "pdop": 190,
+            "tdop": 170,
+            "tow": 88200,
+            "vdop": 150
+        },
+        "MsgGPSTime": {
+            "flags": 0,
+            "ns": 0,
+            "tow": 88800,
+            "wn": 1787
+        },
+        "MsgIarState": {
+            "num_hyps": 1
+        },
+        "MsgPosLLH": {
+            "flags": 1,
+            "h_accuracy": 0,
+            "height": 69.87143641833835,
+            "lat": 37.42957419639449,
+            "lon": -122.17414882947999,
+            "n_sats": 9,
+            "tow": 88800,
+            "v_accuracy": 0
+        },
+        "MsgVelNED": {
+            "d": 0,
+            "e": 1495,
+            "flags": 0,
+            "h_accuracy": 0,
+            "n": -3432,
+            "n_sats": 9,
+            "tow": 88800,
+            "v_accuracy": 0
+        },
+        "_lastupdate": 1450386821.294973
+    },
+    "_timestamp": 1450386821.330007
+}
+
+'''
 class SystemStateModule(spooky.modules.SpookyModule):
   '''
   THREAD-SAFE MODULE to CENTRALIZE SENSOR NETWORK "STATE VECTOR"
@@ -33,6 +91,11 @@ class SystemStateModule(spooky.modules.SpookyModule):
     self.RECORDING = False
     dests = self.main.config.get_my('state_destinations')
     self.state_destinations = [(d[0], d[1]) for d in dests]
+
+
+  # ===========================================================================
+  # API and Internals for dealing with State
+  # ===========================================================================
 
   def dump_state(self, filelike):
     pickle.dump(self.get_current(), filelike, pickle.HIGHEST_PROTOCOL)
@@ -62,15 +125,48 @@ class SystemStateModule(spooky.modules.SpookyModule):
     self._state[str(node)]['_lastupdate'] = time.time()
     self._stateLock.release()
 
-  def cmd_status(self):
-    print self, self.get_state_str()
-
   def get_state_str(self):
     current = self.get_current()
     ret = "RECORDING = %s\n" % str(self.RECORDING)
     ret += json.dumps(current, sort_keys=True,
                         indent=4, separators=(',', ': '))
     return ret
+
+
+  def get_piski_baseline_ned(self, piksi_ip):
+    '''
+    Returns the specified Piksi baseline, with human-readable status.
+    [N,E,D] in units of mm
+
+    '''
+    piksi_ip = str(piksi_ip)
+    state = self.get_current()
+    
+    if not piksi_ip in state:
+      return (None, "No Piksi state available for %s" % piksi_ip)
+
+    piksi_state = state[piksi_ip]
+    piksi_baseline = piksi_state['MsgBaselineNED']
+    last_update = piksi_state['_lastupdate']
+    age = time.time() - last_update
+    ned = [piksi_baseline['n'], piksi_baseline['e'], piksi_baseline['d']]
+
+    msg = None
+    if spooky.testBit(piksi_baseline['flags'], 0) ==  0:
+      msg = "Piksi only has Float baseline! flags=%d" %  piksi_baseline['flags']
+    if age > 10.0:
+      msg = "Piksi Baseline older than %.2fs!" % 10.0
+    
+    return (ned, msg)
+
+
+  # ===========================================================================
+  # Command line
+  # ===========================================================================
+
+
+  def cmd_status(self):
+    print self, self.get_state_str()
 
   def cmd_record_start(self):
     print "Recording system state to %s" % self.log_filename
@@ -83,6 +179,11 @@ class SystemStateModule(spooky.modules.SpookyModule):
   def cmd_record_next(self):
     self.RECORDING = False
     print "NOT IMPLEMENTED YET."
+
+
+  # ===========================================================================
+  # Main Module Runloop and State Transmission
+  # ===========================================================================
 
   def stop(self, quiet=False):
     self.main.unset_systemstate()
@@ -103,6 +204,7 @@ class SystemStateModule(spooky.modules.SpookyModule):
           pass
       except socket.error:
         pass
+
 
   def run(self):
     try:
