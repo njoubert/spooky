@@ -87,15 +87,18 @@ class SoloModule(spooky.modules.SpookyModule):
     
     self.vehicle_hb_threashold = 5.0
     self._ENABLE_API = False
+    self.statusmsg_API = ""
     
     self.vehicle = None
-    self.vehicle_home_ned = None
+    self.vehicle_home_ned = None#[0,0,10000]
     self.vehicle_home = None
 
     self._executor = None
     self.init_executor()
 
-    self.waiting_for_okay = False
+    self.cleared_to_execute = threading.Event()
+    self.cleared_to_execute.set()
+    self.okay = False
 
   def init_executor(self):
     if self._executor:
@@ -106,6 +109,7 @@ class SoloModule(spooky.modules.SpookyModule):
 
 
   def stop(self, quiet=False):
+    self.MAYDAY_stop_solo()
     self.disconnect()
     super(SoloModule, self).stop(quiet=quiet)
 
@@ -177,12 +181,13 @@ class SoloModule(spooky.modules.SpookyModule):
 
       print "Vehicle Connected! Setting airpspeed and downloading commands..."
       
-      self.vehicle.groundspeed = 1.0 # Make it move SLOWLY
-      self.vehicle.airspeed = 1.0
       cmds = self.vehicle.commands
       cmds.download()
       cmds.wait_ready()
       self.vehicle_home = self.vehicle.home_location
+
+      self.vehicle.groundspeed = 0.2 # Make it move SLOWLY
+      self.vehicle.airspeed = 0.2
 
       print "Vehicle Ready!"
 
@@ -196,8 +201,12 @@ class SoloModule(spooky.modules.SpookyModule):
     print "Vehicle Disconnected!"
 
   def MAYDAY_stop_solo(self):
+    if self.vehicle:
+      self.vehicle.mode = dronekit.VehicleMode("LOITER")
     self.disable_API()
     self.init_executor()
+    if self.vehicle:
+      self.vehicle.mode = dronekit.VehicleMode("LOITER")
 
   def check_vehicle(self):
     ''' We run this periodically in the thread runloop.'''
@@ -272,24 +281,28 @@ class SoloModule(spooky.modules.SpookyModule):
     if not self.vehicle:
       return False
     
+    print "sendLookAtSpookyNED", ned
     llh = self._spooky_to_vehicle_llh_relative(ned)
+    if llh is None:
+      print "Can't look-at, no home location!"
+      return
 
-    roi = dronekit.LocationGlobalRelative(llh[0],llh[1],llh[2])
-    self.vehicle.gimbal.target_location(roi)
+    #roi = dronekit.LocationGlobalRelative(llh[0],llh[1],llh[2])
+    #self.vehicle.gimbal.target_location(roi)
 
     # dronekit.LocationLocal(north, east, down)
     
-    # msg = self.vehicle.message_factory.command_long_encode(
-    #                                                 1, 1,    # target system, target component
-    #                                                 mavutil.mavlink.MAV_CMD_DO_SET_ROI, #command
-    #                                                 0, #confirmation
-    #                                                 0, 0, 0, 0, #params 1-4
-    #                                                 llh[0],
-    #                                                 llh[1],
-    #                                                 llh[2]
-    #                                                 )
+    msg = self.vehicle.message_factory.command_long_encode(
+                                                    1, 1,    # target system, target component
+                                                    mavutil.mavlink.MAV_CMD_DO_SET_ROI, #command
+                                                    0, #confirmation
+                                                    0, 0, 0, 0, #params 1-4
+                                                    llh[0],
+                                                    llh[1],
+                                                    llh[2]
+                                                    )
 
-    # self.vehicle.send_mavlink(msg)
+    self.vehicle.send_mavlink(msg)
 
   # #LLH in lat, lon, relative alt. velocity in NED meters per second
   # def sendLookFrom(self, NED, vel=[0,0,0]):
@@ -323,10 +336,15 @@ class SoloModule(spooky.modules.SpookyModule):
     https://pixhawk.ethz.ch/mavlink/#SET_POSITION_TARGET_LOCAL_NED
 
     '''
+    drone_ned = self._spooky_to_vehicle_ned(ned)
+    print "sendLookFromSpookyNED ned=", ned, "drone_ned=", drone_ned
+
     if not self.vehicle:
       return False
 
-    drone_ned = self._spooky_to_vehicle_ned(ned)
+    if abs(drone_ned[0]) > 50 or abs(drone_ned[1]) > 50 or (-1*drone_ned[2]) < 2:
+      print "LookFrom out of (100,100,-2) bounds... cowarding out..."
+      return
 
     ignoremask = 3520 #ignore yaw stuff, and accel stuff 
     if not useVel:
@@ -353,19 +371,20 @@ class SoloModule(spooky.modules.SpookyModule):
   # UDP-BASED CAMERA API
   # ===========================================================================
 
-  def camapi_goto(self, msg):
+  def camapi_goto(self, msg, prompt=False):
     if not 'payload' in msg:
       return False
 
     if not self._ENABLE_API:
-      print "Received msg %s but camera API not enabled." % msg['msgtype']
+      self.statusmsg_API = "Received msg %s but camera API not enabled." % msg['msgtype']
       return
 
+    if prompt:
+      if not self.cleared_to_execute.isSet():
+        return
 
-    if self.waiting_for_okay:
-      return
-
-    self.waiting_for_okay = True
+      self.okay = False
+      self.cleared_to_execute.clear()
 
     msg = msg['payload']
 
@@ -373,14 +392,20 @@ class SoloModule(spooky.modules.SpookyModule):
     # Unpack payload
 
     def deferred():
-      print "API CALL: Flying solo to %s looking at %s" % (str(desiredstate['position']), str(desiredstate['lookat']))
-      a = raw_input("IS THIS OKAY??? [Y|n]")
-      self.waiting_for_okay = False
-      if a is not 'Y':
-        return
-      print "Sending to solo..."
-      self.sendLookFromSpookyNED(desiredstate['position'])
-      self.sendLookAtSpookyNED(desiredstate['lookat'])
+      try:
+        if prompt:
+          print ""
+          print "API CALL: Flying solo to %s looking at %s" % (str(desiredstate['position']), str(desiredstate['lookat']))
+          print "This sticks the solo at %s" % str(self._spooky_to_vehicle_ned(desiredstate['position']))
+          print "Please type solo <ok>|<no> depending on whether you're okay with this!"
+          self.cleared_to_execute.wait()
+        if not prompt or self.okay:
+          self.sendLookFromSpookyNED(desiredstate['position'])
+          self.sendLookAtSpookyNED(desiredstate['lookat'])
+        else:
+          print "NOPE!"
+      except:
+          traceback.print_exc()
 
     self._executor.execute(deferred)
 
@@ -407,8 +432,8 @@ class SoloModule(spooky.modules.SpookyModule):
     
     success = msg_handler[msg['msgtype']](msg)
 
-    if not success:
-      print "FAILED: message type \'%s\' failed to execute properly" % msg['msgtype']
+    #if not success:
+    #  print "FAILED: message type \'%s\' failed to execute properly" % msg['msgtype']
 
 
   # ===========================================================================
@@ -418,7 +443,9 @@ class SoloModule(spooky.modules.SpookyModule):
   def cmd_status(self):
 
     print "VEHICLE CONNECTED?", self.vehicle != None
+    print "  piksi NED home pos:", self.vehicle_home_ned
     print "SOLO API ENABLED?", self._ENABLE_API
+    print "  Solo API last msg:", self.statusmsg_API
     exStatus = self._executor.status()
     print "Executor: Executing? %s Commands in Queue? %d" % (str(exStatus[0]), exStatus[0])
     if self.vehicle:
@@ -450,7 +477,7 @@ class SoloModule(spooky.modules.SpookyModule):
   def cmd_solo(self, args):
 
     def usage():
-      print "solo (mayday|status|connect|disconnect|arm|takeoff|goto <n> <e> <d>|lookat <n> <e> <d>|rtl|go|no|set_home <piksi_ip>)"
+      print "solo (mayday|status|connect|disconnect|arm|takeoff|goto <n> <e> <d>|lookat <n> <e> <d>|rtl|go|stop|set_home <piksi_ip>|ok|no)"
       print args
 
     if 'mayday' in args:
@@ -472,7 +499,7 @@ class SoloModule(spooky.modules.SpookyModule):
       return
     elif 'go' in args:
       return self.enable_API()
-    elif 'no' in args:
+    elif 'stop' in args:
       return self.disable_API()
     elif 'goto' in args:
       if len(args) < 4:
@@ -486,6 +513,15 @@ class SoloModule(spooky.modules.SpookyModule):
       if len(args) < 2:
         return usage()
       return self.set_home_now(args[1])
+    elif 'ok' in args:
+      self.okay = True
+      self.cleared_to_execute.set()
+      return
+    elif 'no' in args:
+      self.okay = False
+      self.cleared_to_execute.set()
+      return
+
 
     return usage()
 

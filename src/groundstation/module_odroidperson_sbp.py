@@ -155,6 +155,7 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
     spooky.modules.SpookyModule.__init__(self, main, "odroidperson_sbp", instance_name=instance_name)
     self.bind_ip  = self.main.config.get_my('my-ip')
     self.sbp_port = self.main.config.get_foreign(instance_name, 'sbp-server-port')
+    self.relay_port = self.main.config.get_foreign(instance_name, 'sbp-relay-port')
     self.last_update = 0
     self.msg_cache = SbpMsgCache()
 
@@ -174,23 +175,30 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
       update = [(msg.__class__.__name__, spooky.swift.fmt_dict(msg)) for msg in maybe_batch]
       self.main.modules.trigger('update_partial_state', self.instance_name, update)
 
+  def handle_relay(self, msg, **metadata):
+    self.relay_udp.sendto(msg.to_binary(), (self.bind_ip, self.relay_port))
+
   def run(self):
     '''Thread loop here'''
     try:
       with SBPUDPDriver(self.bind_ip, self.sbp_port) as driver:
         with Handler(Framer(driver.read, None, verbose=True)) as source:
 
-          print "Module %s listening on %s" % (self, self.sbp_port)
+          with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as relay_udp:
+            self.relay_udp = relay_udp
 
-          source.add_callback(self.handle_incoming, 
-            msg_type=[SBP_MSG_POS_LLH, SBP_MSG_GPS_TIME, SBP_MSG_DOPS, SBP_MSG_BASELINE_NED, SBP_MSG_VEL_NED, SBP_MSG_BASELINE_HEADING, SBP_MSG_IAR_STATE])
+            print "Module %s listening on %s and relaying on %s" % (self, self.sbp_port, self.relay_port)
 
-          self.ready()
+            source.add_callback(self.handle_relay)
+            source.add_callback(self.handle_incoming, 
+              msg_type=[SBP_MSG_POS_LLH, SBP_MSG_GPS_TIME, SBP_MSG_DOPS, SBP_MSG_BASELINE_NED, SBP_MSG_VEL_NED, SBP_MSG_BASELINE_HEADING, SBP_MSG_IAR_STATE])
 
-          while not self.wait_on_stop(1.0):
-            # Sleep until we get killed. The callback above handles actual stuff.
-            # This is very nice for clean shutdown.
-            pass
+            self.ready()
+
+            while not self.wait_on_stop(1.0):
+              # Sleep until we get killed. The callback above handles actual stuff.
+              # This is very nice for clean shutdown.
+              pass
     except:
       traceback.print_exc()
       print "FUUU"
