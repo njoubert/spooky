@@ -48,7 +48,6 @@ class SoloModule(spooky.modules.SpookyModule):
     1) Camera API over UDP; to
     2) DroneKit API to fly the drone around
 
-
   Input API:
 
   { 
