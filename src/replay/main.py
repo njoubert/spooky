@@ -16,17 +16,39 @@ from contextlib import closing
 import cPickle as pickle
 import json
 import copy
+import pprint
 
-def replay_log(logfile, dest):
+def replay_log(logfile, dest, startTime=0.0, debug=False, infoOnly=False):
   print "Replaying log %s to %s" % (logfile, str(dest))
+  pp = pprint.PrettyPrinter(indent=1)
 
   with open(logfile, 'rb') as f:
 
     state = pickle.load(f)
+
+    firstStamp = state['_timestamp']
     nextState = None
+
+    if infoOnly:
+      print "Log info:"
+      try:
+        while True:      
+          state = pickle.load(f)
+      finally:
+        print "  Log created on %s" % time.ctime(os.path.getctime(logfile))
+        print "  Log length is %.2fs " % (state['_timestamp'] - firstStamp)
+        sys.exit(1)
+
     with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as state_udp_out:
       state_udp_out.setblocking(1)
 
+      # FFWD:
+      if startTime > 0.0:
+        print "Fast Forwarding to %.2fs" % startTime
+        while (state['_timestamp'] - firstStamp) <= startTime:
+          state = pickle.load(f)
+
+      # SEND:
       while True:
         nextState = pickle.load(f)
         if not nextState:
@@ -40,8 +62,12 @@ def replay_log(logfile, dest):
         except socket.error as e:
           print "Socket error! %s" % str(e)
 
+        if debug:
+          pp.pprint(state)
+
         timediff = nextState['_timestamp'] - state['_timestamp']
-        print("sleeping for %.4f" % timediff)
+        startdiff = state['_timestamp'] - firstStamp
+        print("Sending state %.2fs from log beginning, then sleeping for %.3fs" % (startdiff, timediff))
         state = nextState
         time.sleep(timediff)
 
@@ -54,11 +80,20 @@ def main():
   parser.add_argument("-p", "--port",
                       default=[19001], nargs=1,
                       help="specify the port to send the log to")
+  parser.add_argument("--info",
+                      action="store_true",
+                      help="print only the info about the log")
+  parser.add_argument("-d", "--debug",
+                      action="store_true",
+                      help="print the state as we are sending it")
+  parser.add_argument("-s", "--start",
+                      default=[0.0], nargs=1, type=float,
+                      help="specify the port to send the log to")
   parser.add_argument("log", nargs=1, type=str,
                       help="specify the logfile to load",)
   args = parser.parse_args()
 
-  replay_log(args.log[0],(args.ip[0],args.port[0]))
+  replay_log(args.log[0],(args.ip[0],args.port[0]), startTime=args.start[0], debug=args.debug, infoOnly=args.info)
 
 if __name__ == '__main__':
   main()
