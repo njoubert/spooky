@@ -67,7 +67,10 @@ class OdroidPersonMAVModule(spooky.modules.SpookyModule):
     self.report_packet_loss_threshold = 30.0
 
   def cmd_status(self):
-    print self, "last received message at %.2f (%.2fs ago)" % (self.last_update, time.time() - self.last_update)
+    if self.last_update == 0:
+      print self, "never received message."
+    else:
+      print self, "last received message %.2fs ago" % (time.time() - self.last_update)
 
   def handle_incoming(self, msg):
     self.last_update = time.time()

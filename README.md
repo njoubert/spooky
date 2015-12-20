@@ -82,16 +82,22 @@ These are the dependencies, and how to install them:
 - `src/odroidperson`: Multiple Instances, One Per Odroid On Person
 - `src/spooky`: Underlying shared library used by both parts
 
-## Architecture
+## Integration with Piksi Console:
 
-We do a UNIX-style "many-independent-small-applications" approach, but wrapped behind a single python CLI (similar to MAVProxy)
+The Ground Station relays messages from Piksi Console to each individual Piksi in the field.
 
-- PRO: If something crashes, we can just restart that section
-- PRO: Good way to think about problems!
-- PRO: Can still restart individual chunks, etc
-- CON: Have to do all that management myself.
+Point Piksi Console to **listen** for SBP messages on:
 
-Components are engineered to depend on as few other parts of the system as possible. Different components can be rebooted on-the-fly without crashing anything.
+	<GroundStation IP>:<sbp-relay-send-port> 
+
+Piksi Console can **send** SBP messages to:
+
+	<GroundStation IP>:<sbp-relay-recv-port>
+
+## Integrating with the Swift Binary Protocol
+
+[The documentation and protocol spec lives here.](http://docs.swift-nav.com/wiki/SBP)
+
 
 ## Integration with 3DR Solo:
 
@@ -170,9 +176,18 @@ Then, to fire up the simulator:
 
 This will start transmitting data on `0.0.0.0:14550`
 
-## Integrating with the Swift Binary Protocol
 
-[The documentation and protocol spec lives here.](http://docs.swift-nav.com/wiki/SBP)
+## Architecture
+
+We do a UNIX-style "many-independent-small-applications" approach, but wrapped behind a single python CLI (similar to MAVProxy)
+
+- PRO: If something crashes, we can just restart that section
+- PRO: Good way to think about problems!
+- PRO: Can still restart individual chunks, etc
+- CON: Have to do all that management myself.
+
+Components are engineered to depend on as few other parts of the system as possible. Different components can be rebooted on-the-fly without crashing anything.
+
 
 ## Using PyFTDI:
 
@@ -186,6 +201,8 @@ I am not using, but am curious about:
 
 - [Twisted](https://twistedmatrix.com/trac/), "an event-driven networking engine written in Python"
 - NodeJS, why why why didn't I do this in NodeJS??? Sigh, all the UAV libraries are in python...
+
+
 
 # DEAD KITTENS
 
