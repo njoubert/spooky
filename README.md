@@ -7,6 +7,18 @@ A Library and Toolkit for Wireless Distributed State Estimation and Control of M
 This code runs a wireless multi-node sensor networks, powering our wireless cinematography system.
 It currently assumes a python-compatible Linux computers at each node. (In our case, ODROID XU4 running Ubuntu and Python 2.7)
 
+## TL;DR: Replay a Log!
+
+What a great place to start!
+
+	./bin/replay logs/state0000356.pickle
+
+Now, use your favorite port monitoring tool, or just run mine! In a different window:
+
+	python experiments/simple_udp_listener --port 19001
+
+** Check out `./bin/replay --help` for more commands! **
+
 ## TL;DR: Running
 
 Fire up a local debug odroidperson instance:
