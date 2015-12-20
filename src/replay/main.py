@@ -43,49 +43,56 @@ def replay_log(logfile, dest,
         print "  Log length is %.2fs " % (state['_timestamp'] - firstStamp)
         sys.exit(1)
 
-    with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as state_udp_out:
-      state_udp_out.setblocking(1)
+    try:
+      with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as state_udp_out:
+        state_udp_out.setblocking(1)
 
-      while True:
-        # FFWD:
-        if startTime > 0.0:
-          print "Fast Forwarding to %.2fs" % startTime
-          while (state['_timestamp'] - firstStamp) <= startTime:
-            state = pickle.load(f)
+        while True:
+          # FFWD:
+          if startTime > 0.0:
+            print "Fast Forwarding to %.2fs" % startTime
+            while (state['_timestamp'] - firstStamp) <= startTime:
+              state = pickle.load(f)
 
-        # SEND:
-        try:
+          # SEND:
+          try:
 
-          while True:
+            while True:
+                
+                nextState = pickle.load(f)
+
+                data = json.dumps(state)
+                try:
+                  n = state_udp_out.sendto(data, dest)  
+                  if len(data) != n:
+                    print("State Output did not send all data!" % self)
+                except socket.error as e:
+                  print "Socket error! %s" % str(e)
+
+                if debug:
+                  pp.pprint(state)
+
+                timediff = nextState['_timestamp'] - state['_timestamp']
+                startdiff = state['_timestamp'] - firstStamp
+                print("Sending state %.2fs from log beginning, then sleeping for %.3fs" % (startdiff, timediff))
+                state = nextState
+                time.sleep(timediff)
               
-              nextState = pickle.load(f)
-
-              data = json.dumps(state)
-              try:
-                n = state_udp_out.sendto(data, dest)  
-                if len(data) != n:
-                  print("State Output did not send all data!" % self)
-              except socket.error as e:
-                print "Socket error! %s" % str(e)
-
-              if debug:
-                pp.pprint(state)
-
-              timediff = nextState['_timestamp'] - state['_timestamp']
-              startdiff = state['_timestamp'] - firstStamp
-              print("Sending state %.2fs from log beginning, then sleeping for %.3fs" % (startdiff, timediff))
-              state = nextState
-              time.sleep(timediff)
-            
-        except KeyboardInterrupt:
-          sys.exit(0)
-        except EOFError:
-          print "LOG DONE!"
-          if loop:
-            f.seek(0)
-            state = pickle.load(f) 
-          else:
-            sys.exit(0)
+          except EOFError:
+            if loop:
+              print "Looping..."
+              f.seek(0)
+              state = pickle.load(f) 
+            else:
+              print "Done"
+              sys.exit(0)
+    except KeyboardInterrupt:
+      print ""
+      print ""
+      print "*** "
+      print "*** Good Night, and Good Luck!"
+      print "*** "
+      sys.exit(0)
 
 def main():
   #All arguments should live in a config file!
@@ -105,11 +112,14 @@ def main():
   parser.add_argument("-s", "--start",
                       default=[0.0], nargs=1, type=float,
                       help="specify the port to send the log to")
+  parser.add_argument("--dontloop",
+                      action="store_true",
+                      help="don't loop the log")
   parser.add_argument("log", nargs=1, type=str,
                       help="specify the logfile to load",)
   args = parser.parse_args()
 
-  replay_log(args.log[0],(args.ip[0],args.port[0]), startTime=args.start[0], debug=args.debug, infoOnly=args.info)
+  replay_log(args.log[0],(args.ip[0],args.port[0]), startTime=args.start[0], debug=args.debug, infoOnly=args.info,loop=(not args.dontloop))
 
 if __name__ == '__main__':
   main()
