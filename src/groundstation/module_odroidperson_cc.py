@@ -30,7 +30,15 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
     self.cc_remote_ip   = self.main.config.get_foreign(instance_name, 'my-ip')
     self.cc_send_addr = (self.cc_remote_ip, self.cc_remote_port)
 
+    self.last_heartbeat = 0
+    self.git_describe = None
     self.send_id = 0
+
+  def cmd_status(self):
+    if self.last_heartbeat == 0:
+      print self, "never received heartbeat message."
+    else:
+      print self, "last received message %.2fs ago, git-describe claims: %s" % (time.time() - self.last_heartbeat, self.git_describe)
 
   def cc_ack(self, msg):
     print "ACK RECEIVED for %s" % msg['payload']
@@ -39,7 +47,8 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
     print "NACK RECEIVED for %s" % msg['payload']
 
   def cc_heartbeat(self, msg):
-    #print "RECEIVED HEARTBEAT from %s, msg=%s" % (self.cc_remote_ip, msg)
+    self.last_heartbeat = time.time()
+    self.git_describe = msg['payload']['git-describe']
     return True
 
   def cc_simulator(self, msg):

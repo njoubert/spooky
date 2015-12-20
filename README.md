@@ -176,6 +176,13 @@ Then, to fire up the simulator:
 
 This will start transmitting data on `0.0.0.0:14550`
 
+## Configuring ODROID-XU4
+
+The Odroid XU-4 is (as of end-2015) the most popular companion computer for sUAS research [source: Niels' Urban Dictionary]. It comes equipped with a suite of features that makes it amazingly well-suited for high performace computing on a flying platform: an eight-core processor (Arm A15 and A9 processors), USB3.0, and GPIO pins.
+
+### Resizing the root partition:
+
+	sudo odroid-utility.sh
 
 ## Architecture
 
