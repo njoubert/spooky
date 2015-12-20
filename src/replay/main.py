@@ -45,10 +45,6 @@ def replay_log(logfile, dest):
         state = nextState
         time.sleep(timediff)
 
-
-
-
-
 def main():
   #All arguments should live in a config file!
   parser = argparse.ArgumentParser(description="Spooky Action at a Distance! Replay Script")
@@ -63,7 +59,6 @@ def main():
   args = parser.parse_args()
 
   replay_log(args.log[0],(args.ip[0],args.port[0]))
-
 
 if __name__ == '__main__':
   main()
