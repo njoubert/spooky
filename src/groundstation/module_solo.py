@@ -89,7 +89,7 @@ class SoloModule(spooky.modules.SpookyModule):
     self.statusmsg_API = ""
     
     self.vehicle = None
-    self.vehicle_home_ned = None#[0,0,10000]
+    self.vehicle_home_ned = [-28157, 25967, 7195]#[0,0,10000]
     self.vehicle_home = None
 
     self._executor = None
@@ -341,7 +341,7 @@ class SoloModule(spooky.modules.SpookyModule):
     if not self.vehicle:
       return False
 
-    if abs(drone_ned[0]) > 50 or abs(drone_ned[1]) > 50 or (-1*drone_ned[2]) < 2:
+    if abs(drone_ned[0]) > 50 or abs(drone_ned[1]) > 50 or (-1*drone_ned[2]) < 1:
       print "LookFrom out of (100,100,-2) bounds... cowarding out..."
       return
 

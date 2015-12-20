@@ -172,6 +172,22 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
     maybe_batch = self.msg_cache.handle_new_message(msg)
 
     if maybe_batch:
+      has_rtk_baseline = False
+      for msg in maybe_batch:
+        if msg.__class__.__name__ == 'MsgBaselineNED':
+          if msg.flags == 1:
+            has_rtk_baseline = True
+      if has_rtk_baseline:
+        remove = -1
+        for index in range(len(maybe_batch)):
+          msg = maybe_batch[index]
+          if msg.__class__.__name__ == 'MsgBaselineNED':
+            if msg.flags == 0:
+              remove = index
+        if remove >= 0:
+          print "removing msg %d: %s" % (remove, str(maybe_batch[index]))
+          del maybe_batch[remove]
+
       update = [(msg.__class__.__name__, spooky.swift.fmt_dict(msg)) for msg in maybe_batch]
       self.main.modules.trigger('update_partial_state', self.instance_name, update)
 

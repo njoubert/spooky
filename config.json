@@ -20,14 +20,14 @@
 	},
 	
 	"192.168.2.1": {
-		"state_destinations":	 [["127.0.0.1", 19001], ["172.27.76.48", 19001]],
+		"state_destinations":	 [["127.0.0.1", 19001], ["10.1.1.110", 19001]],
 		"camera_cc_port":        19011,
 		"be-the-basestation":    true,
 		"my-ip":                 "192.168.2.1",
 		"listen-on-ip":           "0.0.0.0",
-		"sbp-port":              "/dev/cu.usbserial-00101114",
+		"sbp-port":              "/dev/cu.usbserial-00001014",
 		"sbp-baud":              1000000,
-		"dronekit-device":       "0.0.0.0:14553"
+		"dronekit-device":       "0.0.0.0:14550"
 	},
 	"localhost-server": {
 		"state_destinations":	  [["127.0.0.1", 19000], ["192.168.1.58", 19000]],
@@ -44,7 +44,7 @@
 	"127.0.0.1": {
 		"be-the-basestation":     false,
 		"my-ip":                  "127.0.0.1",					
-		"sbp-port":               "/dev/cu.usbserial-00005314", 
+		"sbp-port":               "/dev/cu.usbserial-00005014", 
 		"sbp-baud":               1000000,
 		"mav-port":               "/dev/tty.usbmodem1",		
 		"cc-local-port":          19200,						

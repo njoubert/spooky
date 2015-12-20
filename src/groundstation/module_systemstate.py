@@ -191,7 +191,7 @@ class SystemStateModule(spooky.modules.SpookyModule):
 
   def send_state_as_json(self, dest_socket):
     if self.RECORDING:
-      self.dump_state(f)
+      self.dump_state(self.f)
 
     data = json.dumps(self.get_current())
     for dest in self.state_destinations:
@@ -213,6 +213,7 @@ class SystemStateModule(spooky.modules.SpookyModule):
       self.log_filename = spooky.find_next_log_filename(self.main.config.get_my("full-state-logs-prefix"))
       print "Opening logfile: %s" % self.log_filename 
       with open(self.log_filename, 'wb') as f:
+        self.f = f
 
         with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as state_udp_out:
           state_udp_out.setblocking(1)
