@@ -17,7 +17,7 @@ Now, use your favorite port monitoring tool, or just run mine! In a different wi
 
 	python experiments/simple_udp_listener --port 19001
 
-** Check out `./bin/replay --help` for more commands! **
+**Check out `./bin/replay --help` for more commands!**
 
 ## TL;DR: Running
 
