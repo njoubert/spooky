@@ -32,13 +32,15 @@ class PiksiHandler(spooky.modules.SpookyModule):
 
   '''
 
-  def __init__(self, main, port, baud, server_ip, sbp_server_port, raw_sbp_logs_prefix):
+  def __init__(self, main, port, baud, bind_ip, sbp_bind_port, server_ip, sbp_server_port, raw_sbp_logs_prefix):
     import serial
     spooky.modules.SpookyModule.__init__(self, main, "piksihandler", instance_name=None)
     self.daemon              = True
     self.main                = main
     self.port                = port
     self.baud                = baud
+    self.bind_ip             = bind_ip
+    self.sbp_bind_port       = sbp_bind_port
     self.server_ip           = server_ip
     self.sbp_server_port     = sbp_server_port
     self.raw_sbp_logs_prefix = raw_sbp_logs_prefix
@@ -132,6 +134,8 @@ class PiksiHandler(spooky.modules.SpookyModule):
       with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as sbp_udp:
         sbp_udp.setblocking(1)
         sbp_udp.settimeout(0.05)
+        sbp_udp.bind((self.bind_ip, self.sbp_bind_port))
+        print "Module %s bound to %s : %d and sending on to %s : %d" % (self, self.bind_ip, self.sbp_bind_port, self.server_ip, self.sbp_server_port)
         self.sbp_udp = sbp_udp
 
         self.ready()
@@ -140,7 +144,9 @@ class PiksiHandler(spooky.modules.SpookyModule):
 
           # Repeating SBP data to Piksi
           try:
-            pass
+            while True:
+              data, addr = sbp_udp.recvfrom(4096)
+              self.send_to_piksi(data)
           except socket.timeout:
             pass
           except socket.error:
@@ -181,6 +187,8 @@ def init(main, instance_name=None):
   module = PiksiHandler(main, 
       main.config.get_my('sbp-port'), 
       main.config.get_my('sbp-baud'), 
+      main.bind_ip,
+      main.sbp_bind_port,
       main.server_ip,
       main.sbp_server_port,
       main.config.get_my('raw-sbp-logs-prefix'))

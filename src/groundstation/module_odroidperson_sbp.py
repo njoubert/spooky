@@ -42,7 +42,8 @@ class SBPUDPDriver(BaseDriver):
     '''
     try:
       data, addr = self.handle.recvfrom(size)
-      self.last_addr = addr
+      if addr is not None:
+        self.last_addr = addr
       return data
     except:
       return None
@@ -51,7 +52,11 @@ class SBPUDPDriver(BaseDriver):
     pass
 
   def write(self, s):
-    raise IOError
+    try:
+      self.handle.sendto(s, self.last_addr)
+    except Exception as e:
+      import traceback
+      traceback.print_exc()
 
 class SbpMsgCache(object):
   '''
@@ -155,7 +160,8 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
     spooky.modules.SpookyModule.__init__(self, main, "odroidperson_sbp", instance_name=instance_name)
     self.bind_ip  = self.main.config.get_my('my-ip')
     self.sbp_port = self.main.config.get_foreign(instance_name, 'sbp-server-port')
-    self.relay_port = self.main.config.get_foreign(instance_name, 'sbp-relay-port')
+    self.relay_send_port = self.main.config.get_foreign(instance_name, 'sbp-relay-send-port')
+    self.relay_recv_port = self.main.config.get_foreign(instance_name, 'sbp-relay-recv-port')
     self.last_update = 0
     self.msg_cache = SbpMsgCache()
 
@@ -192,7 +198,7 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
       self.main.modules.trigger('update_partial_state', self.instance_name, update)
 
   def handle_relay(self, msg, **metadata):
-    self.relay_udp.sendto(msg.to_binary(), (self.bind_ip, self.relay_port))
+    self.relay_udp.sendto(msg.to_binary(), (self.bind_ip, self.relay_send_port))
 
   def run(self):
     '''Thread loop here'''
@@ -201,9 +207,12 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
         with Handler(Framer(driver.read, None, verbose=True)) as source:
 
           with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as relay_udp:
+            relay_udp.setblocking(1)
+            relay_udp.settimeout(0.05)
+            relay_udp.bind((self.bind_ip, self.relay_recv_port))
             self.relay_udp = relay_udp
 
-            print "Module %s listening on %s and relaying on %s" % (self, self.sbp_port, self.relay_port)
+            print "Module %s listening on %s : %s and relaying to %s (send: %d, recv: %d)" % (self, self.bind_ip, self.sbp_port, self.bind_ip, self.relay_send_port, self.relay_recv_port)
 
             source.add_callback(self.handle_relay)
             source.add_callback(self.handle_incoming, 
@@ -211,10 +220,15 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
 
             self.ready()
 
-            while not self.wait_on_stop(1.0):
-              # Sleep until we get killed. The callback above handles actual stuff.
-              # This is very nice for clean shutdown.
-              pass
+            while not self.stopped():
+
+              try:
+                data, addr = relay_udp.recvfrom(4096)
+                driver.write(data)
+              except socket.timeout:
+                pass
+              except socket.error:
+                traceback.print_exc()
     except:
       traceback.print_exc()
       print "FUUU"

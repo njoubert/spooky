@@ -55,6 +55,7 @@ class OdroidPerson:
     self.cc_local_port     = self.config.get_my("cc-local-port")
     self.cc_server_port    = self.config.get_my("cc-server-port")
     self.sbp_server_port   = self.config.get_my("sbp-server-port")
+    self.sbp_bind_port     = self.config.get_my("sbp-bind-port")
     self.mav_server_port   = self.config.get_my("mav-server-port")
         
     logger.info("Launching with Config:")
@@ -172,10 +173,10 @@ class OdroidPerson:
       self.modules.load_module('SBPUDPBroadcast')
     else:
       print "I AM NOT THE BASE STATION"
-      pixhawk     = self.modules.load_module('pixhawkhandler')
       piksi       = self.modules.load_module('piksihandler')
       bcastmodule = self.modules.load_module('sbpbroadcastlistener')
       bcastmodule.set_data_callback(piksi.send_to_piksi)
+      pixhawk     = self.modules.load_module('pixhawkhandler')
 
     try:
 

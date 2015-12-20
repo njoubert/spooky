@@ -49,9 +49,11 @@
 		"mav-port":               "/dev/tty.usbmodem1",		
 		"cc-local-port":          19200,						
 		"cc-server-port":         19201,						
-		"sbp-server-port":        19202,						
-		"mav-server-port":        19203,
-		"sbp-relay-port":         19204							
+		"sbp-server-port":        19202,
+		"sbp-bind-port":          19203,						
+		"sbp-relay-send-port":    19204,							
+		"sbp-relay-recv-port":    19205,							
+		"mav-server-port":        19206
 	},
 
 	"192.168.2.51": {
@@ -63,8 +65,10 @@
 		"cc-local-port":          19210,
 		"cc-server-port":         19211,
 		"sbp-server-port":        19212,
-		"mav-server-port":        19213,
-		"sbp-relay-port":         19214
+		"sbp-bind-port":          19213,						
+		"sbp-relay-send-port":    19214,							
+		"sbp-relay-recv-port":    19215,							
+		"mav-server-port":        19216
 	},
 	"192.168.2.52": {
 		"be-the-basestation":     false,
@@ -75,8 +79,10 @@
 		"cc-local-port":          19220,
 		"cc-server-port":         19221,
 		"sbp-server-port":        19222,
-		"mav-server-port":        19223,
-		"sbp-relay-port":         19224
+		"sbp-bind-port":          19223,						
+		"sbp-relay-send-port":    19224,							
+		"sbp-relay-recv-port":    19225,							
+		"mav-server-port":        19226
 	},
 	"192.168.2.53": {
 		"be-the-basestation":     false,
@@ -87,7 +93,9 @@
 		"cc-local-port":          19230,
 		"cc-server-port":         19231,
 		"sbp-server-port":        19232,
-		"mav-server-port":        19233,
-		"sbp-relay-port":         19234
+		"sbp-bind-port":          19233,						
+		"sbp-relay-send-port":    19234,							
+		"sbp-relay-recv-port":    19235,							
+		"mav-server-port":        19236
 	}
 }
