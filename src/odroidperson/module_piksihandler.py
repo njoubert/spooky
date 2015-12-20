@@ -22,6 +22,7 @@ from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS_LLH, MsgObs
 from sbp.navigation import SBP_MSG_POS_LLH, MsgPosLLH
 from sbp.acquisition import SBP_MSG_ACQ_RESULT
 from sbp.settings import SBP_MSG_SETTINGS_WRITE, MsgSettingsWrite
+from sbp.piksi import SBP_MSG_RESET, MsgReset
 
 class PiksiHandler(spooky.modules.SpookyModule):
   '''
@@ -94,6 +95,11 @@ class PiksiHandler(spooky.modules.SpookyModule):
     msg = MsgSettingsWrite(setting='%s\0%s\0%s\0' % (section, name, value))
     self.send_to_piksi(msg.to_binary())
 
+  def reset_piksi(self):
+    print 'RESET PIKSI'
+    msg = MsgReset()
+    self.send_to_piksi(msg.to_binary())
+
   def send_to_piksi(self, data):
     '''
     Call from an external thread to enqueue data
@@ -132,6 +138,15 @@ class PiksiHandler(spooky.modules.SpookyModule):
 
         while not self.stopped():
 
+          # Repeating SBP data to Piksi
+          try:
+            pass
+          except socket.timeout:
+            pass
+          except socket.error:
+            traceback.print_exc()
+            pass
+
           # Uploading data TO Piksi
           try:
             while not self._sendToPiksi.empty():
@@ -155,6 +170,7 @@ class PiksiHandler(spooky.modules.SpookyModule):
           except (socket.error, socket.timeout):
             traceback.print_exc()
             pass
+
 
 
     except (OSError, serial.SerialException):

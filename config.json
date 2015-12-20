@@ -44,7 +44,7 @@
 	"127.0.0.1": {
 		"be-the-basestation":     false,
 		"my-ip":                  "127.0.0.1",					
-		"sbp-port":               "/dev/cu.usbserial-00005014", 
+		"sbp-port":               "/dev/cu.usbserial-00005214", 
 		"sbp-baud":               1000000,
 		"mav-port":               "/dev/tty.usbmodem1",		
 		"cc-local-port":          19200,						

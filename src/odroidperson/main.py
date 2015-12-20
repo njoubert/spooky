@@ -90,6 +90,7 @@ class OdroidPerson:
       'unsupported': self.cc_unsupported,
 
       'simulator':   self.cc_simulator,
+      'reset_piksi': self.cc_reset_piksi,
       'shutdown':    self.cc_shutdown,
       'restart':     self.cc_restart,
       'update':      self.cc_update,     
@@ -136,6 +137,14 @@ class OdroidPerson:
         print 'DISABLING PIKSI'
         self.modules.trigger('disable_piksi_sim')
         pass
+      return True
+    except:
+      traceback.print_exc()
+      return False
+
+  def cc_reset_piksi(self, msg):
+    try:
+      self.modules.trigger('reset_piksi')
       return True
     except:
       traceback.print_exc()

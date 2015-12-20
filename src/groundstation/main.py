@@ -35,6 +35,7 @@ class GroundStation(CommandLineHandler):
       'reinit'   : (self.cmd_reinit,                    'reconfigures network from config'),
       'trigger'  : (self.cmd_trigger,                   'triggers a message across modules'),
       'psim'     : (self.cmd_piksisim,                  'toggles the piksi simulator on connected piksis'),
+      'preset'   : (self.cmd_piksireset,                 'sends a reset message to a connected piksi (optionally specify an IP)'),
       'shutdown' : (self.cmd_shutdown,                  '(IP) shuts down a single or all nodes in network'),
       'restart'  : (self.cmd_restart,                   '(IP) restart a single or all nodes in network (specify an IP to restart a specific node)'),
       'update'   : (self.cmd_update,                    '(IP) does a git pull and restart on a single or all nodes in network'),
@@ -119,6 +120,12 @@ class GroundStation(CommandLineHandler):
     else:
       self.modules.trigger("enable_piksi_sim")
       print "enabling. use 't' for true and 'f' for false to toggle state."
+
+  def cmd_piksireset(self, args):
+    if len(args) > 0:
+      self.modules.trigger_on("odroidperson_cc", args[0], "reset_piksi")
+    else:
+      self.modules.trigger("reset_piksi")
 
   def cmd_shutdown(self, args):
     if len(args) > 0:

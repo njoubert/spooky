@@ -105,6 +105,9 @@ class OdroidPersonCCModule(spooky.modules.SpookyModule):
   def disable_piksi_sim(self):
     self.send_cc('simulator', 'False')
 
+  def reset_piksi(self):
+    self.send_cc('reset_piksi')
+
   def cmd_shutdown(self):
     print 'Sending shutdown command to %s' % self.instance_name
     self.send_cc('shutdown')
