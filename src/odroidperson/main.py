@@ -257,6 +257,7 @@ def main():
 
     if args.daemon[0] != '':
       if args.daemon[0] == 'start':
+        time.sleep(5.0)
         daemon.start()
       elif args.daemon[0] == 'stop':
         daemon.stop()
@@ -272,5 +273,4 @@ def main():
     return -1
 
 if __name__ == '__main__':
-  time.sleep(1)
   main()
