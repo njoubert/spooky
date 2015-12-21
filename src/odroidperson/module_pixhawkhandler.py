@@ -81,6 +81,8 @@ class PixhawkHandler(spooky.modules.SpookyModule):
             print "PIXHAWK: Incoming packet loss exceeding %.2f%%" % self.report_packet_loss_threshold
           ''' We've already hooked up the sockets to each other up above'''
 
+      print "Exiting!"
+      
     except:
       traceback.print_exc()  
     finally:
