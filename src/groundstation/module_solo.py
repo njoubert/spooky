@@ -83,6 +83,10 @@ class SoloModule(spooky.modules.SpookyModule):
     self.bind_ip  = self.main.config.get_my('listen-on-ip')
     self.bind_port = self.main.config.get_my('camera_cc_port')
     self.dronekit_device = self.main.config.get_my('dronekit-device')
+    self.streamrate = self.main.config.get_my('dronekit-streamrate')
+    self.groundspeed = self.main.config.get_my('dronekit-groundspeed')
+    self.airspeed = self.main.config.get_my('dronekit-airspeed')
+    
     
     self.vehicle_hb_threashold = 5.0
     self._ENABLE_API = False
@@ -179,10 +183,8 @@ class SoloModule(spooky.modules.SpookyModule):
       self.vehicle = dronekit.connect(self.dronekit_device, 
         wait_ready=True,
         rate=10,
-        heartbeat_timeout=10)
+        heartbeat_timeout=self.streamrate)
       
-      #todo: set up a high streamrate? what's the solo default?
-
       print "Vehicle Connected! Setting airpspeed and downloading commands..."
       
       cmds = self.vehicle.commands
@@ -190,8 +192,8 @@ class SoloModule(spooky.modules.SpookyModule):
       cmds.wait_ready()
       self.vehicle_home = self.vehicle.home_location
 
-      self.vehicle.groundspeed = 0.2 # Make it move SLOWLY
-      self.vehicle.airspeed = 0.2
+      self.vehicle.groundspeed = self.groundspeed # Make it move SLOWLY
+      self.vehicle.airspeed = self.airspeed
 
       print "Vehicle Ready!"
 

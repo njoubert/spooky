@@ -7,7 +7,10 @@
 		"sbp-udp-bcast-port":        19100,
 		"sbp-bcast-sleep":           0.1,
 		"raw-sbp-logs-prefix":       "/logs/sbplog",
-		"full-state-logs-prefix":    "/logs/state"
+		"full-state-logs-prefix":    "/logs/state",
+		"dronekit-streamrate":       5,
+		"dronekit-airspeed":         0.3,
+		"dronekit-groundspeed":      0.3
 	},
 
 	"NETWORK": {
