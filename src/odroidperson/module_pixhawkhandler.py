@@ -84,9 +84,12 @@ class PixhawkHandler(spooky.modules.SpookyModule):
     except:
       traceback.print_exc()  
     finally:
+      print "Shutting down..."
       if master:
+        print "Closing Master..."
         master.close()
       if dest_mav_udp:
+        print "Closing UDP..."
         dest_mav_udp.close()
 
 

@@ -103,9 +103,7 @@ class OdroidPersonMAVModule(spooky.modules.SpookyModule):
     except:
       traceback.print_exc()
     finally:
-      print "Shutting down..."
       if master:
-        print "Closing master..."
         master.close()
 
 def init(main, instance_name=None):
