@@ -47,7 +47,7 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.ip.UDPBroadcaste
   def run(self):
     '''Thread loop here'''
     # Problems? See: https://pylibftdi.readthedocs.org/en/latest/troubleshooting.html
-    #with PyFTDIDriver(self.sbp_baud) as driver:
+    # with PyFTDIDriver(self.sbp_baud) as driver:
     try:
       with PySerialDriver(self.sbp_port, baud=self.sbp_baud) as driver:
         self.driver = driver
@@ -59,10 +59,21 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.ip.UDPBroadcaste
           
           self.ready()
 
-          for msg, metadata in handler:
-            if self.stopped():
-              return
-            pass
+          #TODO: Get rid of "for msg, metadaya..."
+
+          try:
+            for msg, metadata in handler:
+              if self.stopped():
+                return
+              pass
+          except KeyboardInterrupt:
+            raise
+          except socket.error:
+            raise
+          except SystemExit:
+            print "Exit Forced. We're dead."
+            return
+
 
     except:
       traceback.print_exc()

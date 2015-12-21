@@ -171,11 +171,16 @@ class SoloModule(spooky.modules.SpookyModule):
   # ===========================================================================
 
   def connect(self):
+    self.disconnect()
 
     # Configure our SoloLink connection
     def deferred():
       print 'Connecting to vehicle on: %s' % self.dronekit_device
-      self.vehicle = dronekit.connect(self.dronekit_device, wait_ready=True)
+      self.vehicle = dronekit.connect(self.dronekit_device, 
+        wait_ready=True,
+        rate=10,
+        heartbeat_timeout=10)
+      
       #todo: set up a high streamrate? what's the solo default?
 
       print "Vehicle Connected! Setting airpspeed and downloading commands..."
@@ -195,10 +200,10 @@ class SoloModule(spooky.modules.SpookyModule):
   def disconnect(self):
     if self.vehicle:
       self.vehicle.close()
+      print "Vehicle Disconnected!" 
     self.vehicle = None
     self.vehicle_home = None
-    print "Vehicle Disconnected!"
-
+    
   def MAYDAY_stop_solo(self):
     if self.vehicle:
       self.vehicle.mode = dronekit.VehicleMode("LOITER")
@@ -578,8 +583,12 @@ class SoloModule(spooky.modules.SpookyModule):
 
 
     except SystemExit:
+      pass
+    except:
       traceback.print_exc()
-      return
+    finally:
+      self.disconnect()
+
 
 def init(main, instance_name=None):
   module = SoloModule(main, instance_name=instance_name)

@@ -80,13 +80,13 @@ class OdroidPersonMAVModule(spooky.modules.SpookyModule):
       self.main.modules.trigger('update_partial_state', self.instance_name, update)
 
   def run(self):
+    master = None
     try:
 
       master = mavutil.mavlink_connection('udpin:%s:%d' % (self.bind_ip, self.mav_port))
       print "Module %s listening on %s" % (self, self.mav_port)
 
       self.ready()
-
       while not self.stopped():
         msg = master.recv_match(type=self.listen_for_mav, blocking=True)
         if not msg or msg is None:
@@ -98,10 +98,13 @@ class OdroidPersonMAVModule(spooky.modules.SpookyModule):
           if master.packet_loss() > self.report_packet_loss_threshold:
             print "PIXHAWK UDP: Incoming packet loss exceeding %.2f%%" % self.report_packet_loss_threshold      
 
+    except SystemExit:
+      pass
     except:
       traceback.print_exc()
     finally:
-      master.close()
+      if master:
+        master.close()
 
 def init(main, instance_name=None):
   module = OdroidPersonMAVModule(main, instance_name=instance_name)
