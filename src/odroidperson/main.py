@@ -68,8 +68,8 @@ class OdroidPerson:
     self.last_death_attempt = 0
     '''Setup Graceful Death'''
     def quit_handler(signum = None, frame = None):
-        print 'Signal handler called with signal', signum
-        if time.time() - self.last_death_attempt < 5.0:
+        #print 'Signal handler called with signal', signum
+        if time.time() - self.last_death_attempt < 4.0:
           print "Still within 5s of last death attempt. CHILL!"
           return
         self.last_death_attempt = time.time()
