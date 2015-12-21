@@ -65,14 +65,18 @@ class OdroidPerson:
     self.init_death()
 
   def init_death(self):  
+    self.last_death_attempt = 0
     '''Setup Graceful Death'''
     def quit_handler(signum = None, frame = None):
-        #print 'Signal handler called with signal', signum
+        print 'Signal handler called with signal', signum
+        if time.time() - self.last_death_attempt < 5.0:
+          print "Still within 5s of last death attempt. CHILL!"
+          return
+        self.last_death_attempt = time.time()
         if self.dying:
             print 'Clean shutdown impossible, forcing an exit'
             sys.exit(0)
         else:
-            self.dying = True
             self.stop()
 
     # Listen for kill signals to cleanly shutdown modules
