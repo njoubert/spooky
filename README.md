@@ -7,6 +7,24 @@ A Library and Toolkit for Wireless Distributed State Estimation and Control of M
 This code runs a wireless multi-node sensor networks, powering our wireless cinematography system.
 It currently assumes a python-compatible Linux computers at each node. (In our case, ODROID XU4 running Ubuntu and Python 2.7)
 
+
+## Contents
+
+### bin/
+
+- `groundstation(-local).sh`: Launch an instance of the grounstation.
+- `groundstation(-local).sh`: Launch an instance of the odroidperson.
+- `install.sh`: For nodes: Installs "spooky" systemctl daemon to start odroidperson.sh on boot.
+- `update-and-restart.sh`: For nodes: Pulls the latest git repo and relaunches daemon.
+
+### src/
+
+- `groundstation`: Main controller, single instance on your Laptop
+- `odroidperson`: Multiple Instances, One Per Odroid On Person
+- `replay`: Script to replay recorded data, as if live sensors are playing
+- `piksibase`: Helper executable, if you want to run only a ONLY a piksi SBP Broadcaster 
+- `spooky`: Underlying shared library used by both parts
+
 ## TL;DR: Replay a Log!
 
 What a great place to start!
@@ -72,15 +90,6 @@ These are the dependencies, and how to install them:
 	sudo pip install dronekit
 	```
 
-## Contents
-
-- `bin/groundstation(-local).sh`: Launch an instance of the grounstation.
-- `bin/groundstation(-local).sh`: Launch an instance of the odroidperson.
-- `bin/install.sh`: For nodes: Installs "spooky" systemctl daemon to start odroidperson.sh on boot.
-- `bin/update-and-restart.sh`: For nodes: Pulls the latest git repo and relaunches daemon.
-- `src/groundstation`: Main controller, single instance on your Laptop
-- `src/odroidperson`: Multiple Instances, One Per Odroid On Person
-- `src/spooky`: Underlying shared library used by both parts
 
 ## Integration with Piksi Console:
 
@@ -180,7 +189,18 @@ This will start transmitting data on `0.0.0.0:14550`
 
 The Odroid XU-4 is (as of end-2015) the most popular companion computer for sUAS research [source: Niels' Urban Dictionary]. It comes equipped with a suite of features that makes it amazingly well-suited for high performace computing on a flying platform: an eight-core processor (Arm A15 and A9 processors), USB3.0, and GPIO pins.
 
+### Flashing
+
+Flash Odroids with [Ubuntu 15.04 image](http://odroid.com/dokuwiki/doku.php?id=en:xu3_release_linux_ubuntu) onto MicroSD card using [these instructions](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md)
+
+## SSHing in:
+
+	username: odroid
+	password: odroid
+
 ### Resizing the root partition:
+
+Use the supplied odroid-utility
 
 	sudo odroid-utility.sh
 
