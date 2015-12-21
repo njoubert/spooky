@@ -3,7 +3,8 @@
 #
 
 #Globally useful stuff
-import time, socket, sys, os, sys, inspect, traceback
+
+import time, socket, sys, os, sys, inspect, signal, traceback
 import argparse, json, binascii
 import struct
 import logging
