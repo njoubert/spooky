@@ -74,10 +74,10 @@ class OdroidPerson:
           return
         self.last_death_attempt = time.time()
         if self.dying:
-            print 'Clean shutdown impossible, forcing an exit'
-            sys.exit(0)
+          print 'Clean shutdown impossible, forcing an exit'
+          sys.exit(0)
         else:
-            self.stop()
+          self.stop()
 
     # Listen for kill signals to cleanly shutdown modules
     fatalsignals = [signal.SIGTERM]
@@ -218,7 +218,7 @@ class OdroidPerson:
         print "CC bound to %s : %d" % (self.bind_ip, self.cc_local_port)
             
         heartbeat = spooky.DoPeriodically(lambda: self.send_heartbeat(), 1.0)
-        while True:
+        while not self.dying:
           try:
             # For command and control, we're going to use JSON over UDP
             # UDP *already* has a simple checksum and delivers a complete packet at a time.
