@@ -75,7 +75,7 @@ def main():
                         default=['../config.json'], nargs=1,
                         help="specify the configuration file")
     parser.add_argument("-i", "--ident",
-                        default=[''], nargs=1,
+                        default=['192.168.2.1'], nargs=1,
                         help="spoof a custom identifier, by default uses IP")
     parser.add_argument("-n", "--network",
                         default=['NETWORK'], nargs=1,
@@ -90,6 +90,7 @@ def main():
       args.ident[0] = spooky.ip.get_lan_ip()
 
     network_ident = args.network[0]
+    
     config = spooky.Configuration(args.config[0], args.ident[0], network_ident)
 
     daemon = PiksiBaseDaemon(args, config)

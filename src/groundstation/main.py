@@ -223,6 +223,7 @@ def main():
       if ident == "127.0.0.1":
         ident = "localhost-server"
 
+  print ident
   network_ident = args.network[0]
 
   config = spooky.Configuration(args.config[0], ident, network_ident)

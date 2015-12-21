@@ -32,7 +32,7 @@
 	"localhost-server": {
 		"state_destinations":	  [["127.0.0.1", 19000], ["192.168.1.58", 19000]],
 		"camera_cc_port":         19010,
-		"be-the-basestation":     false,
+		"be-the-basestation":     true,
 		"my-ip":                  "127.0.0.1",
 		"listen-on-ip":           "0.0.0.0",
 		"udp-bcast-ip":           "127.0.0.1",

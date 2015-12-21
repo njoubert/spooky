@@ -78,7 +78,6 @@ class SBPUDPBroadcastListenerHandlerThread(spooky.modules.SpookyModule):
         with Handler(Framer(driver.read, None, verbose=True)) as source:
 
           source.add_callback(self.handle_incoming)
-
           self.ready()
 
           while not self.wait_on_stop(1.0):

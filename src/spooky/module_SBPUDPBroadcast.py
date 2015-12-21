@@ -33,6 +33,17 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.ip.UDPBroadcaste
     self.framer = None
     self.driver = None
 
+  def handle_all(self, msg, **metadata):
+    pass
+
+  def handle_basestation_obs(self, msg, **metadata):
+    try:
+      self.last_sent = time.time()
+      self.broadcast(msg.pack())
+    except socket.error:
+
+      traceback.print_exc()
+
   def run(self):
     '''Thread loop here'''
     # Problems? See: https://pylibftdi.readthedocs.org/en/latest/troubleshooting.html
@@ -42,26 +53,19 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.ip.UDPBroadcaste
         self.driver = driver
         self.framer = Framer(driver.read, driver.write)
         with Handler(self.framer) as handler:
+
           self.handler = handler
-
-          self.ready()
+          handler.add_callback(self.handle_basestation_obs, msg_type=[SBP_MSG_OBS, SBP_MSG_BASE_POS_LLH])
           
-          #TODO: Change to use a callback like the other modules.
+          self.ready()
 
-          try:
-            for msg, metadata in handler.filter(SBP_MSG_OBS, SBP_MSG_BASE_POS_LLH):
-              if self.stopped():
-                return
-              self.last_sent = time.time()
-              self.broadcast(msg.pack())
-          except KeyboardInterrupt:
-            raise
-          except socket.error:
-            raise
-          except SystemExit:
-            print "Exit Forced. We're dead."
-            return
+          for msg, metadata in handler:
+            if self.stopped():
+              return
+            pass
+
     except:
+      traceback.print_exc()
       self.ready()
 
   def disable_piksi_sim(self):
