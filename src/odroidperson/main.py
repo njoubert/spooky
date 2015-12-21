@@ -61,6 +61,29 @@ class OdroidPerson:
     logger.info("Launching with Config:")
     logger.info(self.config)
 
+    self.init_death()
+
+  def init_death(self):  
+    '''Setup Graceful Death'''
+    def quit_handler(signum = None, frame = None):
+        #print 'Signal handler called with signal', signum
+        if self.dying:
+            print 'Clean shutdown impossible, forcing an exit'
+            sys.exit(0)
+        else:
+            self.dying = True
+            self.stop()
+
+    # Listen for kill signals to cleanly shutdown modules
+    fatalsignals = [signal.SIGTERM]
+    try:
+      fatalsignals.append(signal.SIGHUP, signal.SIGQUIT)
+    except Exception:
+      pass
+
+    for sig in fatalsignals:
+        signal.signal(sig, quit_handler)
+
   def stop(self):
     logger.info("Shutting down!")
     self.dying = True
