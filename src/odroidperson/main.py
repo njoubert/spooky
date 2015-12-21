@@ -73,7 +73,7 @@ class OdroidPerson:
         msg['payload'] = payload
       msg['__ID__'] = self.send_id
       self.send_id += 1
-      #print "sending message %s to %s, %s" % (msgtype, self.server_ip, self.cc_server_port)
+      print "sending message %s to %s, %s" % (msgtype, self.server_ip, self.cc_server_port)
       self.cc_udp.sendto(json.dumps(msg), (self.server_ip, self.cc_server_port))
     except socket.error as e:
       if e.errno == 65:
@@ -176,7 +176,7 @@ class OdroidPerson:
       piksi       = self.modules.load_module('piksihandler')
       bcastmodule = self.modules.load_module('sbpbroadcastlistener')
       bcastmodule.set_data_callback(piksi.send_to_piksi)
-      pixhawk     = self.modules.load_module('pixhawkhandler')
+      pixhawk     = self.modules.load_module('pixhawkhandler', waitTimeout=10.0)
 
     try:
 
