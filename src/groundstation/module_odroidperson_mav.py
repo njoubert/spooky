@@ -65,12 +65,16 @@ class OdroidPersonMAVModule(spooky.modules.SpookyModule):
     self.listen_for_mav = ['ATTITUDE','GLOBAL_POSITION_INT']
     self.cache = MavBatchCache(self.listen_for_mav)
     self.report_packet_loss_threshold = 30.0
+    self.master = None
 
   def cmd_status(self):
     if self.last_update == 0:
       print self, "never received message."
     else:
-      print self, "last received message %.2fs ago" % (time.time() - self.last_update)
+      packet_loss = 0
+      if self.master:
+        packet_loss = self.master.packet_loss()
+      print self, "last received message %.2fs ago. Packet loss: %.2f%%" % (time.time() - self.last_update, packet_loss)
 
   def handle_incoming(self, msg):
     self.last_update = time.time()
@@ -80,22 +84,21 @@ class OdroidPersonMAVModule(spooky.modules.SpookyModule):
       self.main.modules.trigger('update_partial_state', self.instance_name, update)
 
   def run(self):
-    master = None
     try:
 
-      master = mavutil.mavlink_connection('udpin:%s:%d' % (self.bind_ip, self.mav_port))
+      self.master = mavutil.mavlink_connection('udpin:%s:%d' % (self.bind_ip, self.mav_port))
       print "Module %s listening on %s" % (self, self.mav_port)
 
       self.ready()
       while not self.stopped():
-        msg = master.recv_match(type=self.listen_for_mav, blocking=True)
+        msg = self.master.recv_match(type=self.listen_for_mav, blocking=True)
         if not msg or msg is None:
           pass
         if msg.get_type() == 'BAD_DATA':
           continue
         else:
           self.handle_incoming(msg)
-          if master.packet_loss() > self.report_packet_loss_threshold:
+          if self.master.packet_loss() > self.report_packet_loss_threshold:
             print "PIXHAWK UDP: Incoming packet loss exceeding %.2f%%" % self.report_packet_loss_threshold      
 
     except SystemExit:
@@ -103,8 +106,8 @@ class OdroidPersonMAVModule(spooky.modules.SpookyModule):
     except:
       traceback.print_exc()
     finally:
-      if master:
-        master.close()
+      if self.master:
+        self.master.close()
 
 def init(main, instance_name=None):
   module = OdroidPersonMAVModule(main, instance_name=instance_name)

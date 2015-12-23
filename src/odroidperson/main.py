@@ -70,7 +70,7 @@ class OdroidPerson:
     def quit_handler(signum = None, frame = None):
         #print 'Signal handler called with signal', signum
         if time.time() - self.last_death_attempt < 4.0:
-          print "Still within 5s of last death attempt. CHILL!"
+          print "Still within 4s of last death attempt. CHILL!"
           return
         self.last_death_attempt = time.time()
         if self.dying:
