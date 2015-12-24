@@ -4,6 +4,8 @@
 | filename     | git     | date   | description |
 |--------------|---------|--------|-------------|
 | state0000356 | d9a99a5 | Dec 19 | First flight, stationary, successful RTK.  |
+| state0000435 | 716ba07 | Dec 23 | Single Person Waking Around (long) |
+| state0000436 | 716ba07 | Dec 23 | Single Person Sprinting |
 | state0000446 | 716ba07 | Dec 23 | Sitting People, Both looking at something. |
 | state0000447 | 716ba07 | Dec 23 | Sitting People, Looking at each other. |
 | state0000448 | 716ba07 | Dec 23 | Standing People, Looking all around. |
