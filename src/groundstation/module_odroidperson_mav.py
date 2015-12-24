@@ -21,7 +21,7 @@ class MavBatchCache(object):
     self._expected_messages = expected_messages
     self._cache = collections.deque()
     self._time_boot_ms = 0
-    self._time_fudge_ms = 20 # 1/20ms = 50Hz
+    self._time_fudge_ms = 50 # 1/20ms = 50Hz
 
   def _dump_cache(self, quiet=True):
     ret = list(self._cache)
@@ -39,9 +39,9 @@ class MavBatchCache(object):
     if self._time_boot_ms == 0 and hasattr(msg, 'time_boot_ms'):
       self._time_boot_ms = msg.time_boot_ms
 
-    if not hasattr(msg, 'time_boot_ms') or abs(self._time_boot_ms - msg.time_boot_ms) < self._time_fudge_ms:
+    if hasattr(msg, 'time_boot_ms'):
       self._cache.append(msg)
-    else:
+    if hasattr('msg', 'time_boot_ms') and abs(self._time_boot_ms - msg.time_boot_ms) > self._time_fudge_ms:      
       return self._dump_cache()
 
     msgs_in_cache = [msg.name for msg in self._cache]

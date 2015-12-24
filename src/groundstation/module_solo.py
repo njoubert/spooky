@@ -93,7 +93,7 @@ class SoloModule(spooky.modules.SpookyModule):
     self.statusmsg_API = ""
     
     self.vehicle = None
-    self.vehicle_home_ned = [-28157, 25967, 7195]#[0,0,10000]
+    self.vehicle_home_ned = [4799, -5748, 1344]#[0,0,10000]
     self.vehicle_home = None
 
     self._executor = None

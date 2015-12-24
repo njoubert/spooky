@@ -23,7 +23,7 @@
 	},
 	
 	"192.168.2.1": {
-		"state_destinations":	 [["127.0.0.1", 19001], ["10.1.1.110", 19001]],
+		"state_destinations":	 [["127.0.0.1", 19001], ["192.168.3.2", 19001]],
 		"camera_cc_port":        19011,
 		"be-the-basestation":    false,
 		"my-ip":                 "192.168.2.1",
@@ -33,7 +33,7 @@
 		"dronekit-device":       "0.0.0.0:14550"
 	},
 	"localhost-server": {
-		"state_destinations":	  [["127.0.0.1", 19000], ["192.168.1.58", 19000]],
+		"state_destinations":	  [["127.0.0.1", 19000], ["192.168.3.2", 19000]],
 		"camera_cc_port":         19010,
 		"be-the-basestation":     true,
 		"my-ip":                  "127.0.0.1",
