@@ -171,6 +171,52 @@ c = mavutil.mavlink_connection("10.1.1.10:14550")
 
 Check out all the [sweet examples!](https://github.com/dronekit/dronekit-python/tree/master/examples)
 
+### Integrating Piksi with 3DR Solo
+
+This assumes you're using the [3DR Accessory Port](http://dev.3dr.com/hardware-accessorybay.html)
+
+We're going to set up SERIAL2 (uartD) as GPS1, and SERIAL3 (uart?) as GPS2. SERIAL2 is on the Accessory Port, so we will plumb this to Piksi. SERIAL3 is wired to the internal ublox GPS, so we will leave that as is.
+
+**Setup Piksi:**
+
+Choose which UART will connect to Solo. I used UARTA for it's position. Configure the following Piksi settings for **uart uarta*:
+
+	mode:				SBP
+	sbp message mask:		65280
+	conigure telemetry radio:	False
+	baudrate:			115200
+
+Connect Piksi to the Accessory Port as follows:
+
+| Piksi | Accessory Port |
+|-------|----------------|
+| GND   | GND     |
+| RX    | SER2_TX |
+| TX    | SER2_RX |
+| VCC   | ?       |
+	
+Connect to the solo using mavproxy:
+	
+	mavproxy.py --master udp:0.0.0.0:14550
+
+Now, set up the necessary parameters:
+
+	param set GPS_TYPE 1
+	param set GPS_TYPE2 1
+	param set SERIAL2_BAUD 115
+	param set SERIAL2_PROTOCOL 5
+	param set SERIAL3_BAUD 38
+	param set SERIAL3_PROTOCOL 5
+	
+Turn on the Piksi's simulation mode, and in mavproxy, run:
+
+	status
+
+You should see:
+
+	GPS_RAW_INT {time_usec : 642108000, fix_type : 5, lat : 374292190, lon : -1221738005, alt : 69740, eph : 160, epv : 65535, vel : 396, cog : 12748, satellites_visible : 9}
+	GPS2_RAW {time_usec : 0, fix_type : 1, lat : 373625480, lon : -1221125932, alt : -208190, eph : 9999, epv : 65535, vel : 0, cog : 0, satellites_visible : 0, dgps_numch : 0, dgps_age : 0}
+
 ### Firing up Solo Simulator
 
 First, [set up Virtualbox and Vagrant](http://python.dronekit.io/guide/sitl_setup.html)
