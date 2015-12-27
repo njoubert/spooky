@@ -181,10 +181,12 @@ We're going to set up ```SERIAL2``` (uartD) as ```GPS1```, and ```SERIAL3``` (ua
 
 Choose which UART will connect to Solo. I used UARTA for it's position. Configure the following Piksi settings for **uart uarta*:
 
-	mode:				SBP
-	sbp message mask:		65280
-	conigure telemetry radio:	False
-	baudrate:			115200
+| UART A Setting           | Value  |
+|--------------------------|--------|
+| mode:                    | SBP    |
+| sbp message mask:        | 65280  |
+| conigure telemetry radio:| False  |
+| baudrate:                | 115200 |
 
 Connect Piksi to the Accessory Port as follows:
 
