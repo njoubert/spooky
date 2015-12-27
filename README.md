@@ -27,7 +27,7 @@ It currently assumes a python-compatible Linux computers at each node. (In our c
 
 ## TL;DR: Replay a Log!
 
-What a great place to start!
+What a great place to start! **[See all the available logfiles here!](https://github.com/njoubert/spooky/blob/master/logs/README.md)**
 
 	./bin/replay logs/state0000356.pickle
 
