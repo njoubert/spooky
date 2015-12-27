@@ -1,6 +1,6 @@
 # Spooky Action at a Distance
 
-EXPERIMENTAL AND UNTESTED CODE RESEARCH CODE! THAR BE DRAGONS AHEAD LADDY!
+*EXPERIMENTAL AND UNTESTED CODE RESEARCH CODE! THAR BE DRAGONS AHEAD LADDY!*
 
 A Library and Toolkit for Wireless Distributed State Estimation and Control of Multiple Drones and Subjects. Named after the Quantum Entanglement phenomenon.
 
