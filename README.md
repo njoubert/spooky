@@ -175,7 +175,7 @@ Check out all the [sweet examples!](https://github.com/dronekit/dronekit-python/
 
 This assumes you're using the [3DR Accessory Port](http://dev.3dr.com/hardware-accessorybay.html)
 
-We're going to set up SERIAL2 (uartD) as GPS1, and SERIAL3 (uart?) as GPS2. SERIAL2 is on the Accessory Port, so we will plumb this to Piksi. SERIAL3 is wired to the internal ublox GPS, so we will leave that as is.
+We're going to set up ```SERIAL2``` (uartD) as ```GPS1```, and ```SERIAL3``` (uart?) as ```GPS2```. ```SERIAL2``` is on the Accessory Port, so we will plumb this to Piksi. ```SERIAL3``` is wired to the internal ublox GPS, so we will leave that as is. uartE aka ```SERIAL4``` is wired to the Gimbal.
 
 **Setup Piksi:**
 
