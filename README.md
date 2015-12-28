@@ -177,6 +177,18 @@ This assumes you're using the [3DR Accessory Port](http://dev.3dr.com/hardware-a
 
 We're going to set up ```SERIAL2``` (uartD) as ```GPS1```, and ```SERIAL3``` (uart?) as ```GPS2```. ```SERIAL2``` is on the Accessory Port, so we will plumb this to Piksi. ```SERIAL3``` is wired to the internal ublox GPS, so we will leave that as is. uartE aka ```SERIAL4``` is wired to the Gimbal.
 
+Here's the mapping of serial ports on Pixhawk(2):
+
+| HAL         | System       | Params  | Pixhawk | Solo         |
+|-------------|--------------|---------|---------|--------------|
+| px4io/sbus? | /dev/ttyS0   |         |         |              |
+| uartA       | /dev/ttyACM0 |         | USB     |              |
+| uartB       | /dev/ttyS3   | SERIAL3 | GPS     | Internal GPS |
+| uartC       | /dev/ttyS1   | SERIAL1 | Telem1  |              |
+| uartD       | /dev/ttyS2   | SERIAL2 | Telem2  | Acc. Port    |
+| uartE       | /dev/ttyS6   | SERIAL4 | Serial4 | Gimbal       |
+| nsh console | /dev/ttyS5   |         | Serial5 | Acc. Port    |
+
 **Setup Piksi:**
 
 Choose which UART will connect to Solo. I used UARTA for it's position. Configure the following Piksi settings for **uart uarta*:
