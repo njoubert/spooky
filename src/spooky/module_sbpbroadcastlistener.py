@@ -65,11 +65,10 @@ class SBPUDPBroadcastListenerHandlerThread(spooky.modules.SpookyModule):
 
   def handle_incoming(self, msg, **metadata):
     try:
-      print "Received %i" % len(msg.pack())
       if self.data_callback:
         self.data_callback(msg.pack())
     except Queue.Full:
-      logger.warn("_recvFromPiksi Queue is full!")
+      print "SBPUDPBroadcastListener: Could not perform callback, queue is full"
 
   def run(self):
     try:

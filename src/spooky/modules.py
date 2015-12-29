@@ -126,7 +126,7 @@ class ModuleHandler(object):
           self.unload_module(module_name, instance_name=instance_name)
         else:
           print "Module %s already loaded" % (m)
-          return
+          return m
         
     modpaths = ['%s.module_%s' % (self.module_root, module_name), 'spooky.module_%s' % module_name]
     for modpath in modpaths:

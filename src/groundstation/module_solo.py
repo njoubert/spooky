@@ -103,6 +103,8 @@ class SoloModule(spooky.modules.SpookyModule):
     self.cleared_to_execute.set()
     self.okay = False
 
+    self.last_gps_obs_inject = 0
+
   def init_executor(self):
     if self._executor:
       self._executor.stop()
@@ -182,8 +184,8 @@ class SoloModule(spooky.modules.SpookyModule):
       print 'Connecting to vehicle on: %s' % self.dronekit_device
       self.vehicle = dronekit.connect(self.dronekit_device, 
         wait_ready=True,
-        rate=10,
-        heartbeat_timeout=self.streamrate)
+        rate=self.streamrate,
+        heartbeat_timeout=10)
       
       print "Vehicle Connected! Setting airpspeed and downloading commands..."
       
@@ -373,6 +375,27 @@ class SoloModule(spooky.modules.SpookyModule):
 
     return True
 
+  def injectGPS(self, sbpPacket):
+
+    self.last_gps_obs_inject = time.time()
+
+    if not self.vehicle:
+      return
+
+    length = len(sbpPacket)
+    data = bytearray(sbpPacket.ljust(110))
+
+    if length > 110:
+      print "SOLO ERROR: injectGPS attempting to send packet larger than 110 bytes (%d bytes)" % length
+
+    msg = self.vehicle.message_factory.gps_inject_data_encode(
+      0, #target_system
+      0, #target_component,
+      length,
+      data)
+
+    self.vehicle.send_mavlink(msg)
+
   # ===========================================================================
   # UDP-BASED CAMERA API
   # ===========================================================================
@@ -448,29 +471,35 @@ class SoloModule(spooky.modules.SpookyModule):
 
   def cmd_status(self):
 
-    print "VEHICLE CONNECTED?", self.vehicle != None
-    print "  piksi NED home pos:", self.vehicle_home_ned
-    print "SOLO API ENABLED?", self._ENABLE_API
-    print "  Solo API last msg:", self.statusmsg_API
+    print "*** SOLO STATUS ***"
+    print "  SBP Observation Injection"
+    if self.last_gps_obs_inject == 0:
+      print "    No SBP Observation Injection has occurred yet"
+    else:
+      print "    Last SBP Observation Injection %.2fs ago" % (time.time() - self.last_gps_obs_inject)
+    print "  VEHICLE CONNECTED?", self.vehicle != None
+    print "    piksi NED home pos:", self.vehicle_home_ned
+    print "  SOLO API ENABLED?", self._ENABLE_API
+    print "    Solo API last msg:", self.statusmsg_API
     exStatus = self._executor.status()
-    print "Executor: Executing? %s Commands in Queue? %d" % (str(exStatus[0]), exStatus[0])
+    print "  Executor: Executing? %s Commands in Queue? %d" % (str(exStatus[0]), exStatus[0])
     if self.vehicle:
-      print "Vehicle state:"
-      print " System Status: %s" % self.vehicle.system_status
-      print " Home Location: %s" % self.vehicle.home_location
-      print " Global Location: %s" % self.vehicle.location.global_frame
-      print " Global Location (relative altitude): %s" % self.vehicle.location.global_relative_frame
-      print " Local Location: %s" % self.vehicle.location.local_frame
-      print " Attitude: %s" % self.vehicle.attitude
-      print " Velocity: %s" % self.vehicle.velocity
-      print " Battery: %s" % self.vehicle.battery
-      print " Last Heartbeat: %s" % self.vehicle.last_heartbeat
-      print " Heading: %s" % self.vehicle.heading
-      print " Groundspeed: %s" % self.vehicle.groundspeed
-      print " Airspeed: %s" % self.vehicle.airspeed
-      print " Mode: %s" % self.vehicle.mode.name
-      print " Is Armable?: %s" % self.vehicle.is_armable
-      print " Armed: %s" % self.vehicle.armed
+      print "  Vehicle state:"
+      print "    System Status: %s" % self.vehicle.system_status
+      print "    Home Location: %s" % self.vehicle.home_location
+      print "    Global Location: %s" % self.vehicle.location.global_frame
+      print "    Global Location (relative altitude): %s" % self.vehicle.location.global_relative_frame
+      print "    Local Location: %s" % self.vehicle.location.local_frame
+      print "    Attitude: %s" % self.vehicle.attitude
+      print "    Velocity: %s" % self.vehicle.velocity
+      print "    Battery: %s" % self.vehicle.battery
+      print "    Last Heartbeat: %s" % self.vehicle.last_heartbeat
+      print "    Heading: %s" % self.vehicle.heading
+      print "    Groundspeed: %s" % self.vehicle.groundspeed
+      print "    Airspeed: %s" % self.vehicle.airspeed
+      print "    Mode: %s" % self.vehicle.mode.name
+      print "    Is Armable?: %s" % self.vehicle.is_armable
+      print "    Armed: %s" % self.vehicle.armed
 
   def cmd_goto(self, n, e, d):
     print "Command to go to (%d,%d,%d) in mm ned spooky frame." % (n, e, d)
