@@ -221,6 +221,7 @@ Now, set up the necessary parameters:
 	param set SERIAL2_PROTOCOL 5
 	param set SERIAL3_BAUD 38
 	param set SERIAL3_PROTOCOL 5
+	param set EKF_POSNE_NOISE 0.1
 	
 Turn on the Piksi's simulation mode, and in mavproxy, run:
 
