@@ -195,17 +195,17 @@ Choose which UART will connect to Solo. I used UARTA for it's position. Configur
 
 | Section      | Setting                  | Value  |
 |--------------|--------------------------|--------|
-| UART A       | mode:                    | SBP    |
-| UART A       | sbp message mask:        | 65280  |
-| UART A       | conigure telemetry radio:| False  |
-| UART A       | baudrate:                | 115200 |
-| Solution     | soln freq:               | 5      |
+| UART A       | mode                     | SBP    |
+| UART A       | sbp message mask         | 65280  |
+| UART A       | conigure telemetry radio | False  |
+| UART A       | baudrate                 | 115200 |
+| Solution     | soln freq                | 5      |
 
 On the base station, ensure that the OBS messages are small enough to fit into MAVLink:
 
 | Section | Setting                  | Value  |
 |---------|--------------------------|--------|
-| SBP     | obs msg size:            | 102    |
+| SBP     | obs msg max size         | 102    |
 
 Connect Piksi to the Accessory Port as follows:
 
