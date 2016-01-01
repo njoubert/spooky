@@ -7,7 +7,6 @@ A Library and Toolkit for Wireless Distributed State Estimation and Control of M
 This code runs a wireless multi-node sensor networks, powering our wireless cinematography system.
 It currently assumes a python-compatible Linux computers at each node. (In our case, ODROID XU4 running Ubuntu and Python 2.7)
 
-
 ## Contents
 
 ### bin/
