@@ -176,6 +176,26 @@ class SoloModule(spooky.modules.SpookyModule):
   # 3DR SOLO DRONEKIT INTERFACE
   # ===========================================================================
 
+  def callback_location(self, vehicle, attr_name, value):
+    pass
+    #self.main.modules.trigger('update_partial_state', 'solo', [(attr_name, value)])
+
+  def callback_attitude(self, vehicle, attr_name, value):
+    attitude = {
+      'pitch': value.pitch,
+      'yaw': value.yaw,
+      'roll': value.roll
+    }
+    self.main.modules.trigger('update_partial_state', 'solo', [(attr_name, attitude)])
+
+  def callback_mount(self, vehicle, attr_name, value):
+    attitude = {
+      'pitch': value[0],
+      'yaw': value[1],
+      'roll': value[2]
+    }
+    self.main.modules.trigger('update_partial_state', 'solo', [(attr_name, value)])
+
   def connect(self):
     self.disconnect()
 
@@ -196,6 +216,10 @@ class SoloModule(spooky.modules.SpookyModule):
 
       self.vehicle.groundspeed = self.groundspeed # Make it move SLOWLY
       self.vehicle.airspeed = self.airspeed
+
+      self.vehicle.add_attribute_listener('location', self.callback_location)
+      self.vehicle.add_attribute_listener('attitude', self.callback_attitude)
+      self.vehicle.add_attribute_listener('mount', self.callback_mount)
 
       print "Vehicle Ready!"
 
