@@ -191,14 +191,21 @@ Here's the mapping of serial ports on Pixhawk(2):
 
 **Setup Piksi:**
 
-Choose which UART will connect to Solo. I used UARTA for it's position. Configure the following Piksi settings for **uart uarta*:
+Choose which UART will connect to Solo. I used UARTA for it's position. Configure the following Piksi settings. Make sure you're producing solutions at 5Hz, not the default 10Hz! 
 
-| UART A Setting           | Value  |
-|--------------------------|--------|
-| mode:                    | SBP    |
-| sbp message mask:        | 65280  |
-| conigure telemetry radio:| False  |
-| baudrate:                | 115200 |
+| Section      | Setting                  | Value  |
+|--------------|--------------------------|--------|
+| UART A       | mode                     | SBP    |
+| UART A       | sbp message mask         | 65280  |
+| UART A       | conigure telemetry radio | False  |
+| UART A       | baudrate                 | 115200 |
+| Solution     | soln freq                | 5      |
+
+On the base station, ensure that the OBS messages are small enough to fit into MAVLink:
+
+| Section | Setting                  | Value  |
+|---------|--------------------------|--------|
+| SBP     | obs msg max size         | 102    |
 
 Connect Piksi to the Accessory Port as follows:
 
@@ -221,6 +228,7 @@ Now, set up the necessary parameters:
 	param set SERIAL2_PROTOCOL 5
 	param set SERIAL3_BAUD 38
 	param set SERIAL3_PROTOCOL 5
+	param set EKF_POSNE_NOISE 0.1
 	
 Turn on the Piksi's simulation mode, and in mavproxy, run:
 
