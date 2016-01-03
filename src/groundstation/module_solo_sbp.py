@@ -16,7 +16,7 @@ from sbp.navigation import MsgPosLLH, MsgGPSTime, MsgDops, MsgBaselineNED, MsgVe
 from sbp.piksi import SBP_MSG_IAR_STATE, MsgIarState
 
 import spooky, spooky.modules, spooky.ip, spooky.swift
-from spooky.swift import SBPUDPDriver
+from spooky.swift import SBPUDPDriver, SbpMsgCache
 
 class SoloSBPModule(spooky.modules.SpookyModule):
   '''
@@ -46,12 +46,14 @@ class SoloSBPModule(spooky.modules.SpookyModule):
     spooky.modules.SpookyModule.__init__(self, main, "solo_sbp", singleton=True)
     self.local_bind_ip  = self.main.config.get_my('my-ip')
     self.sololink_bind_ip  = self.main.config.get_my('sololink-my-ip')
-    self.solo_sbp_recv_port = self.main.config.get_my('solo-recv-port')
-    self.solo_sbp_send_port = self.main.config.get_my('solo-send-port')
+    self.solo_sbp_port = self.main.config.get_my('solo-sbp-port')
 
     self.relay_recv_port = self.main.config.get_my('solo-sbp-relay-recv-port')
     self.relay_send_port = self.main.config.get_my('solo-sbp-relay-send-port')
 
+    self.last_update = 0
+    self.msg_cache = SbpMsgCache()
+  
   def cmd_status(self):
     if self.last_update == 0:
       print self, "never received message."
@@ -69,7 +71,7 @@ class SoloSBPModule(spooky.modules.SpookyModule):
 
     if maybe_batch:
       update = [(msg.__class__.__name__, spooky.swift.fmt_dict(msg)) for msg in maybe_batch]
-      self.main.modules.trigger('update_partial_state', self.instance_name, update)
+      self.main.modules.trigger('update_partial_state', "solo_sbp", update)
 
   def handle_relay(self, msg, **metadata):
     self.relay_udp.sendto(msg.to_binary(), (self.local_bind_ip, self.relay_send_port))
@@ -77,7 +79,7 @@ class SoloSBPModule(spooky.modules.SpookyModule):
   def run(self):
     '''Thread loop here'''
     try:
-      with SBPUDPDriver(self.sololink_bind_ip, self.solo_sbp_recv_port) as driver:
+      with SBPUDPDriver(self.sololink_bind_ip, self.solo_sbp_port) as driver:
         with Handler(Framer(driver.read, None, verbose=True)) as source:
 
           with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as relay_udp:
@@ -86,7 +88,7 @@ class SoloSBPModule(spooky.modules.SpookyModule):
             relay_udp.bind((self.local_bind_ip, self.relay_recv_port))
             self.relay_udp = relay_udp
 
-            print "Module %s listening on %s : %s and relaying to %s (send: %d, recv: %d)" % (self, self.sololink_bind_ip, self.solo_sbp_recv_port, self.local_bind_ip, self.relay_send_port, self.relay_recv_port)
+            print "Module %s listening on %s : %s and relaying to %s (send: %d, recv: %d)" % (self, self.sololink_bind_ip, self.solo_sbp_port, self.local_bind_ip, self.relay_send_port, self.relay_recv_port)
 
             source.add_callback(self.handle_relay)
             source.add_callback(self.handle_incoming, 

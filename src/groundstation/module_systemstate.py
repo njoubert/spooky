@@ -146,6 +146,10 @@ class SystemStateModule(spooky.modules.SpookyModule):
       return (None, "No Piksi state available for %s" % piksi_ip)
 
     piksi_state = state[piksi_ip]
+
+    if not 'MsgBaselineNED' in piksi_state:
+      return (None, "No Piksi state available for %s" % piksi_ip)
+
     piksi_baseline = piksi_state['MsgBaselineNED']
     last_update = piksi_state['_lastupdate']
     age = time.time() - last_update

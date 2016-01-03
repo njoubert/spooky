@@ -36,18 +36,28 @@ def main():
     sbp_udp.settimeout(None)
     sbp_udp.bind((DEFAULT_UDP_BIND_ADDRESS, DEFAULT_UDP_RECV_PORT))
 
+    def handle_incoming(msg, **metadata):
+      sbp_udp.sendto(msg.pack(), (DEFAULT_UDP_SEND_ADDRESS, DEFAULT_UDP_SEND_PORT))
+
+
     with PySerialDriver(DEFAULT_SERIAL_PORT, DEFAULT_SERIAL_BAUD) as driver:
       with Handler(Framer(driver.read, driver.write)) as handler:
-        with UdpLogger(DEFAULT_UDP_ADDRESS, DEFAULT_UDP_SEND_PORT) as udp:
-          handler.add_callback(udp)
 
-          try:
-            while True:
-              data, addr = sbp_udp.recvfrom(4096)
-              driver.write(data)
-              print "Data send to Piksi: len=%d" % len(data)
-          except KeyboardInterrupt:
-            pass
+        handler.add_callback(handle_incoming)
+
+        print "***"
+        print "*** Solo Relay Running"
+        print "***"
+
+        print "Sending to %s : %s" % (DEFAULT_UDP_SEND_ADDRESS, DEFAULT_UDP_SEND_PORT)
+        print "Recving on %s : %s" % (DEFAULT_UDP_BIND_ADDRESS, DEFAULT_UDP_RECV_PORT)
+        
+        try:
+          while True:
+            data, addr = sbp_udp.recvfrom(4096)
+            driver.write(data)
+        except KeyboardInterrupt:
+          pass
 
 
 if __name__ == '__main__':

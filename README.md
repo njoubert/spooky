@@ -313,8 +313,11 @@ Time to get busy! Install [libsbp](https://swift-nav.github.io/libsbp/) on Solo 
 
 	ssh 10.1.1.10
 	pip install sbp
+	mkdir /home/root/Code
 
+Copy the ```src/solo/main.py``` file to your solo:
 
+	rsync -avz src/solo/main.py root@10.1.1.10:/home/root/Code
 
 ### Firing up Solo Simulator
 

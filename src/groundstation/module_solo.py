@@ -200,6 +200,9 @@ class SoloModule(spooky.modules.SpookyModule):
 
   def _update_vehicle_home(self):
     '''Internal call to update our vehicle home location'''
+    if not self.vehicle:
+      print "_update_vehicle_home: no vehicle attached"
+      return
     cmds = self.vehicle.commands
     cmds.download()
     cmds.wait_ready()
@@ -578,6 +581,8 @@ class SoloModule(spooky.modules.SpookyModule):
         return usage()
       
     elif 'set_home' in args:
+      if len(args) == 1:
+        return self.set_piksi_home_from_solo_sbp()
       if len(args) == 2:
         return self.set_piksi_home_from_ip(args[1])
       if len(args) == 4:
@@ -599,14 +604,15 @@ class SoloModule(spooky.modules.SpookyModule):
   # Main Module Runloop
   # ===========================================================================
 
+
+  def set_piksi_home_from_solo_sbp(self):
+    self.set_piksi_home_from_ip('solo_sbp')
+
   def set_piksi_home_from_ip(self, piksi_ip):
     # OK, we grab the current position of a Piksi baseline
     # and save that as the NED vector to translate from 
 
-    if not self.vehicle:
-      print "NO vehicle attached yet. Saving anyway."
-
-    home = self.vehicle.home_location
+    self._update_vehicle_home()
 
     systemstate = self.main.modules.get_modules('systemstate')
     
@@ -620,12 +626,10 @@ class SoloModule(spooky.modules.SpookyModule):
       print msg
 
     self.vehicle_home_ned = ned
+    print "vehicle_home_ned =", ned
 
   def set_piksi_home_manually(self, n_mm, e_mm, d_mm):
-
-    if not self.vehicle:
-      print "NO vehicle attached yet. Saving anyway."
-
+    self._update_vehicle_home()
     self.vehicle_home_ned = [n_mm, e_mm, d_mm]
 
   def run(self):
