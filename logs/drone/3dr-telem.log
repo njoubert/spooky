@@ -1,0 +1,171 @@
+Jan  2 09:05:08 3dr_solo local4.info +121 tlm: Installing SIGQUIT signal handler
+Jan  2 09:05:08 3dr_solo local4.info +134 tlm: telem_forwarder starting: built Nov 17 2015 01:38:09
+Jan  2 09:05:08 3dr_solo local4.info +146 tlm: serial port: /dev/ttymxc1
+Jan  2 09:05:08 3dr_solo local4.info +146 tlm: serial baudrate: 921600
+Jan  2 09:05:08 3dr_solo local4.info +147 tlm: serial hw flow: true
+Jan  2 09:05:08 3dr_solo local4.info +147 tlm: UDP dest port: 14550
+Jan  2 09:05:08 3dr_solo local4.info +147 tlm: use GPS time: true
+Jan  2 09:05:08 3dr_solo local4.info +147 tlm: tos: 0x60
+Jan  2 09:05:08 3dr_solo local4.info +148 tlm: opened port 14560
+Jan  2 09:05:08 3dr_solo local4.info +179 tlm: opened serial port /dev/ttymxc1
+Jan  2 09:05:11 3dr_solo local4.info +672 tlm: adding new client 127.0.0.1:39556
+Jan  2 09:05:11 3dr_solo local4.info +672 tlm: ARP: Seen (255/0) from 127.0.0.1:39556 client=0x762fdc44
+Jan  2 09:05:12 3dr_solo local4.info +404 tlm: SET_MODE: from 127.0.0.1:39556
+Jan  2 09:05:12 3dr_solo local4.info +404 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  2 09:05:12 3dr_solo local4.info +404 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Jan  2 09:05:18 3dr_solo local4.info +206 tlm: down: 129 m/s, 3962 b/s, 4%; up: 5 m/s, 140 b/s, 0%
+Jan  2 09:05:18 3dr_solo local4.info +207 tlm: seq errs: (1,1):1
+Jan  2 09:05:28 3dr_solo local4.info +207 tlm: down: 94 m/s, 2783 b/s, 3%; up: 5 m/s, 156 b/s, 0%
+Jan  2 09:05:38 3dr_solo local4.info +208 tlm: down: 93 m/s, 2770 b/s, 2%; up: 6 m/s, 184 b/s, 0%
+Jan  2 09:05:48 3dr_solo local4.info +209 tlm: down: 94 m/s, 2770 b/s, 2%; up: 5 m/s, 155 b/s, 0%
+Jan  2 09:05:58 3dr_solo local4.info +209 tlm: down: 92 m/s, 2741 b/s, 2%; up: 5 m/s, 156 b/s, 0%
+Jan  2 09:06:08 3dr_solo local4.info +210 tlm: down: 94 m/s, 2784 b/s, 3%; up: 5 m/s, 156 b/s, 0%
+Jan  2 09:06:18 3dr_solo local4.info +210 tlm: down: 94 m/s, 2784 b/s, 3%; up: 5 m/s, 156 b/s, 0%
+Jan  2 09:06:28 3dr_solo local4.info +211 tlm: down: 93 m/s, 2757 b/s, 2%; up: 6 m/s, 184 b/s, 0%
+Jan  2 09:06:38 3dr_solo local4.info +212 tlm: down: 92 m/s, 2713 b/s, 2%; up: 5 m/s, 155 b/s, 0%
+Jan  2 09:06:48 3dr_solo local4.info +213 tlm: down: 92 m/s, 2720 b/s, 2%; up: 4 m/s, 112 b/s, 0%
+Jan  2 09:06:58 3dr_solo local4.info +214 tlm: down: 89 m/s, 2619 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  2 09:07:08 3dr_solo local4.info +215 tlm: down: 88 m/s, 2591 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  2 09:07:14 3dr_solo local4.info +373 tlm: GPS time: 2016-01-03 09:26:55.175000
+Jan  3 09:26:55 3dr_solo local4.info +175 tlm: clock set from GPS
+Jan  3 09:26:59 3dr_solo local4.info +017 tlm: down: 90 m/s, 2655 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:27:09 3dr_solo local4.info +018 tlm: down: 91 m/s, 2687 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:27:19 3dr_solo local4.info +019 tlm: down: 92 m/s, 2698 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:27:29 3dr_solo local4.info +019 tlm: down: 89 m/s, 2631 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:27:39 3dr_solo local4.info +020 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:27:49 3dr_solo local4.info +021 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:27:59 3dr_solo local4.info +021 tlm: down: 91 m/s, 2673 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:28:09 3dr_solo local4.info +022 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:28:19 3dr_solo local4.info +022 tlm: down: 92 m/s, 2719 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:28:29 3dr_solo local4.info +023 tlm: down: 92 m/s, 2692 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:28:39 3dr_solo local4.info +024 tlm: down: 89 m/s, 2630 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:28:49 3dr_solo local4.info +024 tlm: down: 92 m/s, 2717 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:28:59 3dr_solo local4.info +025 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:29:09 3dr_solo local4.info +026 tlm: down: 91 m/s, 2675 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:29:19 3dr_solo local4.info +026 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:29:29 3dr_solo local4.info +027 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:29:39 3dr_solo local4.info +028 tlm: down: 93 m/s, 2723 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:29:49 3dr_solo local4.info +028 tlm: down: 90 m/s, 2659 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:29:59 3dr_solo local4.info +029 tlm: down: 92 m/s, 2717 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:30:09 3dr_solo local4.info +030 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:30:19 3dr_solo local4.info +030 tlm: down: 90 m/s, 2651 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:30:29 3dr_solo local4.info +031 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:30:39 3dr_solo local4.info +031 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:30:49 3dr_solo local4.info +032 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:30:59 3dr_solo local4.info +033 tlm: down: 91 m/s, 2672 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:31:09 3dr_solo local4.info +035 tlm: down: 92 m/s, 2693 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:31:19 3dr_solo local4.info +035 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:31:29 3dr_solo local4.info +036 tlm: down: 90 m/s, 2656 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:31:39 3dr_solo local4.info +037 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:31:49 3dr_solo local4.info +038 tlm: down: 92 m/s, 2708 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:31:59 3dr_solo local4.info +039 tlm: down: 93 m/s, 2723 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:32:09 3dr_solo local4.info +040 tlm: down: 90 m/s, 2657 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:32:19 3dr_solo local4.info +041 tlm: down: 92 m/s, 2719 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:32:29 3dr_solo local4.info +041 tlm: down: 92 m/s, 2708 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:32:39 3dr_solo local4.info +042 tlm: down: 91 m/s, 2675 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:32:49 3dr_solo local4.info +043 tlm: down: 92 m/s, 2704 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:32:59 3dr_solo local4.info +044 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:33:09 3dr_solo local4.info +045 tlm: down: 90 m/s, 2659 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:33:19 3dr_solo local4.info +045 tlm: down: 92 m/s, 2717 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:33:29 3dr_solo local4.info +046 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:33:39 3dr_solo local4.info +047 tlm: down: 92 m/s, 2717 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:33:49 3dr_solo local4.info +048 tlm: down: 90 m/s, 2656 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:33:59 3dr_solo local4.info +049 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:34:09 3dr_solo local4.info +049 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:34:19 3dr_solo local4.info +050 tlm: down: 91 m/s, 2667 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:34:29 3dr_solo local4.info +051 tlm: down: 92 m/s, 2704 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:34:39 3dr_solo local4.info +052 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:34:49 3dr_solo local4.info +053 tlm: down: 90 m/s, 2656 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:34:59 3dr_solo local4.info +053 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:35:09 3dr_solo local4.info +054 tlm: down: 92 m/s, 2703 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:35:19 3dr_solo local4.info +055 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:35:29 3dr_solo local4.info +058 tlm: down: 90 m/s, 2654 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:35:39 3dr_solo local4.info +059 tlm: down: 92 m/s, 2716 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:35:49 3dr_solo local4.info +059 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:35:59 3dr_solo local4.info +060 tlm: down: 91 m/s, 2670 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:36:09 3dr_solo local4.info +062 tlm: down: 92 m/s, 2708 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:36:19 3dr_solo local4.info +062 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:36:29 3dr_solo local4.info +064 tlm: down: 90 m/s, 2659 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:36:39 3dr_solo local4.info +064 tlm: down: 93 m/s, 2723 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:36:49 3dr_solo local4.info +065 tlm: down: 92 m/s, 2704 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:36:59 3dr_solo local4.info +066 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:37:09 3dr_solo local4.info +066 tlm: down: 90 m/s, 2656 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:37:19 3dr_solo local4.info +067 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:37:29 3dr_solo local4.info +068 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:37:39 3dr_solo local4.info +069 tlm: down: 90 m/s, 2654 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:37:49 3dr_solo local4.info +069 tlm: down: 92 m/s, 2712 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:37:59 3dr_solo local4.info +070 tlm: down: 92 m/s, 2708 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:38:09 3dr_solo local4.info +071 tlm: down: 91 m/s, 2675 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:38:19 3dr_solo local4.info +071 tlm: down: 92 m/s, 2704 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:38:29 3dr_solo local4.info +072 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:38:39 3dr_solo local4.info +073 tlm: down: 90 m/s, 2659 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:38:49 3dr_solo local4.info +073 tlm: down: 93 m/s, 2723 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:38:59 3dr_solo local4.info +074 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:39:09 3dr_solo local4.info +075 tlm: down: 92 m/s, 2717 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:39:19 3dr_solo local4.info +075 tlm: down: 90 m/s, 2656 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:39:29 3dr_solo local4.info +076 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:39:39 3dr_solo local4.info +077 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:39:49 3dr_solo local4.info +077 tlm: down: 90 m/s, 2659 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:39:59 3dr_solo local4.info +078 tlm: down: 92 m/s, 2707 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:40:09 3dr_solo local4.info +079 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:40:19 3dr_solo local4.info +079 tlm: down: 90 m/s, 2656 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:40:29 3dr_solo local4.info +080 tlm: down: 92 m/s, 2712 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:40:39 3dr_solo local4.info +081 tlm: down: 92 m/s, 2718 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:40:49 3dr_solo local4.info +081 tlm: down: 90 m/s, 2654 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:40:59 3dr_solo local4.info +082 tlm: down: 93 m/s, 2723 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:41:09 3dr_solo local4.info +083 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:41:19 3dr_solo local4.info +083 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:41:29 3dr_solo local4.info +086 tlm: down: 90 m/s, 2651 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:41:39 3dr_solo local4.info +086 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:41:49 3dr_solo local4.info +087 tlm: down: 92 m/s, 2708 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:41:59 3dr_solo local4.info +088 tlm: down: 91 m/s, 2672 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:42:09 3dr_solo local4.info +089 tlm: down: 92 m/s, 2698 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:42:19 3dr_solo local4.info +089 tlm: down: 93 m/s, 2723 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:42:29 3dr_solo local4.info +090 tlm: down: 90 m/s, 2656 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:42:39 3dr_solo local4.info +091 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:42:49 3dr_solo local4.info +091 tlm: down: 92 m/s, 2708 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:42:59 3dr_solo local4.info +092 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:43:09 3dr_solo local4.info +093 tlm: down: 90 m/s, 2654 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:43:19 3dr_solo local4.info +094 tlm: down: 92 m/s, 2717 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:43:29 3dr_solo local4.info +094 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:43:39 3dr_solo local4.info +095 tlm: down: 91 m/s, 2675 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:43:49 3dr_solo local4.info +096 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:43:59 3dr_solo local4.info +096 tlm: down: 92 m/s, 2717 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:44:09 3dr_solo local4.info +097 tlm: down: 90 m/s, 2659 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:44:19 3dr_solo local4.info +098 tlm: down: 92 m/s, 2717 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:44:29 3dr_solo local4.info +098 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:44:39 3dr_solo local4.info +099 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:44:49 3dr_solo local4.info +100 tlm: down: 90 m/s, 2651 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:44:59 3dr_solo local4.info +101 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:45:09 3dr_solo local4.info +101 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:45:19 3dr_solo local4.info +102 tlm: down: 91 m/s, 2672 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:45:29 3dr_solo local4.info +103 tlm: down: 92 m/s, 2699 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:45:39 3dr_solo local4.info +103 tlm: down: 93 m/s, 2728 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:45:49 3dr_solo local4.info +104 tlm: down: 90 m/s, 2656 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:45:59 3dr_solo local4.info +105 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:46:09 3dr_solo local4.info +105 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:46:19 3dr_solo local4.info +106 tlm: down: 93 m/s, 2723 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:46:29 3dr_solo local4.info +106 tlm: down: 90 m/s, 2659 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:46:39 3dr_solo local4.info +107 tlm: down: 92 m/s, 2711 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:46:49 3dr_solo local4.info +109 tlm: down: 93 m/s, 2727 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:46:59 3dr_solo local4.info +110 tlm: down: 90 m/s, 2656 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:47:09 3dr_solo local4.info +110 tlm: down: 92 m/s, 2707 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:47:19 3dr_solo local4.info +111 tlm: down: 92 m/s, 2718 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:47:29 3dr_solo local4.info +112 tlm: down: 93 m/s, 2727 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:47:39 3dr_solo local4.info +113 tlm: down: 90 m/s, 2659 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:47:49 3dr_solo local4.info +114 tlm: down: 92 m/s, 2717 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:47:59 3dr_solo local4.info +114 tlm: down: 92 m/s, 2704 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:48:09 3dr_solo local4.info +115 tlm: down: 91 m/s, 2675 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:48:19 3dr_solo local4.info +116 tlm: down: 92 m/s, 2708 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:48:29 3dr_solo local4.info +116 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:48:39 3dr_solo local4.info +117 tlm: down: 90 m/s, 2654 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:48:49 3dr_solo local4.info +118 tlm: down: 93 m/s, 2726 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:48:59 3dr_solo local4.info +118 tlm: down: 92 m/s, 2700 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:49:09 3dr_solo local4.info +119 tlm: down: 93 m/s, 2722 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:49:19 3dr_solo local4.info +119 tlm: down: 90 m/s, 2656 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:49:29 3dr_solo local4.info +120 tlm: down: 93 m/s, 2723 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:49:39 3dr_solo local4.info +120 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:49:49 3dr_solo local4.info +121 tlm: down: 91 m/s, 2672 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:49:59 3dr_solo local4.info +122 tlm: down: 93 m/s, 2723 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  3 09:50:09 3dr_solo local4.info +122 tlm: down: 92 m/s, 2709 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  3 09:50:19 3dr_solo local4.info +123 tlm: down: 92 m/s, 2696 b/s, 2%; up: 0 m/s, 16 b/s, 0%

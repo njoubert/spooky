@@ -1,0 +1,107 @@
+Jan  5 23:59:54 3dr_solo local2.info shot: starting up shotManager 1.3.0
+Jan  5 23:59:54 3dr_solo local2.info shot: got api vehicle
+Jan  5 23:59:54 3dr_solo local2.info shot: reset all DZ
+Jan  5 23:59:54 3dr_solo local2.info shot: enabling remapping False
+Jan  5 23:59:54 3dr_solo local2.info shot: disabling stick remapping
+Jan  5 23:59:54 3dr_solo local2.info shot: ready for connections
+Jan  5 23:59:54 3dr_solo local2.info shot: creating a new connectThread
+Jan  5 23:59:54 3dr_solo local2.info shot: read in button mappings
+Jan  5 23:59:54 3dr_solo local2.info shot: Button A - shot Cable Cam, mode None
+Jan  5 23:59:54 3dr_solo local2.info shot: Button B - shot Orbit, mode None
+Jan  5 23:59:54 3dr_solo local2.info shot: Going to wait for vehicle init
+Jan  5 23:59:54 3dr_solo local2.info shot: vehicle inited
+Jan  5 23:59:54 3dr_solo local2.info shot: read enabled value from settings of 1
+Jan  5 23:59:54 3dr_solo local2.info shot: sending gimbal enabled param (GMB_GP_CTRL) to 1.000000
+Jan  5 23:59:54 3dr_solo local2.info shot: Inited GoProManager
+Jan  5 23:59:54 3dr_solo local2.info shot: No gimbal detected.
+Jan  5 23:59:55 3dr_solo local2.info shot: Gopro capture mode changed to 255
+Jan  5 23:59:55 3dr_solo local2.info shot: sending Gopro state to app
+Jan  5 23:59:55 3dr_solo local2.info shot: connectThread connected
+Jan  5 23:59:55 3dr_solo local2.info shot: sending FLY to Artoo as mode
+Jan  6 00:01:32 3dr_solo local2.info shot: mode_callback:  lastMode is LOITER, newMode is STABILIZE
+Jan  6 00:01:32 3dr_solo local2.info shot: vehicle changed to mode STABILIZE
+Jan  6 00:01:32 3dr_solo local2.info shot: sending STABILIZE to Artoo as mode
+Jan  6 00:00:54 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:01:35 3dr_solo local2.info shot: mode_callback:  lastMode is STABILIZE, newMode is LOITER
+Jan  6 00:01:35 3dr_solo local2.info shot: vehicle changed to mode LOITER
+Jan  6 00:01:35 3dr_solo local2.info shot: sending FLY to Artoo as mode
+Jan  6 00:07:35 3dr_solo local2.info shot: armed status changed to 1
+Jan  6 00:08:15 3dr_solo local2.info shot: mode_callback:  lastMode is LOITER, newMode is ALT_HOLD
+Jan  6 00:08:15 3dr_solo local2.info shot: vehicle changed to mode ALT_HOLD
+Jan  6 00:08:15 3dr_solo local2.info shot: sending FLY: MANUAL to Artoo as mode
+Jan  6 00:08:28 3dr_solo local2.info shot: mode_callback:  lastMode is ALT_HOLD, newMode is LOITER
+Jan  6 00:08:28 3dr_solo local2.info shot: vehicle changed to mode LOITER
+Jan  6 00:08:28 3dr_solo local2.info shot: sending FLY to Artoo as mode
+Jan  6 00:09:29 3dr_solo local2.info shot: EKF status changed to 0
+Jan  6 00:09:29 3dr_solo local2.info shot: armed status changed to 0
+Jan  6 00:09:29 3dr_solo local2.info shot: [enterShot]: Current shot is: 'FLY', cant enter same shot, ignoring request.
+Jan  6 00:09:29 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:10:38 3dr_solo local2.info shot: EKF status changed to 0
+Jan  6 00:11:29 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro status changed to 2
+Jan  6 00:11:31 3dr_solo local2.info shot: no queue, just sending message
+Jan  6 00:11:31 3dr_solo local2.info shot: queuing up gopro message.  Queue size is now 1
+Jan  6 00:11:31 3dr_solo local2.info shot: queuing up gopro message.  Queue size is now 2
+Jan  6 00:11:31 3dr_solo local2.info shot: queuing up gopro message.  Queue size is now 3
+Jan  6 00:11:31 3dr_solo local2.info shot: queuing up gopro message.  Queue size is now 4
+Jan  6 00:11:31 3dr_solo local2.info shot: queuing up gopro message.  Queue size is now 5
+Jan  6 00:11:31 3dr_solo local2.info shot: queuing up gopro message.  Queue size is now 6
+Jan  6 00:11:31 3dr_solo local2.info shot: queuing up gopro message.  Queue size is now 7
+Jan  6 00:11:31 3dr_solo local2.info shot: queuing up gopro message.  Queue size is now 8
+Jan  6 00:11:31 3dr_solo local2.info shot: queuing up gopro message.  Queue size is now 9
+Jan  6 00:11:31 3dr_solo local2.info shot: queuing up gopro message.  Queue size is now 10
+Jan  6 00:11:31 3dr_solo local2.info shot: queuing up gopro message.  Queue size is now 11
+Jan  6 00:11:31 3dr_solo local2.info shot: queuing up gopro message.  Queue size is now 12
+Jan  6 00:11:31 3dr_solo local2.info shot: sending Gopro state to app
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro capture mode changed to 0
+Jan  6 00:11:31 3dr_solo local2.info shot: sending Gopro state to app
+Jan  6 00:11:31 3dr_solo local2.info shot: sending message from the queue.  Size is now 11
+Jan  6 00:11:31 3dr_solo local2.info shot: sending message from the queue.  Size is now 10
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro get request for command 4 failed with status 1
+Jan  6 00:11:31 3dr_solo local2.info shot: sending message from the queue.  Size is now 9
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro video resolution changed to 3
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro video frame rate changed to 7
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro video field of view changed to 1
+Jan  6 00:11:31 3dr_solo local2.info shot: sending Gopro state to app
+Jan  6 00:11:31 3dr_solo local2.info shot: sending message from the queue.  Size is now 8
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro low light changed to 1
+Jan  6 00:11:31 3dr_solo local2.info shot: sending Gopro state to app
+Jan  6 00:11:31 3dr_solo local2.info shot: sending message from the queue.  Size is now 7
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro photo resolution changed to 4
+Jan  6 00:11:31 3dr_solo local2.info shot: sending Gopro state to app
+Jan  6 00:11:31 3dr_solo local2.info shot: sending message from the queue.  Size is now 6
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro get request for command 8 failed with status 1
+Jan  6 00:11:31 3dr_solo local2.info shot: sending message from the queue.  Size is now 5
+Jan  6 00:11:31 3dr_solo local2.info shot: sending message from the queue.  Size is now 4
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro get request for command 10 failed with status 1
+Jan  6 00:11:31 3dr_solo local2.info shot: sending message from the queue.  Size is now 3
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro get request for command 11 failed with status 1
+Jan  6 00:11:31 3dr_solo local2.info shot: sending message from the queue.  Size is now 2
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro get request for command 12 failed with status 1
+Jan  6 00:11:31 3dr_solo local2.info shot: sending message from the queue.  Size is now 1
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro get request for command 13 failed with status 1
+Jan  6 00:11:31 3dr_solo local2.info shot: sending message from the queue.  Size is now 0
+Jan  6 00:11:31 3dr_solo local2.info shot: Gopro video protune exposure changed to 10
+Jan  6 00:11:31 3dr_solo local2.info shot: sending Gopro state to app
+Jan  6 00:13:24 3dr_solo local2.info shot: armed status changed to 1
+Jan  6 00:15:02 3dr_solo local2.info shot: mode_callback:  lastMode is LOITER, newMode is ALT_HOLD
+Jan  6 00:15:02 3dr_solo local2.info shot: vehicle changed to mode ALT_HOLD
+Jan  6 00:15:02 3dr_solo local2.info shot: sending FLY: MANUAL to Artoo as mode
+Jan  6 00:15:14 3dr_solo local2.info shot: mode_callback:  lastMode is ALT_HOLD, newMode is LOITER
+Jan  6 00:15:14 3dr_solo local2.info shot: vehicle changed to mode LOITER
+Jan  6 00:15:14 3dr_solo local2.info shot: sending FLY to Artoo as mode
+Jan  6 00:18:04 3dr_solo local2.info shot: mode_callback:  lastMode is LOITER, newMode is ALT_HOLD
+Jan  6 00:18:04 3dr_solo local2.info shot: vehicle changed to mode ALT_HOLD
+Jan  6 00:18:04 3dr_solo local2.info shot: sending FLY: MANUAL to Artoo as mode
+Jan  6 00:18:17 3dr_solo local2.info shot: mode_callback:  lastMode is ALT_HOLD, newMode is LOITER
+Jan  6 00:18:17 3dr_solo local2.info shot: vehicle changed to mode LOITER
+Jan  6 00:18:17 3dr_solo local2.info shot: sending FLY to Artoo as mode
+Jan  6 00:18:27 3dr_solo local2.info shot: EKF status changed to 0
+Jan  6 00:18:27 3dr_solo local2.info shot: armed status changed to 0
+Jan  6 00:18:27 3dr_solo local2.info shot: [enterShot]: Current shot is: 'FLY', cant enter same shot, ignoring request.
+Jan  6 00:18:27 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:20:40 3dr_solo local2.info shot: EKF status changed to 0
+Jan  6 00:21:58 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:26:54 3dr_solo local2.info shot: EKF status changed to 0
+Jan  6 00:28:54 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:37:33 3dr_solo local2.info shot: EKF status changed to 0

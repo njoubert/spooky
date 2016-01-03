@@ -1,0 +1,27 @@
+Thu Jan  1 00:00:06 1970: bootlogd.
+Thu Jan  1 00:00:06 1970: max_dgram_qlen=100
+Thu Jan  1 00:00:07 1970: Starting syslogd/klogd: done
+Thu Jan  1 00:00:07 1970: Configuring network interfaces... Successfully initialized wpa_supplicant
+Thu Jan  1 00:00:09 1970: rfkill: Cannot open RFKILL control device
+Thu Jan  1 00:00:09 1970: udhcpc (v1.21.1) started
+Thu Jan  1 00:00:09 1970: Sending discover...
+Thu Jan  1 00:00:10 1970: Sending discover...
+Thu Jan  1 00:00:10 1970: Sending select for 10.1.1.10...
+Thu Jan  1 00:00:10 1970: Lease of 10.1.1.10 obtained, lease time 7200
+Thu Jan  1 00:00:10 1970: /etc/udhcpc.d/50default: Adding DNS 8.8.8.8
+Thu Jan  1 00:00:11 1970: route: SIOCADDRT: File exists
+Thu Jan  1 00:00:11 1970: rotating 3dr logs
+Sun Dec 27 22:20:00 2015: Sun Dec 27 22:20:00 UTC 2015
+Sun Dec 27 22:20:00 2015: Starting OpenBSD Secure Shell server: sshd
+Sun Dec 27 22:20:00 2015: done.
+Sun Dec 27 22:20:00 2015: initializing pixhawk interface...
+Sun Dec 27 22:20:02 2015: pixhawk...
+Sun Dec 27 22:20:02 2015: pixhawk: running 1.2.19
+Sun Dec 27 22:20:03 2015: Gimbal update startup script v1.1.8
+Sun Dec 27 22:20:03 2015: Pixhawk found on USB
+Sun Dec 27 22:20:09 2015: Failed to find an attached gimbal, exiting
+Sun Dec 27 22:20:10 2015: Sololink: Running same version
+Sun Dec 27 22:20:10 2015: INIT: Entering runlevel: 3
+Sun Dec 27 22:20:10 2015: starting DNS forwarder and DHCP server: dnsmasq... done.
+Sun Dec 27 22:20:10 2015: Running local boot scripts (/etc/rc.local).
+Sun Dec 27 22:20:10 2015: 

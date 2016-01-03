@@ -15,32 +15,7 @@ import dronekit
 from pymavlink import mavutil # Needed for command message definitions
 
 # Spooky
-import spooky, spooky.modules
-
-
-
-import numpy
-
-LOCATION_SCALING_FACTOR = 111318.84502145034;
-
-def scale_longitude(llh):
-    return numpy.cos(llh[0] * numpy.pi / 180.0)
-
-def llh2ned(llh, llh_ref):
-    diffs = numpy.subtract(llh,llh_ref)
-    diffs[0] = diffs[0] * LOCATION_SCALING_FACTOR
-    diffs[1] = diffs[1] * LOCATION_SCALING_FACTOR * scale_longitude(llh_ref)
-    return diffs
-
-def ned2llh(ned, llh_ref):
-  lat = llh_ref[0] + (ned[0] / LOCATION_SCALING_FACTOR)
-  lng = llh_ref[1] + (ned[1] / (LOCATION_SCALING_FACTOR * scale_longitude(llh_ref)))
-  alt = llh_ref[2] - ned[2]
-  return numpy.array([lat,lng,alt])
-
-def get_distance_llh(llh1, llh2):
-  return numpy.linalg.norm(llh2ned(llh1, llh2))
-
+import spooky, spooky.modules, spooky.coords
 
 class SoloModule(spooky.modules.SpookyModule):
   '''
@@ -132,7 +107,20 @@ class SoloModule(spooky.modules.SpookyModule):
       return None
     drone_ned = self._spooky_to_vehicle_ned(ned)
     home_llh = [self.vehicle_home.lat, self.vehicle_home.lon, 0]
-    return ned2llh(drone_ned, home_llh)
+    return spooky.coords.ned2llh(drone_ned, home_llh)
+
+  def _vehicle_llh_relative_to_spooky_ned(self, llh):
+    '''
+    Converts Drone Global Coordinate Frame with Relative altitude
+    to spooky-frame integer mm NED value
+    '''
+    if not self.vehicle_home:
+      print "FAILED _vehicle_llh_relative_to_spooky_ned: No vehicle home!"
+      return None
+
+    home_llh = [self.vehicle_home.lat, self.vehicle_home.lon, self.vehicle_home.alt]
+    drone_ned = spooky.coords.llh2ned(llh, home_llh)
+    return self._vehicle_to_spooky_ned(drone_ned)
 
   def _spooky_to_vehicle_ned(self, ned):
     '''
@@ -177,8 +165,22 @@ class SoloModule(spooky.modules.SpookyModule):
   # ===========================================================================
 
   def callback_location(self, vehicle, attr_name, value):
-    pass
-    #self.main.modules.trigger('update_partial_state', 'solo', [(attr_name, value)])
+    try:
+      location = value.global_relative_frame
+      if location is None or (location.lat == 0.0 and location.lon == 0.0):
+        return
+      llh = {
+        'lat':location.lat,
+        'lon':location.lon,
+        'alt':location.alt,
+        'coord': 'LocationGlobalRelative'
+      }
+
+      spooky_ned = self._vehicle_llh_relative_to_spooky_ned([location.lat, location.lon, location.alt])
+      self.main.modules.trigger('update_partial_state', 'solo', [('lookFrom', spooky_ned)])
+    except:
+      import traceback
+      traceback.print_exc()
 
   def callback_attitude(self, vehicle, attr_name, value):
     attitude = {
@@ -196,23 +198,25 @@ class SoloModule(spooky.modules.SpookyModule):
     }
     self.main.modules.trigger('update_partial_state', 'solo', [(attr_name, value)])
 
+  def _update_vehicle_home(self):
+    '''Internal call to update our vehicle home location'''
+    cmds = self.vehicle.commands
+    cmds.download()
+    cmds.wait_ready()
+    self.vehicle_home = self.vehicle.home_location
+    print "Downloading latest HOME location:", str(self.vehicle_home)
+
   def connect(self):
     self.disconnect()
 
     # Configure our SoloLink connection
     def deferred():
       print 'Connecting to vehicle on: %s' % self.dronekit_device
-      self.vehicle = dronekit.connect(self.dronekit_device, 
-        wait_ready=True,
-        rate=self.streamrate,
-        heartbeat_timeout=10)
+      self.vehicle = dronekit.connect(self.dronekit_device, wait_ready=True, rate=self.streamrate, heartbeat_timeout=10)
       
       print "Vehicle Connected! Setting airpspeed and downloading commands..."
       
-      cmds = self.vehicle.commands
-      cmds.download()
-      cmds.wait_ready()
-      self.vehicle_home = self.vehicle.home_location
+      self._update_vehicle_home()
 
       self.vehicle.groundspeed = self.groundspeed # Make it move SLOWLY
       self.vehicle.airspeed = self.airspeed
@@ -251,6 +255,7 @@ class SoloModule(spooky.modules.SpookyModule):
 
   def enable_API(self):
     print "ENABLING CAMERA API"
+    self._update_vehicle_home()
     self._ENABLE_API = True
 
   def disable_API(self):
@@ -260,8 +265,8 @@ class SoloModule(spooky.modules.SpookyModule):
   def arm(self, value=True, timeout=2.0):
 
     def deferred():
-      if not self.vehicle or not self.vehicle.is_armable:
-        print " The vehicle is not ready to arm"
+      if not self.vehicle or (not self.vehicle.armed and not self.vehicle.is_armable):
+        print " The vehicle is not ready to arm: %s, %s" % (self.vehicle, self.vehicle.is_armable)
         return False
       if value:
         print "Arming into GUIDED mode..."
@@ -273,6 +278,7 @@ class SoloModule(spooky.modules.SpookyModule):
           self.vehicle.armed = False
           return False
         else:
+          self._update_vehicle_home()
           return True
       else:
         print "Disarming"
@@ -319,47 +325,46 @@ class SoloModule(spooky.modules.SpookyModule):
       print "Can't look-at, no home location!"
       return
 
-    #roi = dronekit.LocationGlobalRelative(llh[0],llh[1],llh[2])
-    #self.vehicle.gimbal.target_location(roi)
+    # ==================================================
+    # The old, inaccurate DO_SET_ROI call
+    # ==================================================
 
-    # dronekit.LocationLocal(north, east, down)
-    
-    msg = self.vehicle.message_factory.command_long_encode(
-                                                    1, 1,    # target system, target component
-                                                    mavutil.mavlink.MAV_CMD_DO_SET_ROI, #command
-                                                    0, #confirmation
-                                                    0, 0, 0, 0, #params 1-4
-                                                    llh[0],
-                                                    llh[1],
-                                                    llh[2]
-                                                    )
+    # msg = self.vehicle.message_factory.command_long_encode(
+    #                                                 1, 1,    # target system, target component
+    #                                                 mavutil.mavlink.MAV_CMD_DO_SET_ROI, #command
+    #                                                 0, #confirmation
+    #                                                 0, 0, 0, 0, #params 1-4
+    #                                                 llh[0],
+    #                                                 llh[1],
+    #                                                 llh[2]
+    #                                                 )
+    # self.vehicle.send_mavlink(msg)
+
+    # ==================================================
+    # The new, accurate set_position_target_global_int_encode call
+    # ==================================================
+
+    msg = self.vehicle.message_factory.set_roi_global_int_encode(0, #time_boot_ms
+        1, #target_system
+        1, #target_component
+        mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT_INT,
+        0, #type_mask
+        0, #roi_index
+        0, #timeout_ms
+        int(llh[0]*1e7), #lat int
+        int(llh[1]*1e7), #lng int
+        float(llh[2]),   #alt
+        float(vel[0]), #vx
+        float(vel[1]), #vy
+        float(vel[2]), #vz
+        0, #ax
+        0, #ay
+        0) #az
 
     self.vehicle.send_mavlink(msg)
 
-  # #LLH in lat, lon, relative alt. velocity in NED meters per second
-  # def sendLookFrom(self, NED, vel=[0,0,0]):
-  #   if not self.vehicle.armed:
-  #     return
-
-  #   print "sending look from"
-  #   dest = Location(llh[0],llh[1],llh[2],is_relative=False)
-  #   self.vehicle.commands.goto(dest)
-
-  #   # msg = drone.vehicle.message_factory.set_position_target_global_int_encode(
-  #   #           0,  # system time in ms
-  #   #           1,  # target system
-  #   #           0,  # target component
-  #   #           mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT_INT,
-  #   #           448, # ignore accel, take vel and pos
-  #   #           int(llh[0] * 1e7),
-  #   #           int(llh[1] * 1e7),
-  #   #           llh[2],
-  #   #           vel[0], vel[1], vel[2], # velocity
-  #   #           0, 0, 0, # accel x,y,z
-  #   #           0, 0) # yaw, yaw rate
-
-  #   # drone.vehicle.send_mavlink(msg)
-
+  def sendLookFromSpookyNED_simple(self, ned, vel=[0,0,0], useVel=False):
+    pass
 
   def sendLookFromSpookyNED(self, ned, vel=[0,0,0], useVel=False):
     '''
@@ -529,9 +534,9 @@ class SoloModule(spooky.modules.SpookyModule):
     print "Command to go to (%d,%d,%d) in mm ned spooky frame." % (n, e, d)
     print "Command Result: %s" % self.sendLookFromSpookyNED([n,e,d])
 
-  def cmd_lookat(self, n, e, d):
-    print "Command to look at (%d,%d,%d) in mm ned spooky frame." % (n, e, d)
-    print "Command Result: %s" % self.sendLookAtSpookyNED([n,e,d])
+  def cmd_lookat(self, n, e, d, vel=[0,0,0]):
+    print "Command to look at (%d,%d,%d) in mm ned spooky frame with vel=%s" % (n, e, d, str(vel))
+    print "Command Result: %s" % self.sendLookAtSpookyNED([n,e,d],vel=vel)
 
   def cmd_solo(self, args):
 
@@ -565,9 +570,13 @@ class SoloModule(spooky.modules.SpookyModule):
         return usage()
       return self.cmd_goto(int(args[1]),int(args[2]),int(args[3]))
     elif 'lookat' in args:
-      if len(args) < 4:
+      if len(args) == 4:
+        return self.cmd_lookat(int(args[1]),int(args[2]),int(args[3]))
+      elif len(args) == 7: 
+        return self.cmd_lookat(int(args[1]),int(args[2]),int(args[3]), vel=[int(args[4]), int(args[5]), int(args[6])])
+      else:
         return usage()
-      return self.cmd_lookat(int(args[1]),int(args[2]),int(args[3]))
+      
     elif 'set_home' in args:
       if len(args) < 2:
         return usage()

@@ -1,0 +1,37 @@
+Apr 21 01:57:10 3dr_controller local1.info stm32: stm32 update starting
+Apr 21 01:57:10 3dr_controller local1.info stm32: firmware: file /firmware/artoo_1.2.6.bin, version 1.2.6
+Apr 21 01:57:10 3dr_controller local1.info stm32: requesting stm32 version
+Apr 21 01:57:10 3dr_controller local1.info stm32: got 0x1/17, retrying
+Apr 21 01:57:10 3dr_controller local1.info stm32: got 0xe/7, retrying
+Apr 21 01:57:10 3dr_controller local1.info stm32: running version: 0.6.14
+Apr 21 01:57:10 3dr_controller local1.info stm32: updating
+Apr 21 01:58:12 3dr_controller local1.info stm32: Bootloader version 22 Chip id: 0x414 (STM32 High-density) Verification OK
+Apr 21 01:58:13 3dr_controller local1.info stm32: requesting stm32 version
+Apr 21 01:58:13 3dr_controller local1.info stm32: moving firmware to loaded
+Apr 21 01:58:13 3dr_controller local1.info stm32: writing STM_VERSION with running version 1.2.6
+Apr 21 01:58:13 3dr_controller local1.info stm32: request "update success" screen
+Apr 21 01:58:15 3dr_controller local1.info net: hostapdconfig.py starting
+Apr 21 01:58:15 3dr_controller local1.info net: --channel wlan0
+Apr 21 01:58:15 3dr_controller local1.info net: can't get wlan0 frequency; defaulting to channel 0
+Apr 21 01:58:15 3dr_controller local1.info net: changing channel in /etc/hostapd.conf from 0 to 0
+Apr 21 01:58:16 3dr_controller local1.info pair: pair_server starting
+Apr 21 01:58:16 3dr_controller local1.info pair: using default check_versions=True
+Apr 21 01:58:16 3dr_controller local1.info pair: sololink version "1.3.0"
+Apr 21 01:58:16 3dr_controller local1.info pair: firmware version "1.2.6"
+
+acs_num_scans=8
+wlan0-ap:
+   Freq   Noise   OnChan   ChBusy  ExtBusy    Rxing    Txing
+Ch  MHz     dBm     msec     msec     msec     msec     msec
+ 1 2412     -90     1058      394               312        0
+ 2 2417     -90      108       25                19        0
+ 3 2422     -91      108       27                18        0
+ 4 2427     -91      108       24                17        0
+ 5 2432     -92      108       18                14        0
+ 6 2437     -92      108       17                15        0
+ 7 2442     -92      108       10                 9        0
+ 8 2447 *   -91      399       14                 2        8
+ 9 2452     -91      108        6                 5        0
+10 2457     -94      108       16                15        0
+11 2462     -93      108       22                21        0
+

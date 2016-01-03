@@ -190,20 +190,25 @@ class SystemStateModule(spooky.modules.SpookyModule):
     super(SystemStateModule, self).stop(quiet=quiet)
 
   def send_state_as_json(self, dest_socket):
-    if self.RECORDING:
-      self.dump_state(self.f)
+    try:
+      if self.RECORDING:
+        self.dump_state(self.f)
 
-    data = json.dumps(self.get_current())
-    for dest in self.state_destinations:
-      try:
-        n = dest_socket.sendto(data, dest)  
-        if len(data) != n:
-          print("%s State Output did not send all data!" % self)
-        else:
-          #print("%s State Output sent %d bytes" % (self,n))
+      data = json.dumps(self.get_current())
+      for dest in self.state_destinations:
+        try:
+          n = dest_socket.sendto(data, dest)  
+          if len(data) != n:
+            print("%s State Output did not send all data!" % self)
+          else:
+            #print("%s State Output sent %d bytes" % (self,n))
+            pass
+        except socket.error:
           pass
-      except socket.error:
-        pass
+    except:
+      print self.get_current()
+      import traceback
+      traceback.print_exc()
 
 
   def run(self):

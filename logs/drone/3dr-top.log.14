@@ -1,0 +1,1952 @@
+
+1980-01-06 00:01:05,146 proc_top starting
+
+1980-01-05 23:59:58,500
+   pid name                  utime  stime  pct
+   849 (python)                 32      6   4%
+    64 (kworker/0:2)             0     13   1%
+    71 (mmcqd/0)                 0     13   1%
+   106 (loop0)                   0      6   1%
+
+1980-01-06 00:00:08,500
+   pid name                  utime  stime  pct
+   912 (python)                 77     10   9%
+   917 (sn_master_snd)           0     63   6%
+   953 (gst-launch-0.10)         1     27   3%
+   884 (pixrc_udp)               0     27   3%
+   911 (python)                 12      6   2%
+   885 (telem_down)              0     17   2%
+    71 (mmcqd/0)                 0     11   1%
+   948 (sn_sender)               2      5   1%
+    64 (kworker/0:2)             0      5   1%
+
+1980-01-06 00:00:18,500
+   pid name                  utime  stime  pct
+   912 (python)                 86      8   9%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               0     28   3%
+   885 (telem_down)              5     17   2%
+   911 (python)                 11      7   2%
+   970 (mfwgstv4lsrc0:s)        10      7   2%
+   948 (sn_sender)               1      7   1%
+    64 (kworker/0:2)             0      7   1%
+    71 (mmcqd/0)                 0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               1      4   1%
+
+1980-01-06 00:00:28,500
+   pid name                  utime  stime  pct
+   912 (python)                 92      5  10%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)              27      1   3%
+   885 (telem_down)              1     22   2%
+   911 (python)                 11      7   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+    64 (kworker/0:2)             0      8   1%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:00:38,500
+   pid name                  utime  stime  pct
+   912 (python)                 89      6  10%
+   917 (sn_master_snd)           0     71   7%
+   884 (pixrc_udp)               7     21   3%
+   885 (telem_down)              1     21   2%
+   911 (python)                 15      3   2%
+   970 (mfwgstv4lsrc0:s)        14      4   2%
+    64 (kworker/0:2)             0      7   1%
+   948 (sn_sender)               0      7   1%
+    24 (ipu1_task)               0      6   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:00:48,500
+   pid name                  utime  stime  pct
+   912 (python)                 90      7  10%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)              20      8   3%
+   885 (telem_down)              0     23   2%
+   911 (python)                 17      1   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+    64 (kworker/0:2)             0      8   1%
+   948 (sn_sender)               2      6   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:00:58,500
+   pid name                  utime  stime  pct
+   912 (python)                112     10  12%
+   917 (sn_master_snd)           0     71   7%
+   884 (pixrc_udp)               0     35   4%
+   885 (telem_down)              5     26   3%
+   911 (python)                  9      9   2%
+   970 (mfwgstv4lsrc0:s)         9      9   2%
+    64 (kworker/0:2)             0     10   1%
+   948 (sn_sender)               0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               2      3   1%
+
+1980-01-06 00:01:08,500
+   pid name                  utime  stime  pct
+   912 (python)                 89      9  10%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               0     32   3%
+   885 (telem_down)              0     23   2%
+   911 (python)                 11      8   2%
+   970 (mfwgstv4lsrc0:s)        13      4   2%
+   948 (sn_sender)               0      8   1%
+    64 (kworker/0:2)             0      7   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:01:18,500
+   pid name                  utime  stime  pct
+   912 (python)                 86     10  10%
+   917 (sn_master_snd)           0     73   7%
+   884 (pixrc_udp)               0     27   3%
+   885 (telem_down)              1     21   2%
+   911 (python)                 11      7   2%
+   970 (mfwgstv4lsrc0:s)        14      4   2%
+    64 (kworker/0:2)             0      7   1%
+   948 (sn_sender)               3      4   1%
+    24 (ipu1_task)               0      6   1%
+
+1980-01-06 00:01:28,500
+   pid name                  utime  stime  pct
+   912 (python)                 91      5  10%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               0     28   3%
+   885 (telem_down)              3     20   2%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+    64 (kworker/0:2)             0      7   1%
+   948 (sn_sender)               0      7   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               4      1   1%
+
+1980-01-06 00:01:38,500
+   pid name                  utime  stime  pct
+   912 (python)                 90      7  10%
+   917 (sn_master_snd)           0     73   7%
+   884 (pixrc_udp)               0     29   3%
+   885 (telem_down)              0     22   2%
+   911 (python)                 19      0   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+    64 (kworker/0:2)             0      7   1%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:01:48,500
+   pid name                  utime  stime  pct
+   912 (python)                 92      7  10%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               0     27   3%
+   885 (telem_down)              1     22   2%
+   911 (python)                 17      0   2%
+   970 (mfwgstv4lsrc0:s)        12      5   2%
+   948 (sn_sender)               8      0   1%
+    64 (kworker/0:2)             0      7   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               1      4   1%
+
+1980-01-06 00:01:58,500
+   pid name                  utime  stime  pct
+   912 (python)                 93      6  10%
+   917 (sn_master_snd)           0     73   7%
+   884 (pixrc_udp)               0     33   3%
+   885 (telem_down)              0     22   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        10      8   2%
+    64 (kworker/0:2)             0      7   1%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:02:08,500
+   pid name                  utime  stime  pct
+   912 (python)                 92      8  10%
+   917 (sn_master_snd)           0     72   7%
+   885 (telem_down)              2     20   2%
+   911 (python)                 21      0   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   884 (pixrc_udp)               5     10   2%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      6   1%
+    64 (kworker/0:2)             0      6   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:02:18,500
+   pid name                  utime  stime  pct
+   912 (python)                 94      3  10%
+   917 (sn_master_snd)           0     73   7%
+   884 (pixrc_udp)               5     23   3%
+   885 (telem_down)              6     16   2%
+   970 (mfwgstv4lsrc0:s)         8      9   2%
+   911 (python)                 12      3   2%
+   948 (sn_sender)               5      3   1%
+    64 (kworker/0:2)             0      7   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:02:28,500
+   pid name                  utime  stime  pct
+   912 (python)                 86     12  10%
+   917 (sn_master_snd)           0     73   7%
+   884 (pixrc_udp)               0     30   3%
+   885 (telem_down)              3     19   2%
+   911 (python)                 18      1   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+    64 (kworker/0:2)             0      7   1%
+   948 (sn_sender)               3      4   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:02:38,500
+   pid name                  utime  stime  pct
+   912 (python)                 94      3  10%
+   917 (sn_master_snd)           0     71   7%
+   884 (pixrc_udp)               0     27   3%
+   885 (telem_down)              1     21   2%
+   911 (python)                 16      2   2%
+   970 (mfwgstv4lsrc0:s)        15      3   2%
+    64 (kworker/0:2)             0      7   1%
+   948 (sn_sender)               3      4   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:02:48,500
+   pid name                  utime  stime  pct
+   917 (sn_master_snd)           0     74   7%
+   912 (python)                 68      3   7%
+   884 (pixrc_udp)              10     17   3%
+   911 (python)                 17      1   2%
+   970 (mfwgstv4lsrc0:s)        10      7   2%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      6   1%
+    64 (kworker/0:2)             0      5   1%
+
+1980-01-06 00:02:58,500
+   pid name                  utime  stime  pct
+   917 (sn_master_snd)           0     75   8%
+   884 (pixrc_udp)               0     28   3%
+   911 (python)                 16      2   2%
+   970 (mfwgstv4lsrc0:s)        14      4   2%
+   948 (sn_sender)               4      3   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-05 23:59:53,368
+   pid name                  utime  stime  pct
+   917 (sn_master_snd)           0     71   7%
+   912 (python)                 66      3   7%
+   884 (pixrc_udp)              19      7   3%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   911 (python)                 17      0   2%
+  1872 (telem_down)              2     13   2%
+   948 (sn_sender)               4      4   1%
+   888 (pixrc_ser)               0      6   1%
+    24 (ipu1_task)               0      5   1%
+    64 (kworker/0:2)             0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:00:03,368
+   pid name                  utime  stime  pct
+   912 (python)                115     12  13%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               0     36   4%
+  1872 (telem_down)              4     27   3%
+   911 (python)                 12      6   2%
+   970 (mfwgstv4lsrc0:s)        11      6   2%
+    64 (kworker/0:2)             0     10   1%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:00:13,368
+   pid name                  utime  stime  pct
+   912 (python)                 85     10  10%
+   917 (sn_master_snd)           0     73   7%
+  1872 (telem_down)              2     19   2%
+   884 (pixrc_udp)               9     11   2%
+   911 (python)                 19      0   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+   948 (sn_sender)               0      7   1%
+    24 (ipu1_task)               0      6   1%
+    64 (kworker/0:2)             0      6   1%
+
+1980-01-06 00:00:23,368
+   pid name                  utime  stime  pct
+   912 (python)                 80      7   9%
+   917 (sn_master_snd)           0     71   7%
+   884 (pixrc_udp)              22      6   3%
+  1872 (telem_down)              5     14   2%
+   970 (mfwgstv4lsrc0:s)        14      4   2%
+   911 (python)                 12      5   2%
+   948 (sn_sender)               1      6   1%
+    64 (kworker/0:2)             0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:00:33,368
+   pid name                  utime  stime  pct
+   912 (python)                 78     10   9%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)              12     16   3%
+  1872 (telem_down)              2     17   2%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        14      4   2%
+   948 (sn_sender)               2      6   1%
+    64 (kworker/0:2)             0      6   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:00:43,368
+   pid name                  utime  stime  pct
+   912 (python)                 80      9   9%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               7     21   3%
+  1872 (telem_down)              1     18   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   911 (python)                 12      5   2%
+   948 (sn_sender)               0      7   1%
+    24 (ipu1_task)               0      5   1%
+    64 (kworker/0:2)             0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:00:53,368
+   pid name                  utime  stime  pct
+   912 (python)                 81      7   9%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               0     28   3%
+  1872 (telem_down)              0     19   2%
+   911 (python)                  8     10   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               3      5   1%
+    24 (ipu1_task)               0      6   1%
+    64 (kworker/0:2)             0      6   1%
+
+1980-01-06 00:01:03,368
+   pid name                  utime  stime  pct
+   912 (python)                 80      8   9%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               0     33   3%
+  1872 (telem_down)              3     16   2%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               0      7   1%
+    64 (kworker/0:2)             0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:01:13,368
+   pid name                  utime  stime  pct
+   912 (python)                 78     10   9%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               5     17   2%
+  1872 (telem_down)              0     19   2%
+   911 (python)                  2     16   2%
+   970 (mfwgstv4lsrc0:s)        12      5   2%
+   948 (sn_sender)               3      4   1%
+    64 (kworker/0:2)             0      6   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:01:23,368
+   pid name                  utime  stime  pct
+   917 (sn_master_snd)           0     78   8%
+   912 (python)                 38      1   4%
+   884 (pixrc_udp)               0     37   4%
+    64 (kworker/0:2)             0     30   3%
+   911 (python)                 20      0   2%
+   970 (mfwgstv4lsrc0:s)        14      4   2%
+   948 (sn_sender)               2      6   1%
+    24 (ipu1_task)               0      6   1%
+
+1980-01-05 23:59:50,755
+   pid name                  utime  stime  pct
+   912 (python)                122     11  13%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              3     36   4%
+   884 (pixrc_udp)               0     37   4%
+   911 (python)                 20      0   2%
+   970 (mfwgstv4lsrc0:s)        10      8   2%
+    64 (kworker/0:2)             0     15   2%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               1      4   1%
+
+1980-01-06 00:00:00,755
+   pid name                  utime  stime  pct
+   912 (python)                154     16  17%
+   917 (sn_master_snd)           0     75   8%
+  2405 (telem_down)              7     42   5%
+   884 (pixrc_udp)               0     31   3%
+   911 (python)                 19      0   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+    64 (kworker/0:2)             0     17   2%
+   948 (sn_sender)               3      4   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:00:10,755
+   pid name                  utime  stime  pct
+   912 (python)                196     10  21%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              8     53   6%
+    64 (kworker/0:2)             0     22   2%
+   884 (pixrc_udp)               0     18   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   911 (python)                 10      6   2%
+   948 (sn_sender)               2      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+  2406 (telem_up)                0      5   1%
+
+1980-01-06 00:00:20,755
+   pid name                  utime  stime  pct
+   912 (python)                183     13  20%
+   917 (sn_master_snd)           0     75   8%
+  2405 (telem_down)              0     60   6%
+   884 (pixrc_udp)               0     28   3%
+    64 (kworker/0:2)             0     21   2%
+   911 (python)                  7     11   2%
+   970 (mfwgstv4lsrc0:s)        15      3   2%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                1      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:00:30,755
+   pid name                  utime  stime  pct
+   912 (python)                197     18  22%
+   917 (sn_master_snd)           0     73   7%
+  2405 (telem_down)              5     61   7%
+   884 (pixrc_udp)               0     39   4%
+   911 (python)                  6     13   2%
+   970 (mfwgstv4lsrc0:s)        11      8   2%
+    64 (kworker/0:2)             0     17   2%
+   948 (sn_sender)               0      9   1%
+  2413 (kworker/0:0)             0      7   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               2      3   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:00:40,755
+   pid name                  utime  stime  pct
+   912 (python)                197     15  21%
+   917 (sn_master_snd)           0     73   7%
+  2405 (telem_down)              7     58   7%
+   884 (pixrc_udp)               0     29   3%
+  2413 (kworker/0:0)             0     23   2%
+   911 (python)                 17      2   2%
+   970 (mfwgstv4lsrc0:s)         8     10   2%
+    24 (ipu1_task)               0      6   1%
+   948 (sn_sender)               1      5   1%
+  2406 (telem_up)                1      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:00:50,755
+   pid name                  utime  stime  pct
+   912 (python)                204     11  22%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              6     59   7%
+   884 (pixrc_udp)               2     20   2%
+   911 (python)                 20      0   2%
+   970 (mfwgstv4lsrc0:s)        17      2   2%
+  2413 (kworker/0:0)             0     17   2%
+   948 (sn_sender)               2      6   1%
+    64 (kworker/0:2)             0      7   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:01:00,755
+   pid name                  utime  stime  pct
+   912 (python)                179     15  19%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              5     55   6%
+   884 (pixrc_udp)               2     29   3%
+   911 (python)                 23      0   2%
+    64 (kworker/0:2)             0     21   2%
+   970 (mfwgstv4lsrc0:s)         8     10   2%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                0      6   1%
+   888 (pixrc_ser)               2      3   1%
+
+1980-01-06 00:01:10,755
+   pid name                  utime  stime  pct
+   912 (python)                198     18  22%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              6     58   6%
+   884 (pixrc_udp)               0     33   3%
+   911 (python)                 28      0   3%
+    64 (kworker/0:2)             0     23   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+   948 (sn_sender)               3      5   1%
+  2406 (telem_up)                2      4   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:01:20,755
+   pid name                  utime  stime  pct
+   912 (python)                194     20  21%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              7     60   7%
+   884 (pixrc_udp)               2     26   3%
+    64 (kworker/0:2)             0     23   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   911 (python)                 14      0   1%
+   948 (sn_sender)               0      8   1%
+  2406 (telem_up)                1      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:01:30,755
+   pid name                  utime  stime  pct
+   912 (python)                199     17  22%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              9     55   6%
+   884 (pixrc_udp)              14     17   3%
+    64 (kworker/0:2)             0     24   2%
+   970 (mfwgstv4lsrc0:s)        10      7   2%
+   911 (python)                 15      0   2%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                0      6   1%
+   888 (pixrc_ser)               1      4   1%
+
+1980-01-06 00:01:40,755
+   pid name                  utime  stime  pct
+   912 (python)                191     27  22%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              7     60   7%
+   884 (pixrc_udp)               0     32   3%
+    64 (kworker/0:2)             0     23   2%
+   911 (python)                 18      0   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               1      7   1%
+   888 (pixrc_ser)               0      6   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:01:50,755
+   pid name                  utime  stime  pct
+   912 (python)                201     17  22%
+   917 (sn_master_snd)           0     73   7%
+  2405 (telem_down)              5     60   7%
+   884 (pixrc_udp)              13     17   3%
+    64 (kworker/0:2)             0     24   2%
+   911 (python)                 19      0   2%
+   970 (mfwgstv4lsrc0:s)        16      3   2%
+   948 (sn_sender)               3      4   1%
+  2406 (telem_up)                2      5   1%
+    24 (ipu1_task)               0      6   1%
+
+1980-01-06 00:02:00,755
+   pid name                  utime  stime  pct
+   912 (python)                193     19  21%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              5     62   7%
+   884 (pixrc_udp)               0     33   3%
+    64 (kworker/0:2)             0     24   2%
+   970 (mfwgstv4lsrc0:s)        12      7   2%
+   911 (python)                 11      5   2%
+   948 (sn_sender)               2      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+  2406 (telem_up)                0      5   1%
+
+1980-01-06 00:02:10,755
+   pid name                  utime  stime  pct
+   912 (python)                185     30  22%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              6     60   7%
+   884 (pixrc_udp)               0     36   4%
+    64 (kworker/0:2)             0     21   2%
+   911 (python)                 11      8   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               3      5   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:02:20,755
+   pid name                  utime  stime  pct
+   912 (python)                194     19  21%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              6     59   7%
+   884 (pixrc_udp)               0     31   3%
+  2413 (kworker/0:0)             0     24   2%
+   911 (python)                 12      7   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               1      7   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                0      6   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:02:30,755
+   pid name                  utime  stime  pct
+   912 (python)                181     32  21%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              4     61   7%
+   884 (pixrc_udp)               1     27   3%
+  2413 (kworker/0:0)             0     24   2%
+   911 (python)                 12      6   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               2      5   1%
+  2406 (telem_up)                1      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:02:40,755
+   pid name                  utime  stime  pct
+   912 (python)                191     24  22%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              6     59   7%
+   884 (pixrc_udp)               7     26   3%
+  2413 (kworker/0:0)             0     23   2%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+   948 (sn_sender)               0      7   1%
+  2406 (telem_up)                1      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               2      3   1%
+
+1980-01-06 00:02:50,755
+   pid name                  utime  stime  pct
+   912 (python)                183     34  22%
+   917 (sn_master_snd)           0     75   8%
+  2405 (telem_down)              3     63   7%
+   884 (pixrc_udp)               1     31   3%
+  2413 (kworker/0:0)             0     24   2%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        10      8   2%
+   948 (sn_sender)               1      7   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                0      6   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:03:00,755
+   pid name                  utime  stime  pct
+   912 (python)                180     31  21%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              9     56   7%
+   884 (pixrc_udp)               1     31   3%
+  2413 (kworker/0:0)             0     22   2%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+   948 (sn_sender)               2      5   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:03:10,755
+   pid name                  utime  stime  pct
+   912 (python)                190     26  22%
+   917 (sn_master_snd)           0     73   7%
+  2405 (telem_down)              5     62   7%
+   884 (pixrc_udp)              10     22   3%
+  2413 (kworker/0:0)             0     25   3%
+   970 (mfwgstv4lsrc0:s)        10      9   2%
+   911 (python)                 14      4   2%
+   948 (sn_sender)               3      5   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                0      6   1%
+   888 (pixrc_ser)               1      4   1%
+
+1980-01-06 00:03:20,755
+   pid name                  utime  stime  pct
+   912 (python)                170     45  22%
+   917 (sn_master_snd)           0     73   7%
+  2405 (telem_down)              8     58   7%
+   884 (pixrc_udp)              12     19   3%
+  2413 (kworker/0:0)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        14      4   2%
+   948 (sn_sender)               0      7   1%
+  2406 (telem_up)                1      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:03:30,755
+   pid name                  utime  stime  pct
+   912 (python)                177     39  22%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              4     61   7%
+   884 (pixrc_udp)               4     27   3%
+  2413 (kworker/0:0)             0     23   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               0      8   1%
+  2406 (telem_up)                2      4   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:03:40,755
+   pid name                  utime  stime  pct
+   912 (python)                190      5  20%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              8     52   6%
+   884 (pixrc_udp)               6     25   3%
+  2413 (kworker/0:0)             0     22   2%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        14      4   2%
+   948 (sn_sender)               2      6   1%
+    24 (ipu1_task)               0      6   1%
+   888 (pixrc_ser)               0      6   1%
+  2406 (telem_up)                0      6   1%
+   951 (sn_pktsnd)               1      4   1%
+
+1980-01-06 00:03:50,755
+   pid name                  utime  stime  pct
+   912 (python)                203     17  22%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)             11     55   7%
+   884 (pixrc_udp)               4     26   3%
+  2413 (kworker/0:0)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               1      6   1%
+   888 (pixrc_ser)               0      6   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:04:00,755
+   pid name                  utime  stime  pct
+   912 (python)                204     19  22%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              7     61   7%
+   884 (pixrc_udp)               4     27   3%
+  2413 (kworker/0:0)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+   948 (sn_sender)               0      8   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:04:10,755
+   pid name                  utime  stime  pct
+   912 (python)                205     18  22%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              8     59   7%
+   884 (pixrc_udp)               4     27   3%
+  2413 (kworker/0:0)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        14      5   2%
+   948 (sn_sender)               1      7   1%
+  2406 (telem_up)                2      5   1%
+    24 (ipu1_task)               0      6   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:04:20,755
+   pid name                  utime  stime  pct
+   912 (python)                200     22  22%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              7     59   7%
+   884 (pixrc_udp)               4     26   3%
+  2413 (kworker/0:0)             0     24   2%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               1      6   1%
+  2406 (telem_up)                2      4   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:04:30,755
+   pid name                  utime  stime  pct
+   912 (python)                197     24  22%
+   917 (sn_master_snd)           0     75   8%
+  2405 (telem_down)              3     65   7%
+   884 (pixrc_udp)               4     26   3%
+  2413 (kworker/0:0)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        12      7   2%
+   948 (sn_sender)               3      5   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                2      4   1%
+   888 (pixrc_ser)               2      3   1%
+   951 (sn_pktsnd)               1      4   1%
+
+1980-01-06 00:04:40,755
+   pid name                  utime  stime  pct
+   912 (python)                206     14  22%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              1     67   7%
+   884 (pixrc_udp)               5     26   3%
+  2413 (kworker/0:0)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        12      5   2%
+   948 (sn_sender)               1      6   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:04:50,755
+   pid name                  utime  stime  pct
+   912 (python)                204     16  22%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              3     63   7%
+   884 (pixrc_udp)               4     27   3%
+  2413 (kworker/0:0)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               1      7   1%
+  2406 (telem_up)                3      3   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               2      3   1%
+
+1980-01-06 00:05:00,755
+   pid name                  utime  stime  pct
+   912 (python)                202     20  22%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              3     63   7%
+   884 (pixrc_udp)               5     25   3%
+   911 (python)                 13      5   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                1      5   1%
+  2413 (kworker/0:0)             0      6   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:05:10,755
+   pid name                  utime  stime  pct
+   912 (python)                206     15  22%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              8     58   7%
+   884 (pixrc_udp)               4     27   3%
+  4038 (kworker/0:1)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               3      5   1%
+  2406 (telem_up)                2      4   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:05:20,755
+   pid name                  utime  stime  pct
+   912 (python)                205     14  22%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              7     58   7%
+   884 (pixrc_udp)               4     27   3%
+  4038 (kworker/0:1)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        14      5   2%
+   948 (sn_sender)               3      5   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                2      4   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:05:30,755
+   pid name                  utime  stime  pct
+   912 (python)                208     13  22%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              9     58   7%
+   884 (pixrc_udp)               5     26   3%
+  4038 (kworker/0:1)             0     23   2%
+   911 (python)                 16      4   2%
+   970 (mfwgstv4lsrc0:s)        16      3   2%
+   948 (sn_sender)               1      6   1%
+   888 (pixrc_ser)               0      6   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:05:40,755
+   pid name                  utime  stime  pct
+   912 (python)                214     12  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              5     62   7%
+   884 (pixrc_udp)               4     26   3%
+  4038 (kworker/0:1)             0     24   2%
+   911 (python)                 13      5   2%
+   970 (mfwgstv4lsrc0:s)        10      7   2%
+   948 (sn_sender)               2      6   1%
+  2406 (telem_up)                0      7   1%
+    24 (ipu1_task)               0      6   1%
+
+1980-01-06 00:05:50,755
+   pid name                  utime  stime  pct
+   912 (python)                210     16  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              7     61   7%
+   884 (pixrc_udp)               4     27   3%
+  4038 (kworker/0:1)             0     20   2%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               2      5   1%
+    24 (ipu1_task)               0      5   1%
+    64 (kworker/0:2)             0      5   1%
+   888 (pixrc_ser)               1      4   1%
+   951 (sn_pktsnd)               0      5   1%
+  2406 (telem_up)                1      4   1%
+
+1980-01-06 00:06:00,755
+   pid name                  utime  stime  pct
+   912 (python)                196     28  22%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              4     64   7%
+   884 (pixrc_udp)               5     26   3%
+  4038 (kworker/0:1)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        14      3   2%
+   948 (sn_sender)               0      8   1%
+  2406 (telem_up)                1      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:06:10,755
+   pid name                  utime  stime  pct
+   912 (python)                213     14  23%
+   917 (sn_master_snd)           0     73   7%
+  2405 (telem_down)              7     62   7%
+   884 (pixrc_udp)               4     26   3%
+  4038 (kworker/0:1)             0     25   3%
+   970 (mfwgstv4lsrc0:s)        11      8   2%
+   911 (python)                 14      4   2%
+   948 (sn_sender)               2      6   1%
+  2406 (telem_up)                0      7   1%
+    24 (ipu1_task)               0      6   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:06:20,755
+   pid name                  utime  stime  pct
+   912 (python)                208     16  22%
+   917 (sn_master_snd)           0     71   7%
+  2405 (telem_down)              7     59   7%
+   884 (pixrc_udp)               5     26   3%
+  4038 (kworker/0:1)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)         9      9   2%
+   948 (sn_sender)               4      4   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:06:30,755
+   pid name                  utime  stime  pct
+   912 (python)                203     16  22%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              8     60   7%
+   884 (pixrc_udp)               4     26   3%
+  4038 (kworker/0:1)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        14      5   2%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                0      6   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:06:40,755
+   pid name                  utime  stime  pct
+   912 (python)                200     22  22%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              8     58   7%
+   884 (pixrc_udp)               4     27   3%
+  4038 (kworker/0:1)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        15      3   2%
+   948 (sn_sender)               0      8   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:06:50,755
+   pid name                  utime  stime  pct
+   912 (python)                204     17  22%
+   917 (sn_master_snd)           0     78   8%
+  2405 (telem_down)              8     59   7%
+   884 (pixrc_udp)               4     26   3%
+  4038 (kworker/0:1)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        12      5   2%
+   948 (sn_sender)               2      5   1%
+  2406 (telem_up)                2      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               1      4   1%
+
+1980-01-06 00:07:00,755
+   pid name                  utime  stime  pct
+   912 (python)                211     13  22%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              5     64   7%
+   884 (pixrc_udp)               5     26   3%
+  4038 (kworker/0:1)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               2      6   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                1      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:07:10,755
+   pid name                  utime  stime  pct
+   912 (python)                208     14  22%
+   917 (sn_master_snd)           0     73   7%
+  2405 (telem_down)              8     59   7%
+   884 (pixrc_udp)               4     27   3%
+  4038 (kworker/0:1)             0     23   2%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               3      4   1%
+  2406 (telem_up)                0      7   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               1      4   1%
+   951 (sn_pktsnd)               1      4   1%
+
+1980-01-06 00:07:20,755
+   pid name                  utime  stime  pct
+   912 (python)                210     15  23%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              4     65   7%
+   884 (pixrc_udp)               5     26   3%
+  4038 (kworker/0:1)             0     25   3%
+   911 (python)                 16      4   2%
+   970 (mfwgstv4lsrc0:s)        14      5   2%
+   948 (sn_sender)               1      6   1%
+  2406 (telem_up)                0      7   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               1      4   1%
+
+1980-01-06 00:07:30,755
+   pid name                  utime  stime  pct
+   912 (python)                212     13  23%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              5     65   7%
+   884 (pixrc_udp)               4     26   3%
+  4038 (kworker/0:1)             0     25   3%
+   970 (mfwgstv4lsrc0:s)        15      4   2%
+   911 (python)                 14      4   2%
+   948 (sn_sender)               2      6   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                0      6   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:07:40,755
+   pid name                  utime  stime  pct
+   912 (python)                212     16  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              6     63   7%
+   884 (pixrc_udp)               4     27   3%
+  4038 (kworker/0:1)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)         6     11   2%
+   948 (sn_sender)               2      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+  2406 (telem_up)                0      5   1%
+
+1980-01-06 00:07:50,755
+   pid name                  utime  stime  pct
+   912 (python)                208     19  23%
+   917 (sn_master_snd)           0     78   8%
+  2405 (telem_down)             10     60   7%
+   884 (pixrc_udp)               5     25   3%
+  4038 (kworker/0:1)             0     26   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        14      4   2%
+   948 (sn_sender)               0      8   1%
+  2406 (telem_up)                1      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:08:00,755
+   pid name                  utime  stime  pct
+   912 (python)                188     17  21%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              7     53   6%
+   884 (pixrc_udp)               5     26   3%
+  4038 (kworker/0:1)             0     21   2%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        10      7   2%
+   948 (sn_sender)               0      8   1%
+    24 (ipu1_task)               0      6   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:08:10,755
+   pid name                  utime  stime  pct
+   912 (python)                211     13  22%
+   917 (sn_master_snd)           0     71   7%
+  2405 (telem_down)              4     65   7%
+   884 (pixrc_udp)               4     27   3%
+  4038 (kworker/0:1)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        16      3   2%
+   948 (sn_sender)               0      8   1%
+  2406 (telem_up)                2      4   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               2      3   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:08:20,755
+   pid name                  utime  stime  pct
+   912 (python)                208     15  22%
+   917 (sn_master_snd)           0     71   7%
+  2405 (telem_down)              5     64   7%
+   884 (pixrc_udp)               4     26   3%
+  4038 (kworker/0:1)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        12      7   2%
+    24 (ipu1_task)               0      6   1%
+   948 (sn_sender)               0      6   1%
+  2406 (telem_up)                1      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               1      4   1%
+
+1980-01-06 00:08:30,755
+   pid name                  utime  stime  pct
+   912 (python)                210     19  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              6     62   7%
+   884 (pixrc_udp)               5     26   3%
+  4038 (kworker/0:1)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        13      4   2%
+   948 (sn_sender)               3      5   1%
+  2406 (telem_up)                0      7   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:08:40,755
+   pid name                  utime  stime  pct
+   912 (python)                214     13  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              6     64   7%
+   884 (pixrc_udp)               4     26   3%
+  4038 (kworker/0:1)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               0      8   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               1      4   1%
+
+1980-01-06 00:08:50,755
+   pid name                  utime  stime  pct
+   912 (python)                208     15  22%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              4     65   7%
+   884 (pixrc_udp)               4     27   3%
+  4038 (kworker/0:1)             0     22   2%
+   911 (python)                 13      5   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                1      5   1%
+   888 (pixrc_ser)               4      1   1%
+
+1980-01-06 00:09:00,755
+   pid name                  utime  stime  pct
+   912 (python)                211     14  23%
+   917 (sn_master_snd)           0     71   7%
+  2405 (telem_down)              9     60   7%
+   884 (pixrc_udp)               5     25   3%
+    64 (kworker/0:2)             0     26   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)         9      9   2%
+   948 (sn_sender)               1      7   1%
+  2406 (telem_up)                1      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               3      2   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:09:10,755
+   pid name                  utime  stime  pct
+   912 (python)                207     20  23%
+   917 (sn_master_snd)           0     71   7%
+  2405 (telem_down)              7     63   7%
+   884 (pixrc_udp)               4     27   3%
+    64 (kworker/0:2)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        13      6   2%
+   948 (sn_sender)               0      7   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                0      6   1%
+   888 (pixrc_ser)               1      4   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:09:20,755
+   pid name                  utime  stime  pct
+   912 (python)                208     15  22%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              0     68   7%
+   884 (pixrc_udp)               4     26   3%
+    64 (kworker/0:2)             0     25   3%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        16      2   2%
+   948 (sn_sender)               2      6   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               3      2   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:09:30,755
+   pid name                  utime  stime  pct
+   912 (python)                209     19  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              7     62   7%
+   884 (pixrc_udp)               5     25   3%
+   911 (python)                 16      3   2%
+    64 (kworker/0:2)             0     17   2%
+   970 (mfwgstv4lsrc0:s)         9      8   2%
+   948 (sn_sender)               3      5   1%
+  2406 (telem_up)                2      5   1%
+  4038 (kworker/0:1)             0      7   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               1      4   1%
+
+1980-01-06 00:09:40,755
+   pid name                  utime  stime  pct
+   912 (python)                214     11  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              4     65   7%
+   884 (pixrc_udp)               4     27   3%
+  4038 (kworker/0:1)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               3      4   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:09:50,755
+   pid name                  utime  stime  pct
+   912 (python)                202     24  23%
+   917 (sn_master_snd)           0     71   7%
+  2405 (telem_down)              7     61   7%
+   884 (pixrc_udp)               4     26   3%
+  4038 (kworker/0:1)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        16      2   2%
+   948 (sn_sender)               2      5   1%
+  2406 (telem_up)                0      7   1%
+    24 (ipu1_task)               0      6   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:10:00,755
+   pid name                  utime  stime  pct
+   912 (python)                211     17  23%
+   917 (sn_master_snd)           0     71   7%
+  2405 (telem_down)              8     61   7%
+   884 (pixrc_udp)               5     26   3%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        15      4   2%
+  4038 (kworker/0:1)             0     12   1%
+   948 (sn_sender)               1      7   1%
+    24 (ipu1_task)               0      6   1%
+   888 (pixrc_ser)               0      5   1%
+  2406 (telem_up)                3      2   1%
+
+1980-01-06 00:10:10,755
+   pid name                  utime  stime  pct
+   912 (python)                211     12  22%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              3     64   7%
+   884 (pixrc_udp)               4     26   3%
+  5594 (kworker/0:0)             0     24   2%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               2      5   1%
+  2406 (telem_up)                1      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               1      4   1%
+
+1980-01-06 00:10:20,755
+   pid name                  utime  stime  pct
+   912 (python)                214     12  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              0     70   7%
+   884 (pixrc_udp)               5     26   3%
+  5594 (kworker/0:0)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        10      7   2%
+   948 (sn_sender)               3      5   1%
+  2406 (telem_up)                1      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               2      3   1%
+
+1980-01-06 00:10:30,755
+   pid name                  utime  stime  pct
+   912 (python)                207     18  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              6     63   7%
+   884 (pixrc_udp)               4     26   3%
+  5594 (kworker/0:0)             0     25   3%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        10      8   2%
+   948 (sn_sender)               3      4   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:10:40,755
+   pid name                  utime  stime  pct
+   912 (python)                206     18  22%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              9     60   7%
+   884 (pixrc_udp)               4     27   3%
+   911 (python)                 15      3   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+  5594 (kworker/0:0)             0     13   1%
+    64 (kworker/0:2)             0     12   1%
+   948 (sn_sender)               4      4   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                0      6   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:10:50,755
+   pid name                  utime  stime  pct
+   912 (python)                204     24  23%
+   917 (sn_master_snd)           0     71   7%
+  2405 (telem_down)              8     61   7%
+   884 (pixrc_udp)               4     27   3%
+    64 (kworker/0:2)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        11      8   2%
+   948 (sn_sender)               3      5   1%
+  2406 (telem_up)                1      6   1%
+   888 (pixrc_ser)               0      6   1%
+    24 (ipu1_task)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:11:00,755
+   pid name                  utime  stime  pct
+   912 (python)                212     14  23%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              7     62   7%
+   884 (pixrc_udp)               5     25   3%
+    64 (kworker/0:2)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               0      8   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                1      5   1%
+
+1980-01-06 00:11:10,755
+   pid name                  utime  stime  pct
+   912 (python)                211     15  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              5     65   7%
+   884 (pixrc_udp)               4     26   3%
+    64 (kworker/0:2)             0     25   3%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)         8      9   2%
+   948 (sn_sender)               2      5   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               3      2   1%
+
+1980-01-06 00:11:20,755
+   pid name                  utime  stime  pct
+   912 (python)                212     13  23%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              6     63   7%
+   884 (pixrc_udp)               4     27   3%
+    64 (kworker/0:2)             0     25   3%
+   911 (python)                 13      6   2%
+   970 (mfwgstv4lsrc0:s)         8     10   2%
+   948 (sn_sender)               1      7   1%
+   888 (pixrc_ser)               0      6   1%
+  2406 (telem_up)                1      5   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:11:30,755
+   pid name                  utime  stime  pct
+   912 (python)                217      7  22%
+   917 (sn_master_snd)           0     73   7%
+  2405 (telem_down)              8     61   7%
+   884 (pixrc_udp)               5     25   3%
+    64 (kworker/0:2)             0     25   3%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               0      7   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                0      6   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:11:40,755
+   pid name                  utime  stime  pct
+   912 (python)                214     13  23%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              3     68   7%
+   884 (pixrc_udp)               4     27   3%
+    64 (kworker/0:2)             0     22   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        11      8   2%
+   948 (sn_sender)               0      8   1%
+  2406 (telem_up)                0      7   1%
+    24 (ipu1_task)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:11:50,755
+   pid name                  utime  stime  pct
+   912 (python)                215     17  23%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              4     65   7%
+   884 (pixrc_udp)               5     26   3%
+  5594 (kworker/0:0)             0     25   3%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)         9      9   2%
+   948 (sn_sender)               0      8   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                1      5   1%
+   888 (pixrc_ser)               1      4   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:12:00,755
+   pid name                  utime  stime  pct
+   912 (python)                208     18  23%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              6     63   7%
+   884 (pixrc_udp)               4     26   3%
+  5594 (kworker/0:0)             0     25   3%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               3      4   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:12:10,756
+   pid name                  utime  stime  pct
+   912 (python)                219      8  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              8     62   7%
+   884 (pixrc_udp)               5     26   3%
+  5594 (kworker/0:0)             0     25   3%
+   911 (python)                 15      5   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+   948 (sn_sender)               1      7   1%
+   951 (sn_pktsnd)               0      6   1%
+  2406 (telem_up)                1      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:12:20,755
+   pid name                  utime  stime  pct
+   912 (python)                190     19  21%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              9     55   6%
+   884 (pixrc_udp)               4     26   3%
+  5594 (kworker/0:0)             0     23   2%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        11      6   2%
+   948 (sn_sender)               2      5   1%
+  2406 (telem_up)                0      7   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:12:30,755
+   pid name                  utime  stime  pct
+   912 (python)                211     17  23%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              4     64   7%
+   884 (pixrc_udp)               4     27   3%
+  5594 (kworker/0:0)             0     25   3%
+   911 (python)                 16      3   2%
+   970 (mfwgstv4lsrc0:s)        13      6   2%
+   948 (sn_sender)               3      5   1%
+    24 (ipu1_task)               0      6   1%
+   888 (pixrc_ser)               0      6   1%
+  2406 (telem_up)                1      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:12:40,755
+   pid name                  utime  stime  pct
+   912 (python)                203     19  22%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              5     62   7%
+   884 (pixrc_udp)               5     25   3%
+  5594 (kworker/0:0)             0     24   2%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               2      5   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:12:50,755
+   pid name                  utime  stime  pct
+   912 (python)                205     16  22%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              5     62   7%
+   884 (pixrc_udp)               4     27   3%
+  5594 (kworker/0:0)             0     23   2%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        14      5   2%
+   948 (sn_sender)               2      6   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                1      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:13:00,755
+   pid name                  utime  stime  pct
+   912 (python)                204     18  22%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              9     58   7%
+   884 (pixrc_udp)               5     26   3%
+  5594 (kworker/0:0)             0     24   2%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        14      4   2%
+   948 (sn_sender)               1      7   1%
+  2406 (telem_up)                3      3   1%
+    24 (ipu1_task)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:13:10,755
+   pid name                  utime  stime  pct
+   912 (python)                214      8  22%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              9     58   7%
+   884 (pixrc_udp)               5     25   3%
+  5594 (kworker/0:0)             0     24   2%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        10      7   2%
+   948 (sn_sender)               1      6   1%
+  2406 (telem_up)                2      5   1%
+   888 (pixrc_ser)               2      4   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:13:20,755
+   pid name                  utime  stime  pct
+   912 (python)                207     15  22%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              7     61   7%
+   884 (pixrc_udp)               4     26   3%
+  5594 (kworker/0:0)             0     25   3%
+   911 (python)                 16      3   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   948 (sn_sender)               0      9   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                3      3   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:13:30,755
+   pid name                  utime  stime  pct
+   912 (python)                194     31  23%
+   917 (sn_master_snd)           0     73   7%
+  2405 (telem_down)              8     59   7%
+   884 (pixrc_udp)               4     27   3%
+  5594 (kworker/0:0)             0     23   2%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        15      4   2%
+   888 (pixrc_ser)               1      5   1%
+   948 (sn_sender)               0      6   1%
+    24 (ipu1_task)               0      5   1%
+  2406 (telem_up)                0      5   1%
+
+1980-01-06 00:13:40,755
+   pid name                  utime  stime  pct
+   912 (python)                204     21  23%
+   917 (sn_master_snd)           0     71   7%
+  2405 (telem_down)              3     65   7%
+   884 (pixrc_udp)               5     26   3%
+  5594 (kworker/0:0)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        12      7   2%
+   948 (sn_sender)               0      8   1%
+  2406 (telem_up)                1      6   1%
+    24 (ipu1_task)               0      6   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:13:50,755
+   pid name                  utime  stime  pct
+   912 (python)                213     11  22%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              3     65   7%
+   884 (pixrc_udp)               4     26   3%
+  5594 (kworker/0:0)             0     24   2%
+   911 (python)                 15      3   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               2      6   1%
+  2406 (telem_up)                2      4   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:14:00,755
+   pid name                  utime  stime  pct
+   912 (python)                210     19  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              5     62   7%
+   884 (pixrc_udp)               4     27   3%
+  5594 (kworker/0:0)             0     24   2%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               3      5   1%
+  2406 (telem_up)                0      7   1%
+   888 (pixrc_ser)               0      6   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:14:10,755
+   pid name                  utime  stime  pct
+   912 (python)                206     19  23%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              9     59   7%
+   884 (pixrc_udp)               4     27   3%
+  5594 (kworker/0:0)             0     25   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        13      4   2%
+   948 (sn_sender)               2      5   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                1      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:14:20,755
+   pid name                  utime  stime  pct
+   912 (python)                212     14  23%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              5     62   7%
+   884 (pixrc_udp)               4     26   3%
+  5594 (kworker/0:0)             0     24   2%
+   911 (python)                 13      5   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+   948 (sn_sender)               1      7   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:14:30,755
+   pid name                  utime  stime  pct
+   912 (python)                204     21  23%
+   917 (sn_master_snd)           0     71   7%
+  2405 (telem_down)              7     61   7%
+   884 (pixrc_udp)               4     27   3%
+  5594 (kworker/0:0)             0     25   3%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        12      7   2%
+   948 (sn_sender)               2      5   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                2      4   1%
+
+1980-01-06 00:14:40,755
+   pid name                  utime  stime  pct
+   912 (python)                204     18  22%
+   917 (sn_master_snd)           0     73   7%
+  2405 (telem_down)              9     59   7%
+   884 (pixrc_udp)               4     26   3%
+  5594 (kworker/0:0)             0     21   2%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+   877 (rssi_send)              17      0   2%
+   948 (sn_sender)               3      5   1%
+  2406 (telem_up)                0      7   1%
+   888 (pixrc_ser)               0      6   1%
+    24 (ipu1_task)               0      5   1%
+   951 (sn_pktsnd)               1      4   1%
+
+1980-01-06 00:14:50,755
+   pid name                  utime  stime  pct
+   912 (python)                210     13  22%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)             11     55   7%
+   884 (pixrc_udp)               4     27   3%
+    64 (kworker/0:2)             0     22   2%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+   948 (sn_sender)               2      5   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                0      6   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:15:00,755
+   pid name                  utime  stime  pct
+   912 (python)                205     17  22%
+   917 (sn_master_snd)           0     76   8%
+  2405 (telem_down)              7     58   7%
+   884 (pixrc_udp)               3     27   3%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        15      3   2%
+  5594 (kworker/0:0)             0     16   2%
+   948 (sn_sender)               0      9   1%
+   888 (pixrc_ser)               0      6   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:15:10,755
+   pid name                  utime  stime  pct
+   912 (python)                202     19  22%
+   917 (sn_master_snd)           0     77   8%
+  2405 (telem_down)              8     58   7%
+   884 (pixrc_udp)               4     27   3%
+  7153 (kworker/0:1)             0     23   2%
+   911 (python)                 13      6   2%
+   970 (mfwgstv4lsrc0:s)         8      9   2%
+   948 (sn_sender)               0      7   1%
+  2406 (telem_up)                2      4   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:15:20,755
+   pid name                  utime  stime  pct
+   912 (python)                205     13  22%
+   917 (sn_master_snd)           0     71   7%
+  2405 (telem_down)              4     64   7%
+   884 (pixrc_udp)               4     26   3%
+  7153 (kworker/0:1)             0     24   2%
+   911 (python)                 16      3   2%
+   970 (mfwgstv4lsrc0:s)        12      7   2%
+   948 (sn_sender)               2      5   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                1      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:15:30,755
+   pid name                  utime  stime  pct
+   912 (python)                212     16  23%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              6     64   7%
+   884 (pixrc_udp)               4     28   3%
+  7153 (kworker/0:1)             0     26   3%
+   911 (python)                 12      7   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+   948 (sn_sender)               2      5   1%
+  2406 (telem_up)                0      6   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:15:40,755
+   pid name                  utime  stime  pct
+   912 (python)                213     14  23%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              8     59   7%
+   884 (pixrc_udp)               4     26   3%
+  7153 (kworker/0:1)             0     24   2%
+   970 (mfwgstv4lsrc0:s)        12      7   2%
+   911 (python)                 11      7   2%
+   948 (sn_sender)               3      4   1%
+    24 (ipu1_task)               0      6   1%
+  2406 (telem_up)                1      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:15:50,755
+   pid name                  utime  stime  pct
+   912 (python)                117     10  13%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              4     27   3%
+   884 (pixrc_udp)               3     26   3%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        14      3   2%
+  7153 (kworker/0:1)             0     10   1%
+   948 (sn_sender)               1      7   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:16:00,756
+   pid name                  utime  stime  pct
+   912 (python)                128     11  14%
+   917 (sn_master_snd)           0     73   7%
+  2405 (telem_down)              2     31   3%
+   884 (pixrc_udp)               3     26   3%
+   911 (python)                 15      3   2%
+   970 (mfwgstv4lsrc0:s)        15      2   2%
+  7153 (kworker/0:1)             0     12   1%
+   948 (sn_sender)               0      7   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:16:10,755
+   pid name                  utime  stime  pct
+   912 (python)                121      9  13%
+   917 (sn_master_snd)           0     72   7%
+  2405 (telem_down)              2     28   3%
+   884 (pixrc_udp)               3     26   3%
+   911 (python)                 16      2   2%
+   970 (mfwgstv4lsrc0:s)        12      5   2%
+  7153 (kworker/0:1)             0     10   1%
+   948 (sn_sender)               1      7   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:16:20,755
+   pid name                  utime  stime  pct
+   912 (python)                102      9  11%
+   917 (sn_master_snd)           0     71   7%
+   884 (pixrc_udp)               7     22   3%
+  2405 (telem_down)              1     24   3%
+   911 (python)                 13      5   2%
+   970 (mfwgstv4lsrc0:s)        10      7   2%
+  7153 (kworker/0:1)             0      8   1%
+   948 (sn_sender)               2      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:16:30,755
+   pid name                  utime  stime  pct
+   912 (python)                104      8  11%
+   917 (sn_master_snd)           0     69   7%
+   884 (pixrc_udp)               4     24   3%
+  2405 (telem_down)              0     26   3%
+   911 (python)                 13      5   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+  7153 (kworker/0:1)             0      9   1%
+   948 (sn_sender)               1      6   1%
+    24 (ipu1_task)               0      6   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:16:40,755
+   pid name                  utime  stime  pct
+   912 (python)                118     13  13%
+   917 (sn_master_snd)           0     70   7%
+  2405 (telem_down)              3     28   3%
+   884 (pixrc_udp)               7     22   3%
+   911 (python)                 17      2   2%
+   970 (mfwgstv4lsrc0:s)        15      3   2%
+  7153 (kworker/0:1)             0     11   1%
+   948 (sn_sender)               0      8   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:16:50,755
+   pid name                  utime  stime  pct
+   912 (python)                105      7  11%
+   917 (sn_master_snd)           0     70   7%
+   884 (pixrc_udp)               7     22   3%
+  2405 (telem_down)              6     19   3%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        16      1   2%
+  7153 (kworker/0:1)             0      8   1%
+   948 (sn_sender)               2      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               2      3   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:17:00,755
+   pid name                  utime  stime  pct
+   912 (python)                102      9  11%
+   917 (sn_master_snd)           0     70   7%
+   884 (pixrc_udp)               6     23   3%
+  2405 (telem_down)              1     24   3%
+   911 (python)                 14      5   2%
+   970 (mfwgstv4lsrc0:s)        13      5   2%
+  7153 (kworker/0:1)             0      9   1%
+   948 (sn_sender)               3      4   1%
+    24 (ipu1_task)               0      6   1%
+   888 (pixrc_ser)               2      3   1%
+
+1980-01-06 00:17:10,755
+   pid name                  utime  stime  pct
+   912 (python)                104      7  11%
+   917 (sn_master_snd)           0     71   7%
+   884 (pixrc_udp)               2     27   3%
+  2405 (telem_down)              4     21   3%
+   911 (python)                 15      3   2%
+   970 (mfwgstv4lsrc0:s)        11      7   2%
+  7153 (kworker/0:1)             0      8   1%
+   948 (sn_sender)               0      7   1%
+    24 (ipu1_task)               0      5   1%
+
+1980-01-06 00:17:20,755
+   pid name                  utime  stime  pct
+   912 (python)                108      9  12%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               6     22   3%
+  2405 (telem_down)              5     23   3%
+   911 (python)                 16      3   2%
+   970 (mfwgstv4lsrc0:s)         9      8   2%
+  7153 (kworker/0:1)             0      9   1%
+   948 (sn_sender)               2      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:17:30,755
+   pid name                  utime  stime  pct
+   912 (python)                106      8  11%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               5     24   3%
+  2405 (telem_down)              4     21   3%
+   911 (python)                 12      6   2%
+   970 (mfwgstv4lsrc0:s)        10      8   2%
+  7153 (kworker/0:1)             0      9   1%
+   948 (sn_sender)               1      7   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:17:40,755
+   pid name                  utime  stime  pct
+   912 (python)                104      7  11%
+   917 (sn_master_snd)           0     73   7%
+   884 (pixrc_udp)               2     26   3%
+  2405 (telem_down)              0     25   3%
+   911 (python)                 14      4   2%
+   970 (mfwgstv4lsrc0:s)        11      6   2%
+  7153 (kworker/0:1)             0      8   1%
+   948 (sn_sender)               0      7   1%
+    24 (ipu1_task)               0      6   1%
+   888 (pixrc_ser)               0      5   1%
+
+1980-01-06 00:17:50,755
+   pid name                  utime  stime  pct
+   912 (python)                107      4  11%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               3     26   3%
+  2405 (telem_down)              1     24   3%
+   911 (python)                 15      4   2%
+   970 (mfwgstv4lsrc0:s)        14      4   2%
+  7153 (kworker/0:1)             0      9   1%
+   948 (sn_sender)               2      5   1%
+    24 (ipu1_task)               0      5   1%
+   951 (sn_pktsnd)               0      5   1%
+
+1980-01-06 00:18:00,755
+   pid name                  utime  stime  pct
+   912 (python)                101      8  11%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               4     24   3%
+  2405 (telem_down)              0     25   3%
+   911 (python)                 15      3   2%
+   970 (mfwgstv4lsrc0:s)        12      5   2%
+   948 (sn_sender)               2      6   1%
+  7153 (kworker/0:1)             0      8   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               1      4   1%
+
+1980-01-06 00:18:10,755
+   pid name                  utime  stime  pct
+   912 (python)                102      6  11%
+   917 (sn_master_snd)           0     72   7%
+   884 (pixrc_udp)               4     24   3%
+  2405 (telem_down)              3     22   3%
+   877 (rssi_send)              21      0   2%
+   911 (python)                 13      5   2%
+   970 (mfwgstv4lsrc0:s)        12      6   2%
+  7153 (kworker/0:1)             0      8   1%
+   948 (sn_sender)               2      5   1%
+    24 (ipu1_task)               0      5   1%
+   888 (pixrc_ser)               1      4   1%
+
+1980-01-06 00:18:20,755
+   pid name                  utime  stime  pct
+   912 (python)                138     15  15%
+   917 (sn_master_snd)           0     74   7%
+  2405 (telem_down)              3     39   4%
+   884 (pixrc_udp)               2     27   3%
+   911 (python)                 12      7   2%
+   970 (mfwgstv4lsrc0:s)        11      6   2%
+  7153 (kworker/0:1)             0     15   2%
+   948 (sn_sender)               1      7   1%
+   

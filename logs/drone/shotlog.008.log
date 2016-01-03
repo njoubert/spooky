@@ -1,0 +1,34 @@
+Jan  6 01:17:11 3dr_solo local2.info shot: starting up shotManager 1.3.0
+Jan  6 01:17:11 3dr_solo local2.info shot: got api vehicle
+Jan  6 01:17:11 3dr_solo local2.info shot: reset all DZ
+Jan  6 01:17:11 3dr_solo local2.info shot: enabling remapping False
+Jan  6 01:17:11 3dr_solo local2.info shot: disabling stick remapping
+Jan  6 01:17:11 3dr_solo local2.info shot: ready for connections
+Jan  6 01:17:11 3dr_solo local2.info shot: creating a new connectThread
+Jan  6 01:17:12 3dr_solo local2.info shot: read in button mappings
+Jan  6 01:17:12 3dr_solo local2.info shot: Button A - shot Cable Cam, mode None
+Jan  6 01:17:12 3dr_solo local2.info shot: Button B - shot Orbit, mode None
+Jan  6 01:17:12 3dr_solo local2.info shot: Going to wait for vehicle init
+Jan  6 01:17:12 3dr_solo local2.info shot: vehicle inited
+Jan  6 01:17:12 3dr_solo local2.info shot: read enabled value from settings of 1
+Jan  6 01:17:12 3dr_solo local2.info shot: sending gimbal enabled param (GMB_GP_CTRL) to 1.000000
+Jan  6 01:17:12 3dr_solo local2.info shot: Inited GoProManager
+Jan  6 01:17:12 3dr_solo local2.info shot: No gimbal detected.
+Jan  6 01:17:12 3dr_solo local2.info shot: Gopro capture mode changed to 255
+Jan  6 01:17:12 3dr_solo local2.info shot: sending Gopro state to app
+Jan  6 01:17:12 3dr_solo local2.info shot: connected to ('10.1.1.174', 57617)
+Jan  6 01:17:12 3dr_solo local2.info shot: sending Gopro state to app
+Jan  6 01:17:12 3dr_solo local2.info shot: app requested button mapping for 4
+Jan  6 01:17:12 3dr_solo local2.info shot: app requested button mapping for 5
+Jan  6 01:17:13 3dr_solo local2.info shot: connectThread connected
+Jan  6 01:17:13 3dr_solo local2.info shot: sending FLY to Artoo as mode
+Jan  6 01:17:30 3dr_solo local2.info shot: wrote setting: A: -1, 0
+Jan  6 01:17:39 3dr_solo local2.info shot: wrote setting: B: -1, 2
+Jan  6 01:18:09 3dr_solo local2.info shot: closing client connection - data is nil
+Jan  6 01:18:09 3dr_solo local2.info shot: [enterShot]: Current shot is: 'FLY', cant enter same shot, ignoring request.
+Jan  6 01:18:21 3dr_solo local2.info shot: connected to ('10.1.1.174', 57629)
+Jan  6 01:18:21 3dr_solo local2.info shot: sending Gopro state to app
+Jan  6 01:18:21 3dr_solo local2.info shot: app requested button mapping for 4
+Jan  6 01:18:21 3dr_solo local2.info shot: app requested button mapping for 5
+Jan  6 01:18:27 3dr_solo local2.info shot: closing client connection - data is nil
+Jan  6 01:18:27 3dr_solo local2.info shot: [enterShot]: Current shot is: 'FLY', cant enter same shot, ignoring request.

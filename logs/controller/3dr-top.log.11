@@ -1,0 +1,79 @@
+
+2015-04-21 01:59:03,234 proc_top starting
+
+2015-04-21 01:59:13,234
+   pid name                  utime  stime  pct
+   827 (python)                 28      9   4%
+    62 (kworker/0:2)             0     29   3%
+   810 (hostapd)                15      2   2%
+    18 (kworker/u2:1)            0     14   1%
+
+2015-04-21 01:59:23,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)                0     35   4%
+    62 (kworker/0:2)             0     28   3%
+
+2015-04-21 01:59:33,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)                0     35   4%
+    62 (kworker/0:2)             0     29   3%
+
+2015-04-21 01:59:43,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)                0     36   4%
+    62 (kworker/0:2)             0     28   3%
+
+2015-04-21 01:59:53,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)                0     35   4%
+    62 (kworker/0:2)             0     29   3%
+
+2015-04-21 02:00:03,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)                0     35   4%
+    62 (kworker/0:2)             0     29   3%
+
+2015-04-21 02:00:13,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)                0     35   4%
+    62 (kworker/0:2)             0     28   3%
+
+2015-04-21 02:00:23,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)                0     35   4%
+    62 (kworker/0:2)             0     28   3%
+
+2015-04-21 02:00:33,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)                0     35   4%
+    62 (kworker/0:2)             0     29   3%
+
+2015-04-21 02:00:43,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)                0     35   4%
+    62 (kworker/0:2)             0     28   3%
+
+2015-04-21 02:00:53,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)               33      2   4%
+    62 (kworker/0:2)             0     29   3%
+
+2015-04-21 02:01:03,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)               10     26   4%
+    62 (kworker/0:2)             0     29   3%
+
+2015-04-21 02:01:13,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)                0     35   4%
+    62 (kworker/0:2)             0     28   3%
+
+2015-04-21 02:01:23,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)                0     44   4%
+    62 (kworker/0:2)             0     29   3%
+
+2015-04-21 02:01:33,234
+   pid name                  utime  stime  pct
+   841 (stm32_up)                0     35   4%
+    62 (kworker/0:2)             0     29   3%

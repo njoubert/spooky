@@ -173,7 +173,9 @@ c = mavutil.mavlink_connection("10.1.1.10:14550")
 
 Check out all the [sweet examples!](https://github.com/dronekit/dronekit-python/tree/master/examples)
 
-### Integrating Piksi with 3DR Solo
+### Integrating Piksi with 3DR Solo's PIXHAWK Driver
+
+This section of the Piksi integration enables Solo to fly using RTK and Piksi in Pseudo-Absolute mode.
 
 This assumes you're using the [3DR Accessory Port](http://dev.3dr.com/hardware-accessorybay.html)
 
@@ -203,6 +205,14 @@ Choose which UART will connect to Solo. I used UARTA for it's position. Configur
 | UART A       | baudrate                 | 115200 |
 | Solution     | soln freq                | 5      |
 
+Also set up a surveyed base station. The PIXHAWK driver requires pseudo-absolute positioning (```POS_LLH``` messages with a flag indicating RTK lock). This can only be generated if the base station also transmits a ```BASE_POS``` message containing a surveyed location.
+
+| Section | Setting                  | Value        |
+|---------|--------------------------|--------------|
+|         | surveyed lat             | *measure it* |
+|         | surveyed lon             | *measure it* |
+|         | surveyed alt             | *measure it* |
+
 On the base station, ensure that the OBS messages are small enough to fit into MAVLink:
 
 | Section | Setting                  | Value  |
@@ -218,6 +228,9 @@ Connect Piksi to the Accessory Port as follows:
 | TX    | SER2_RX |
 | VCC   | ?       |
 	
+
+**Setup Pixhawk**
+
 Connect to the solo using mavproxy:
 	
 	mavproxy.py --master udp:0.0.0.0:14550
@@ -232,6 +245,15 @@ Now, set up the necessary parameters:
 	param set SERIAL3_PROTOCOL 5
 	param set EKF_POSNE_NOISE 0.1
 	
+To enable GPS Altitude, set the following params. (Thanks to Paul Riseborough for this!)
+This enables the secondary EKF, and runs multiple instances for redundancy.
+
+	param set EK2_ENABLE  1
+	param set EKF_ENABLE  0
+	param set AHRS_EKF_TYPE  2
+	param set EK2_IMU_MASK  3
+
+
 Turn on the Piksi's simulation mode, and in mavproxy, run:
 
 	status
@@ -240,6 +262,37 @@ You should see:
 
 	GPS_RAW_INT {time_usec : 642108000, fix_type : 5, lat : 374292190, lon : -1221738005, alt : 69740, eph : 160, epv : 65535, vel : 396, cog : 12748, satellites_visible : 9}
 	GPS2_RAW {time_usec : 0, fix_type : 1, lat : 373625480, lon : -1221125932, alt : -208190, eph : 9999, epv : 65535, vel : 0, cog : 0, satellites_visible : 0, dgps_numch : 0, dgps_age : 0}
+
+### Creating a SBP Relay from Solo to the Ground Station
+
+This section demonstrates how to create a bi-directional relay of SBP data from Piksi, via sololink to your ground staton.
+
+**Setup iMX6**
+
+[Follow these directions](http://dev.3dr.com/starting-utils.html) to setup libsbp on Python. Mirrored here:
+
+	pip install -UI git+https://github.com/3drobotics/solo-cli
+	solo wifi --name=<ssid> --password=<password>
+	solo install-smart
+	solo install-runit
+	solo install-pip
+
+**Download Logs**
+
+Do this periodically
+
+	cd spooky/logs
+	solo logs download
+
+**Connect the Piksi USB to the Solo USB**
+
+See [this discussion.](https://discuss.dronekit.io/t/peripherals-mapping-between-accessory-port-pixhawk2-and-arducopter-parameters-to-connect-secondary-rtk-gps/198/3)
+
+Use an OTG USB cable, such as [this](https://store.3drobotics.com/products/micro-usb-cable-2) or [this](http://www.amazon.com/Micro-USB-OTG-Adapter-Cable/dp/B00D8YZ2SA) one. Connect the host side (blue) to the iMX6 (that is, solo).
+
+Put the iMX6 USB into host mode. By default it exposes a serial port. Use or make a jumper and connect ```GND``` to ```3DRID```. 
+
+
 
 ### Firing up Solo Simulator
 

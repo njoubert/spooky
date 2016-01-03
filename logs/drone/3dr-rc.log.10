@@ -1,0 +1,23 @@
+Jan  6 00:48:15 3dr_solo local0.info +699 pixrc: main: built Nov 17 2015 01:38:02
+Jan  6 00:48:15 3dr_solo local0.info +731 pixrc: main: rcSourceIps: 10.1.1.1,127.0.0.1
+Jan  6 00:48:15 3dr_solo local0.info +734 pixrc: main: rcDestPort:  5005
+Jan  6 00:48:15 3dr_solo local0.info +734 pixrc: main: rcDsmDev:    /dev/ttymxc2
+Jan  6 00:48:15 3dr_solo local0.info +734 pixrc: main: Throttle PWM in  1000...2000
+Jan  6 00:48:15 3dr_solo local0.info +734 pixrc: main:          PWM out 1000...1900
+Jan  6 00:48:15 3dr_solo local0.info +734 pixrc: main: Other    PWM in  1000...2000
+Jan  6 00:48:15 3dr_solo local0.info +735 pixrc: main:          PWM out 1000...2000
+Jan  6 00:48:15 3dr_solo local0.info +735 pixrc: udp: listening on port 5005
+Jan  6 00:48:15 3dr_solo local0.info +930 pixrc: serial: started
+Jan  6 00:48:21 3dr_solo local0.info +000 pixrc: cmd: uplink attached
+Jan  6 00:48:25 3dr_solo local0.info +773 pixrc: a:20,m:61,n:501,u:0,d:0,o:0,q:4288,udp=42651,ser=21285
+Jan  6 00:48:35 3dr_solo local0.info +774 pixrc: a:20,m:28,n:500,u:0,d:0,o:0,q:0,udp=28026,ser=20851
+Jan  6 00:48:45 3dr_solo local0.info +774 pixrc: a:20,m:34,n:500,u:0,d:0,o:0,q:0,udp=34208,ser=20989
+Jan  6 00:48:55 3dr_solo local0.info +775 pixrc: a:20,m:34,n:500,u:0,d:0,o:0,q:0,udp=34099,ser=21228
+Jan  6 00:49:05 3dr_solo local0.info +774 pixrc: a:20,m:40,n:500,u:0,d:0,o:0,q:0,udp=39811,ser=21061
+Jan  6 00:49:15 3dr_solo local0.info +776 pixrc: a:20,m:43,n:500,u:0,d:0,o:0,q:0,udp=40786,ser=21055
+Jan  6 00:49:25 3dr_solo local0.info +779 pixrc: a:20,m:46,n:500,u:0,d:0,o:0,q:0,udp=40672,ser=20964
+Jan  6 00:49:35 3dr_solo local0.info +775 pixrc: a:20,m:34,n:500,u:0,d:0,o:0,q:0,udp=34190,ser=20688
+Jan  6 00:49:45 3dr_solo local0.info +775 pixrc: a:20,m:26,n:500,u:0,d:0,o:0,q:0,udp=26066,ser=20921
+Jan  6 00:49:55 3dr_solo local0.info +775 pixrc: a:20,m:29,n:500,u:0,d:0,o:0,q:0,udp=28923,ser=20892
+Jan  6 00:50:05 3dr_solo local0.info +775 pixrc: a:20,m:31,n:500,u:0,d:0,o:0,q:0,udp=30630,ser=20980
+Jan  6 00:50:15 3dr_solo local0.info +775 pixrc: a:20,m:45,n:500,u:0,d:0,o:0,q:2496,udp=45427,ser=20857

@@ -1,0 +1,27 @@
+Apr 21 02:01:40 3dr_controller local3.info streamer: starting: built Nov 17 2015 01:38:14
+Dec 27 21:34:57 3dr_controller local3.info streamer: pkts=0 bytes=0 drops=0
+Dec 27 21:34:57 3dr_controller local3.info streamer: pkts=912 bytes=1277372 drops=0
+Dec 27 21:34:57 3dr_controller local3.info streamer: pkts=1127 bytes=1509582 drops=0
+Dec 27 21:34:57 3dr_controller local3.info streamer: pkts=10 bytes=756 drops=0
+Dec 27 21:35:01 3dr_controller local3.info streamer: pkts=1 bytes=671 drops=0
+Dec 27 21:35:11 3dr_controller local3.info streamer: pkts=10 bytes=1568 drops=266
+Dec 27 21:35:21 3dr_controller local3.info streamer: pkts=26 bytes=3981 drops=0
+Dec 27 21:35:31 3dr_controller local3.info streamer: pkts=21 bytes=3122 drops=0
+Dec 27 21:35:41 3dr_controller local3.info streamer: pkts=0 bytes=0 drops=0
+Dec 27 21:35:51 3dr_controller local3.info streamer: pkts=24 bytes=4113 drops=321
+Dec 27 21:36:01 3dr_controller local3.info streamer: pkts=18 bytes=2913 drops=75
+Dec 27 21:36:11 3dr_controller local3.info streamer: pkts=26 bytes=3973 drops=0
+Dec 27 21:36:21 3dr_controller local3.info streamer: pkts=26 bytes=3703 drops=0
+Dec 27 21:36:31 3dr_controller local3.info streamer: pkts=26 bytes=3974 drops=0
+Dec 27 21:36:41 3dr_controller local3.info streamer: pkts=26 bytes=3966 drops=0
+Dec 27 21:36:51 3dr_controller local3.info streamer: pkts=26 bytes=3703 drops=0
+Dec 27 21:37:01 3dr_controller local3.info streamer: pkts=26 bytes=3974 drops=0
+Dec 27 21:37:11 3dr_controller local3.info streamer: pkts=26 bytes=3973 drops=0
+Dec 27 21:37:21 3dr_controller local3.info streamer: pkts=26 bytes=3966 drops=0
+Dec 27 21:37:31 3dr_controller local3.info streamer: pkts=26 bytes=3704 drops=0
+Dec 27 21:37:41 3dr_controller local3.info streamer: pkts=26 bytes=3989 drops=0
+Dec 27 21:37:51 3dr_controller local3.info streamer: pkts=26 bytes=3982 drops=0
+Dec 27 21:38:01 3dr_controller local3.info streamer: pkts=26 bytes=3981 drops=0
+Dec 27 21:38:11 3dr_controller local3.info streamer: pkts=26 bytes=3996 drops=0
+Dec 27 21:38:21 3dr_controller local3.info streamer: pkts=20 bytes=3016 drops=0
+Dec 27 21:38:31 3dr_controller local3.info streamer: pkts=0 bytes=0 drops=0

@@ -1,0 +1,218 @@
+Jan  2 09:06:01 3dr_controller local1.info stm32: stm32 update starting
+Jan  2 09:06:01 3dr_controller local1.info stm32: no firmware available for update
+Jan  2 09:06:01 3dr_controller local1.info stm32: requesting stm32 version
+Jan  2 09:06:01 3dr_controller local1.info stm32: running version: 1.2.6
+Jan  2 09:06:01 3dr_controller local1.info stm32: not updating (no new firmware)
+Jan  2 09:06:01 3dr_controller local1.info stm32: writing STM_VERSION with running version 1.2.6
+Jan  2 09:06:01 3dr_controller local1.info stm32: no screen update (READY exists)
+Jan  2 09:06:03 3dr_controller local1.info net: hostapdconfig.py starting
+Jan  2 09:06:03 3dr_controller local1.info net: --channel wlan0
+Jan  2 09:06:03 3dr_controller local1.info net: can't get wlan0 frequency; defaulting to channel 0
+Jan  2 09:06:03 3dr_controller local1.info net: changing channel in /etc/hostapd.conf from 0 to 0
+Jan  2 09:06:03 3dr_controller local1.info pair: pair_server starting
+Jan  2 09:06:03 3dr_controller local1.info pair: using default check_versions=True
+Jan  2 09:06:03 3dr_controller local1.info pair: sololink version "1.3.0"
+Jan  2 09:06:03 3dr_controller local1.info pair: firmware version "1.2.6"
+
+acs_num_scans=8
+wlan0-ap:
+   Freq   Noise   OnChan   ChBusy  ExtBusy    Rxing    Txing
+Ch  MHz     dBm     msec     msec     msec     msec     msec
+ 1 2412     -95     5233     1740              1471        0
+ 2 2417     -92      108       27                23        0
+ 3 2422     -95      108       13                 8        0
+ 4 2427 *   -94      429       87                69        8
+ 5 2432     -94      108       32                30        0
+ 6 2437     -94      108       49                47        0
+ 7 2442     -94      108       43                41        0
+ 8 2447     -95      108       35                31        0
+ 9 2452     -95      108       44                40        0
+10 2457     -95      108       36                33        0
+11 2462     -95      108       41                38        0
+
+Jan  2 09:06:17 3dr_controller local1.info pair: connection request from known solo: send CONN_ACK (yes)
+Jan  2 09:06:17 3dr_controller local1.info pair: solo version "1.3.0"; firmware "1.2.0"
+Jan  2 09:06:17 3dr_controller local1.info pair: IDLE -> CONNECTED
+Jan  2 09:06:17 3dr_controller local1.info pair: connected with ('10.1.1.10', 52586)
+Jan  2 09:06:17 3dr_controller local1.info pair: switching to runlevel.READY
+Jan  2 09:06:17 3dr_controller local1.info +527 tlm: telem_ctrl starting: built Nov 17 2015 01:38:12
+Jan  2 09:06:17 3dr_controller local1.info +553 tlm: stm32 @ 127.0.0.1:5015
+Jan  2 09:06:17 3dr_controller local1.info +568 tlm: tlog @ 127.0.0.1:14583
+Jan  2 09:06:17 3dr_controller local1.info +568 tlm: telem_dest_port = 14550
+Jan  2 09:06:17 3dr_controller local1.info +569 tlm: use_gps_time = 1
+Jan  2 09:06:17 3dr_controller local1.info +569 tlm: uplink_tos = 0x60
+Jan  2 09:06:17 3dr_controller local1.info +569 tlm: gcs_tos = 0x60
+Jan  2 09:06:17 3dr_controller local1.info +781 tlm: solo @ 10.1.1.10:14560
+Jan  2 09:06:17 3dr_controller local1.err +806 tlm: dropped 36 downlink packets
+Jan  2 09:06:19 3dr_controller local1.info video: starting
+Jan  2 09:06:20 3dr_controller local1.info video: link to solo at 10.1.1.10 is up
+Jan  2 09:06:20 3dr_controller local1.info video: starting video
+Jan  2 09:06:20 3dr_controller local1.info app: starting
+Jan  2 09:06:20 3dr_controller local1.info app: waiting for connection
+Jan  2 09:06:27 3dr_controller local1.info +594 tlm: adding telem dest @ 10.1.1.153:14550
+Jan  2 09:06:27 3dr_controller local1.info +639 tlm: dn:1249 (1,1)1225/1 (1,154)13/12 (10,0)10/0 (22,0)1/0 up:0
+Jan  2 09:06:37 3dr_controller local1.info +634 tlm: dn:929 (1,1)909/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  2 09:06:47 3dr_controller local1.info +641 tlm: dn:957 (1,1)937/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  2 09:06:57 3dr_controller local1.info +606 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  2 09:07:07 3dr_controller local1.info +639 tlm: dn:946 (1,1)926/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  2 09:07:17 3dr_controller local1.info +644 tlm: dn:947 (1,1)927/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  2 09:07:27 3dr_controller local1.info +659 tlm: dn:929 (1,1)909/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  2 09:07:37 3dr_controller local1.info +602 tlm: dn:943 (1,1)923/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  2 09:07:47 3dr_controller local1.info +623 tlm: dn:929 (1,1)909/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  2 09:07:57 3dr_controller local1.info +658 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  2 09:08:07 3dr_controller local1.info +600 tlm: dn:879 (1,1)859/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  2 09:08:17 3dr_controller local1.info +637 tlm: dn:903 (1,1)883/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  2 09:08:23 3dr_controller local1.info +935 tlm: gps time 2016-01-03 09:26:55,175
+Jan  3 09:26:55 3dr_controller local1.info +175 tlm: system time set from gps time
+Jan  3 09:26:58 3dr_controller local1.info +824 tlm: dn:910 (1,1)890/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:27:08 3dr_controller local1.info +866 tlm: dn:900 (1,1)880/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:27:18 3dr_controller local1.info +872 tlm: dn:921 (1,1)901/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:27:28 3dr_controller local1.info +839 tlm: dn:919 (1,1)899/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:27:38 3dr_controller local1.info +884 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:27:48 3dr_controller local1.info +830 tlm: dn:908 (1,1)888/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:27:58 3dr_controller local1.info +880 tlm: dn:932 (1,1)912/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:28:08 3dr_controller local1.info +826 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:28:18 3dr_controller local1.info +872 tlm: dn:911 (1,1)891/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:28:28 3dr_controller local1.info +876 tlm: dn:920 (1,1)900/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:28:38 3dr_controller local1.info +848 tlm: dn:919 (1,1)899/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:28:48 3dr_controller local1.info +887 tlm: dn:930 (1,1)910/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:28:58 3dr_controller local1.info +830 tlm: dn:907 (1,1)887/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:29:08 3dr_controller local1.info +868 tlm: dn:933 (1,1)913/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:29:18 3dr_controller local1.info +913 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:29:28 3dr_controller local1.info +863 tlm: dn:907 (1,1)887/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:29:38 3dr_controller local1.info +867 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:29:48 3dr_controller local1.info +835 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:29:58 3dr_controller local1.info +880 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:30:08 3dr_controller local1.info +917 tlm: dn:913 (1,1)893/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:30:18 3dr_controller local1.info +860 tlm: dn:926 (1,1)906/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:30:28 3dr_controller local1.info +903 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:30:38 3dr_controller local1.info +847 tlm: dn:908 (1,1)888/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:30:48 3dr_controller local1.info +845 tlm: dn:930 (1,1)910/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:30:53 3dr_controller local1.err +953 tlm: ERROR getting station info
+Jan  3 09:30:58 3dr_controller local1.info net: hostapdconfig.py starting
+Jan  3 09:30:58 3dr_controller local1.info net: --channel wlan0
+Jan  3 09:30:58 3dr_controller local1.info net: wlan0 is at 2412 MHz (channel 1)
+Jan  3 09:30:58 3dr_controller local1.info net: changing channel in /etc/hostapd.conf from 0 to 1
+Jan  3 09:30:58 3dr_controller local1.err +953 tlm: ERROR getting station info
+Jan  3 09:30:59 3dr_controller local1.info +020 tlm: dn:280 (1,1)274/0 (1,154)3/2 (10,0)3/0 up:0
+Jan  3 09:31:03 3dr_controller local1.info +954 tlm: adding telem dest @ 192.168.1.1:14550
+Jan  3 09:31:04 3dr_controller local1.err +697 tlm: dropped 1177 downlink packets
+Jan  3 09:31:08 3dr_controller local1.info +853 tlm: dn:400 (1,1)391/0 (1,154)4/3 (10,0)5/0 up:0
+Jan  3 09:31:18 3dr_controller local1.info +909 tlm: dn:913 (1,1)893/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:31:28 3dr_controller local1.info +861 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:31:38 3dr_controller local1.info +913 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:31:48 3dr_controller local1.info +869 tlm: dn:908 (1,1)888/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:31:58 3dr_controller local1.info +885 tlm: dn:930 (1,1)910/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:32:08 3dr_controller local1.info +862 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:32:18 3dr_controller local1.info +824 tlm: dn:916 (1,1)897/0 (1,154)10/9 (10,0)9/0 up:0
+Jan  3 09:32:28 3dr_controller local1.info +871 tlm: dn:922 (1,1)901/0 (1,154)10/9 (10,0)11/0 up:0
+Jan  3 09:32:38 3dr_controller local1.info +825 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:32:48 3dr_controller local1.info +875 tlm: dn:932 (1,1)912/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:32:58 3dr_controller local1.info +830 tlm: dn:908 (1,1)888/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:33:08 3dr_controller local1.info +878 tlm: dn:928 (1,1)908/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:33:18 3dr_controller local1.info +828 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:33:28 3dr_controller local1.info +882 tlm: dn:912 (1,1)892/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:33:38 3dr_controller local1.info +828 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:33:48 3dr_controller local1.info +877 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:33:58 3dr_controller local1.info +827 tlm: dn:908 (1,1)888/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:34:08 3dr_controller local1.info +845 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:34:18 3dr_controller local1.info +826 tlm: dn:926 (1,1)906/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:34:28 3dr_controller local1.info +872 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:34:38 3dr_controller local1.info +828 tlm: dn:907 (1,1)887/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:34:48 3dr_controller local1.info +880 tlm: dn:933 (1,1)913/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:34:58 3dr_controller local1.info +831 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:35:08 3dr_controller local1.info +887 tlm: dn:911 (1,1)891/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:35:18 3dr_controller local1.info +826 tlm: dn:924 (1,1)904/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:35:28 3dr_controller local1.info +881 tlm: dn:933 (1,1)913/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:35:38 3dr_controller local1.info +832 tlm: dn:907 (1,1)887/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:35:48 3dr_controller local1.info +874 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:35:58 3dr_controller local1.info +830 tlm: dn:926 (1,1)906/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:36:08 3dr_controller local1.info +888 tlm: dn:933 (1,1)913/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:36:18 3dr_controller local1.info +832 tlm: dn:908 (1,1)888/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:36:28 3dr_controller local1.info +878 tlm: dn:929 (1,1)909/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:36:38 3dr_controller local1.info +835 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:36:48 3dr_controller local1.info +824 tlm: dn:911 (1,1)891/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:36:58 3dr_controller local1.info +855 tlm: dn:928 (1,1)908/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:37:08 3dr_controller local1.info +905 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:37:18 3dr_controller local1.info +862 tlm: dn:908 (1,1)888/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:37:28 3dr_controller local1.info +882 tlm: dn:929 (1,1)909/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:37:38 3dr_controller local1.info +863 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:37:48 3dr_controller local1.info +828 tlm: dn:907 (1,1)888/0 (1,154)10/9 (10,0)9/0 up:0
+Jan  3 09:37:58 3dr_controller local1.info +876 tlm: dn:931 (1,1)910/0 (1,154)10/9 (10,0)11/0 up:0
+Jan  3 09:38:08 3dr_controller local1.info +828 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:38:18 3dr_controller local1.info +888 tlm: dn:932 (1,1)912/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:38:28 3dr_controller local1.info +841 tlm: dn:908 (1,1)888/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:38:38 3dr_controller local1.info +884 tlm: dn:929 (1,1)909/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:38:48 3dr_controller local1.info +842 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:38:58 3dr_controller local1.info +900 tlm: dn:913 (1,1)893/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:39:08 3dr_controller local1.info +857 tlm: dn:926 (1,1)906/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:39:18 3dr_controller local1.info +911 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:39:28 3dr_controller local1.info +874 tlm: dn:908 (1,1)888/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:39:38 3dr_controller local1.info +892 tlm: dn:930 (1,1)910/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:39:48 3dr_controller local1.info +870 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:39:58 3dr_controller local1.info +824 tlm: dn:906 (1,1)887/0 (1,154)10/9 (10,0)9/0 up:0
+Jan  3 09:40:08 3dr_controller local1.info +868 tlm: dn:931 (1,1)910/0 (1,154)10/9 (10,0)11/0 up:0
+Jan  3 09:40:18 3dr_controller local1.info +827 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:40:28 3dr_controller local1.info +889 tlm: dn:933 (1,1)913/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:40:38 3dr_controller local1.info +845 tlm: dn:907 (1,1)887/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:40:48 3dr_controller local1.info +887 tlm: dn:929 (1,1)909/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:40:58 3dr_controller local1.info +838 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:41:08 3dr_controller local1.info +825 tlm: dn:912 (1,1)892/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:41:18 3dr_controller local1.info +853 tlm: dn:928 (1,1)908/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:41:28 3dr_controller local1.info +902 tlm: dn:930 (1,1)910/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:41:38 3dr_controller local1.info +858 tlm: dn:908 (1,1)888/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:41:48 3dr_controller local1.info +874 tlm: dn:930 (1,1)910/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:41:58 3dr_controller local1.info +845 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:42:08 3dr_controller local1.info +824 tlm: dn:930 (1,1)910/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:42:18 3dr_controller local1.info +877 tlm: dn:907 (1,1)887/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:42:28 3dr_controller local1.info +825 tlm: dn:932 (1,1)912/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:42:38 3dr_controller local1.info +827 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:42:48 3dr_controller local1.info +824 tlm: dn:912 (1,1)892/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:42:58 3dr_controller local1.info +850 tlm: dn:926 (1,1)906/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:43:08 3dr_controller local1.info +906 tlm: dn:932 (1,1)912/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:43:18 3dr_controller local1.info +860 tlm: dn:907 (1,1)887/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:43:28 3dr_controller local1.info +916 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:43:38 3dr_controller local1.info +864 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:43:48 3dr_controller local1.info +824 tlm: dn:919 (1,1)900/0 (1,154)10/9 (10,0)9/0 up:0
+Jan  3 09:43:58 3dr_controller local1.info +824 tlm: dn:917 (1,1)896/0 (1,154)10/9 (10,0)11/0 up:0
+Jan  3 09:44:08 3dr_controller local1.info +824 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:44:18 3dr_controller local1.info +825 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:44:28 3dr_controller local1.info +824 tlm: dn:913 (1,1)893/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:44:38 3dr_controller local1.info +824 tlm: dn:926 (1,1)906/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:44:48 3dr_controller local1.info +825 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:44:58 3dr_controller local1.info +825 tlm: dn:912 (1,1)892/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:45:08 3dr_controller local1.info +825 tlm: dn:925 (1,1)905/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:45:18 3dr_controller local1.info +825 tlm: dn:933 (1,1)913/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:45:28 3dr_controller local1.info +825 tlm: dn:906 (1,1)886/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:45:38 3dr_controller local1.info +825 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:45:48 3dr_controller local1.info +827 tlm: dn:927 (1,1)908/0 (1,154)10/9 (10,0)9/0 up:0
+Jan  3 09:45:58 3dr_controller local1.info +826 tlm: dn:933 (1,1)912/0 (1,154)10/9 (10,0)11/0 up:0
+Jan  3 09:46:08 3dr_controller local1.info +826 tlm: dn:912 (1,1)892/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:46:18 3dr_controller local1.info +825 tlm: dn:923 (1,1)903/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:46:28 3dr_controller local1.info +826 tlm: dn:933 (1,1)913/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:46:38 3dr_controller local1.info +826 tlm: dn:907 (1,1)887/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:46:48 3dr_controller local1.info +826 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:46:58 3dr_controller local1.info +828 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:47:08 3dr_controller local1.info +824 tlm: dn:909 (1,1)890/0 (1,154)10/9 (10,0)9/0 up:0
+Jan  3 09:47:18 3dr_controller local1.info +826 tlm: dn:931 (1,1)910/0 (1,154)10/9 (10,0)11/0 up:0
+Jan  3 09:47:28 3dr_controller local1.info +826 tlm: dn:929 (1,1)909/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:47:38 3dr_controller local1.info +826 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:47:48 3dr_controller local1.info +826 tlm: dn:912 (1,1)892/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:47:58 3dr_controller local1.info +826 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:48:08 3dr_controller local1.info +827 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:48:18 3dr_controller local1.info +826 tlm: dn:908 (1,1)888/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:48:28 3dr_controller local1.info +827 tlm: dn:930 (1,1)910/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:48:38 3dr_controller local1.info +827 tlm: dn:926 (1,1)906/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:48:48 3dr_controller local1.info +827 tlm: dn:931 (1,1)911/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:48:58 3dr_controller local1.info +827 tlm: dn:907 (1,1)887/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:49:08 3dr_controller local1.info +827 tlm: dn:933 (1,1)913/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:49:18 3dr_controller local1.info +827 tlm: dn:927 (1,1)907/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:49:28 3dr_controller local1.info +827 tlm: dn:911 (1,1)891/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:49:38 3dr_controller local1.info +829 tlm: dn:925 (1,1)905/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:49:48 3dr_controller local1.info +827 tlm: dn:933 (1,1)913/0 (1,154)10/9 (10,0)10/0 up:0
+Jan  3 09:49:58 3dr_controller local1.info +828 tlm: dn:907 (1,1)888/0 (1,154)10/9 (10,0)9/0 up:0
+Jan  3 09:50:08 3dr_controller local1.info +829 tlm: dn:931 (1,1)910/0 (1,154)10/9 (10,0)11/0 up:0
+Jan  3 09:50:18 3dr_controller local1.info +826 tlm: dn:926 (1,1)907/0 (1,154)10/9 (10,0)9/0 up:0
+Jan  3 09:50:28 3dr_controller local1.info +828 tlm: dn:933 (1,1)912/0 (1,154)10/9 (10,0)11/0 up:0
+Jan  3 09:50:38 3dr_controller local1.info +826 tlm: dn:909 (1,1)890/0 (1,154)10/9 (10,0)9/0 up:0
+Jan  3 09:50:48 3dr_controller local1.info +828 tlm: dn:927 (1,1)906/0 (1,154)10/9 (10,0)11/0 up:0

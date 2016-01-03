@@ -1,0 +1,27 @@
+Jan  6 00:48:15 3dr_solo local4.info +693 tlm: Installing SIGQUIT signal handler
+Jan  6 00:48:15 3dr_solo local4.info +694 tlm: telem_forwarder starting: built Nov 17 2015 01:38:09
+Jan  6 00:48:15 3dr_solo local4.info +698 tlm: serial port: /dev/ttymxc1
+Jan  6 00:48:15 3dr_solo local4.info +699 tlm: serial baudrate: 921600
+Jan  6 00:48:15 3dr_solo local4.info +699 tlm: serial hw flow: true
+Jan  6 00:48:15 3dr_solo local4.info +699 tlm: UDP dest port: 14550
+Jan  6 00:48:15 3dr_solo local4.info +700 tlm: use GPS time: true
+Jan  6 00:48:15 3dr_solo local4.info +700 tlm: tos: 0x60
+Jan  6 00:48:15 3dr_solo local4.info +700 tlm: opened port 14560
+Jan  6 00:48:15 3dr_solo local4.info +706 tlm: opened serial port /dev/ttymxc1
+Jan  6 00:48:20 3dr_solo local4.info +595 tlm: adding new client 127.0.0.1:60549
+Jan  6 00:48:20 3dr_solo local4.info +595 tlm: ARP: Seen (255/0) from 127.0.0.1:60549 client=0x762fdc44
+Jan  6 00:48:21 3dr_solo local4.info +218 tlm: SET_MODE: from 127.0.0.1:60549
+Jan  6 00:48:21 3dr_solo local4.info +218 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:48:21 3dr_solo local4.info +218 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Jan  6 00:48:25 3dr_solo local4.info +735 tlm: down: 169 m/s, 5340 b/s, 5%; up: 1 m/s, 28 b/s, 0%
+Jan  6 00:48:35 3dr_solo local4.info +736 tlm: down: 88 m/s, 2580 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  6 00:48:45 3dr_solo local4.info +736 tlm: down: 87 m/s, 2551 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  6 00:48:55 3dr_solo local4.info +737 tlm: down: 89 m/s, 2595 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  6 00:49:05 3dr_solo local4.info +738 tlm: down: 88 m/s, 2584 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  6 00:49:15 3dr_solo local4.info +738 tlm: down: 88 m/s, 2580 b/s, 2%; up: 0 m/s, 15 b/s, 0%
+Jan  6 00:49:25 3dr_solo local4.info +739 tlm: down: 87 m/s, 2553 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  6 00:49:35 3dr_solo local4.info +740 tlm: down: 89 m/s, 2594 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  6 00:49:45 3dr_solo local4.info +741 tlm: down: 89 m/s, 2594 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  6 00:49:55 3dr_solo local4.info +742 tlm: down: 88 m/s, 2581 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  6 00:50:05 3dr_solo local4.info +742 tlm: down: 87 m/s, 2551 b/s, 2%; up: 0 m/s, 16 b/s, 0%
+Jan  6 00:50:15 3dr_solo local4.info +743 tlm: down: 89 m/s, 2600 b/s, 2%; up: 0 m/s, 16 b/s, 0%

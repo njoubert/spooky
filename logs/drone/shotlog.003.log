@@ -1,0 +1,20 @@
+Jan  2 04:26:26 3dr_solo local2.info shot: starting up shotManager 1.3.0
+Jan  2 04:26:26 3dr_solo local2.info shot: got api vehicle
+Jan  2 04:26:26 3dr_solo local2.info shot: reset all DZ
+Jan  2 04:26:26 3dr_solo local2.info shot: enabling remapping False
+Jan  2 04:26:26 3dr_solo local2.info shot: disabling stick remapping
+Jan  2 04:26:26 3dr_solo local2.info shot: ready for connections
+Jan  2 04:26:26 3dr_solo local2.info shot: creating a new connectThread
+Jan  2 04:26:26 3dr_solo local2.info shot: read in button mappings
+Jan  2 04:26:26 3dr_solo local2.info shot: Button A - shot FLY, mode Stabilize
+Jan  2 04:26:26 3dr_solo local2.info shot: Button B - shot FLY, mode FLY: Manual
+Jan  2 04:26:26 3dr_solo local2.info shot: Going to wait for vehicle init
+Jan  2 04:26:27 3dr_solo local2.info shot: vehicle inited
+Jan  2 04:26:27 3dr_solo local2.info shot: read enabled value from settings of 1
+Jan  2 04:26:27 3dr_solo local2.info shot: sending gimbal enabled param (GMB_GP_CTRL) to 1.000000
+Jan  2 04:26:27 3dr_solo local2.info shot: Inited GoProManager
+Jan  2 04:26:27 3dr_solo local2.info shot: Gimbal detected.
+Jan  2 04:26:27 3dr_solo local2.info shot: Gopro capture mode changed to 255
+Jan  2 04:26:27 3dr_solo local2.info shot: sending Gopro state to app
+Jan  2 04:26:27 3dr_solo local2.info shot: connectThread connected
+Jan  2 04:26:27 3dr_solo local2.info shot: sending FLY to Artoo as mode

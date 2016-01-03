@@ -1,0 +1,24 @@
+Apr  6 00:24:02 3dr_solo local1.info pix: pixhawk.py starting
+Apr  6 00:24:02 3dr_solo local1.info pix: checking baud...
+Apr  6 00:24:02 3dr_solo local1.info pix: found at 921600
+Apr  6 00:24:02 3dr_solo local1.info pix: no new firmware file
+Apr  6 00:24:02 3dr_solo local1.info pix: build version build=1.2.19 ardupilot=331103b2 px4=60133536 nuttx=d48fa307
+Apr  6 00:24:02 3dr_solo local1.info pix: now running:
+Apr  6 00:24:02 3dr_solo local1.info pix: build_version        1.2.19
+Apr  6 00:24:02 3dr_solo local1.info pix: ardupilot_git_hash   331103b2
+Apr  6 00:24:02 3dr_solo local1.info pix: px4_git_hash         60133536
+Apr  6 00:24:02 3dr_solo local1.info pix: nuttx_git_hash       d48fa307
+Apr  6 00:24:02 3dr_solo local1.info pix: pixhawk status: ready
+Apr  6 00:24:05 3dr_solo local1.info pair: pair_solo.py starting
+Apr  6 00:24:05 3dr_solo local1.info pair: using default check_versions=True
+Apr  6 00:24:05 3dr_solo local1.info pair: sololink version "1.3.0"
+Apr  6 00:24:05 3dr_solo local1.info pair: firmware version "1.2.19"
+Apr  6 00:24:05 3dr_solo local1.info pair: pairing using wlan0
+Apr  6 00:24:05 3dr_solo local1.info pair: bringing up network...
+Apr  6 00:24:05 3dr_solo local1.info pair: network already up
+Apr  6 00:24:05 3dr_solo local1.info pair: establishing connection...
+Apr  6 00:24:05 3dr_solo local1.info pair: controller version "1.3.0"; firmware "1.2.6"
+Apr  6 00:24:05 3dr_solo local1.info pair: switching to runlevel.READY
+Apr  6 00:24:10 3dr_solo local1.info video: starting
+Apr  6 00:24:11 3dr_solo local1.info video: link to controller is up
+Apr  6 00:24:11 3dr_solo local1.info video: starting video

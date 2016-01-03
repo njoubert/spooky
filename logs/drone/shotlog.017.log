@@ -1,0 +1,50 @@
+Dec 29 07:26:18 3dr_solo local2.info shot: starting up shotManager 1.3.0
+Dec 29 07:26:18 3dr_solo local2.info shot: got api vehicle
+Dec 29 07:26:18 3dr_solo local2.info shot: reset all DZ
+Dec 29 07:26:18 3dr_solo local2.info shot: enabling remapping False
+Dec 29 07:26:18 3dr_solo local2.info shot: disabling stick remapping
+Dec 29 07:26:18 3dr_solo local2.info shot: ready for connections
+Dec 29 07:26:18 3dr_solo local2.info shot: creating a new connectThread
+Dec 29 07:26:18 3dr_solo local2.info shot: read in button mappings
+Dec 29 07:26:18 3dr_solo local2.info shot: Button A - shot Cable Cam, mode None
+Dec 29 07:26:18 3dr_solo local2.info shot: Button B - shot Orbit, mode None
+Dec 29 07:26:18 3dr_solo local2.info shot: Going to wait for vehicle init
+Dec 29 07:26:18 3dr_solo local2.info shot: vehicle inited
+Dec 29 07:26:18 3dr_solo local2.info shot: read enabled value from settings of 1
+Dec 29 07:26:18 3dr_solo local2.info shot: sending gimbal enabled param (GMB_GP_CTRL) to 1.000000
+Dec 29 07:26:18 3dr_solo local2.info shot: Inited GoProManager
+Dec 29 07:26:18 3dr_solo local2.info shot: Gimbal detected.
+Dec 29 07:26:18 3dr_solo local2.info shot: Gopro capture mode changed to 255
+Dec 29 07:26:18 3dr_solo local2.info shot: sending Gopro state to app
+Dec 29 07:26:19 3dr_solo local2.info shot: connectThread connected
+Dec 29 07:26:19 3dr_solo local2.info shot: sending FLY to Artoo as mode
+Dec 30 00:04:47 3dr_solo local2.info shot: EKF status changed to 1
+Dec 30 00:07:06 3dr_solo local2.info shot: EKF status changed to 0
+Dec 30 00:08:11 3dr_solo local2.info shot: EKF status changed to 1
+Dec 30 00:12:26 3dr_solo local2.info shot: armed status changed to 1
+Dec 30 00:13:54 3dr_solo local2.info shot: EKF status changed to 0
+Dec 30 00:13:54 3dr_solo local2.info shot: armed status changed to 0
+Dec 30 00:13:54 3dr_solo local2.info shot: [enterShot]: Current shot is: 'FLY', cant enter same shot, ignoring request.
+Dec 30 00:13:54 3dr_solo local2.info shot: EKF status changed to 1
+Dec 30 00:13:59 3dr_solo local2.info shot: EKF status changed to 0
+Dec 30 00:14:37 3dr_solo local2.info shot: EKF status changed to 1
+Dec 30 00:14:56 3dr_solo local2.info shot: EKF status changed to 0
+Dec 30 00:15:13 3dr_solo local2.info shot: EKF status changed to 1
+Dec 30 00:16:47 3dr_solo local2.info shot: EKF status changed to 0
+Jan  5 23:59:59 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:01:30 3dr_solo local2.info shot: EKF status changed to 0
+Jan  6 00:01:49 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:02:11 3dr_solo local2.info shot: EKF status changed to 0
+Jan  5 23:59:59 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:00:36 3dr_solo local2.info shot: EKF status changed to 0
+Jan  5 23:59:59 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:00:42 3dr_solo local2.info shot: EKF status changed to 0
+Jan  5 23:59:59 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:00:27 3dr_solo local2.info shot: armed status changed to 1
+Jan  6 00:01:50 3dr_solo local2.info shot: EKF status changed to 0
+Jan  6 00:01:51 3dr_solo local2.info shot: armed status changed to 0
+Jan  6 00:01:51 3dr_solo local2.info shot: [enterShot]: Current shot is: 'FLY', cant enter same shot, ignoring request.
+Jan  6 00:01:51 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:01:56 3dr_solo local2.info shot: EKF status changed to 0
+Jan  5 23:59:59 3dr_solo local2.info shot: EKF status changed to 1
+Jan  6 00:00:08 3dr_solo local2.info shot: EKF status changed to 0

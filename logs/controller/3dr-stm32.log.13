@@ -1,0 +1,185 @@
+2015-04-21 01:32:12,727 pkt  INFO     
+2015-04-21 01:32:12,728 pkt  INFO     stm32 starting: built Apr 21 2015 00:41:43
+2015-04-21 01:32:12,729 pkt  INFO     PKT: opened port 5005
+2015-04-21 01:32:12,729 pkt  INFO     PKT: opened port 5015
+2015-04-21 01:32:12,729 pkt  INFO     PKT: opened port 5012
+2015-04-21 01:32:12,729 pkt  INFO     PKT: opened port 5013
+2015-04-21 01:32:12,729 pkt  INFO     PKT: opened port 5014
+2015-04-21 01:32:12,729 pkt  INFO     PKT: opened port 5016
+2015-04-21 01:32:12,754 pkt  INFO     PKT: opened port 5017
+2015-04-21 01:32:12,754 pkt  INFO     PKT: opened port 5018
+2015-04-21 01:32:12,754 pkt  INFO     PKT: opened port 5019
+2015-04-21 01:32:12,754 pkt  INFO     Opened serial port /dev/ttymxc1
+2015-04-21 01:32:12,792 srv  INFO     downstream_thread: starting
+2015-04-21 01:32:12,793 srv  INFO     listen_thread: starting (id=1992840272)
+2015-04-21 01:32:12,857 pkt  INFO     SYS: Unique ID: 98238262
+2015-04-21 01:32:12,857 pkt  INFO     SYS: Hardware Ver: 859045891
+2015-04-21 01:32:12,857 pkt  INFO     SYS: Software Ver: v0.6.14
+2015-04-21 01:32:12,857 pkt  INFO     SYS: (try 2)
+2015-04-21 01:32:22,856 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:32:32,857 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:32:42,859 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:32:52,860 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:33:02,862 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:33:12,864 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:33:17,430 pkt  INFO     Pair request going down
+2015-04-21 01:33:22,865 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:33:24,431 pkt  INFO     Pair confirm going up for "Solo"
+2015-04-21 01:33:30,536 pkt  INFO     Pair result going down
+2015-04-21 01:33:30,879 pkt  INFO     Got Solo IP: 10.1.1.10
+2015-04-21 01:33:31,572 srv  INFO     listen_thread: adding client 18
+2015-04-21 01:33:32,868 pkt  INFO     up: 2605, 0.25 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:33:37,707 srv  INFO     listen_thread: adding client 19
+2015-04-21 01:33:42,876 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:33:52,878 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:34:02,879 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:34:12,881 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:34:22,883 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:34:32,885 pkt  INFO     up: 13026, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:34:42,887 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:34:52,888 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:35:02,890 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:35:12,892 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:35:22,894 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:35:32,895 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:35:42,897 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:35:52,899 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:36:02,901 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:36:12,902 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:36:22,904 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:36:32,906 pkt  INFO     up: 13026, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:36:42,908 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:36:52,910 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:37:02,912 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:37:12,915 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:37:22,917 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:37:32,919 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:37:42,921 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:37:52,923 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:38:02,926 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:38:12,928 pkt  INFO     up: 13026, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:38:22,931 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:38:32,933 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:38:42,935 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:38:52,937 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:39:02,939 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:39:12,941 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:39:22,943 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:39:32,945 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:39:42,946 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:39:52,948 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:40:02,950 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:40:12,952 pkt  INFO     up: 13026, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:40:22,954 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:40:32,955 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:40:42,957 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:40:52,959 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:41:02,960 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:41:12,962 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:41:22,964 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:41:32,965 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:41:42,967 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:41:52,969 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:42:02,971 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:42:12,972 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:42:22,974 pkt  INFO     up: 13026, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:42:32,976 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:42:42,978 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:42:52,979 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:43:02,981 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:43:12,983 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:43:22,985 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:43:28,455 pkt  INFO     STM32 requests shutdown
+2015-04-21 01:43:59,698 pkt  INFO     
+2015-04-21 01:43:59,732 pkt  INFO     stm32 starting: built Apr 21 2015 00:41:43
+2015-04-21 01:43:59,734 pkt  INFO     PKT: opened port 5005
+2015-04-21 01:43:59,734 pkt  INFO     PKT: opened port 5015
+2015-04-21 01:43:59,734 pkt  INFO     PKT: opened port 5012
+2015-04-21 01:43:59,734 pkt  INFO     PKT: opened port 5013
+2015-04-21 01:43:59,734 pkt  INFO     PKT: opened port 5014
+2015-04-21 01:43:59,734 pkt  INFO     PKT: opened port 5016
+2015-04-21 01:43:59,735 pkt  INFO     PKT: opened port 5017
+2015-04-21 01:43:59,735 pkt  INFO     PKT: opened port 5018
+2015-04-21 01:43:59,735 pkt  INFO     PKT: opened port 5019
+2015-04-21 01:43:59,735 pkt  INFO     Opened serial port /dev/ttymxc1
+2015-04-21 01:43:59,781 srv  INFO     downstream_thread: starting
+2015-04-21 01:43:59,781 srv  INFO     listen_thread: starting (id=1992545360)
+2015-04-21 01:43:59,845 pkt  INFO     SYS: Unique ID: 98238262
+2015-04-21 01:43:59,845 pkt  INFO     SYS: Hardware Ver: 859045891
+2015-04-21 01:43:59,845 pkt  INFO     SYS: Software Ver: v0.6.14
+2015-04-21 01:43:59,845 pkt  INFO     SYS: (try 2)
+2015-04-21 01:44:09,839 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:44:13,846 pkt  INFO     Got Solo IP: 10.1.1.10
+2015-04-21 01:44:19,842 pkt  INFO     up: 7774, 0.76 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:44:29,844 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:44:39,846 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:44:49,848 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:44:59,850 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:45:09,852 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:45:19,854 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:45:29,856 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:45:39,859 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:45:49,861 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:45:59,864 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:46:09,865 pkt  INFO     up: 13026, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:46:19,867 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:46:29,869 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:46:39,871 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:46:49,873 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:46:59,874 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:47:09,876 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:47:19,878 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:47:29,880 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:47:39,882 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:47:49,884 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:47:59,885 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:48:09,887 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:48:19,889 pkt  INFO     up: 13026, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:48:29,891 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:48:39,893 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:48:49,894 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:48:59,896 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:49:09,898 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:49:19,900 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:49:29,902 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:49:39,903 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:49:49,905 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:49:59,907 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:50:09,909 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:50:19,911 pkt  INFO     up: 13026, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:50:29,913 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:50:39,914 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:50:49,916 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:50:59,918 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:51:09,920 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:51:19,922 pkt  INFO     up: 12974, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:51:29,923 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:51:39,925 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:51:49,927 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:51:59,929 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:52:09,931 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:52:19,932 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:52:29,934 pkt  INFO     up: 13026, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:52:39,936 pkt  INFO     up: 12974, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:52:49,938 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:52:59,939 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:53:09,941 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:53:19,943 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:53:29,945 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:53:39,947 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:53:49,948 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:53:59,950 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:54:09,952 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:54:19,954 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:54:29,956 pkt  INFO     up: 13026, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:54:39,958 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:54:49,959 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:54:59,961 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:55:09,963 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:55:19,965 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:55:29,967 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:55:39,969 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:55:49,971 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:55:59,975 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:56:09,977 pkt  INFO     up: 13000, 1.27 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:56:15,655 pkt  INFO     Updater message going down

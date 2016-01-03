@@ -1,0 +1,22 @@
+Thu Jan  1 00:00:04 1970: bootlogd.
+Thu Jan  1 00:00:04 1970: max_dgram_qlen=100
+Thu Jan  1 00:00:06 1970: Starting syslogd/klogd: done
+Thu Jan  1 00:00:06 1970: Initializing AP Interface: wlan0-ap.
+Thu Jan  1 00:00:07 1970: Configuring network interfaces... done.
+Thu Jan  1 00:00:08 1970: rotating 3dr logs
+Thu Jan  1 00:00:08 1970: net.core.rmem_max = 1048576
+Sat Jan  2 09:06:00 2016: Sat Jan  2 09:06:00 UTC 2016
+Sat Jan  2 09:06:00 2016: Starting OpenBSD Secure Shell server: sshd
+Sat Jan  2 09:06:00 2016: done.
+Sat Jan  2 09:06:01 2016: Sololink: Running same version
+Sat Jan  2 09:06:01 2016: INIT: Entering runlevel: 3
+Sat Jan  2 09:06:01 2016: starting DNS forwarder and DHCP server: dnsmasq... done.
+Sat Jan  2 09:06:01 2016: Starting HOSTAP Daemon: Configuration file: /etc/hostapd.conf
+Sat Jan  2 09:06:03 2016: rfkill: Cannot open RFKILL control device
+Sat Jan  2 09:06:03 2016: wlan0-ap: interface state UNINITIALIZED->COUNTRY_UPDATE
+Sat Jan  2 09:06:03 2016: ACS: Automatic channel selection started, this may take a bit
+Sat Jan  2 09:06:03 2016: wlan0-ap: interface state COUNTRY_UPDATE->ACS
+Sat Jan  2 09:06:03 2016: wlan0-ap: ACS-STARTED 
+Sat Jan  2 09:06:03 2016: hostapd.
+Sat Jan  2 09:06:03 2016: Running local boot scripts (/etc/rc.local).
+Sat Jan  2 09:06:03 2016: 

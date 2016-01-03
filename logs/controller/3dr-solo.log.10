@@ -1,0 +1,151 @@
+Apr 21 02:01:00 3dr_controller local1.info stm32: stm32 update starting
+Apr 21 02:01:00 3dr_controller local1.info stm32: no firmware available for update
+Apr 21 02:01:00 3dr_controller local1.info stm32: requesting stm32 version
+Apr 21 02:01:00 3dr_controller local1.info stm32: running version: 1.2.6
+Apr 21 02:01:00 3dr_controller local1.info stm32: not updating (no new firmware)
+Apr 21 02:01:00 3dr_controller local1.info stm32: writing STM_VERSION with running version 1.2.6
+Apr 21 02:01:00 3dr_controller local1.info stm32: no screen update (READY exists)
+Apr 21 02:01:01 3dr_controller local1.info net: hostapdconfig.py starting
+Apr 21 02:01:01 3dr_controller local1.info net: --channel wlan0
+Apr 21 02:01:01 3dr_controller local1.info net: can't get wlan0 frequency; defaulting to channel 0
+Apr 21 02:01:01 3dr_controller local1.info net: changing channel in /etc/hostapd.conf from 0 to 0
+Apr 21 02:01:02 3dr_controller local1.info pair: pair_server starting
+Apr 21 02:01:02 3dr_controller local1.info pair: using default check_versions=True
+Apr 21 02:01:02 3dr_controller local1.info pair: sololink version "1.3.0"
+Apr 21 02:01:02 3dr_controller local1.info pair: firmware version "1.2.6"
+
+acs_num_scans=8
+wlan0-ap:
+   Freq   Noise   OnChan   ChBusy  ExtBusy    Rxing    Txing
+Ch  MHz     dBm     msec     msec     msec     msec     msec
+ 1 2412     -88     3724     1563              1414        0
+ 2 2417     -88      108       49                29        0
+ 3 2422     -87      108       36                21        0
+ 4 2427     -87      108       23                14        0
+ 5 2432     -88      108       17                12        0
+ 6 2437     -88      108       14                14        0
+ 7 2442     -88      108       14                11        0
+ 8 2447 *   -89      438       74                 7       63
+ 9 2452     -88      108       21                17        0
+10 2457     -95      108       17                15        0
+11 2462     -89      108       27                24        0
+
+Apr 21 02:01:37 3dr_controller local1.info pair: pin request: name="Solo", mac=88:dc:96:2a:4e:2b, uuid=298cdb09-6a6f-5963-becf-d800c51b63ed
+Apr 21 02:01:37 3dr_controller local1.info pair: pin request from known solo
+Apr 21 02:01:37 3dr_controller local1.info pair: IDLE -> CONNECTED
+Apr 21 02:01:40 3dr_controller local1.info pair: solo version "1.3.0"; firmware "1.2.19"
+Apr 21 02:01:40 3dr_controller local1.info pair: connected with ('10.1.1.10', 51022)
+Apr 21 02:01:40 3dr_controller local1.info pair: switching to runlevel.READY
+Apr 21 02:01:40 3dr_controller local1.info +503 tlm: telem_ctrl starting: built Nov 17 2015 01:38:12
+Apr 21 02:01:40 3dr_controller local1.info +525 tlm: stm32 @ 127.0.0.1:5015
+Apr 21 02:01:40 3dr_controller local1.info +530 tlm: tlog @ 127.0.0.1:14583
+Apr 21 02:01:40 3dr_controller local1.info +531 tlm: telem_dest_port = 14550
+Apr 21 02:01:40 3dr_controller local1.info +531 tlm: use_gps_time = 1
+Apr 21 02:01:40 3dr_controller local1.info +532 tlm: uplink_tos = 0x60
+Apr 21 02:01:40 3dr_controller local1.info +537 tlm: gcs_tos = 0x60
+Apr 21 02:01:40 3dr_controller local1.info +566 tlm: adding telem dest @ 10.1.1.153:14550
+Apr 21 02:01:40 3dr_controller local1.info +673 tlm: solo @ 10.1.1.10:14560
+Apr 21 02:01:40 3dr_controller local1.err +758 tlm: dropped 6 downlink packets
+Apr 21 02:01:42 3dr_controller local1.info +522 tlm: gps time 2015-12-27 21:34:13,974
+Dec 27 21:34:13 3dr_controller local1.info +974 tlm: system time set from gps time
+Dec 27 21:34:14 3dr_controller local1.info video: starting
+Dec 27 21:34:15 3dr_controller local1.info video: link to solo at 10.1.1.10 is up
+Dec 27 21:34:15 3dr_controller local1.info video: starting video
+Dec 27 21:34:15 3dr_controller local1.info app: starting
+Dec 27 21:34:15 3dr_controller local1.info app: waiting for connection
+Dec 27 21:34:22 3dr_controller local1.info +109 tlm: dn:721 (0,0)1/0 (1,1)667/1 (1,154)50/5 (10,0)3/0 up:0
+Dec 27 21:34:32 3dr_controller local1.info +111 tlm: dn:0 up:0
+Dec 27 21:34:42 3dr_controller local1.info +114 tlm: dn:0 up:0
+Dec 27 21:34:45 3dr_controller local1.err +252 tlm: dropped 4294966569 downlink packets
+Dec 27 21:34:52 3dr_controller local1.info +053 tlm: dn:1201 (1,1)1117/1 (1,154)77/12 (1,254)1/0 (10,0)6/0 up:0
+Dec 27 21:35:02 3dr_controller local1.info +075 tlm: dn:1111 (1,1)1091/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:35:12 3dr_controller local1.info +057 tlm: dn:894 (1,1)874/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:35:22 3dr_controller local1.info +092 tlm: dn:918 (1,1)898/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:35:32 3dr_controller local1.err +042 tlm: ERROR getting station info
+Dec 27 21:35:32 3dr_controller local1.info +115 tlm: dn:775 (1,1)758/0 (1,154)8/7 (10,0)9/0 up:0
+Dec 27 21:35:37 3dr_controller local1.err +043 tlm: ERROR getting station info
+Dec 27 21:35:37 3dr_controller local1.info net: hostapdconfig.py starting
+Dec 27 21:35:37 3dr_controller local1.info net: --channel wlan0
+Dec 27 21:35:37 3dr_controller local1.info net: wlan0 is at 2412 MHz (channel 1)
+Dec 27 21:35:37 3dr_controller local1.info net: changing channel in /etc/hostapd.conf from 0 to 1
+Dec 27 21:35:42 3dr_controller local1.info +044 tlm: adding telem dest @ 192.168.1.1:14550
+Dec 27 21:35:42 3dr_controller local1.info +118 tlm: dn:0 up:0
+Dec 27 21:35:42 3dr_controller local1.err +992 tlm: dropped 1117 downlink packets
+Dec 27 21:35:52 3dr_controller local1.info +011 tlm: dn:824 (1,1)805/0 (1,154)10/9 (10,0)9/0 up:0
+Dec 27 21:36:00 3dr_controller local1.err +976 tlm: dropped 278 downlink packets
+Dec 27 21:36:02 3dr_controller local1.info +055 tlm: dn:640 (1,1)626/1 (1,154)7/6 (10,0)7/1 up:0
+Dec 27 21:36:12 3dr_controller local1.info +008 tlm: dn:894 (1,1)874/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:36:22 3dr_controller local1.info +054 tlm: dn:916 (1,1)896/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:36:32 3dr_controller local1.info +092 tlm: dn:916 (1,1)896/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:36:42 3dr_controller local1.info +040 tlm: dn:912 (1,1)892/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:36:52 3dr_controller local1.info +023 tlm: dn:896 (1,1)876/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:37:02 3dr_controller local1.info +008 tlm: dn:912 (1,1)892/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:37:12 3dr_controller local1.info +006 tlm: dn:917 (1,1)897/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:37:22 3dr_controller local1.info +005 tlm: dn:893 (1,1)873/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:37:32 3dr_controller local1.info +039 tlm: dn:915 (1,1)895/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:37:35 3dr_controller local1.err +486 tlm: [1] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:38 3dr_controller local1.err +754 tlm: [1] sendto 192.168.1.1:14550 returned -1, expected 34: Resource temporarily unavailable
+Dec 27 21:37:40 3dr_controller local1.err +053 tlm: [14] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:41 3dr_controller local1.err +276 tlm: [11] sendto 192.168.1.1:14550 returned -1, expected 10: Resource temporarily unavailable
+Dec 27 21:37:42 3dr_controller local1.info +079 tlm: dn:908 (1,1)888/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:37:42 3dr_controller local1.err +281 tlm: [84] sendto 192.168.1.1:14550 returned -1, expected 34: Resource temporarily unavailable
+Dec 27 21:37:45 3dr_controller local1.err +529 tlm: [55] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:46 3dr_controller local1.err +543 tlm: [70] sendto 10.1.1.153:14550 returned -1, expected 28: Resource temporarily unavailable
+Dec 27 21:37:47 3dr_controller local1.err +558 tlm: [22] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:47 3dr_controller local1.err +561 tlm: [67] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:48 3dr_controller local1.err +567 tlm: [74] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:48 3dr_controller local1.err +567 tlm: [90] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:49 3dr_controller local1.err +611 tlm: [90] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:49 3dr_controller local1.err +614 tlm: [82] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:52 3dr_controller local1.info +025 tlm: dn:902 (1,1)882/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:37:56 3dr_controller local1.err +693 tlm: [63] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:56 3dr_controller local1.err +788 tlm: [13] sendto 192.168.1.1:14550 returned -1, expected 30: Resource temporarily unavailable
+Dec 27 21:37:57 3dr_controller local1.err +696 tlm: [88] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:57 3dr_controller local1.err +798 tlm: [87] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:58 3dr_controller local1.err +711 tlm: [92] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:58 3dr_controller local1.err +812 tlm: [92] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:59 3dr_controller local1.err +724 tlm: [90] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:37:59 3dr_controller local1.err +825 tlm: [90] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:00 3dr_controller local1.err +741 tlm: [92] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:00 3dr_controller local1.err +838 tlm: [92] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:01 3dr_controller local1.err +754 tlm: [90] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:01 3dr_controller local1.err +855 tlm: [90] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:02 3dr_controller local1.info +008 tlm: dn:883 (1,1)863/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:38:02 3dr_controller local1.err +767 tlm: [93] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:02 3dr_controller local1.err +866 tlm: [93] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:03 3dr_controller local1.err +780 tlm: [91] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:03 3dr_controller local1.err +879 tlm: [91] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:04 3dr_controller local1.err +791 tlm: [93] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:04 3dr_controller local1.err +892 tlm: [93] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:05 3dr_controller local1.err +806 tlm: [90] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:05 3dr_controller local1.err +906 tlm: [90] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:06 3dr_controller local1.err +819 tlm: [92] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:06 3dr_controller local1.err +923 tlm: [92] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:07 3dr_controller local1.err +831 tlm: [91] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:07 3dr_controller local1.err +931 tlm: [91] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:08 3dr_controller local1.err +846 tlm: [92] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:08 3dr_controller local1.err +945 tlm: [92] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:09 3dr_controller local1.err +857 tlm: [90] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:09 3dr_controller local1.err +956 tlm: [90] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:10 3dr_controller local1.err +869 tlm: [92] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:10 3dr_controller local1.err +970 tlm: [92] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:11 3dr_controller local1.err +886 tlm: [90] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:11 3dr_controller local1.err +977 tlm: [90] sendto 192.168.1.1:14550 returned -1, expected 11: Resource temporarily unavailable
+Dec 27 21:38:12 3dr_controller local1.info +086 tlm: dn:910 (1,1)890/0 (1,154)10/9 (10,0)10/0 up:0
+Dec 27 21:38:12 3dr_controller local1.err +903 tlm: [92] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:13 3dr_controller local1.err +003 tlm: [93] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:13 3dr_controller local1.err +916 tlm: [91] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:14 3dr_controller local1.err +017 tlm: [91] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:14 3dr_controller local1.err +929 tlm: [92] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:15 3dr_controller local1.err +031 tlm: [92] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:15 3dr_controller local1.err +946 tlm: [90] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:16 3dr_controller local1.err +047 tlm: [90] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:16 3dr_controller local1.err +962 tlm: [93] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:17 3dr_controller local1.err +064 tlm: [93] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:17 3dr_controller local1.err +975 tlm: [90] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:18 3dr_controller local1.err +078 tlm: [90] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:18 3dr_controller local1.err +978 tlm: [93] sendto 10.1.1.153:14550 returned -1, expected 11: Resource temporarily unavailable
+Dec 27 21:38:19 3dr_controller local1.err +092 tlm: [93] sendto 192.168.1.1:14550 returned -1, expected 36: Resource temporarily unavailable
+Dec 27 21:38:22 3dr_controller local1.info +125 tlm: dn:671 (1,1)656/0 (1,154)7/6 (10,0)8/0 up:0
+Dec 27 21:38:32 3dr_controller local1.info +128 tlm: dn:0 up:0
+Dec 27 21:38:41 3dr_controller local1.info video: terminate

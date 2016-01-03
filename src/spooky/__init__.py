@@ -4,7 +4,7 @@
 # A Zero-Dependency Network Management Library
 #
 
-__all__ = ["ip", "modules", "swift"]
+__all__ = ["ip", "modules", "swift", "coords"]
 
 #====================================================================#
 
