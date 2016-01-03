@@ -68,7 +68,7 @@ class SoloModule(spooky.modules.SpookyModule):
     self.statusmsg_API = ""
     
     self.vehicle = None
-    self.vehicle_home_ned = None
+    self.vehicle_home_ned = [0,0,0] #None
     self.vehicle_home = None
 
     self._executor = None
@@ -170,14 +170,15 @@ class SoloModule(spooky.modules.SpookyModule):
       if location is None or (location.lat == 0.0 and location.lon == 0.0):
         return
       llh = {
-        'lat':location.lat,
-        'lon':location.lon,
-        'alt':location.alt,
+        'lat'  :location.lat,
+        'lon'  :location.lon,
+        'alt'  :location.alt,
         'coord': 'LocationGlobalRelative'
       }
 
-      spooky_ned = self._vehicle_llh_relative_to_spooky_ned([location.lat, location.lon, location.alt])
-      self.main.modules.trigger('update_partial_state', 'solo', [('lookFrom', spooky_ned)])
+      loc = [location.lat, location.lon, location.alt]
+      spooky_ned = self._vehicle_llh_relative_to_spooky_ned(loc)
+      self.main.modules.trigger('update_partial_state', 'solo', [('lookFrom', spooky_ned), (attr_name, llh)])
     except:
       import traceback
       traceback.print_exc()
@@ -207,6 +208,14 @@ class SoloModule(spooky.modules.SpookyModule):
     cmds.download()
     cmds.wait_ready()
     self.vehicle_home = self.vehicle.home_location
+
+    home_location_llh = {
+      'lat'  : self.vehicle_home.lat,
+      'lon'  : self.vehicle_home.lon,
+      'alt'  : self.vehicle_home.alt,
+      'coord': 'LocationGlobalRelative'
+    }
+    self.main.modules.trigger('update_partial_state', 'solo', [('home_location', home_location_llh)])
     print "Downloading latest HOME location:", str(self.vehicle_home)
 
   def connect(self):
@@ -318,11 +327,11 @@ class SoloModule(spooky.modules.SpookyModule):
     self._executor.cancel()
     self.vehicle.mode    = dronekit.VehicleMode("RTL")
 
-  def sendLookAtSpookyNED(self, ned, vel=[0,0,0]):
+  def sendLookAtSpookyNED_simple(self, ned, vel=[0,0,0]):
     if not self.vehicle:
       return False
     
-    print "sendLookAtSpookyNED", ned
+    print "sendLookAtSpookyNED_simple", ned
     llh = self._spooky_to_vehicle_llh_relative(ned)
     if llh is None:
       print "Can't look-at, no home location!"
@@ -381,9 +390,10 @@ class SoloModule(spooky.modules.SpookyModule):
       return False
 
     drone_llh = self._spooky_to_vehicle_llh_relative(ned)
+    print "sendLookFromSpookyNED_simple ned=", ned, "drone_llh=", drone_llh
 
-    point1 = LocationGlobalRelative(drone_llh[0], drone_llh[1], drone_llh[2])
-    vehicle.simple_goto(point1)
+    point1 = dronekit.LocationGlobalRelative(drone_llh[0], drone_llh[1], drone_llh[2])
+    self.vehicle.simple_goto(point1)
 
   def sendLookFromSpookyNED(self, ned, vel=[0,0,0], useVel=False):
     '''
@@ -549,13 +559,19 @@ class SoloModule(spooky.modules.SpookyModule):
       print "    Is Armable?: %s" % self.vehicle.is_armable
       print "    Armed: %s" % self.vehicle.armed
 
-  def cmd_goto(self, n, e, d):
+  def cmd_goto(self, n, e, d, simple=False):
     print "Command to go to (%d,%d,%d) in mm ned spooky frame." % (n, e, d)
-    print "Command Result: %s" % self.sendLookFromSpookyNED([n,e,d])
+    if simple:
+      print "Command Result: %s" % self.sendLookFromSpookyNED_simple([n,e,d])
+    else:
+      print "Command Result: %s" % self.sendLookFromSpookyNED([n,e,d])
 
-  def cmd_lookat(self, n, e, d, vel=[0,0,0]):
+  def cmd_lookat(self, n, e, d, vel=[0,0,0], simple=False):
     print "Command to look at (%d,%d,%d) in mm ned spooky frame with vel=%s" % (n, e, d, str(vel))
-    print "Command Result: %s" % self.sendLookAtSpookyNED([n,e,d],vel=vel)
+    if simple:
+      print "Command Result: %s" % self.sendLookAtSpookyNED_simple([n,e,d])
+    else:
+      print "Command Result: %s" % self.sendLookAtSpookyNED([n,e,d],vel=vel)
 
   def cmd_solo(self, args):
 
@@ -588,6 +604,10 @@ class SoloModule(spooky.modules.SpookyModule):
       if len(args) < 4:
         return usage()
       return self.cmd_goto(int(args[1]),int(args[2]),int(args[3]))
+    elif 'goto_simple' in args:
+      if len(args) < 4:
+        return usage()
+      return self.cmd_goto(int(args[1]),int(args[2]),int(args[3]), simple=True)
     elif 'lookat' in args:
       if len(args) == 4:
         return self.cmd_lookat(int(args[1]),int(args[2]),int(args[3]))
@@ -595,7 +615,10 @@ class SoloModule(spooky.modules.SpookyModule):
         return self.cmd_lookat(int(args[1]),int(args[2]),int(args[3]), vel=[int(args[4]), int(args[5]), int(args[6])])
       else:
         return usage()
-      
+    elif 'lookat_simple' in args:
+      if len(args) == 4:
+        return self.cmd_lookat(int(args[1]),int(args[2]),int(args[3]), simple=True)
+      return usage()      
     elif 'set_home' in args:
       if len(args) == 1:
         return self.set_piksi_home_from_solo_sbp()

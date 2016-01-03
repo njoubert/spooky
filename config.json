@@ -10,7 +10,13 @@
 		"full-state-logs-prefix":    "/logs/state",
 		"dronekit-streamrate":       5,
 		"dronekit-airspeed":         0.3,
-		"dronekit-groundspeed":      0.3
+		"dronekit-groundspeed":      0.3,
+		"sololink-my-ip":           "10.1.1.153",
+		"solo-ip":                  "10.1.1.10",
+		"solo-sbp-port":            18000,
+		"solo-sbp-relay-send-port": 18002,
+		"solo-sbp-relay-recv-port": 18003
+
 	},
 
 	"NETWORK": {
@@ -41,14 +47,7 @@
 		"udp-bcast-ip":             "127.0.0.1",
 		"sbp-port":                 "/dev/cu.usbserial-00001014",
 		"sbp-baud":                 1000000,
-		"dronekit-device":          "0.0.0.0:14550",
-		"sololink-my-ip":           "10.1.1.153",
-		"solo-ip":                  "10.1.1.10",
-		"solo-sbp-port":            18000,
-		"solo-sbp-relay-send-port": 18002,
-		"solo-sbp-relay-recv-port": 18003
-			
-	},
+		"dronekit-device":          "0.0.0.0:14550"	},
 
 	"127.0.0.1": {
 		"be-the-basestation":     false,
