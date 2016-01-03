@@ -276,6 +276,7 @@ This section demonstrates how to create a bi-directional relay of SBP data from 
 	solo install-smart
 	solo install-runit
 	solo install-pip
+	solo resize
 
 **Download Logs**
 
@@ -291,6 +292,27 @@ See [this discussion.](https://discuss.dronekit.io/t/peripherals-mapping-between
 Use an OTG USB cable, such as [this](https://store.3drobotics.com/products/micro-usb-cable-2) or [this](http://www.amazon.com/Micro-USB-OTG-Adapter-Cable/dp/B00D8YZ2SA) one. Connect the host side (blue) to the iMX6 (that is, solo).
 
 Put the iMX6 USB into host mode. By default it exposes a serial port. Use or make a jumper and connect ```GND``` to ```3DRID```. 
+
+SSH into solo, and check that Piksi is available on Solo:
+
+	ssh 10.1.1.10
+	cd /dev/serial/by-id
+	ls -lah
+
+and you should see something like
+
+	drwxr-xr-x    2 root     root          60 Jan  2 09:05 ./
+	drwxr-xr-x    4 root     root          80 Jan  1  1970 ../	
+	lrwxrwxrwx    1 root     root          13 Jan  1  1970 usb-FTDI_Single_RS232-HS-if00-port0 -> ../../ttyUSB0
+
+Notice the FTDI driver - that's Piksi!
+
+**Install libsbp**
+
+Time to get busy! Install [libsbp](https://swift-nav.github.io/libsbp/) on Solo and check out the [libsbp docs](https://swift-nav.github.io/libsbp/python/docs/build/html/):
+
+	ssh 10.1.1.10
+	pip install sbp
 
 
 

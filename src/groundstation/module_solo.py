@@ -68,7 +68,7 @@ class SoloModule(spooky.modules.SpookyModule):
     self.statusmsg_API = ""
     
     self.vehicle = None
-    self.vehicle_home_ned = [4799, -5748, 1344]#[0,0,10000]
+    self.vehicle_home_ned = None
     self.vehicle_home = None
 
     self._executor = None
@@ -541,7 +541,7 @@ class SoloModule(spooky.modules.SpookyModule):
   def cmd_solo(self, args):
 
     def usage():
-      print "solo (mayday|status|connect|disconnect|arm|takeoff|goto <n> <e> <d>|lookat <n> <e> <d>|rtl|go|stop|set_home <piksi_ip>|ok|no)"
+      print "solo (mayday|status|connect|disconnect|arm|takeoff|goto <n> <e> <d>|lookat <n> <e> <d>|rtl|go|stop|set_home (<piksi_ip>|<n mm> <e mm> <d mm>)|ok|no)"
       print args
 
     if 'mayday' in args:
@@ -578,9 +578,11 @@ class SoloModule(spooky.modules.SpookyModule):
         return usage()
       
     elif 'set_home' in args:
-      if len(args) < 2:
-        return usage()
-      return self.set_home_now(args[1])
+      if len(args) == 2:
+        return self.set_piksi_home_from_ip(args[1])
+      if len(args) == 4:
+        return self.set_piksi_home_manually(int(args[1]),int(args[2]),int(args[3]))
+      return usage()
     elif 'ok' in args:
       self.okay = True
       self.cleared_to_execute.set()
@@ -597,13 +599,12 @@ class SoloModule(spooky.modules.SpookyModule):
   # Main Module Runloop
   # ===========================================================================
 
-  def set_home_now(self, piksi_ip):
+  def set_piksi_home_from_ip(self, piksi_ip):
     # OK, we grab the current position of a Piksi baseline
     # and save that as the NED vector to translate from 
 
     if not self.vehicle:
-      print "NO vehicle attached"
-      return
+      print "NO vehicle attached yet. Saving anyway."
 
     home = self.vehicle.home_location
 
@@ -619,6 +620,13 @@ class SoloModule(spooky.modules.SpookyModule):
       print msg
 
     self.vehicle_home_ned = ned
+
+  def set_piksi_home_manually(self, n_mm, e_mm, d_mm):
+
+    if not self.vehicle:
+      print "NO vehicle attached yet. Saving anyway."
+
+    self.vehicle_home_ned = [n_mm, e_mm, d_mm]
 
   def run(self):
     try:

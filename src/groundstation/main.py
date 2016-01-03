@@ -167,9 +167,10 @@ class GroundStation(CommandLineHandler):
 
     bcast_listener = self.modules.load_module('sbpbroadcastlistener')
     solo = self.modules.load_module('solo', waitTimeout=15.0)
-    
     bcast_listener.set_data_callback(solo.injectGPS)
-
+    
+    solosbp = self.modules.load_module('solo_sbp')
+    
     print "CONFIGURATON DONE! Spooky is ready for your commands:"
     
   def set_systemstate(self, module):

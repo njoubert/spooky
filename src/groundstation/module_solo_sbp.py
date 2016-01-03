@@ -16,21 +16,41 @@ from sbp.navigation import MsgPosLLH, MsgGPSTime, MsgDops, MsgBaselineNED, MsgVe
 from sbp.piksi import SBP_MSG_IAR_STATE, MsgIarState
 
 import spooky, spooky.modules, spooky.ip, spooky.swift
-from spooky.swift import SBPUDPDriver, SbpMsgCache
+from spooky.swift import SBPUDPDriver
 
-class OdroidPersonSBPModule(spooky.modules.SpookyModule):
+class SoloSBPModule(spooky.modules.SpookyModule):
   '''
-  This is the Swift Binary Protocol receiver of a remote OdroidPerson.
+  This is the Swift Binary Protocol receiver of a remote Solo. 
+
+  
+
+
+
+
+
+
+
+  TODO: It's almost identical to the odroidperson_sbp
+  The only difference is a few parameters. Seriously, unify the two!
+  
+  
+
+
+
+
+
+
   '''
 
   def __init__(self, main, instance_name=None):
-    spooky.modules.SpookyModule.__init__(self, main, "odroidperson_sbp", instance_name=instance_name)
-    self.bind_ip  = self.main.config.get_my('my-ip')
-    self.sbp_port = self.main.config.get_foreign(instance_name, 'sbp-server-port')
-    self.relay_send_port = self.main.config.get_foreign(instance_name, 'sbp-relay-send-port')
-    self.relay_recv_port = self.main.config.get_foreign(instance_name, 'sbp-relay-recv-port')
-    self.last_update = 0
-    self.msg_cache = SbpMsgCache()
+    spooky.modules.SpookyModule.__init__(self, main, "solo_sbp", singleton=True)
+    self.local_bind_ip  = self.main.config.get_my('my-ip')
+    self.sololink_bind_ip  = self.main.config.get_my('sololink-my-ip')
+    self.solo_sbp_recv_port = self.main.config.get_my('solo-recv-port')
+    self.solo_sbp_send_port = self.main.config.get_my('solo-send-port')
+
+    self.relay_recv_port = self.main.config.get_my('solo-sbp-relay-recv-port')
+    self.relay_send_port = self.main.config.get_my('solo-sbp-relay-send-port')
 
   def cmd_status(self):
     if self.last_update == 0:
@@ -52,21 +72,21 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
       self.main.modules.trigger('update_partial_state', self.instance_name, update)
 
   def handle_relay(self, msg, **metadata):
-    self.relay_udp.sendto(msg.to_binary(), (self.bind_ip, self.relay_send_port))
+    self.relay_udp.sendto(msg.to_binary(), (self.local_bind_ip, self.relay_send_port))
 
   def run(self):
     '''Thread loop here'''
     try:
-      with SBPUDPDriver(self.bind_ip, self.sbp_port) as driver:
+      with SBPUDPDriver(self.sololink_bind_ip, self.solo_sbp_recv_port) as driver:
         with Handler(Framer(driver.read, None, verbose=True)) as source:
 
           with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as relay_udp:
             relay_udp.setblocking(1)
             relay_udp.settimeout(0.05)
-            relay_udp.bind((self.bind_ip, self.relay_recv_port))
+            relay_udp.bind((self.local_bind_ip, self.relay_recv_port))
             self.relay_udp = relay_udp
 
-            print "Module %s listening on %s : %s and relaying to %s (send: %d, recv: %d)" % (self, self.bind_ip, self.sbp_port, self.bind_ip, self.relay_send_port, self.relay_recv_port)
+            print "Module %s listening on %s : %s and relaying to %s (send: %d, recv: %d)" % (self, self.sololink_bind_ip, self.solo_sbp_recv_port, self.local_bind_ip, self.relay_send_port, self.relay_recv_port)
 
             source.add_callback(self.handle_relay)
             source.add_callback(self.handle_incoming, 
@@ -85,9 +105,9 @@ class OdroidPersonSBPModule(spooky.modules.SpookyModule):
                 traceback.print_exc()
     except:
       traceback.print_exc()
-      print "FUUU"
+      print "SoloLink SBP FUUUU"
 
 def init(main, instance_name=None):
-  module = OdroidPersonSBPModule(main, instance_name=instance_name)
+  module = SoloSBPModule(main, instance_name=instance_name)
   module.start()
   return module
