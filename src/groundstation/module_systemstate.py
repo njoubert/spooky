@@ -92,6 +92,8 @@ class SystemStateModule(spooky.modules.SpookyModule):
     dests = self.main.config.get_my('state_destinations')
     self.state_destinations = [(d[0], d[1]) for d in dests]
 
+    self.piksi_baseline_max_age = 5.0 #Seconds
+
 
   # ===========================================================================
   # API and Internals for dealing with State
@@ -158,8 +160,10 @@ class SystemStateModule(spooky.modules.SpookyModule):
     msg = None
     if spooky.testBit(piksi_baseline['flags'], 0) ==  0:
       msg = "Piksi only has Float baseline! flags=%d" %  piksi_baseline['flags']
-    if age > 10.0:
-      msg = "Piksi Baseline older than %.2fs!" % 10.0
+      ned = None
+    if age > self.piksi_baseline_max_age:
+      msg = "Piksi Baseline older than %.2fs!" % self.piksi_baseline_max_age
+      ned = None
     
     return (ned, msg)
 

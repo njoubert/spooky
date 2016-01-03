@@ -100,7 +100,7 @@ class SoloModule(spooky.modules.SpookyModule):
   def _spooky_to_vehicle_llh_relative(self, ned):
     '''
     Converts spooky-frame integer mm NED value
-    to Drone Global Coordinate Frame with Relative altitude
+    to Drone Global Coordinate Frame with Relative altitude in meters
     '''
     if not self.vehicle_home:
       print "FAILED _spooky_to_vehicle_llh_relative: No vehicle home!"
@@ -118,7 +118,7 @@ class SoloModule(spooky.modules.SpookyModule):
       print "FAILED _vehicle_llh_relative_to_spooky_ned: No vehicle home!"
       return None
 
-    home_llh = [self.vehicle_home.lat, self.vehicle_home.lon, self.vehicle_home.alt]
+    home_llh = [self.vehicle_home.lat, self.vehicle_home.lon, 0]
     drone_ned = spooky.coords.llh2ned(llh, home_llh)
     return self._vehicle_to_spooky_ned(drone_ned)
 
@@ -332,16 +332,26 @@ class SoloModule(spooky.modules.SpookyModule):
     # The old, inaccurate DO_SET_ROI call
     # ==================================================
 
-    # msg = self.vehicle.message_factory.command_long_encode(
-    #                                                 1, 1,    # target system, target component
-    #                                                 mavutil.mavlink.MAV_CMD_DO_SET_ROI, #command
-    #                                                 0, #confirmation
-    #                                                 0, 0, 0, 0, #params 1-4
-    #                                                 llh[0],
-    #                                                 llh[1],
-    #                                                 llh[2]
-    #                                                 )
-    # self.vehicle.send_mavlink(msg)
+    msg = self.vehicle.message_factory.command_long_encode(
+                                                    1, 1,    # target system, target component
+                                                    mavutil.mavlink.MAV_CMD_DO_SET_ROI, #command
+                                                    0, #confirmation
+                                                    0, 0, 0, 0, #params 1-4
+                                                    llh[0],
+                                                    llh[1],
+                                                    llh[2]
+                                                    )
+    self.vehicle.send_mavlink(msg)
+
+  def sendLookAtSpookyNED(self, ned, vel=[0,0,0]):
+    if not self.vehicle:
+      return False
+    
+    print "sendLookAtSpookyNED", ned
+    llh = self._spooky_to_vehicle_llh_relative(ned)
+    if llh is None:
+      print "Can't look-at, no home location!"
+      return
 
     # ==================================================
     # The new, accurate set_position_target_global_int_encode call
@@ -367,7 +377,13 @@ class SoloModule(spooky.modules.SpookyModule):
     self.vehicle.send_mavlink(msg)
 
   def sendLookFromSpookyNED_simple(self, ned, vel=[0,0,0], useVel=False):
-    pass
+    if not self.vehicle:
+      return False
+
+    drone_llh = self._spooky_to_vehicle_llh_relative(ned)
+
+    point1 = LocationGlobalRelative(drone_llh[0], drone_llh[1], drone_llh[2])
+    vehicle.simple_goto(point1)
 
   def sendLookFromSpookyNED(self, ned, vel=[0,0,0], useVel=False):
     '''
@@ -625,7 +641,11 @@ class SoloModule(spooky.modules.SpookyModule):
     if msg:
       print msg
 
-    self.vehicle_home_ned = ned
+    if ned:
+      self.vehicle_home_ned = ned
+    else:
+      "Did not update piksi_home"
+
     print "vehicle_home_ned =", ned
 
   def set_piksi_home_manually(self, n_mm, e_mm, d_mm):

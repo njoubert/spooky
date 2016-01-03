@@ -315,9 +315,21 @@ Time to get busy! Install [libsbp](https://swift-nav.github.io/libsbp/) on Solo 
 	pip install sbp
 	mkdir /home/root/Code
 
+**Install solo sbp relay**
+
 Copy the ```src/solo/main.py``` file to your solo:
 
 	rsync -avz src/solo/main.py root@10.1.1.10:/home/root/Code
+
+Create a service
+
+mkdir -p /etc/solo-services/spooky/
+cat <<'EOF' | tee /etc/solo-services/spooky/run
+#!/bin/bash
+cd /home/root/Code && exec python main.py
+EOF
+chmod +x /etc/solo-services/spooky/run
+
 
 ### Firing up Solo Simulator
 
