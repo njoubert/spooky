@@ -16,14 +16,14 @@ The tools does not make the master. A master chooses great tools for his craft. 
 
 - Macbook Pro, OS X 10.10 Yosemite
 - [Git](https://git-scm.com/) and [Github](http://www.github.com/njoubert)
-- - [SourceTree](https://www.sourcetreeapp.com/) for visualizing Git repositories.
+	- [SourceTree](https://www.sourcetreeapp.com/) for visualizing Git repositories.
 - Markdown for documentation 
 - Sublime Text 3
-- - [Material theme](https://equinusocio.github.io/material-theme/)
-- - [GitGutter](https://github.com/jisaacks/GitGutter)
-- - [Full usage of keyboard and mouse shortcuts](https://gist.github.com/4062168)
+	- [Material theme](https://equinusocio.github.io/material-theme/)
+	- [GitGutter](https://github.com/jisaacks/GitGutter)
+	- [Full usage of keyboard and mouse shortcuts](https://gist.github.com/4062168)
 - BASH
-- - [with git configuration]()
+	 - [with git configuration]()
 - [Dropbox](www.dropbox.com) stores *all* my files.
 - [Divvy](http://mizage.com/divvy/), with reasonable keyboard shortcuts to push windows around.
 - [Quicksilver](https://qsapp.com/) app launcher
