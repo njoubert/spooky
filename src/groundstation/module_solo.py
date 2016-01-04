@@ -209,13 +209,14 @@ class SoloModule(spooky.modules.SpookyModule):
     cmds.wait_ready()
     self.vehicle_home = self.vehicle.home_location
 
-    home_location_llh = {
-      'lat'  : self.vehicle_home.lat,
-      'lon'  : self.vehicle_home.lon,
-      'alt'  : self.vehicle_home.alt,
-      'coord': 'LocationGlobalRelative'
-    }
-    self.main.modules.trigger('update_partial_state', 'solo', [('home_location', home_location_llh)])
+    if self.vehicle_home is not None:
+      home_location_llh = {
+        'lat'  : self.vehicle_home.lat,
+        'lon'  : self.vehicle_home.lon,
+        'alt'  : self.vehicle_home.alt,
+        'coord': 'LocationGlobalRelative'
+      }
+      self.main.modules.trigger('update_partial_state', 'solo', [('home_location', home_location_llh)])
     print "Downloading latest HOME location:", str(self.vehicle_home)
 
   def connect(self):
@@ -228,10 +229,10 @@ class SoloModule(spooky.modules.SpookyModule):
       
       print "Vehicle Connected! Setting airpspeed and downloading commands..."
       
-      self._update_vehicle_home()
-
       self.vehicle.groundspeed = self.groundspeed # Make it move SLOWLY
       self.vehicle.airspeed = self.airspeed
+
+      self._update_vehicle_home()
 
       self.vehicle.add_attribute_listener('location', self.callback_location)
       self.vehicle.add_attribute_listener('attitude', self.callback_attitude)
@@ -277,10 +278,15 @@ class SoloModule(spooky.modules.SpookyModule):
   def arm(self, value=True, timeout=2.0):
 
     def deferred():
-      if not self.vehicle or (not self.vehicle.armed and not self.vehicle.is_armable):
-        print " The vehicle is not ready to arm: %s, %s" % (self.vehicle, self.vehicle.is_armable)
+      if not self.vehicle:
+        print "No vehicle attached. "
         return False
+
       if value:
+        if (not self.vehicle.armed and not self.vehicle.is_armable):
+          print " The vehicle is not ready to arm: %s, %s" % (self.vehicle, self.vehicle.is_armable)
+          return False
+
         print "Arming into GUIDED mode..."
         self.vehicle.mode    = dronekit.VehicleMode("GUIDED")
         self.vehicle.armed   = True
@@ -487,7 +493,7 @@ class SoloModule(spooky.modules.SpookyModule):
           print "Please type solo <ok>|<no> depending on whether you're okay with this!"
           self.cleared_to_execute.wait()
         if not prompt or self.okay:
-          self.sendLookFromSpookyNED(desiredstate['position'])
+          self.sendLookFromSpookyNED_simple(desiredstate['position'])
           self.sendLookAtSpookyNED(desiredstate['lookat'])
         else:
           print "NOPE!"
@@ -576,7 +582,7 @@ class SoloModule(spooky.modules.SpookyModule):
   def cmd_solo(self, args):
 
     def usage():
-      print "solo (mayday|status|connect|disconnect|arm|takeoff|goto <n> <e> <d>|lookat <n> <e> <d>|rtl|go|stop|set_home (<piksi_ip>|<n mm> <e mm> <d mm>)|ok|no)"
+      print "solo (mayday|status|connect|disconnect|arm|disarm|takeoff|goto <n> <e> <d>|lookat <n> <e> <d>|rtl|go|stop|set_home (<piksi_ip>|<n mm> <e mm> <d mm>)|ok|no)"
       print args
 
     if 'mayday' in args:
@@ -589,6 +595,9 @@ class SoloModule(spooky.modules.SpookyModule):
       return self.disconnect()
     elif 'arm' in args:
       self.arm()
+      return
+    elif 'disarm' in args:
+      self.arm(value=False)
       return
     elif 'takeoff' in args:
       self.takeoff()

@@ -321,14 +321,14 @@ Copy the ```src/solo/main.py``` file to your solo:
 
 	rsync -avz src/solo/main.py root@10.1.1.10:/home/root/Code
 
-Create a service
+Create a service to auto-start ```main.py```. Copy-paste this into the shell:
 
-mkdir -p /etc/solo-services/spooky/
-cat <<'EOF' | tee /etc/solo-services/spooky/run
-#!/bin/bash
-cd /home/root/Code && exec python main.py
-EOF
-chmod +x /etc/solo-services/spooky/run
+	mkdir -p /etc/solo-services/spooky/
+	cat <<'EOF' | tee /etc/solo-services/spooky/run
+	#!/bin/bash
+	cd /home/root/Code && exec python main.py
+	EOF
+	chmod +x /etc/solo-services/spooky/run
 
 
 ### Firing up Solo Simulator

@@ -61,6 +61,7 @@ class SBPUDPBroadcastListenerHandlerThread(spooky.modules.SpookyModule):
     self.dying = False
 
   def set_data_callback(self, data_callback):
+    print "set data callback", data_callback
     self.data_callback = data_callback
 
   def handle_incoming(self, msg, **metadata):

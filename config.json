@@ -8,10 +8,10 @@
 		"sbp-bcast-sleep":           0.1,
 		"raw-sbp-logs-prefix":       "/logs/sbplog",
 		"full-state-logs-prefix":    "/logs/state",
-		"dronekit-streamrate":       5,
+		"dronekit-streamrate":       10,
 		"dronekit-airspeed":         0.3,
 		"dronekit-groundspeed":      0.3,
-		"sololink-my-ip":           "10.1.1.153",
+		"sololink-my-ip":           "10.1.1.100",
 		"solo-ip":                  "10.1.1.10",
 		"solo-sbp-port":            18000,
 		"solo-sbp-relay-send-port": 18002,
@@ -29,17 +29,18 @@
 	},
 	
 	"192.168.2.1": {
-		"state_destinations":	 [["127.0.0.1", 19001], ["192.168.3.2", 19001]],
+		"state_destinations":	 [["127.0.0.1", 19001], ["192.168.2.2", 19001]],
 		"camera_cc_port":        19011,
 		"be-the-basestation":    false,
 		"my-ip":                 "192.168.2.1",
 		"listen-on-ip":           "0.0.0.0",
 		"sbp-port":              "/dev/cu.usbserial-00005214",
 		"sbp-baud":              1000000,
-		"dronekit-device":       "0.0.0.0:14550"
+		"dronekit-device":       "0.0.0.0:14551",		
+		"dronekit-device-raw":       "0.0.0.0:14550"
 	},
 	"localhost-server": {
-		"state_destinations":	    [["127.0.0.1", 19000], ["192.168.3.2", 19000]],
+		"state_destinations":	    [["127.0.0.1", 19000], ["192.168.2.2", 19000]],
 		"camera_cc_port":           19010,
 		"be-the-basestation":       true,
 		"my-ip":                    "127.0.0.1",
