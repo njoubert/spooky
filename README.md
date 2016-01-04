@@ -23,7 +23,7 @@ The tools does not make the master. A master chooses great tools for his craft. 
 	- [GitGutter](https://github.com/jisaacks/GitGutter)
 	- [Full usage of keyboard and mouse shortcuts](https://gist.github.com/4062168)
 - BASH
-	 - [with git configuration]()
+	 - [with git configuration](https://github.com/njoubert/spooky/blob/master/bash_profile)
 - [Dropbox](www.dropbox.com) stores *all* my files.
 - [Divvy](http://mizage.com/divvy/), with reasonable keyboard shortcuts to push windows around.
 - [Quicksilver](https://qsapp.com/) app launcher
