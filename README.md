@@ -10,6 +10,26 @@ A Library and Toolkit for Wireless Distributed State Estimation and Control of M
 This code runs a wireless multi-node sensor networks, powering our wireless cinematography system.
 It currently assumes a python-compatible Linux computers at each node. (In our case, ODROID XU4 running Ubuntu and Python 2.7)
 
+## Before we start
+
+The tools does not make the master. A master chooses great tools for his craft. I am far from full mastery, but at this stage of my journey, here's the tools I choose for my craft:
+
+- Macbook Pro, OS X 10.10 Yosemite
+- [Git](https://git-scm.com/) and [Github](http://www.github.com/njoubert)
+- - [SourceTree](https://www.sourcetreeapp.com/) for visualizing Git repositories.
+- Markdown for documentation 
+- Sublime Text 3
+- - [Material theme](https://equinusocio.github.io/material-theme/)
+- - [GitGutter](https://github.com/jisaacks/GitGutter)
+- - [Full usage of keyboard and mouse shortcuts](https://gist.github.com/4062168)
+- BASH
+- - [with git configuration]()
+- [Dropbox](www.dropbox.com) stores *all* my files.
+- [Divvy](http://mizage.com/divvy/), with reasonable keyboard shortcuts to push windows around.
+- [Quicksilver](https://qsapp.com/) app launcher
+- [Caffeine](http://lightheadsw.com/caffeine/) for power control
+- [f.lux](https://justgetflux.com/) for nighttime coding
+
 ## Contents
 
 ### bin/
