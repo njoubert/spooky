@@ -333,6 +333,13 @@ class SoloModule(spooky.modules.SpookyModule):
     self._executor.cancel()
     self.vehicle.mode    = dronekit.VehicleMode("RTL")
 
+
+  def sendCameraOrientation(self, roll, pitch, yaw):
+    if not self.vehicle:
+      return False
+
+    vehicle.gimbal.rotate(pitch, roll, yaw)
+
   def sendLookAtSpookyNED_simple(self, ned, vel=[0,0,0]):
     if not self.vehicle:
       return False
@@ -579,10 +586,13 @@ class SoloModule(spooky.modules.SpookyModule):
     else:
       print "Command Result: %s" % self.sendLookAtSpookyNED([n,e,d],vel=vel)
 
+  def cmd_orientation(self, r, p, y):
+    print "Command to orient with (%f,%f,%f)" % (r, p, y)
+
   def cmd_solo(self, args):
 
     def usage():
-      print "solo (mayday|status|connect|disconnect|arm|disarm|takeoff|goto <n> <e> <d>|lookat <n> <e> <d>|rtl|go|stop|set_home (<piksi_ip>|<n mm> <e mm> <d mm>)|ok|no)"
+      print "solo (mayday|status|connect|disconnect|arm|disarm|takeoff|goto <n> <e> <d>|lookat <n> <e> <d>|orient <r> <p> <y>|rtl|go|stop|set_home (<piksi_ip>|<n mm> <e mm> <d mm>)|ok|no)"
       print args
 
     if 'mayday' in args:
@@ -627,7 +637,11 @@ class SoloModule(spooky.modules.SpookyModule):
     elif 'lookat_simple' in args:
       if len(args) == 4:
         return self.cmd_lookat(int(args[1]),int(args[2]),int(args[3]), simple=True)
-      return usage()      
+      return usage()  
+    elif 'orient' in args:
+      if len(args) == 4:
+        return self.sendCameraOrientation(float(args[1]),float(args[2]),float(args[3]))
+      return usage()    
     elif 'set_home' in args:
       if len(args) == 1:
         return self.set_piksi_home_from_solo_sbp()
