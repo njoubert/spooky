@@ -156,13 +156,13 @@ class SoloModule(spooky.modules.SpookyModule):
       return [
         int(ned[0] * 1000.0),
         int(ned[1] * 1000.0),
-        int(ned[2] * 1000.0) + self.alt_comp_up
+        int(ned[2] * 1000.0) + self.alt_comp_up # TODO: Do we actually want this?
       ]
     else:
       return [
         int(ned[0]*1000.0) + self.vehicle_home_ned[0], 
         int(ned[1]*1000.0) + self.vehicle_home_ned[1], 
-        int(ned[2]*1000.0) + self.vehicle_home_ned[2] + self.alt_comp_up
+        int(ned[2]*1000.0) + self.vehicle_home_ned[2] + self.alt_comp_up # TODO: Do we actually want this?
       ]
 
   # ===========================================================================
