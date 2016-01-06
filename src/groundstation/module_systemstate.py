@@ -88,12 +88,11 @@ class SystemStateModule(spooky.modules.SpookyModule):
     self._state_transmit_period = self.main.config.get_my('state_transmit_period')
     self._stateLock = threading.Lock()
     self._state = {}
-    self.RECORDING = False
+    self.RECORDING = True
     dests = self.main.config.get_my('state_destinations')
     self.state_destinations = [(d[0], d[1]) for d in dests]
 
     self.piksi_baseline_max_age = 5.0 #Seconds
-
 
   # ===========================================================================
   # API and Internals for dealing with State

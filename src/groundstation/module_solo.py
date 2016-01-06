@@ -66,10 +66,15 @@ class SoloModule(spooky.modules.SpookyModule):
     self.vehicle_hb_threashold = 5.0
     self._ENABLE_API = False
     self.statusmsg_API = ""
-    
+    self.last_api_msg = None
+
     self.vehicle = None
     self.vehicle_home_ned = [0,0,0] #None
     self.vehicle_home = None
+    self.alt_comp_up = 0
+
+
+    self.down_from_piksi_to_camera = 100 #mm from piksi to camera. EG: Camera as 100mm down from piksi.
 
     self._executor = None
     self.init_executor()
@@ -132,13 +137,13 @@ class SoloModule(spooky.modules.SpookyModule):
       return [
         float(ned[0])/1000.0, 
         float(ned[1])/1000.0, 
-        float(ned[2])/1000.0
+        float(ned[2] - self.alt_comp_up)/1000.0
         ] 
     else:
       return [
         float(ned[0] - self.vehicle_home_ned[0])/1000.0, 
         float(ned[1] - self.vehicle_home_ned[1])/1000.0, 
-        float(ned[2] - self.vehicle_home_ned[2])/1000.0
+        float(ned[2] - self.vehicle_home_ned[2] - self.alt_comp_up)/1000.0
         ]
 
   def _vehicle_to_spooky_ned(self, ned):
@@ -151,13 +156,13 @@ class SoloModule(spooky.modules.SpookyModule):
       return [
         int(ned[0] * 1000.0),
         int(ned[1] * 1000.0),
-        int(ned[2] * 1000.0)
+        int(ned[2] * 1000.0) + self.alt_comp_up
       ]
     else:
       return [
         int(ned[0]*1000.0) + self.vehicle_home_ned[0], 
         int(ned[1]*1000.0) + self.vehicle_home_ned[1], 
-        int(ned[2]*1000.0) + self.vehicle_home_ned[2]
+        int(ned[2]*1000.0) + self.vehicle_home_ned[2] + self.alt_comp_up
       ]
 
   # ===========================================================================
@@ -238,6 +243,8 @@ class SoloModule(spooky.modules.SpookyModule):
       self.vehicle.add_attribute_listener('attitude', self.callback_attitude)
       self.vehicle.add_attribute_listener('mount', self.callback_mount)
 
+      self.set_piksi_home_from_solo_sbp()
+
       print "Vehicle Ready!"
 
     self._executor.execute(deferred)
@@ -288,7 +295,6 @@ class SoloModule(spooky.modules.SpookyModule):
           return False
 
         print "Arming into GUIDED mode..."
-        self.vehicle.mode    = dronekit.VehicleMode("GUIDED")
         self.vehicle.armed   = True
         armingWait = spooky.BusyWaitWithTimeout(lambda: self.vehicle.armed, 0.1, 5.0)
         if not armingWait.wait():
@@ -297,6 +303,7 @@ class SoloModule(spooky.modules.SpookyModule):
           return False
         else:
           self._update_vehicle_home()
+          self.vehicle.mode    = dronekit.VehicleMode("GUIDED")
           return True
       else:
         print "Disarming"
@@ -334,11 +341,31 @@ class SoloModule(spooky.modules.SpookyModule):
     self.vehicle.mode    = dronekit.VehicleMode("RTL")
 
 
-  def sendCameraOrientation(self, roll, pitch, yaw):
+  def sendCameraOrientation(self, rpy):
+    '''
+    RPY in DEGREES...
+    While Attitude is reported in Radians
+    '''
     if not self.vehicle:
       return False
 
-    vehicle.gimbal.rotate(pitch, roll, yaw)
+    print "Sending cameraorientation RPY", rpy
+
+    msg = self.vehicle.message_factory.mount_configure_encode(
+                0, 1,    # target system, target component
+                mavutil.mavlink.MAV_MOUNT_MODE_MAVLINK_TARGETING,  #mount_mode
+                1,  # stabilize roll
+                1,  # stabilize pitch
+                1,  # stabilize yaw
+                )
+    self.vehicle.send_mavlink(msg)
+    msg = self.vehicle.message_factory.mount_control_encode(
+                0, 1,    # target system, target component
+                rpy[1] * 100, # pitch is in centidegrees
+                rpy[0] * 100, # roll
+                rpy[2] * 100, # yaw is in centidegrees
+                0) # save position
+    self.vehicle.send_mavlink(msg)
 
   def sendLookAtSpookyNED_simple(self, ned, vel=[0,0,0]):
     if not self.vehicle:
@@ -408,6 +435,8 @@ class SoloModule(spooky.modules.SpookyModule):
     point1 = dronekit.LocationGlobalRelative(drone_llh[0], drone_llh[1], drone_llh[2])
     self.vehicle.simple_goto(point1)
 
+
+
   def sendLookFromSpookyNED(self, ned, vel=[0,0,0], useVel=False):
     '''
     Assumes NED is in "mm" integers in our spooky coordinate frame.
@@ -416,33 +445,56 @@ class SoloModule(spooky.modules.SpookyModule):
 
     '''
     drone_ned = self._spooky_to_vehicle_ned(ned)
-    print "sendLookFromSpookyNED ned=", ned, "drone_ned=", drone_ned
+    drone_llh = self._spooky_to_vehicle_llh_relative(ned)
+    print "sendLookFromSpookyNED ned=", ned, "drone_llh=", drone_llh
 
     if not self.vehicle:
       return False
 
-    if abs(drone_ned[0]) > 50 or abs(drone_ned[1]) > 50 or (-1*drone_ned[2]) < 1:
-      print "LookFrom out of (100,100,-2) bounds... cowarding out..."
+    if (-1*drone_ned[2]) < 1:
+      print "LookFrom less than 1m, cowarding out..."
       return
+
+    # https://pixhawk.ethz.ch/mavlink/#SET_POSITION_TARGET_GLOBAL_INT
 
     ignoremask = 3520 #ignore yaw stuff, and accel stuff 
     if not useVel:
       ignoremask = ignoremask | 56
-
-    msg = self.vehicle.message_factory.set_position_target_local_ned_encode(
+    msg = self.vehicle.message_factory.set_position_target_global_int_encode(
         0,  # system time in ms
         1,  # target system
         0,  # target component
-        mavutil.mavlink.MAV_FRAME_LOCAL_NED,
+        mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT_INT,
         ignoremask, # ignore
-        drone_ned[0],
-        drone_ned[1],
-        drone_ned[2],
+        int(drone_llh[0] * 1e7),
+        int(drone_llh[1] * 1e7),
+        drone_llh[2],
         vel[0], vel[1], vel[2], # velocity
         0, 0, 0, # accel x,y,z
         0, 0) # yaw, yaw rate
 
     self.vehicle.send_mavlink(msg)
+
+
+    # ignoremask = 3520 #ignore yaw stuff, and accel stuff 
+    # if not useVel:
+    #   ignoremask = ignoremask | 56
+
+
+    # msg = self.vehicle.message_factory.set_position_target_local_ned_encode(
+    #     0,  # system time in ms
+    #     1,  # target system
+    #     0,  # target component
+    #     mavutil.mavlink.MAV_FRAME_LOCAL_NED,
+    #     ignoremask, # ignore
+    #     drone_ned[0],
+    #     drone_ned[1],
+    #     drone_ned[2],
+    #     vel[0], vel[1], vel[2], # velocity
+    #     0, 0, 0, # accel x,y,z
+    #     0, 0) # yaw, yaw rate
+
+    # self.vehicle.send_mavlink(msg)
 
     return True
 
@@ -488,6 +540,8 @@ class SoloModule(spooky.modules.SpookyModule):
 
     msg = msg['payload']
 
+    self.last_api_msg = msg
+
     desiredstate = msg['desiredstate']
     # Unpack payload
 
@@ -500,8 +554,14 @@ class SoloModule(spooky.modules.SpookyModule):
           print "Please type solo <ok>|<no> depending on whether you're okay with this!"
           self.cleared_to_execute.wait()
         if not prompt or self.okay:
-          self.sendLookFromSpookyNED_simple(desiredstate['position'])
-          self.sendLookAtSpookyNED(desiredstate['lookat'])
+          self.sendLookFromSpookyNED(desiredstate['position'])
+
+          self.sendCameraOrientation(desiredstate['gimbal'])
+
+          # if desiredstate['orientationtype'] is 'lookat':
+          #   self.sendLookAtSpookyNED(desiredstate['lookat'])          
+          # else:
+          #   self.sendCameraOrientation(desiredstate['gimbal'])
         else:
           print "NOPE!"
       except:
@@ -571,6 +631,10 @@ class SoloModule(spooky.modules.SpookyModule):
       print "    Mode: %s" % self.vehicle.mode.name
       print "    Is Armable?: %s" % self.vehicle.is_armable
       print "    Armed: %s" % self.vehicle.armed
+    if self.last_api_msg:
+      print "Last API message:", self.last_api_msg
+    else:
+      print "No API messages received yet"
 
   def cmd_goto(self, n, e, d, simple=False):
     print "Command to go to (%d,%d,%d) in mm ned spooky frame." % (n, e, d)
@@ -588,11 +652,12 @@ class SoloModule(spooky.modules.SpookyModule):
 
   def cmd_orientation(self, r, p, y):
     print "Command to orient with (%f,%f,%f)" % (r, p, y)
+    self.sendCameraOrientation([r, p, y])
 
   def cmd_solo(self, args):
 
     def usage():
-      print "solo (mayday|status|connect|disconnect|arm|disarm|takeoff|goto <n> <e> <d>|lookat <n> <e> <d>|orient <r> <p> <y>|rtl|go|stop|set_home (<piksi_ip>|<n mm> <e mm> <d mm>)|ok|no)"
+      print "solo (mayday|status|connect|disconnect|arm|disarm|takeoff|goto <n> <e> <d>|lookat <n> <e> <d>|orient <r> <p> <y>|rtl|go|stop|set_home (<piksi_ip>|<n mm> <e mm> <d mm>)|ok|no|up <mm>|set_alt_comp <mm>)"
       print args
 
     if 'mayday' in args:
@@ -640,7 +705,7 @@ class SoloModule(spooky.modules.SpookyModule):
       return usage()  
     elif 'orient' in args:
       if len(args) == 4:
-        return self.sendCameraOrientation(float(args[1]),float(args[2]),float(args[3]))
+        return self.cmd_orientation(float(args[1]),float(args[2]),float(args[3]))
       return usage()    
     elif 'set_home' in args:
       if len(args) == 1:
@@ -658,6 +723,14 @@ class SoloModule(spooky.modules.SpookyModule):
       self.okay = False
       self.cleared_to_execute.set()
       return
+    elif 'up' in args:
+      if len(args) == 2:
+        return self.set_alt_comp(int(args[1]), relative=True)
+      return usage()
+    elif 'set_alt_comp' in args:
+      if len(args) == 2:
+        return self.set_alt_comp(int(args[1]), relative=False)
+      return usage()
 
 
     return usage()
@@ -666,6 +739,11 @@ class SoloModule(spooky.modules.SpookyModule):
   # Main Module Runloop
   # ===========================================================================
 
+  def set_alt_comp(self, mm_up, relative=True):
+    if relative:
+      self.alt_comp_up += mm_up
+    else:
+      self.alt_comp_up = mm_up
 
   def set_piksi_home_from_solo_sbp(self):
     self.set_piksi_home_from_ip('solo_sbp')
