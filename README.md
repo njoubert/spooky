@@ -77,6 +77,14 @@ Start playing with the CLI from `groundstation`:
 
 	>>> help
 	>>> status
+	
+**Alt Compensation**
+
+We include a manual altitude compensation / calibration routine:
+
+	solo up <mm>
+	solo set_alt_comp <mm>
+
 
 ## Dependencies and Submodules
 
