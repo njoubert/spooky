@@ -22,14 +22,17 @@ def add_import_search_dir(path):
   if cmd_subfolder not in sys.path:
    sys.path.insert(0, cmd_subfolder)
 
-add_import_search_dir('../../../Frankencopter/Code/flashlight')
 add_import_search_dir('../../src/spooky')
-
 from coords import *
+
+add_import_search_dir('../../../Frankencopter/Code/')
+add_import_search_dir('../../../Frankencopter/Code/flashlight')
 from splineutils import *
 from curveutils import *
 from quadrotorcamera3d import *
 
+add_import_search_dir('../../../Frankencopter/Code/HorusApp/app')
+import trajectoryAPI
 
 #################################################
 # WEB SERVER ENDPOINTS
@@ -77,9 +80,13 @@ def get_spline():
   cameraPose_lng_list = parsed_json['cameraPoseLngs']
   cameraPose_alt_list = parsed_json['cameraPoseAlts']
 
+  print "Calling TrajectoryAPI now..."
+  
   P_cameraPose = c_[cameraPose_lat_list, cameraPose_lng_list, cameraPose_alt_list]
   C_cameraPose,T_cameraPose,sd_cameraPose,dist_cameraPose = trajectoryAPI.compute_spatial_trajectory_and_arc_distance(P_cameraPose, inNED=False)
   
+  print "Response from trajectoryAPI", C_cameraPose
+
   data = {
     'cameraPoseCoeff': C_cameraPose.tolist(),
     'cameraPoseTvals': T_cameraPose.tolist(),
