@@ -2,10 +2,38 @@
 # Contact: Niels Joubert <niels@cs.stanford.edu>
 #
 
+#################################################
+# IMPORTS
+#################################################
+
+# Globally useful stuff
+import os, inspect, sys
+from sets import Set
+
+# Web server stuff
 from flask import Flask
 from flask import jsonify, request, url_for, redirect, render_template, abort
 server = Flask(__name__)
 server.config.from_object('config')
+
+# "Flashlight" quadrotor stuff
+def add_import_search_dir(path):
+  cmd_subfolder = os.path.realpath(os.path.abspath(os.path.join(os.path.split(inspect.getfile( inspect.currentframe() ))[0],path)))
+  if cmd_subfolder not in sys.path:
+   sys.path.insert(0, cmd_subfolder)
+
+add_import_search_dir('../../../Frankencopter/Code/IPython')
+add_import_search_dir('../../src/spooky')
+
+from coords import *
+from splineutils import *
+from curveutils import *
+from quadrotorcamera3d import *
+
+
+#################################################
+# WEB SERVER ENDPOINTS
+#################################################
 
 @server.route('/')
 def hello():
@@ -15,7 +43,7 @@ def hello():
 def get_spline():
   '''
   Send a POST request to this URL.
-  
+
   Input: a JSON object as follows:
     {
       cameraPoseN: [0, ...],
@@ -55,6 +83,11 @@ def get_spline():
 
   return jsonify(data)
 
+
+
+#################################################
+# OTHER STUFF
+#################################################
 
 def main():
   print "Launching Python Foreign Function Interface over HTTP"
