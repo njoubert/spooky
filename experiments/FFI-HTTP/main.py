@@ -22,7 +22,7 @@ def add_import_search_dir(path):
   if cmd_subfolder not in sys.path:
    sys.path.insert(0, cmd_subfolder)
 
-add_import_search_dir('../../../Frankencopter/Code/IPython')
+add_import_search_dir('../../../Frankencopter/Code/flashlight')
 add_import_search_dir('../../src/spooky')
 
 from coords import *
@@ -38,6 +38,17 @@ from quadrotorcamera3d import *
 @server.route('/')
 def hello():
   return "Hello"
+
+@server.route('/test_post', methods = ['POST'])
+def test_post():
+  parsed_json = request.get_json()
+
+  print parsed_json
+
+  return jsonify({
+      'result':'happy',
+      'your_post': parsed_json
+    })
 
 @server.route('/get_spline', methods = ['POST'])
 def get_spline():
@@ -66,19 +77,13 @@ def get_spline():
   cameraPose_lng_list = parsed_json['cameraPoseLngs']
   cameraPose_alt_list = parsed_json['cameraPoseAlts']
 
-  # P_cameraPose = c_[cameraPose_lat_list, cameraPose_lng_list, cameraPose_alt_list]
-  # C_cameraPose,T_cameraPose,sd_cameraPose,dist_cameraPose = trajectoryAPI.compute_spatial_trajectory_and_arc_distance(P_cameraPose, inNED=False)
+  P_cameraPose = c_[cameraPose_lat_list, cameraPose_lng_list, cameraPose_alt_list]
+  C_cameraPose,T_cameraPose,sd_cameraPose,dist_cameraPose = trajectoryAPI.compute_spatial_trajectory_and_arc_distance(P_cameraPose, inNED=False)
   
-  # data = {
-  #   'cameraPoseCoeff': C_cameraPose.tolist(),
-  #   'cameraPoseTvals': T_cameraPose.tolist(),
-  #   'cameraPoseDist' : dist_cameraPose.tolist(),
-  # }
-
   data = {
-    'cameraPoseCoeff': [[0]],
-    'cameraPoseTvals': [0],
-    'cameraPoseDist' : [0],
+    'cameraPoseCoeff': C_cameraPose.tolist(),
+    'cameraPoseTvals': T_cameraPose.tolist(),
+    'cameraPoseDist' : dist_cameraPose.tolist(),
   }
 
   return jsonify(data)
