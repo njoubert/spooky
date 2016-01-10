@@ -19,6 +19,9 @@
 
 	},
 
+	"solo_sbp_pump": {
+		"dronekit-device":       "0.0.0.0:14551"	
+	},
 	"NETWORK": {
 		"server": "192.168.2.1",
 		"odroidperson": [ "192.168.2.51", "192.168.2.52" ]
@@ -46,7 +49,7 @@
 		"my-ip":                    "127.0.0.1",
 		"listen-on-ip":             "0.0.0.0",
 		"udp-bcast-ip":             "127.0.0.1",
-		"sbp-port":                 "/dev/cu.usbserial-00001014",
+		"sbp-port":                 "/dev/cu.usbserial-00005014",
 		"sbp-baud":                 1000000,
 		"dronekit-device":          "0.0.0.0:14550"	},
 

@@ -165,11 +165,7 @@ class GroundStation(CommandLineHandler):
        self.modules.load_module('odroidperson_sbp', instance_name=client)
        self.modules.load_module('odroidperson_mav', instance_name=client)
 
-    bcast_listener = self.modules.load_module('sbpbroadcastlistener')
-    print bcast_listener
-    solo = self.modules.load_module('solo', waitTimeout=15.0)
-    bcast_listener.set_data_callback(solo.injectGPS)
-    
+    solo = self.modules.load_module('solo', waitTimeout=15.0)    
     solosbp = self.modules.load_module('solo_sbp')
     
     print "CONFIGURATON DONE! Spooky is ready for your commands:"

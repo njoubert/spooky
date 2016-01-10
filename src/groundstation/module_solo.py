@@ -498,26 +498,26 @@ class SoloModule(spooky.modules.SpookyModule):
 
     return True
 
-  def injectGPS(self, sbpPacket):
+  # def injectGPS(self, sbpPacket):
 
-    self.last_gps_obs_inject = time.time()
+  #   self.last_gps_obs_inject = time.time()
 
-    if not self.vehicle:
-      return
+  #   if not self.vehicle:
+  #     return
 
-    length = len(sbpPacket)
-    data = bytearray(sbpPacket.ljust(110))
+  #   length = len(sbpPacket)
+  #   data = bytearray(sbpPacket.ljust(110))
 
-    if length > 110:
-      print "SOLO ERROR: injectGPS attempting to send packet larger than 110 bytes (%d bytes)" % length
+  #   if length > 110:
+  #     print "SOLO ERROR: injectGPS attempting to send packet larger than 110 bytes (%d bytes)" % length
 
-    msg = self.vehicle.message_factory.gps_inject_data_encode(
-      0, #target_system
-      0, #target_component,
-      length,
-      data)
+  #   msg = self.vehicle.message_factory.gps_inject_data_encode(
+  #     0, #target_system
+  #     0, #target_component,
+  #     length,
+  #     data)
 
-    self.vehicle.send_mavlink(msg)
+  #   self.vehicle.send_mavlink(msg)
 
   # ===========================================================================
   # UDP-BASED CAMERA API
