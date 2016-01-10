@@ -80,12 +80,12 @@ def get_spline():
   cameraPose_lng_list = parsed_json['cameraPoseLngs']
   cameraPose_alt_list = parsed_json['cameraPoseAlts']
 
-  print "Calling TrajectoryAPI now..."
+  print "get_spline: Calling trajectoryAPI now..."
   
   P_cameraPose = c_[cameraPose_lat_list, cameraPose_lng_list, cameraPose_alt_list]
   C_cameraPose,T_cameraPose,sd_cameraPose,dist_cameraPose = trajectoryAPI.compute_spatial_trajectory_and_arc_distance(P_cameraPose, inNED=False)
   
-  print "Response from trajectoryAPI", C_cameraPose
+  print "get_spline: Response from trajectoryAPI", C_cameraPose
 
   data = {
     'cameraPoseCoeff': C_cameraPose.tolist(),
@@ -93,6 +93,47 @@ def get_spline():
     'cameraPoseDist' : dist_cameraPose.tolist(),
   }
 
+  return jsonify(data)
+
+
+@server.route('/get_trajectory', methods = ['POST'])
+def get_trajectory():
+  '''
+  Send a POST request to this URL.
+
+  Input: a JSON object as follows:
+    {
+      cameraPoseN: [0, ...],
+      cameraPoseE: [0, ...],
+      cameraPoseD: [0, ...],
+      cameraPoseT: [0, ...],
+    }
+
+  Returns: a JSON object as follows:
+  {
+    interpolatedSpline: [...],
+  }
+  '''
+  parsed_json = request.get_json()
+  if parsed_json is None:
+    return abort(400)
+
+  cameraPose_n_list = parsed_json['cameraPoseN']
+  cameraPose_e_list = parsed_json['cameraPoseE']
+  cameraPose_d_list = parsed_json['cameraPoseD']
+  cameraPose_t_list = parsed_json['cameraPoseT']
+
+  print "get_trajectory: Calling trajectoryAPI now..."
+  
+  P_cameraPose = c_[cameraPose_n_list, cameraPose_e_list, cameraPose_d_list]
+  T_cameraPose = c_[cameraPose_t_list, cameraPose_t_list, cameraPose_t_list]
+  P_interpolatedSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose, T_cameraPose)
+  
+  print "get_trajectory: Response from trajectoryAPI", P_interpolatedSpline
+
+  data = {
+    'interpolatedSpline': P_interpolatedSpline.tolist(),
+  }
   return jsonify(data)
 
 
