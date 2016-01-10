@@ -555,13 +555,10 @@ class SoloModule(spooky.modules.SpookyModule):
           self.cleared_to_execute.wait()
         if not prompt or self.okay:
           self.sendLookFromSpookyNED(desiredstate['position'])
-
-          self.sendCameraOrientation(desiredstate['gimbal'])
-
-          # if desiredstate['orientationtype'] is 'lookat':
-          #   self.sendLookAtSpookyNED(desiredstate['lookat'])          
-          # else:
-          #   self.sendCameraOrientation(desiredstate['gimbal'])
+          if desiredstate['orientationtype'] == 'lookat':
+            self.sendLookAtSpookyNED(desiredstate['lookat'])          
+          else:
+            self.sendCameraOrientation(desiredstate['gimbal'])
         else:
           print "NOPE!"
       except:
