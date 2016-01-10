@@ -20,7 +20,7 @@
 	},
 
 	"solo_sbp_pump": {
-		"dronekit-device":       "0.0.0.0:14551"	
+		"dronekit-device":       "0.0.0.0:14552"	
 	},
 	"NETWORK": {
 		"server": "192.168.2.1",
