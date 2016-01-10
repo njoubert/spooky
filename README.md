@@ -118,7 +118,7 @@ These are the dependencies, and how to install them:
 	sudo pip install dronekit
 	```
 
-## Places to Fly
+## Stuff
 
 - [Behind Gates Lawn](https://www.google.com/maps/@37.430614,-122.1720352,17.57z)
 - [Clark Center Lawn](https://www.google.com/maps/@37.4309214,-122.1750064,556a,20y,13.38h/data=!3m1!1e3)
