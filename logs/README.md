@@ -16,5 +16,9 @@
 | state0000453 | 716ba07 | Dec 23 | Walking, Tour Guide (51) walking backwards | | |
 | state0000454 | 716ba07 | Dec 23 | Walking, Side by Side doing a rectangle. | | |
 | state0000455 | 716ba07 | Dec 23 | Running, Side by Side doing a Rectangle. | | |
+| state0000628 | - | Jan | Lydia and Mackenzie Throwing Balls | | |
+| state0000680 | - | Jan 10 | Mike & Christine - first helmets on | | |
+| state0000681 | - | Jan 10 | Mike & Christine - playing ball (i think) | | |
+| state0000682 | - | Jan 10 | Mike & Christine - walking a rectangle | | |
 
 
