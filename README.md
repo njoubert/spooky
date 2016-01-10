@@ -466,3 +466,13 @@ TODO:
 [DONE] - split odroidperson into a module for each currently logical thread
 [DONE] - have the state space register itself with main, and have all the odroidperson threads send updates to state space through main (so an indirect reference can be replaced)
 
+
+## Stuff
+
+- [Behind Gates Lawn](https://www.google.com/maps/@37.430614,-122.1720352,17.57z)
+- [Clark Center Lawn](https://www.google.com/maps/@37.4309214,-122.1750064,556a,20y,13.38h/data=!3m1!1e3)
+- [Stanford IM Fields](https://www.google.com/maps/@37.4303889,-122.1570218,696m/data=!3m1!1e3)
+- [Sunnyvale Baylands](https://www.google.com/maps/@37.4113185,-121.9979602,612m/data=!3m1!1e3)
+- [Russian Ridge](https://www.google.com/maps/@37.290743,-122.1882513,2571a,20y,353.95h,53.05t/data=!3m1!1e3)
+- [Rancho San Antonio Flying Field](https://www.google.com/maps/@37.3320445,-122.0854063,341a,20y,74.55h/data=!3m1!1e3)
+- [Montebello Open Space](https://www.google.com/maps/place/Montebello+Open+Space+Preserve+Parking+Lot/@37.3266989,-122.1794326,2052a,20y,23.89h/data=!3m1!1e3!4m2!3m1!1s0x0000000000000000:0x71b110aa96b5b016!6m1!1e1)
