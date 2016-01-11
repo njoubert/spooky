@@ -20,5 +20,6 @@
 | state0000680 | - | Jan 10 | Mike & Christine - first helmets on | | |
 | state0000681 | - | Jan 10 | Mike & Christine - playing ball (i think) | | |
 | state0000682 | - | Jan 10 | Mike & Christine - walking a rectangle | | |
+| state0000693 | - | Jan 10 | Mike - walking | | |
 
 
