@@ -43,7 +43,7 @@
 		"dronekit-device-raw":       "0.0.0.0:14550"
 	},
 	"localhost-server": {
-		"state_destinations":	    [["127.0.0.1", 19000], ["192.168.2.2", 19000]],
+		"state_destinations":	    [["127.0.0.1", 19000], ["172.27.76.48", 19000], ["192.168.2.2", 19000]],
 		"camera_cc_port":           19010,
 		"be-the-basestation":       true,
 		"my-ip":                    "127.0.0.1",

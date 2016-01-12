@@ -3,7 +3,7 @@
 #
 
 import time, socket, sys, os, sys, inspect, signal, traceback
-import threading
+import threading, Queue
 from contextlib import closing
 import collections
 import binascii
@@ -14,6 +14,7 @@ from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS_LLH, MsgObs
 from sbp.navigation import SBP_MSG_POS_LLH, SBP_MSG_GPS_TIME, SBP_MSG_DOPS, SBP_MSG_BASELINE_NED, SBP_MSG_VEL_NED, SBP_MSG_BASELINE_HEADING
 from sbp.navigation import MsgPosLLH, MsgGPSTime, MsgDops, MsgBaselineNED, MsgVelNED, MsgBaselineHeading
 from sbp.piksi import SBP_MSG_IAR_STATE, MsgIarState
+from sbp.settings import SBP_MSG_SETTINGS_WRITE, MsgSettingsWrite
 
 import spooky, spooky.modules, spooky.ip, spooky.swift
 from spooky.swift import SBPUDPDriver, SbpMsgCache
@@ -53,6 +54,8 @@ class SoloSBPModule(spooky.modules.SpookyModule):
 
     self.last_update = 0
     self.msg_cache = SbpMsgCache()
+
+    self._sendToPiksi   = Queue.Queue()
   
   def cmd_status(self):
     if self.last_update == 0:
@@ -76,6 +79,36 @@ class SoloSBPModule(spooky.modules.SpookyModule):
   def handle_relay(self, msg, **metadata):
     self.relay_udp.sendto(msg.to_binary(), (self.local_bind_ip, self.relay_send_port))
 
+  def disable_piksi_sim(self):
+    print 'DISABLING SIM'
+    section = "simulator"
+    name    = "enabled"
+    value   = "False"
+    msg = MsgSettingsWrite(setting='%s\0%s\0%s\0' % (section, name, value))
+    self.send_to_piksi(msg.to_binary())
+
+  def enable_piksi_sim(self):
+    print 'ENABLING SIM'
+    section = "simulator"
+    name    = "enabled"
+    value   = "True"
+    msg = MsgSettingsWrite(setting='%s\0%s\0%s\0' % (section, name, value))
+    self.send_to_piksi(msg.to_binary())
+
+  def reset_piksi(self):
+    print 'RESET PIKSI'
+    msg = MsgReset()
+    self.send_to_piksi(msg.to_binary())
+
+  def send_to_piksi(self, data):
+    '''
+    Call from an external thread to enqueue data
+    for this thread to upload to Piksi.
+
+    This might block!
+    '''
+    self._sendToPiksi.put(data, True)
+
   def run(self):
     '''Thread loop here'''
     try:
@@ -97,6 +130,14 @@ class SoloSBPModule(spooky.modules.SpookyModule):
             self.ready()
 
             while not self.stopped():
+
+              # Uploading data TO Piksi
+              try:
+                while not self._sendToPiksi.empty():
+                  data = self._sendToPiksi.get(False)
+                  driver.write(data)
+              except (Queue.Empty, serial.SerialException):
+                pass
 
               try:
                 data, addr = relay_udp.recvfrom(4096)
