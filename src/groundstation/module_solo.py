@@ -69,10 +69,9 @@ class SoloModule(spooky.modules.SpookyModule):
     self.last_api_msg = None
 
     self.vehicle = None
-    self.vehicle_home_ned = [0,0,0] #None
+    self.vehicle_home_ned = [-2656, -2131, 2256] #None
     self.vehicle_home = None
     self.alt_comp_up = 0
-
 
     self.down_from_piksi_to_camera = 100 #mm from piksi to camera. EG: Camera as 100mm down from piksi.
 
@@ -164,6 +163,17 @@ class SoloModule(spooky.modules.SpookyModule):
         int(ned[1]*1000.0) + self.vehicle_home_ned[1], 
         int(ned[2]*1000.0) + self.vehicle_home_ned[2] + self.alt_comp_up # TODO: Do we actually want this?
       ]
+
+  def _spooky_to_vehicle_vel(self, vel):
+    '''
+    Converts a spooky-frame integer mm velocity value (NED)
+    to a drone-frame float meter velocity value (NED)
+    '''
+    return [
+      float(vel[0])/1000.0,
+      float(vel[1])/1000.0,
+      float(vel[2])/1000.0
+    ]
 
   # ===========================================================================
   # 3DR SOLO DRONEKIT INTERFACE
@@ -430,7 +440,7 @@ class SoloModule(spooky.modules.SpookyModule):
       return False
 
     drone_llh = self._spooky_to_vehicle_llh_relative(ned)
-    print "sendLookFromSpookyNED_simple ned=", ned, "drone_llh=", drone_llh
+    print "sendLookFromSpookyNED_simple ned=", ned, "drone_llh=", drone_llh, "useVel=", useVel, "vel=", vel
 
     point1 = dronekit.LocationGlobalRelative(drone_llh[0], drone_llh[1], drone_llh[2])
     self.vehicle.simple_goto(point1)
@@ -446,7 +456,7 @@ class SoloModule(spooky.modules.SpookyModule):
     '''
     drone_ned = self._spooky_to_vehicle_ned(ned)
     drone_llh = self._spooky_to_vehicle_llh_relative(ned)
-    print "sendLookFromSpookyNED ned=", ned, "drone_llh=", drone_llh
+    print "sendLookFromSpookyNED ned=", ned, "drone_llh=", drone_llh, "useVel=", useVel, "vel=", vel
 
     if not self.vehicle:
       return False
@@ -554,7 +564,8 @@ class SoloModule(spooky.modules.SpookyModule):
           print "Please type solo <ok>|<no> depending on whether you're okay with this!"
           self.cleared_to_execute.wait()
         if not prompt or self.okay:
-          self.sendLookFromSpookyNED(desiredstate['position'])
+          useVel = desiredstate['usevel'] == 'true'
+          self.sendLookFromSpookyNED(desiredstate['position'], vel=self._spooky_to_vehicle_vel(desiredstate['positiondot']), useVel=useVel)
           if desiredstate['orientationtype'] == 'lookat':
             self.sendLookAtSpookyNED(desiredstate['lookat'])          
           else:
