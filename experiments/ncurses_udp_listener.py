@@ -42,7 +42,7 @@ def main(ip, port, buffer, decodeJSON=True):
         data, addr = udp.recvfrom(buffer)
         if decodeJSON:
           jd = json.loads(data)
-          jd = { '51': { 'NED': jd['192.168.2.51']['MsgBaselineNED'], 'YAW': jd['192.168.2.51']['ATTITUDE'] }, '52': { 'NED': jd['192.168.2.52']['MsgBaselineNED'], 'YAW': jd['192.168.2.52']['ATTITUDE'] }}
+          #jd = { '51': { 'NED': jd['192.168.2.51']['MsgBaselineNED'], 'YAW': jd['192.168.2.51']['ATTITUDE'] }, '52': { 'NED': jd['192.168.2.52']['MsgBaselineNED'], 'YAW': jd['192.168.2.52']['ATTITUDE'] }}
           data = json.dumps(jd, sort_keys=True, indent=4, separators=(',', ': '))
         dl = data.split("\n")
         for y in range(1, len(dl)+1):

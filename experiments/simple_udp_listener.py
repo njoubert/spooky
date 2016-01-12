@@ -22,7 +22,10 @@ def main(ip, port, buffer):
     print "Listening on udp:%s:%s" % (ip, port)
     while True:
       data, addr = udp.recvfrom(buffer)
-      print "%s: %s" % (str(addr), str(data))
+      jd = json.loads(data)
+      #jd = { '51': { 'NED': jd['192.168.2.51']['MsgBaselineNED'], 'YAW': jd['192.168.2.51']['ATTITUDE'] }, '52': { 'NED': jd['192.168.2.52']['MsgBaselineNED'], 'YAW': jd['192.168.2.52']['ATTITUDE'] }}
+      jd = json.dumps(jd, sort_keys=True, indent=4, separators=(',', ': '))
+      print "%s: %s" % (str(addr), str(jd))
 
 
 if __name__ == "__main__":
