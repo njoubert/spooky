@@ -166,7 +166,9 @@ class GroundStation(CommandLineHandler):
        self.modules.load_module('odroidperson_mav', instance_name=client)
 
     solo = self.modules.load_module('solo', waitTimeout=15.0)    
-    solosbp = self.modules.load_module('solo_sbp')
+    
+    # NJ HACK SIGGRAPH 2016: USB broke off...
+    # solosbp = self.modules.load_module('solo_sbp')
     
     print "CONFIGURATON DONE! Spooky is ready for your commands:"
     

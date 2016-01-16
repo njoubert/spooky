@@ -62,7 +62,11 @@ class SoloModule(spooky.modules.SpookyModule):
     self.groundspeed = self.main.config.get_my('dronekit-groundspeed')
     self.airspeed = self.main.config.get_my('dronekit-airspeed')
     
-    
+    # NJ HACK SIGGRAPH 2016: USB Port broke off
+    self.base_station_llh = [37.4312111012, -122.1751602, 25]
+    self.spooky_vehicle_fake_ned = [0,0,0]
+    self.spooky_vehicle_fake_fix_type = 0
+
     self.vehicle_hb_threashold = 5.0
     self._ENABLE_API = False
     self.statusmsg_API = ""
@@ -131,7 +135,7 @@ class SoloModule(spooky.modules.SpookyModule):
     Converts spooky-frame integer mm NED value
     to Drone-frame float meter NED value
     '''
-    if not self.vehicle_home_ned:
+    if self.vehicle_home_ned is None:
       print "_spooky_to_vehicle_ned with no vehicle_home_ned"
       return [
         float(ned[0])/1000.0, 
@@ -150,7 +154,7 @@ class SoloModule(spooky.modules.SpookyModule):
     Converts a Drone-frame float meter NED value
     to a spooky-frame integer mm NED value
     '''    
-    if not self.vehicle_home_ned:
+    if self.vehicle_home_ned is None:
       print "_vehicle_to_spooky_ned with no vehicle_home_ned"
       return [
         int(ned[0] * 1000.0),
@@ -178,6 +182,31 @@ class SoloModule(spooky.modules.SpookyModule):
   # ===========================================================================
   # 3DR SOLO DRONEKIT INTERFACE
   # ===========================================================================
+
+  def update_spooky_ned_from_mavlink(self, llh, fix_type):
+
+    # get NED between base and given LLH
+    ned = spooky.coords.llh2ned(llh, self.base_station_llh)*1000.0
+
+    self.spooky_vehicle_fake_ned = ned
+    self.spooky_vehicle_fake_fix_type = fix_type
+    
+    flags = 0
+    if fix_type == 5:
+      flags = 1
+    spooky_ned = {
+      "n": ned[0],
+      "e": ned[1],
+      "d": ned[2],
+      "flags": flags
+    }
+
+    self.main.modules.trigger('update_partial_state', 'solo_fake_sbp', [('ned', spooky_ned)])
+
+  def callback_gps_0(self, vehicle, attr_name, value):
+
+    if value.fix_type >= 3:
+      self.update_spooky_ned_from_mavlink([value.lat, value.lon, value.alt], value.fix_type);
 
   def callback_location(self, vehicle, attr_name, value):
     try:
@@ -252,8 +281,9 @@ class SoloModule(spooky.modules.SpookyModule):
       self.vehicle.add_attribute_listener('location', self.callback_location)
       self.vehicle.add_attribute_listener('attitude', self.callback_attitude)
       self.vehicle.add_attribute_listener('mount', self.callback_mount)
+      self.vehicle.add_attribute_listener('gps_0', self.callback_gps_0)
 
-      self.set_piksi_home_from_solo_sbp()
+      self.set_piksi_home()
 
       print "Vehicle Ready!"
 
@@ -616,6 +646,7 @@ class SoloModule(spooky.modules.SpookyModule):
       print "    No SBP Observation Injection has occurred yet"
     else:
       print "    Last SBP Observation Injection %.2fs ago" % (time.time() - self.last_gps_obs_inject)
+    print "    Vehicle FAKE NED from Mavlink: ", self.spooky_vehicle_fake_ned, " fix type ", self.spooky_vehicle_fake_fix_type
     print "  VEHICLE CONNECTED?", self.vehicle != None
     print "    piksi NED home pos:", self.vehicle_home_ned
     print "  SOLO API ENABLED?", self._ENABLE_API
@@ -717,7 +748,7 @@ class SoloModule(spooky.modules.SpookyModule):
       return usage()    
     elif 'set_home' in args:
       if len(args) == 1:
-        return self.set_piksi_home_from_solo_sbp()
+        return self.set_piksi_home()
       if len(args) == 2:
         return self.set_piksi_home_from_ip(args[1])
       if len(args) == 4:
@@ -753,14 +784,29 @@ class SoloModule(spooky.modules.SpookyModule):
     else:
       self.alt_comp_up = mm_up
 
+  def set_piksi_home(self):
+    '''
+    THIS is the main entrypoint function, all the others are helpers.
+    '''
+    self._update_vehicle_home()
+
+    return self.set_piksi_home_from_mavlink()
+
   def set_piksi_home_from_solo_sbp(self):
     self.set_piksi_home_from_ip('solo_sbp')
+
+  def set_piksi_home_from_mavlink(self):
+    print "Setting Piksi home from MAVLINK"
+
+    if self.spooky_vehicle_fake_ned[0] != 0:
+      self.vehicle_home_ned = self.spooky_vehicle_fake_ned
+      print "Set home to fake NED location of: ", self.spooky_vehicle_fake_ned
+    else:
+      print "No fake spooky location available."
 
   def set_piksi_home_from_ip(self, piksi_ip):
     # OK, we grab the current position of a Piksi baseline
     # and save that as the NED vector to translate from 
-
-    self._update_vehicle_home()
 
     systemstate = self.main.modules.get_modules('systemstate')
     
