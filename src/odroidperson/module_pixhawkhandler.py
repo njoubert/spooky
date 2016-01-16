@@ -40,7 +40,7 @@ class PixhawkHandler(spooky.modules.SpookyModule):
     self.mav_streamrate = mav_streamrate
     self.server_ip = server_ip
     self.mav_server_port = mav_server_port
-    self.listen_for_mav = ['ATTITUDE','GLOBAL_POSITION_INT', 'GPS_RAW_INT']
+    self.listen_for_mav = ['ATTITUDE','GLOBAL_POSITION_INT','GPS_RAW_INT']
     self.report_packet_loss_threshold =  30.0
     spooky.modules.SpookyModule.__init__(self, main, "pixhawkhandler", singleton=True)
 
