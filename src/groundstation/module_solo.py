@@ -66,6 +66,7 @@ class SoloModule(spooky.modules.SpookyModule):
     self.base_station_llh = [37.4312111012, -122.1751602, 25]
     self.spooky_vehicle_fake_ned = [0,0,0]
     self.spooky_vehicle_fake_fix_type = 0
+    self.spooky_vehicle_fake_nsats = 0
 
     self.vehicle_hb_threashold = 5.0
     self._ENABLE_API = False
@@ -183,13 +184,16 @@ class SoloModule(spooky.modules.SpookyModule):
   # 3DR SOLO DRONEKIT INTERFACE
   # ===========================================================================
 
-  def update_spooky_ned_from_mavlink(self, llh, fix_type):
+  def update_spooky_ned_from_mavlink(self, llh, fix_type, nsats):
 
     # get NED between base and given LLH
     ned = spooky.coords.llh2ned(llh, self.base_station_llh)*1000.0
 
     self.spooky_vehicle_fake_ned = ned
+    if (self.spooky_vehicle_fake_fix_type != fix_type):
+      print "SBP FIX TYPE CHANGING: NOW IT IS", fix_type
     self.spooky_vehicle_fake_fix_type = fix_type
+    self.spooky_vehicle_fake_nsats = nsats
     
     flags = 0
     if fix_type == 5:
@@ -206,7 +210,7 @@ class SoloModule(spooky.modules.SpookyModule):
   def callback_gps_0(self, vehicle, attr_name, value):
 
     if value.fix_type >= 3:
-      self.update_spooky_ned_from_mavlink([value.lat, value.lon, value.alt], value.fix_type);
+      self.update_spooky_ned_from_mavlink([value.lat, value.lon, value.alt], value.fix_type, value.satellites_visible);
 
   def callback_location(self, vehicle, attr_name, value):
     try:
@@ -646,7 +650,7 @@ class SoloModule(spooky.modules.SpookyModule):
       print "    No SBP Observation Injection has occurred yet"
     else:
       print "    Last SBP Observation Injection %.2fs ago" % (time.time() - self.last_gps_obs_inject)
-    print "    Vehicle FAKE NED from Mavlink: ", self.spooky_vehicle_fake_ned, " fix type ", self.spooky_vehicle_fake_fix_type
+    print "    Vehicle FAKE NED from Mavlink: ", self.spooky_vehicle_fake_ned, " fix type ", self.spooky_vehicle_fake_fix_type, " nsats ", self.spooky_vehicle_fake_nsats
     print "  VEHICLE CONNECTED?", self.vehicle != None
     print "    piksi NED home pos:", self.vehicle_home_ned
     print "  SOLO API ENABLED?", self._ENABLE_API

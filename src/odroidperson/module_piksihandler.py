@@ -19,9 +19,9 @@ from sbp.client.drivers.base_driver import BaseDriver
 from sbp.client.loggers.json_logger import JSONLogger
 from sbp.client import Handler, Framer
 from sbp.observation import SBP_MSG_OBS, SBP_MSG_BASE_POS_LLH, MsgObs
-from sbp.navigation import SBP_MSG_POS_LLH, MsgPosLLH
+from sbp.navigation import SBP_MSG_POS_LLH, SBP_MSG_GPS_TIME, SBP_MSG_DOPS, SBP_MSG_VEL_NED
 from sbp.acquisition import SBP_MSG_ACQ_RESULT
-from sbp.settings import SBP_MSG_SETTINGS_WRITE, MsgSettingsWrite
+from sbp.settings import SBP_MSG_SETTINGS_WRITE, MsgSettingsWrite, SBP_MSG_SETTINGS_SAVE, SBP_MSG_SETTINGS_READ_REQ, SBP_MSG_SETTINGS_READ_RESP, SBP_MSG_SETTINGS_READ_BY_INDEX_REQ, SBP_MSG_SETTINGS_READ_BY_INDEX_RESP, SBP_MSG_SETTINGS_READ_BY_INDEX_DONE, SBP_MSG_STARTUP, SBP_MSG_HEARTBEAT
 from sbp.piksi import SBP_MSG_RESET, MsgReset
 
 class PiksiHandler(spooky.modules.SpookyModule):
@@ -53,6 +53,8 @@ class PiksiHandler(spooky.modules.SpookyModule):
     self._sendToPiksi   = Queue.Queue()
     self._recvFromPiksi = Queue.Queue()
 
+    self.listen_to_sbp_msg = [SBP_MSG_POS_LLH, SBP_MSG_GPS_TIME, SBP_MSG_DOPS, SBP_MSG_VEL_NED, SBP_MSG_SETTINGS_WRITE, SBP_MSG_SETTINGS_SAVE, SBP_MSG_SETTINGS_READ_REQ, SBP_MSG_SETTINGS_READ_RESP, SBP_MSG_SETTINGS_READ_BY_INDEX_REQ, SBP_MSG_SETTINGS_READ_BY_INDEX_RESP, SBP_MSG_SETTINGS_READ_BY_INDEX_DONE, SBP_MSG_STARTUP, SBP_MSG_HEARTBEAT]
+
   def handle_incoming(self, msg, **metadata):
     '''
     Callback for handling incoming SBP messages
@@ -66,7 +68,7 @@ class PiksiHandler(spooky.modules.SpookyModule):
     with BaseDriver(self.handle) as driver:
       with Handler(Framer(driver.read, None, verbose=True)) as source:
         with JSONLogger(self.raw_sbp_log_filename) as logger:
-          source.add_callback(self.handle_incoming)
+          source.add_callback(self.handle_incoming, msg_type=self.listen_to_sbp_msg)
           source.add_callback(logger)
 
           try:
