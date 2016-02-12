@@ -61,17 +61,22 @@ class SoloSBPPumpModule(spooky.modules.SpookyModule):
     if not self.vehicle:
       return
 
-    length = len(sbpPacket)
+    
     data = bytearray(sbpPacket.ljust(110))
+    import binascii
+    while len(data) > 0:
+      end = min(110,len(data))
+      sendNow = bytearray(data[0:end].ljust(110))
+      data = data[end:len(data)]
+      length = len(sendNow)
+      msg = self.vehicle.message_factory.gps_inject_data_encode(
+        0, #target_system
+        0, #target_component,
+        length,
+        sendNow)
 
-    if length > 110:
-      print "SOLO ERROR: injectGPS attempting to send packet larger than 110 bytes (%d bytes)" % length
+      self.vehicle.send_mavlink(msg)
 
-    msg = self.vehicle.message_factory.gps_inject_data_encode(
-      0, #target_system
-      0, #target_component,
-      length,
-      data)
 
     self.vehicle.send_mavlink(msg)
     print time.time(), "Send GPS Inject to Solo, len=", length

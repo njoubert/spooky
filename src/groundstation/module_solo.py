@@ -74,9 +74,11 @@ class SoloModule(spooky.modules.SpookyModule):
     self.last_api_msg = None
 
     self.vehicle = None
-    self.vehicle_home_ned = [-2656, -2131, 2256] #None
+    self.vehicle_home_ned = None #[-2656, -2131, 2256] #None
     self.vehicle_home = None
     self.alt_comp_up = 0
+    self.north_comp = 0
+    self.east_comp = 0
 
     self.down_from_piksi_to_camera = 100 #mm from piksi to camera. EG: Camera as 100mm down from piksi.
 
@@ -139,14 +141,14 @@ class SoloModule(spooky.modules.SpookyModule):
     if self.vehicle_home_ned is None:
       print "_spooky_to_vehicle_ned with no vehicle_home_ned"
       return [
-        float(ned[0])/1000.0, 
-        float(ned[1])/1000.0, 
+        float(ned[0] + self.north_comp)/1000.0, 
+        float(ned[1] + self.east_comp)/1000.0, 
         float(ned[2] - self.alt_comp_up)/1000.0
         ] 
     else:
       return [
-        float(ned[0] - self.vehicle_home_ned[0])/1000.0, 
-        float(ned[1] - self.vehicle_home_ned[1])/1000.0, 
+        float(ned[0] - self.vehicle_home_ned[0] + self.north_comp)/1000.0, 
+        float(ned[1] - self.vehicle_home_ned[1] + self.east_comp)/1000.0, 
         float(ned[2] - self.vehicle_home_ned[2] - self.alt_comp_up)/1000.0
         ]
 
@@ -158,14 +160,14 @@ class SoloModule(spooky.modules.SpookyModule):
     if self.vehicle_home_ned is None:
       print "_vehicle_to_spooky_ned with no vehicle_home_ned"
       return [
-        int(ned[0] * 1000.0),
-        int(ned[1] * 1000.0),
+        int(ned[0] * 1000.0) - self.north_comp,
+        int(ned[1] * 1000.0) - self.east_comp,
         int(ned[2] * 1000.0) + self.alt_comp_up # TODO: Do we actually want this?
       ]
     else:
       return [
-        int(ned[0]*1000.0) + self.vehicle_home_ned[0], 
-        int(ned[1]*1000.0) + self.vehicle_home_ned[1], 
+        int(ned[0]*1000.0) + self.vehicle_home_ned[0] - self.north_comp, 
+        int(ned[1]*1000.0) + self.vehicle_home_ned[1] - self.east_comp, 
         int(ned[2]*1000.0) + self.vehicle_home_ned[2] + self.alt_comp_up # TODO: Do we actually want this?
       ]
 
@@ -277,8 +279,8 @@ class SoloModule(spooky.modules.SpookyModule):
       
       print "Vehicle Connected! Setting airpspeed and downloading commands..."
       
-      self.vehicle.groundspeed = self.groundspeed # Make it move SLOWLY
-      self.vehicle.airspeed = self.airspeed
+      self.vehicle.groundspeed = 1# self.groundspeed # Make it move SLOWLY
+      self.vehicle.airspeed = 1 #self.airspeed
 
       self._update_vehicle_home()
 
@@ -770,6 +772,14 @@ class SoloModule(spooky.modules.SpookyModule):
       if len(args) == 2:
         return self.set_alt_comp(int(args[1]), relative=True)
       return usage()
+    elif 'north' in args:
+      if len(args) == 2:
+        return self.set_pos_comp(int(args[1]), north=True)
+      return usage()
+    elif 'east' in args:
+      if len(args) == 2:
+        return self.set_pos_comp(int(args[1]), east=True)
+      return usage()
     elif 'set_alt_comp' in args:
       if len(args) == 2:
         return self.set_alt_comp(int(args[1]), relative=False)
@@ -787,6 +797,21 @@ class SoloModule(spooky.modules.SpookyModule):
       self.alt_comp_up += mm_up
     else:
       self.alt_comp_up = mm_up
+
+  def set_pos_comp(self, mm, north=False, east=False, relative=False):
+    if north:
+      if relative:
+        self.north_comp += mm
+      else:
+        self.north_comp = mm
+    elif east:
+      if relative:
+          self.east_comp += mm
+      else:
+          self.east_comp = mm
+    else:
+      print "set_pos_comp: direction not specified!"
+        
 
   def set_piksi_home(self):
     '''

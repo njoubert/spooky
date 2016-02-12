@@ -9,8 +9,8 @@
 		"raw-sbp-logs-prefix":       "/logs/sbplog",
 		"full-state-logs-prefix":    "/logs/state",
 		"dronekit-streamrate":       10,
-		"dronekit-airspeed":         0.3,
-		"dronekit-groundspeed":      0.3,
+		"dronekit-airspeed":         0.1,
+		"dronekit-groundspeed":      0.1,
 		"sololink-my-ip":           "10.1.1.100",
 		"solo-ip":                  "10.1.1.10",
 		"solo-sbp-port":            18000,
@@ -24,7 +24,7 @@
 	},
 	"NETWORK": {
 		"server": "192.168.2.1",
-		"odroidperson": [ "192.168.2.51", "192.168.2.52" ]
+		"odroidperson": [ "192.168.2.53", "192.168.2.52" ]
 	},
 	"NETWORK-local": {
 		"server": "localhost-server",
@@ -32,12 +32,12 @@
 	},
 	
 	"192.168.2.1": {
-		"state_destinations":	 [["127.0.0.1", 19001], ["192.168.2.2", 19001]],
+		"state_destinations":	 [["127.0.0.1", 19001], ["192.168.2.2", 19001], ["10.1.1.110", 19001]],
 		"camera_cc_port":        19011,
-		"be-the-basestation":    false,
+		"be-the-basestation":    true,
 		"my-ip":                 "192.168.2.1",
 		"listen-on-ip":           "0.0.0.0",
-		"sbp-port":              "/dev/cu.usbserial-00005214",
+		"sbp-port":              "/dev/tty.usbserial-00001414",
 		"sbp-baud":              1000000,
 		"dronekit-device":       "0.0.0.0:14551",		
 		"dronekit-device-raw":       "0.0.0.0:14550"
@@ -51,7 +51,7 @@
 		"udp-bcast-ip":             "127.0.0.1",
 		"sbp-port":                 "/dev/cu.usbserial-00005014",
 		"sbp-baud":                 1000000,
-		"dronekit-device":          "0.0.0.0:14550"	},
+		"dronekit-device":          "0.0.0.0:14551"	},
 
 	"127.0.0.1": {
 		"be-the-basestation":     false,

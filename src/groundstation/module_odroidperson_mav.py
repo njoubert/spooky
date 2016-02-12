@@ -62,7 +62,7 @@ class OdroidPersonMAVModule(spooky.modules.SpookyModule):
     self.mav_port = self.main.config.get_foreign(instance_name, 'mav-server-port')
     self.last_update = 0
     #see odroidperson/module_pixhawkhandler.py
-    self.listen_for_mav = ['ATTITUDE','GLOBAL_POSITION_INT', 'GPS_RAW_INT']
+    self.listen_for_mav = ['ATTITUDE','GLOBAL_POSITION_INT']
     self.cache = MavBatchCache(self.listen_for_mav)
     self.report_packet_loss_threshold = 30.0
     self.master = None
