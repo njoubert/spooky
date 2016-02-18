@@ -378,6 +378,35 @@ The Odroid XU-4 is (as of end-2015) the most popular companion computer for sUAS
 
 Flash Odroids with [Ubuntu 15.04 image](http://odroid.com/dokuwiki/doku.php?id=en:xu3_release_linux_ubuntu) onto MicroSD card using [these instructions](https://www.raspberrypi.org/documentation/installation/installing-images/mac.md)
 
+### Initial ODROID Configuration and Installation
+
+I'm assuming you've got your ODROID plugged into an HDMI screen, mouse and keyboard. You just booted and you're staring at an Ubuntu desktop.
+
+- Connect your odroid to a wired internet connection
+- Double-click "ODROID Utility" on the desktop, and enter the SU password 'odroid' (things install...)
+- Resize the root partition
+- Set a better hostname
+- reboot!
+
+Now it's time to install things for us:
+
+	sudo apt-get install python-setuptools python-pip
+	mkdir ~/Code
+	cd Code
+	git clone https://github.com/njoubert/spooky.git
+	cd spooky
+	git submodule init
+	git submodule update
+	
+From here on, look to the rest of this document :)
+
+### Configure Static IP
+
+**GUI Way:**
+
+Open System -> Preferences -> Network Connections
+
+
 ## SSHing in:
 
 	username: odroid
