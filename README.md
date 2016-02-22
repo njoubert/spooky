@@ -92,7 +92,22 @@ After checkout:
 	git submodule init
 	git submodule update
 
-These are the dependencies, and how to install them:
+These are the dependencies. You can install them directly, or just install 'em from the submodules and you'll have the same version I'm using!
+
+	git submodule init
+	git submodule update
+	cd libsbp/python
+	sudo python setup.py install
+	cd ../../mavlink/pymavlink
+	sudo python setup.py install
+	cd ../../dronekit-python
+	sudo python setup.py install
+	
+- python dev stuff
+
+	```
+	sudo apt-get install python-setuptools python-pip python-dev
+	```
 
 - libsbp https://github.com/swift-nav/libsbp
 
@@ -388,16 +403,14 @@ I'm assuming you've got your ODROID plugged into an HDMI screen, mouse and keybo
 - Set a better hostname
 - reboot!
 
-Now it's time to install things for us:
+Now it's time to install things for us! [See the section on dependencies and submodules!](https://github.com/njoubert/spooky#dependencies-and-submodules)
 
-	sudo apt-get install python-setuptools python-pip
+	sudo apt-get install python-setuptools python-pip python-dev
 	mkdir ~/Code
 	cd Code
 	git clone https://github.com/njoubert/spooky.git
 	cd spooky
-	git submodule init
-	git submodule update
-	
+
 From here on, look to the rest of this document :)
 
 ### Configure Static IP
@@ -405,7 +418,12 @@ From here on, look to the rest of this document :)
 **GUI Way:**
 
 Open System -> Preferences -> Network Connections
+Edit Wired Connection 1
+IPv4 Settings:
 
+Address: 192.168.2.xx
+Netmask: 255.255.255.0
+Gateway: 192.168.2.1
 
 ## SSHing in:
 
