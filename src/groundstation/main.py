@@ -168,7 +168,7 @@ class GroundStation(CommandLineHandler):
     solo = self.modules.load_module('solo', waitTimeout=15.0)    
     
     # NJ HACK SIGGRAPH 2016: USB broke off...
-    # solosbp = self.modules.load_module('solo_sbp')
+    solosbp = self.modules.load_module('solo_sbp')
     
     print "CONFIGURATON DONE! Spooky is ready for your commands:"
     

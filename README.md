@@ -74,6 +74,17 @@ Start playing with the CLI from `groundstation`:
 
 	>>> help
 	>>> status
+
+**Firing up remote Piksi consoles**
+
+For Solo's Piksi:
+
+	python piksi_tools/console/console.py -p 192.168.2.1:18002
+
+For Person 1 and 2 Piksi:
+	
+	python piksi_tools/console/console.py -p 192.168.2.1:19214
+	python piksi_tools/console/console.py -p 192.168.2.1:19224
 	
 **Alt Compensation**
 

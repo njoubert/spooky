@@ -12,7 +12,7 @@ import logging
 import threading, Queue
 from contextlib import closing
 
-def main(ip, port, buffer):
+def main(ip, port, buffer, decodeJSON=False):
   with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as udp:
     udp.setblocking(1)
     udp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -22,10 +22,13 @@ def main(ip, port, buffer):
     print "Listening on udp:%s:%s" % (ip, port)
     while True:
       data, addr = udp.recvfrom(buffer)
-      jd = json.loads(data)
-      #jd = { '51': { 'NED': jd['192.168.2.51']['MsgBaselineNED'], 'YAW': jd['192.168.2.51']['ATTITUDE'] }, '52': { 'NED': jd['192.168.2.52']['MsgBaselineNED'], 'YAW': jd['192.168.2.52']['ATTITUDE'] }}
-      jd = json.dumps(jd, sort_keys=True, indent=4, separators=(',', ': '))
-      print "%s: %s" % (str(addr), str(jd))
+      if decodeJSON:
+        jd = json.loads(data)
+        #jd = { '51': { 'NED': jd['192.168.2.51']['MsgBaselineNED'], 'YAW': jd['192.168.2.51']['ATTITUDE'] }, '52': { 'NED': jd['192.168.2.52']['MsgBaselineNED'], 'YAW': jd['192.168.2.52']['ATTITUDE'] }}
+        jd = json.dumps(jd, sort_keys=True, indent=4, separators=(',', ': '))
+        print "%s: %s" % (str(addr), str(jd))
+      else:
+        print "%s: %s" % (str(addr), str(data))
 
 
 if __name__ == "__main__":
@@ -40,6 +43,8 @@ if __name__ == "__main__":
   parser.add_argument("-b", "--buffer",
                       default=[8096], nargs=1,
                       help="Size of UDP buffer in bytes")
+  parser.add_argument("-j", "--json",
+                      help="Decode JSON", action='store_true')
   args = parser.parse_args()
 
-  main(args.ip[0], int(args.port[0]), int(args.buffer[0]))
+  main(args.ip[0], int(args.port[0]), int(args.buffer[0]), decodeJSON=args.json)
