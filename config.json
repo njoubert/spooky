@@ -24,7 +24,7 @@
 	},
 	"NETWORK": {
 		"server": "192.168.2.1",
-		"odroidperson": [ "192.168.2.53", "192.168.2.52" ]
+		"odroidperson": [ "192.168.2.51", "192.168.2.52" ]
 	},
 	"NETWORK-local": {
 		"server": "localhost-server",
@@ -34,7 +34,7 @@
 	"192.168.2.1": {
 		"state_destinations":	 [["127.0.0.1", 19001], ["192.168.2.2", 19001], ["10.1.1.110", 19001]],
 		"camera_cc_port":        19011,
-		"be-the-basestation":    true,
+		"be-the-basestation":    false,
 		"my-ip":                 "192.168.2.1",
 		"listen-on-ip":           "0.0.0.0",
 		"sbp-port":              "/dev/tty.usbserial-00001414",

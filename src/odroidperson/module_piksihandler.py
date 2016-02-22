@@ -69,7 +69,7 @@ class PiksiHandler(spooky.modules.SpookyModule):
     with BaseDriver(self.handle) as driver:
       with Handler(Framer(driver.read, None, verbose=True)) as source:
         with JSONLogger(self.raw_sbp_log_filename) as logger:
-          source.add_callback(self.handle_incoming, msg_type=self.listen_to_sbp_msg)
+          source.add_callback(self.handle_incoming)
           source.add_callback(logger)
 
           try:
