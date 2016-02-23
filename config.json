@@ -16,7 +16,8 @@
 		"solo-sbp-port":            18000,
 		"solo-sbp-relay-send-port": 18002,
 		"solo-sbp-relay-recv-port": 18003,
-		"survey-base-pos-automatically": true
+		"survey-base-pos-automatically": true,
+		"survey-num-samples":600
 	},
 
 	"solo_sbp_pump": {

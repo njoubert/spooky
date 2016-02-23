@@ -38,7 +38,7 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.ip.UDPBroadcaste
     main.add_command('base', self.cmd_base, 'interact with the base station')
 
     self.survey_enabled = self.main.config.get_my("survey-base-pos-automatically")
-
+    self.samples_to_avg_over = self.main.config.get_my("survey-num-samples")
     self.surveyed_samples = -1
     if self.survey_enabled:
       self.init_surveying()
@@ -59,7 +59,7 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.ip.UDPBroadcaste
     # STOP broadcasting our base position while we're surveying ourselves!
     self.toggle_base_pos_broadcast(value=False)
 
-    self.samples_to_avg_over = 600
+    
 
     self.surveyed_samples = 0
     self.surveyed_lat = 0
