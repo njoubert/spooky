@@ -193,7 +193,12 @@ class OdroidPerson(CommandLineHandlerShim):
     pass
 
   def send_heartbeat(self):
-    self.send_cc('heartbeat', payload={'git-describe': spooky.get_version(), 'UID': os.getuid()})
+    payload = {'git-describe': spooky.get_version(), 'UID': os.getuid()}
+    if self.modules.has_module('SBPUDPBroadcast'):
+      bcast = self.modules.get_modules('SBPUDPBroadcast')[0]
+      payload['base-survey-status'] = bcast.get_surveying_status()
+
+    self.send_cc('heartbeat', payload=payload)
 
   def mainloop(self):
 

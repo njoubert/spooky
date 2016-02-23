@@ -50,6 +50,10 @@ class ModuleHandler(object):
         mods.append((m,p))
     return mods
 
+  def has_module(self, module_name, instance_name=None):
+    mods = self._get_modules(module_name, instance_name=instance_name)
+    return len(mods) > 0
+
   def get_modules(self, module_name, instance_name=None):
     mods = self._get_modules(module_name, instance_name=instance_name)
     if len(mods) > 0:

@@ -34,6 +34,7 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.ip.UDPBroadcaste
     self.framer = None
     self.driver = None
     main.add_command('base', self.cmd_base, 'interact with the base station')
+    self.surveyed_samples = -1
     self.init_surveying()
 
   def handle_all(self, msg, **metadata):
@@ -132,6 +133,14 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.ip.UDPBroadcaste
     except:
       traceback.print_exc()
       self.ready()
+
+  def get_surveying_status(self):
+    if self.surveyed_samples < 0:
+      return "Have not started"
+    elif self.surveyed_samples < self.samples_to_avg_over:
+      return "Survey in progress. %.8f, %.8f, %.5f (%d/%d)" % (self.surveyed_lat, self.surveyed_lon, self.surveyed_alt, self.surveyed_samples, self.samples_to_avg_over)
+    else:
+      return "Survey done. %.8f, %.8f, %.5f (%d/%d)" % (self.surveyed_lat, self.surveyed_lon, self.surveyed_alt, self.surveyed_samples, self.samples_to_avg_over)
 
   def cmd_redo_survey(self):
     self.init_surveying()
