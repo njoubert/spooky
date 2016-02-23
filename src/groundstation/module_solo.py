@@ -62,6 +62,8 @@ class SoloModule(spooky.modules.SpookyModule):
     self.groundspeed = self.main.config.get_my('dronekit-groundspeed')
     self.airspeed = self.main.config.get_my('dronekit-airspeed')
     
+    main.add_command('solo', self.cmd_solo, 'send commands to the 3DR Solo (if connected)')
+
     # NJ HACK SIGGRAPH 2016: USB Port broke off
     self.base_station_llh = [37.4312111012, -122.1751602, 25]
     self.spooky_vehicle_fake_ned = [0,0,0]
@@ -91,6 +93,7 @@ class SoloModule(spooky.modules.SpookyModule):
 
     self.last_gps_obs_inject = 0
 
+
   def init_executor(self):
     if self._executor:
       self._executor.stop()
@@ -102,6 +105,7 @@ class SoloModule(spooky.modules.SpookyModule):
   def stop(self, quiet=False):
     self.MAYDAY_stop_solo()
     self.disconnect()
+    self.main.del_command('solo')
     super(SoloModule, self).stop(quiet=quiet)
 
   # ===========================================================================

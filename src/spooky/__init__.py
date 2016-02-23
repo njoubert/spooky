@@ -161,10 +161,27 @@ class ExecutorThread(threading.Thread):
 
 #====================================================================#
 
+class CommandLineHandlerShim(object):
+
+  def __init__(self, command_map={}):
+    pass
+
+  def add_command(self, command, func, description):
+    pass
+
+  def del_command(self, command):
+    pass
+
 class CommandLineHandler(object):
   ''' Responsible for all the command line console features'''
   def __init__(self, command_map={}):
     self.command_map = command_map
+
+  def add_command(self, command, func, description):
+    self.command_map[command] = (func, description)
+
+  def del_command(self, command):
+    del self.command_map[command]
 
   def process_stdin(self, line):
     line = line.strip()

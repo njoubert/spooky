@@ -39,8 +39,7 @@ class GroundStation(CommandLineHandler):
       'shutdown' : (self.cmd_shutdown,                  '(IP) shuts down a single or all nodes in network'),
       'restart'  : (self.cmd_restart,                   '(IP) restart a single or all nodes in network (specify an IP to restart a specific node)'),
       'update'   : (self.cmd_update,                    '(IP) does a git pull and restart on a single or all nodes in network'),
-      'record'   : (self.cmd_record,                    'start or stop recording data for a session'),
-      'solo'     : (self.cmd_solo,                      'send commands to the 3DR Solo (if connected)')
+      'record'   : (self.cmd_record,                    'start or stop recording data for a session')
     }
     CommandLineHandler.__init__(self, self.command_map)
 
@@ -74,14 +73,6 @@ class GroundStation(CommandLineHandler):
 
     if hard:
       sys.exit(1)
-
-
-  def cmd_solo(self, args):
-    solos = self.modules.get_modules('solo')
-    if len(solos) > 0:
-      solos[0].cmd_solo(args)
-    else:
-      print "3DR Solo Module not loaded."
 
   def cmd_trigger(self, args):
     if len(args) != 1:

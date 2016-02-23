@@ -19,6 +19,8 @@ import spooky, spooky.ip
 from spooky import Daemon
 from spooky.modules import ModuleHandler
 
+from spooky import CommandLineHandlerShim
+
 #====================================================================#
 
 logger = logging.getLogger("odriodperson")
@@ -38,7 +40,7 @@ logger.addHandler(ch)
 
 #====================================================================#    
 
-class OdroidPerson:
+class OdroidPerson(CommandLineHandlerShim):
 
   def __init__(self,  config, ident):
     self.ident  = ident
@@ -122,7 +124,7 @@ class OdroidPerson:
       'reset_piksi': self.cc_reset_piksi,
       'shutdown':    self.cc_shutdown,
       'restart':     self.cc_restart,
-      'update':      self.cc_update,     
+      'update':      self.cc_update, 
     }
 
     if not 'msgtype' in msg:
@@ -140,7 +142,6 @@ class OdroidPerson:
         self.send_cc('ACK', {'__ACK_ID__': msg['__ID__']})
       else:
         self.send_cc('NACK', {'__ACK_ID__': msg['__ID__']})
-
 
   def cc_ack(self, msg):
     print "ACK RECEIVED for %s" % msg['payload']
