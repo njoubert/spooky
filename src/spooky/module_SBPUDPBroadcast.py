@@ -26,6 +26,8 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.ip.UDPBroadcaste
   def __init__(self, instance_name, main, sbp_port, sbp_baud, dest=('192.168.2.255', 5000), interval=0.1):
     '''Create a UDP Broadcast socket'''
     spooky.modules.SpookyModule.__init__(self, main, "SBPUDPBroadcast", singleton=True)
+
+
     spooky.ip.UDPBroadcaster.__init__(self, dest=dest)
     self.interval = interval
     self.sbp_port = sbp_port
@@ -34,8 +36,12 @@ class SBPUDPBroadcastModule(spooky.modules.SpookyModule, spooky.ip.UDPBroadcaste
     self.framer = None
     self.driver = None
     main.add_command('base', self.cmd_base, 'interact with the base station')
+
+    self.survey_enabled = self.main.config.get_my("survey-base-pos-automatically")
+
     self.surveyed_samples = -1
-    self.init_surveying()
+    if self.survey_enabled:
+      self.init_surveying()
 
   def handle_all(self, msg, **metadata):
     pass
