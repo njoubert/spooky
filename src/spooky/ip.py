@@ -6,6 +6,7 @@ import os
 import socket
 import threading
 import collections
+import traceback
 
 #====================================================================#   
 
@@ -42,7 +43,9 @@ def get_lan_ip():
                     pass
         return ip
     except socket.gaierror:
-        return "127.0.0.1"
+      traceback.print_exc()
+      traceback.print_stack()
+      return "127.0.0.1"
 
 #====================================================================#   
 
