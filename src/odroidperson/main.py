@@ -247,7 +247,6 @@ class OdroidPersonDaemon(Daemon):
 
   def __init__(self, args):
     self.args = args
-
     Daemon.__init__(self, '/tmp/odroidperson.pid', 
         stdin='/dev/null', 
         stdout='/logs/odroidperson.stdout', 
@@ -264,7 +263,7 @@ class OdroidPersonDaemon(Daemon):
     network_ident = self.args.network[0]
     config = spooky.Configuration(self.args.config[0], self.args.ident[0], network_ident)
 
-    op = OdroidPerson(self.config, self.args.ident[0])
+    op = OdroidPerson(config, self.args.ident[0])
     op.mainloop()
 
 #=====================================================================#
