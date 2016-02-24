@@ -245,18 +245,26 @@ class OdroidPerson(CommandLineHandlerShim):
 
 class OdroidPersonDaemon(Daemon):
 
-  def __init__(self, args, config):
+  def __init__(self, args):
     self.args = args
-    self.config = config
+
     Daemon.__init__(self, '/tmp/odroidperson.pid', 
         stdin='/dev/null', 
         stdout='/logs/odroidperson.stdout', 
         stderr='/logs/odroidperson.stderr')
 
   def run(self):
-    config = self.config
-    args = self.args
-    op = OdroidPerson(config, args.ident[0])
+
+    if self.args.ident[0] == '':
+      while not self.args.ident[0].startswith("192."):
+        print "Attempting to get ip... ", self.args.ident[0]
+        self.args.ident[0] = spooky.ip.get_lan_ip()
+        time.sleep(1.0)
+
+    network_ident = self.args.network[0]
+    config = spooky.Configuration(self.args.config[0], self.args.ident[0], network_ident)
+
+    op = OdroidPerson(self.config, self.args.ident[0])
     op.mainloop()
 
 #=====================================================================#
@@ -281,18 +289,10 @@ def main():
                         help="control daemon. use start/stop/restart")
     args = parser.parse_args()
 
-    #Fill out default args
-    if args.ident[0] == '':
-      args.ident[0] = spooky.ip.get_lan_ip()
-
-    network_ident = args.network[0]
-    config = spooky.Configuration(args.config[0], args.ident[0], network_ident)
-
-    daemon = OdroidPersonDaemon(args, config)
+    daemon = OdroidPersonDaemon(args)
 
     if args.daemon[0] != '':
       if args.daemon[0] == 'start':
-        time.sleep(5.0)
         daemon.start()
       elif args.daemon[0] == 'stop':
         daemon.stop()
