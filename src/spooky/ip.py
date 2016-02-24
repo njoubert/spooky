@@ -44,6 +44,7 @@ def get_lan_ip(tries=3, timeout=1.0):
                     break
                 except IOError:
                     pass
+        print "Returning IP", ip
         return ip
     except socket.gaierror:
       print "*******************************"
