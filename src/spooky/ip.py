@@ -46,10 +46,17 @@ def get_lan_ip(tries=3, timeout=1.0):
                     pass
         return ip
     except socket.gaierror:
+      print "*******************************"
+      print "get_lan_ip gaierror"
+      print ""
       traceback.print_exc()
+      print ""
       traceback.print_stack()
+      print "*******************************"
+
       attempts += 1
       time.sleep(timeout)
+
     return "127.0.0.1"
 
 #====================================================================#   
