@@ -19,19 +19,18 @@ then
 		rm -f /lib/systemd/system/network-online.target.wants/spooky.service && \
 		rm -f /lib/systemd/system/spooky.service && \
 		systemctl daemon-reload
-	systemctl enable NetworkManager-wait-online.service
 
 else
 
 	echo 'installing spooky odroidperson systemd service'
-
+	systemctl enable NetworkManager-wait-online.service
 	mkdir -p /logs && \
 		mkdir -p /tmp && \
 		cp spooky.service /lib/systemd/system/spooky.service && \
 		systemctl daemon-reload && \
-		systemctl enable spooky.service
+		systemctl enable spooky.service && \
 		systemctl start spooky.service
-	systemctl enable NetworkManager-wait-online.service
+	
 
 fi
 

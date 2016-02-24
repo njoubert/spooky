@@ -109,7 +109,7 @@ class OdroidPerson(CommandLineHandlerShim):
       if e.errno == 65:
         print "SEND_CC: No route to %s:%d" % (self.server_ip, self.cc_server_port)
       else:
-        traceback.print_exc()
+        traceback.print_stack()
 
   def handle_cc(self, cc_data, cc_addr):
     msg = json.loads(cc_data)
