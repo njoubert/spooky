@@ -436,16 +436,58 @@ Address: 192.168.2.xx
 Netmask: 255.255.255.0
 Gateway: 192.168.2.1
 
-## SSHing in:
+### SSHing in:
 
 	username: odroid
 	password: odroid
+
+
+### Setting up SSH Keys for quick and easy access
+
+Add the following to your local computer's .ssh/config file:
+
+	host odroid51 192.168.2.51
+    Hostname 192.168.2.51
+    Port 22
+    User odroid
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+    IdentityFile ~/.ssh/id_rsa
+
+	host odroid52 192.168.2.52
+	    Hostname 192.168.2.52
+	    Port 22
+	    User odroid
+	    StrictHostKeyChecking no
+	    UserKnownHostsFile=/dev/null
+	    IdentityFile ~/.ssh/id_rsa
+
+	host odroid53 192.168.2.53
+	    Hostname 192.168.2.53
+	    Port 22
+	    User odroid
+	    StrictHostKeyChecking no
+	    UserKnownHostsFile=/dev/null
+	    IdentityFile ~/.ssh/id_rsa
+
+Then, copy your public key to each odroid.  If this fails, make sure the `.ssh` directory exists!
+
+	scp id_rsa.pub odroid@192.168.2.51:.ssh/authorized_keys
+	scp id_rsa.pub odroid@192.168.2.52:.ssh/authorized_keys
+	scp id_rsa.pub odroid@192.168.2.53:.ssh/authorized_keys
+
+Now you can easily SSH in with:
+
+	ssh odroid51
+	ssh odroid52
+	ssh odroid53
 
 ### Resizing the root partition:
 
 Use the supplied odroid-utility
 
 	sudo odroid-utility.sh
+
 
 ## Architecture
 

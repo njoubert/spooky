@@ -823,7 +823,10 @@ class SoloModule(spooky.modules.SpookyModule):
     '''
     self._update_vehicle_home()
 
-    return self.set_piksi_home_from_mavlink()
+    # NJ Hack SIGGRAPH 2016:
+    # return self.set_piksi_home_from_mavlink()
+
+    return self.set_piksi_home_from_solo_sbp()
 
   def set_piksi_home_from_solo_sbp(self):
     self.set_piksi_home_from_ip('solo_sbp')
