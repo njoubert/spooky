@@ -7,6 +7,7 @@ import socket
 import threading
 import collections
 import traceback
+import time
 
 #====================================================================#   
 
@@ -19,7 +20,9 @@ if os.name != "nt":
         return socket.inet_ntoa(fcntl.ioctl(s.fileno(), 0x8915, struct.pack('256s',
                                 ifname[:15]))[20:24])
 
-def get_lan_ip():
+def get_lan_ip(tries=3, timeout=1.0):
+  attempts = 0
+  while attempts < tries:
     try:
         
         ip = socket.gethostbyname(socket.gethostname())
@@ -45,7 +48,9 @@ def get_lan_ip():
     except socket.gaierror:
       traceback.print_exc()
       traceback.print_stack()
-      return "127.0.0.1"
+      attempts += 1
+      time.sleep(timeout)
+    return "127.0.0.1"
 
 #====================================================================#   
 
