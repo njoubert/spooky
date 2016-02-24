@@ -13,7 +13,8 @@
 [Unit]
 Description=Spooky OdroidPerson Daemon
 Requires=network-online.target
-After=network-online.target
+Wants=network-online.target
+After=network.target network-online.target
 
 [Service]
 Type=forking
@@ -24,6 +25,3 @@ ExecStart=/home/odroid/Code/spooky/bin/odroidperson-daemon.sh start
 ExecStop=/home/odroid/Code/spooky/bin/odroidperson-daemon.sh stop
 ExecReload=/home/odroid/Code/spooky/bin/odroidperson-daemon.sh restart
 Restart=on-abort
-
-[Install]
-WantedBy=network-online.target
