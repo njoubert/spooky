@@ -25,3 +25,6 @@ ExecStart=/home/odroid/Code/spooky/bin/odroidperson-daemon.sh start
 ExecStop=/home/odroid/Code/spooky/bin/odroidperson-daemon.sh stop
 ExecReload=/home/odroid/Code/spooky/bin/odroidperson-daemon.sh restart
 Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
