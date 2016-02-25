@@ -93,6 +93,9 @@ We include a manual altitude compensation / calibration routine:
 	solo up <mm>
 	solo set_alt_comp <mm>
 
+## System Diagram
+
+
 
 ## Dependencies and Submodules
 
@@ -566,7 +569,9 @@ TODO:
 [DONE] - have the state space register itself with main, and have all the odroidperson threads send updates to state space through main (so an indirect reference can be replaced)
 
 
-## Stuff
+## Locations
+
+[Locating Survey Markers](http://www.ngs.noaa.gov/datasheets/)
 
 - [Behind Gates Lawn](https://www.google.com/maps/@37.430614,-122.1720352,17.57z)
 - [Clark Center Lawn](https://www.google.com/maps/@37.4309214,-122.1750064,556a,20y,13.38h/data=!3m1!1e3)
@@ -575,3 +580,4 @@ TODO:
 - [Russian Ridge](https://www.google.com/maps/@37.290743,-122.1882513,2571a,20y,353.95h,53.05t/data=!3m1!1e3)
 - [Rancho San Antonio Flying Field](https://www.google.com/maps/@37.3320445,-122.0854063,341a,20y,74.55h/data=!3m1!1e3)
 - [Montebello Open Space](https://www.google.com/maps/place/Montebello+Open+Space+Preserve+Parking+Lot/@37.3266989,-122.1794326,2052a,20y,23.89h/data=!3m1!1e3!4m2!3m1!1s0x0000000000000000:0x71b110aa96b5b016!6m1!1e1)
+- [Windy Hill, Surveyed Hilltop](https://www.google.com/maps/place/Windy+Hill+Open+Space+Preserve/@37.3648866,-122.2463126,124m/data=!3m1!1e3!4m2!3m1!1s0x808faf6ffa165a89:0x9ad61aaea0e86137!6m1!1e1)
