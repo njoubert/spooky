@@ -95,7 +95,7 @@ We include a manual altitude compensation / calibration routine:
 
 ## System Diagram
 
-
+![SysDiag](https://raw.githubusercontent.com/njoubert/spooky/master/systemdiag.png)
 
 ## Dependencies and Submodules
 
