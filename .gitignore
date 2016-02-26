@@ -2,3 +2,5 @@
 
 
 *.exe
+
+.ipynb_checkpoints/2D Torics-checkpoint.ipynb
