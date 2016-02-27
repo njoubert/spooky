@@ -21,5 +21,6 @@
 | state0000681 | - | Jan 10 | Mike & Christine - playing ball (i think) | | |
 | state0000682 | - | Jan 10 | Mike & Christine - walking a rectangle | | |
 | state0000693 | - | Jan 10 | Mike - walking | | |
+| state0000894 | - | Feb 26 | Stationary with flying, causing apex->external to moves through circle | | |
 
 
