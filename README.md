@@ -518,57 +518,6 @@ I am not using, but am curious about:
 - NodeJS, why why why didn't I do this in NodeJS??? Sigh, all the UAV libraries are in python...
 
 
-
-# DEAD KITTENS
-
-
-
-
-### TODO:
-
-
-Required Features:
-- Piksi Obs, GS to Person (One To Many)
-	- GS: Initially, just build a UDP forwarder
-		- Read Obs message from ground station Piksi
-		- Send Obs message over UDP to destination UDP port
-			- Try out Broadcast, Try out List, Try out having remote dynamically register with us.
-	- OD: Initially, UDP to Piksi bridge
-		- Listen for UDP packet on specific port
-		- Relay packet from UDP to Piksi
-- Piksi Location, Person to GS (Many To One)
-- Pixhawk Data, Person to GS (Just build a MAVLink Repeater)
-	- "Arms" Pixhawk or whatever is necessary to get correct data 
-
-
-- GS: Listen to Heartbeats for all odroids
-- GS: Using "select" to handle multiple requests in single thread
-- OD: Startup script to launch python.
-- OD: Startup script to relaunch python if crashes.
-- OD: Main Python script "scheduler":
-	- OD: Main thread just sends heartbeat packets to GS
-	- OD: Secondary thread does all the work. In case of death, main error sends data 
-- System: Provisioning script, logs into odroids and sets up with latest code.
-
-
-- Start using “with” everywhere, open the socket inside run()
-- Make sure we’re closing sockets when we destroy thread
-- 
-
-Q1: How do we structure modules with many threads so they cleanly shut down? currently odroidperson module is ugly and leaves orphaned threads.
-[DONE] - Each thread is its own module!
-
-Q2: How do we inject modules into one another, so odroidthread has the state vector thread?
-— can’t do it “statically” or “during runtime init” since we might reload that module.
-— can have it call to main every time.
-— can have adapter object that process everything for you
-[WE DID THIS] — alternatively, do a message-passing style where you inject a message into the message layer, and a different module registers to listen for that.
-
-TODO:
-[DONE] - split odroidperson into a module for each currently logical thread
-[DONE] - have the state space register itself with main, and have all the odroidperson threads send updates to state space through main (so an indirect reference can be replaced)
-
-
 ## Locations
 
 [Locating Survey Markers](http://www.ngs.noaa.gov/datasheets/)
