@@ -325,7 +325,7 @@ class SoloModule(spooky.modules.SpookyModule):
 
   def enable_API(self):
     print "ENABLING CAMERA API"
-    self._update_vehicle_home()
+    #self._update_vehicle_home()
     self._ENABLE_API = True
 
   def disable_API(self):
@@ -361,7 +361,7 @@ class SoloModule(spooky.modules.SpookyModule):
 
     self._executor.execute(deferred)
     
-  def takeoff(self, aTargetAltitude=10.0):
+  def takeoff(self, aTargetAltitude=5.0):
 
     def deferred():
       if not self.vehicle.armed:
@@ -501,7 +501,7 @@ class SoloModule(spooky.modules.SpookyModule):
     if not self.vehicle:
       return False
 
-    if (-1*drone_ned[2]) < 1:
+    if (-1*drone_ned[2]) < 0.5:
       print "LookFrom less than 1m, cowarding out..."
       return
 

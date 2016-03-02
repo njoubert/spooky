@@ -17,12 +17,18 @@ from pymavlink import mavutil # Needed for command message definitions
 # Spooky
 import spooky, spooky.modules, spooky.coords
 
+DEFAULT_UDP_SEND_ADDRESS = "10.1.1.10"
+DEFAULT_UDP_SEND_PORT = 18001
+
 class SoloSBPPumpModule(spooky.modules.SpookyModule):
   '''
   Module pumps SBP OBS data to Solo
   '''
 
   def __init__(self, main, instance_name=None):
+
+    self.inject_over_mavlink = False
+
     spooky.modules.SpookyModule.__init__(self, main, "solo_sbp_pump", singleton=True)
     self.dronekit_device = self.main.config.get_my('dronekit-device')
     
@@ -53,16 +59,31 @@ class SoloSBPPumpModule(spooky.modules.SpookyModule):
       self.vehicle.close()
       print "Vehicle Disconnected!" 
     self.vehicle = None
-    
+   
   def injectGPS(self, sbpPacket):
+    if self.inject_over_mavlink:
+      self.injectGPSOverMavlink(sbpPacket)
+    else:
+      self.injectGPSOverUDP(sbpPacket)
+
+  def injectGPSOverUDP(self, sbpPacket):
+    print "### Starting Inject over UDP. sbpPacket len =", len(sbpPacket)
+    with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as sbp_udp:
+      sbp_udp.setblocking(1)
+      sbp_udp.settimeout(None)
+    
+      sbp_udp.sendto(sbpPacket, (DEFAULT_UDP_SEND_ADDRESS, DEFAULT_UDP_SEND_PORT))
+
+
+  def injectGPSOverMavlink(self, sbpPacket):
 
     self.last_gps_obs_inject = time.time()
 
     if not self.vehicle:
       return
 
-    
-    data = bytearray(sbpPacket.ljust(110))
+    print "### Starting Inject over SBP. sbpPacket len =", len(sbpPacket)
+    data = bytearray(sbpPacket)
     import binascii
     while len(data) > 0:
       end = min(110,len(data))
@@ -74,12 +95,12 @@ class SoloSBPPumpModule(spooky.modules.SpookyModule):
         0, #target_component,
         length,
         sendNow)
-
+      print time.time(), "Send GPS Inject to Solo, end=",end ,"len=", length
       self.vehicle.send_mavlink(msg)
 
 
-    self.vehicle.send_mavlink(msg)
-    print time.time(), "Send GPS Inject to Solo, len=", length
+    #self.vehicle.send_mavlink(msg)
+    
 
 
   # ===========================================================================
@@ -89,8 +110,8 @@ class SoloSBPPumpModule(spooky.modules.SpookyModule):
   def run(self):
     try:
 
-      
-      self.connect()
+      if self.inject_over_mavlink:
+        self.connect()
 
       self.ready()
 
