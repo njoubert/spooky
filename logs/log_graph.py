@@ -457,10 +457,14 @@ def find_logs(p="/Users/njoubert/Code/spooky/logs/", only_new=True, new_ext=".ic
 def save_full_trajectory(log, filename):
   extractAndDrawTrajectories(log)
 
-  plt.savefig(splitext(filename)[0] + ".full.png")
+  figname = splitext(filename)[0] + ".full.png"
+  print "Saving", figname
+  plt.savefig(figname)
 
-def process_full_graphs(only_new=False):
-  logs = find_logs(only_new=only_new, new_ext=".full.png")
+def process_full_graphs(only_new=False,log=None):
+  logs = [log]
+  if not log:
+    logs = find_logs(only_new=only_new, new_ext=".full.png")
 
   pylab.rcParams['figure.figsize'] = 16, 20
   
@@ -468,7 +472,7 @@ def process_full_graphs(only_new=False):
   for filename in logs:
     try:
       print "Processing", filename
-      l = loadLog(filename)
+      l = loadLog(filename,startTime=1.0)
       save_full_trajectory(l, filename)
     except KeyboardInterrupt:
       sys.exit(0)
@@ -498,11 +502,14 @@ def save_iconic_trajectory(log, filename):
   f1 = fig.add_subplot(gs[0])
 
   extractAndDrawIconicTrajectory(f1, log, filename)
+  figname = splitext(filename)[0] + ".iconic.png"
+  print "Saving", figname
+  plt.savefig(figname)
 
-  plt.savefig(splitext(filename)[0] + ".iconic.png")
-
-def process_icons(only_new=False):
-  logs = find_logs(only_new=only_new)
+def process_icons(only_new=False,log=None):
+  logs = [log]
+  if not log:
+    logs = find_logs(only_new=only_new)
 
   pylab.rcParams['figure.figsize'] = 8, 8
 
@@ -530,15 +537,22 @@ def main():
   parser.add_argument("-f", "--force",
                       action="store_true",
                       help="force regenerating all plots, not just new ones.")
+  parser.add_argument("-l", "--log",
+                      default=[], nargs=1,
+                      help="process a specific log")
+
   args = parser.parse_args()
 
+  filename = None
+  if len(args.log) > 0:
+    filename = args.log[0]
 
   if args.verbose:
     print "Making Full images"
-    process_full_graphs(only_new=not(args.force))
+    process_full_graphs(only_new=not(args.force),log=filename)
   else:
     print "Making Icons"
-    process_icons(only_new=not(args.force))
+    process_icons(only_new=not(args.force),log=filename)
 
 
 

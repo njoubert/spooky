@@ -1,5 +1,4 @@
-# Full Analysis Graphs of Logs
-## state0000356.pickle
+# Full Analysis Graphs of Logs## state0000356.pickle
 ![state0000356](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000356.full.png)
 ## state0000435.pickle
 ![state0000435](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000435.full.png)
@@ -29,85 +28,19 @@
 ![state0000628](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000628.full.png)
 ## state0000680.pickle
 ![state0000680](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000680.full.png)
-**Errors in Plot Generation:**
-```
-Traceback (most recent call last):
-  File "log_graph.py", line 472, in process_full_graphs
-    save_full_trajectory(l, filename)
-  File "log_graph.py", line 458, in save_full_trajectory
-    extractAndDrawTrajectories(log)
-  File "log_graph.py", line 154, in extractAndDrawTrajectories
-    tentry[0] = state[p]["MsgBaselineNED"]["tow"] / 1000.0
-KeyError: 'MsgBaselineNED'
-```
 ## state0000681.pickle
 ![state0000681](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000681.full.png)
 ## state0000682.pickle
 ![state0000682](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000682.full.png)
-**Errors in Plot Generation:**
-```
-Traceback (most recent call last):
-  File "log_graph.py", line 472, in process_full_graphs
-    save_full_trajectory(l, filename)
-  File "log_graph.py", line 458, in save_full_trajectory
-    extractAndDrawTrajectories(log)
-  File "log_graph.py", line 154, in extractAndDrawTrajectories
-    tentry[0] = state[p]["MsgBaselineNED"]["tow"] / 1000.0
-KeyError: 'MsgBaselineNED'
-```
 ## state0000693.pickle
 ![state0000693](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000693.full.png)
-**Errors in Plot Generation:**
-```
-Traceback (most recent call last):
-  File "log_graph.py", line 472, in process_full_graphs
-    save_full_trajectory(l, filename)
-  File "log_graph.py", line 458, in save_full_trajectory
-    extractAndDrawTrajectories(log)
-  File "log_graph.py", line 154, in extractAndDrawTrajectories
-    tentry[0] = state[p]["MsgBaselineNED"]["tow"] / 1000.0
-KeyError: 'MsgBaselineNED'
-```
 ## state0000894.pickle
 ![state0000894](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000894.full.png)
 ## state0000903.pickle
 ![state0000903](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000903.full.png)
-**Errors in Plot Generation:**
-```
-Traceback (most recent call last):
-  File "log_graph.py", line 472, in process_full_graphs
-    save_full_trajectory(l, filename)
-  File "log_graph.py", line 458, in save_full_trajectory
-    extractAndDrawTrajectories(log)
-  File "log_graph.py", line 161, in extractAndDrawTrajectories
-    ventry[0] = state[p]["MsgVelNED"]["tow"] / 1000.0
-KeyError: 'MsgVelNED'
-```
 ## state0000905.pickle
 ![state0000905](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000905.full.png)
-**Errors in Plot Generation:**
-```
-Traceback (most recent call last):
-  File "log_graph.py", line 472, in process_full_graphs
-    save_full_trajectory(l, filename)
-  File "log_graph.py", line 458, in save_full_trajectory
-    extractAndDrawTrajectories(log)
-  File "log_graph.py", line 154, in extractAndDrawTrajectories
-    tentry[0] = state[p]["MsgBaselineNED"]["tow"] / 1000.0
-KeyError: 'MsgBaselineNED'
-```
 ## state0000906.pickle
 ![state0000906](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000906.full.png)
-**Errors in Plot Generation:**
-```
-Traceback (most recent call last):
-  File "log_graph.py", line 472, in process_full_graphs
-    save_full_trajectory(l, filename)
-  File "log_graph.py", line 458, in save_full_trajectory
-    extractAndDrawTrajectories(log)
-  File "log_graph.py", line 161, in extractAndDrawTrajectories
-    ventry[0] = state[p]["MsgVelNED"]["tow"] / 1000.0
-KeyError: 'MsgVelNED'
-```
 ## state0000907.pickle
 ![state0000907](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000907.full.png)
