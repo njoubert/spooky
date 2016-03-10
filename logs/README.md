@@ -3,6 +3,8 @@
 
 To generate images, run ```python log_graph.py``` in this directory.
 
+**Also see ```ANALYSIS.md``` in this directory for full plots.**
+
 | filename     | git     | date   | description | start | float | images |
 |--------------|---------|--------|-------------|-------|-------|-------|
 | state0000356 | d9a99a5 | Dec 19 | First flight, stationary, successful RTK.  | | 225 | ![state0000356](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000356.iconic.png) |
