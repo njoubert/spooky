@@ -225,7 +225,11 @@ def process_new():
       traceback.print_exc()
 
   logs = find_logs(only_new=False)
-  fopen("")
+  with open("ICONS.md", "w") as f:
+    for filename in logs:
+      noext = splitext(filename)[0]
+      f.write("![%s](https://raw.githubusercontent.com/njoubert/spooky/master/logs/%s)\n" % (noext, noext + ".iconic.png"))
+
 
 def main():
   process_new()

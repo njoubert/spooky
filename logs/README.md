@@ -1,9 +1,9 @@
 
 # LOG INFORMATION:
 
-| filename     | git     | date   | description | start | float | 
-|--------------|---------|--------|-------------|-------|-------|
-| state0000356 | d9a99a5 | Dec 19 | First flight, stationary, successful RTK.  | | 225 |
+| filename     | git     | date   | description | start | float | images |
+|--------------|---------|--------|-------------|-------|-------|-------|
+| state0000356 | d9a99a5 | Dec 19 | First flight, stationary, successful RTK.  | | 225 | ![state0000356](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000356.iconic.png) |
 | state0000435 | 716ba07 | Dec 23 | Single Person Waking Around (long) | 150 | 430 |
 | state0000436 | 716ba07 | Dec 23 | Single Person Sprinting | 340 | |
 | state0000446 | 716ba07 | Dec 23 | Sitting People, Both looking at something. | | |
