@@ -24,7 +24,7 @@
 | state0000894 | - | Feb 26 | Stationary with flying, causing apex->external to moves through circle | | |![state0000894](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000894.iconic.png) |
 | state0000903 | - | Mar 2  | Canada Community College, Stationary | | | ![state0000903](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000903.iconic.png) |
 | state0000905 | - | Mar 2  | Canada Community College, Stationary | | | ![state0000905](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000905.iconic.png) |
-| state0000906 | - | Mar 2  | Canada Community College, Stationary | | | ![state0000906](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000906.iconic.png) |
+| state0000906 | - | Mar 2  | Canada Community College, Jane walking (low sat count) | | | ![state0000906](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000906.iconic.png) |
 | state0000907 | - | Mar 2  | Canada Community College, Jane and Niels walking | | | ![state0000907](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000907.iconic.png) |
 
 
