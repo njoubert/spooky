@@ -1,0 +1,10 @@
+Jan  6 02:11:28 3dr_controller local3.info streamer: starting: built Nov 17 2015 01:38:14
+Jan  6 02:11:42 3dr_controller local3.info streamer: pkts=0 bytes=1 drops=0
+Jan  6 02:11:48 3dr_controller local3.info streamer: pkts=1 bytes=944 drops=0
+Jan  6 02:11:58 3dr_controller local3.info streamer: pkts=18 bytes=2841 drops=248
+Jan  6 02:12:08 3dr_controller local3.info streamer: pkts=25 bytes=3680 drops=0
+Jan  6 02:12:18 3dr_controller local3.info streamer: pkts=25 bytes=3913 drops=0
+Jan  6 02:12:28 3dr_controller local3.info streamer: pkts=26 bytes=3696 drops=0
+Jan  6 02:12:38 3dr_controller local3.info streamer: pkts=27 bytes=4336 drops=0
+Jan  6 02:12:48 3dr_controller local3.info streamer: pkts=25 bytes=3672 drops=0
+Jan  6 02:12:58 3dr_controller local3.info streamer: pkts=26 bytes=3959 drops=0

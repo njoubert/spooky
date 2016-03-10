@@ -1,0 +1,481 @@
+Jan  6 00:20:07 3dr_solo local4.info +140 tlm: Installing SIGQUIT signal handler
+Jan  6 00:20:07 3dr_solo local4.info +140 tlm: telem_forwarder starting: built Nov 17 2015 01:38:09
+Jan  6 00:20:07 3dr_solo local4.info +142 tlm: serial port: /dev/ttymxc1
+Jan  6 00:20:07 3dr_solo local4.info +142 tlm: serial baudrate: 921600
+Jan  6 00:20:07 3dr_solo local4.info +142 tlm: serial hw flow: true
+Jan  6 00:20:07 3dr_solo local4.info +142 tlm: UDP dest port: 14550
+Jan  6 00:20:07 3dr_solo local4.info +142 tlm: use GPS time: true
+Jan  6 00:20:07 3dr_solo local4.info +142 tlm: tos: 0x60
+Jan  6 00:20:07 3dr_solo local4.info +142 tlm: opened port 14560
+Jan  6 00:20:07 3dr_solo local4.info +154 tlm: opened serial port /dev/ttymxc1
+Jan  6 00:20:08 3dr_solo local4.info +712 tlm: GPS time: 1980-01-05 23:59:55.860000
+Jan  5 23:59:55 3dr_solo local4.info +860 tlm: clock set from GPS
+Jan  5 23:59:58 3dr_solo local4.info +676 tlm: adding new client 127.0.0.1:35749
+Jan  5 23:59:58 3dr_solo local4.info +677 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  5 23:59:59 3dr_solo local4.info +041 tlm: SET_MODE: from 127.0.0.1:35749
+Jan  5 23:59:59 3dr_solo local4.info +041 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  5 23:59:59 3dr_solo local4.info +041 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Jan  6 00:00:04 3dr_solo local4.info +317 tlm: down: 128 m/s, 3944 b/s, 4%; up: 4 m/s, 111 b/s, 0%
+Jan  6 00:00:14 3dr_solo local4.info +318 tlm: down: 94 m/s, 2776 b/s, 2%; up: 5 m/s, 156 b/s, 0%
+Jan  6 00:00:24 3dr_solo local4.info +318 tlm: down: 93 m/s, 2766 b/s, 2%; up: 6 m/s, 184 b/s, 0%
+Jan  6 00:00:34 3dr_solo local4.info +319 tlm: down: 95 m/s, 2817 b/s, 3%; up: 6 m/s, 184 b/s, 0%
+Jan  6 00:00:44 3dr_solo local4.info +320 tlm: down: 91 m/s, 2686 b/s, 2%; up: 5 m/s, 130 b/s, 0%
+Jan  6 00:00:54 3dr_solo local4.info +320 tlm: down: 110 m/s, 3032 b/s, 3%; up: 8 m/s, 228 b/s, 0%
+Jan  6 00:01:04 3dr_solo local4.info +321 tlm: down: 109 m/s, 3013 b/s, 3%; up: 9 m/s, 231 b/s, 0%
+Jan  6 00:01:14 3dr_solo local4.info +322 tlm: down: 109 m/s, 3022 b/s, 3%; up: 8 m/s, 229 b/s, 0%
+Jan  6 00:01:24 3dr_solo local4.info +323 tlm: down: 108 m/s, 2981 b/s, 3%; up: 8 m/s, 229 b/s, 0%
+Jan  6 00:01:34 3dr_solo local4.info +323 tlm: down: 110 m/s, 3046 b/s, 3%; up: 9 m/s, 257 b/s, 0%
+Jan  6 00:01:44 3dr_solo local4.info +324 tlm: down: 108 m/s, 2974 b/s, 3%; up: 8 m/s, 203 b/s, 0%
+Jan  6 00:01:54 3dr_solo local4.info +325 tlm: down: 107 m/s, 2953 b/s, 3%; up: 7 m/s, 185 b/s, 0%
+Jan  6 00:02:04 3dr_solo local4.info +325 tlm: down: 106 m/s, 2919 b/s, 3%; up: 5 m/s, 137 b/s, 0%
+Jan  6 00:02:14 3dr_solo local4.info +326 tlm: down: 103 m/s, 2801 b/s, 3%; up: 2 m/s, 35 b/s, 0%
+Jan  6 00:02:24 3dr_solo local4.info +327 tlm: down: 103 m/s, 2796 b/s, 3%; up: 1 m/s, 33 b/s, 0%
+Jan  6 00:02:34 3dr_solo local4.info +328 tlm: down: 103 m/s, 2801 b/s, 3%; up: 2 m/s, 35 b/s, 0%
+Jan  6 00:02:44 3dr_solo local4.info +328 tlm: down: 105 m/s, 2848 b/s, 3%; up: 1 m/s, 33 b/s, 0%
+Jan  6 00:02:54 3dr_solo local4.info +330 tlm: down: 122 m/s, 3515 b/s, 3%; up: 4 m/s, 326 b/s, 0%
+Jan  6 00:03:04 3dr_solo local4.info +331 tlm: down: 121 m/s, 3412 b/s, 3%; up: 35 m/s, 3957 b/s, 4%
+Jan  6 00:03:14 3dr_solo local4.info +332 tlm: down: 106 m/s, 2894 b/s, 3%; up: 34 m/s, 3875 b/s, 4%
+Jan  6 00:03:24 3dr_solo local4.info +333 tlm: down: 107 m/s, 2929 b/s, 3%; up: 34 m/s, 3922 b/s, 4%
+Jan  6 00:03:34 3dr_solo local4.info +334 tlm: down: 112 m/s, 3108 b/s, 3%; up: 35 m/s, 3912 b/s, 4%
+Jan  6 00:03:44 3dr_solo local4.info +335 tlm: down: 242 m/s, 6800 b/s, 7%; up: 38 m/s, 4013 b/s, 4%
+Jan  6 00:03:54 3dr_solo local4.info +335 tlm: down: 107 m/s, 2934 b/s, 3%; up: 35 m/s, 3901 b/s, 4%
+Jan  6 00:04:04 3dr_solo local4.info +336 tlm: down: 109 m/s, 2968 b/s, 3%; up: 36 m/s, 3963 b/s, 4%
+Jan  6 00:04:14 3dr_solo local4.info +337 tlm: down: 107 m/s, 2914 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:04:24 3dr_solo local4.info +338 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:04:34 3dr_solo local4.info +338 tlm: down: 108 m/s, 2941 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:04:44 3dr_solo local4.info +339 tlm: down: 109 m/s, 2968 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:04:54 3dr_solo local4.info +340 tlm: down: 107 m/s, 2914 b/s, 3%; up: 35 m/s, 3879 b/s, 4%
+Jan  6 00:05:04 3dr_solo local4.info +340 tlm: down: 107 m/s, 2919 b/s, 3%; up: 36 m/s, 3963 b/s, 4%
+Jan  6 00:05:14 3dr_solo local4.info +341 tlm: down: 107 m/s, 2922 b/s, 3%; up: 36 m/s, 3941 b/s, 4%
+Jan  6 00:05:24 3dr_solo local4.info +343 tlm: down: 107 m/s, 2913 b/s, 3%; up: 35 m/s, 3899 b/s, 4%
+Jan  6 00:05:34 3dr_solo local4.info +343 tlm: down: 108 m/s, 2936 b/s, 3%; up: 36 m/s, 3941 b/s, 4%
+Jan  6 00:05:44 3dr_solo local4.info +344 tlm: down: 109 m/s, 2965 b/s, 3%; up: 35 m/s, 3937 b/s, 4%
+Jan  6 00:05:54 3dr_solo local4.info +345 tlm: down: 107 m/s, 2922 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:06:02 3dr_solo local4.info +879 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:06:02 3dr_solo local4.info +879 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:06:02 3dr_solo local4.info +879 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Jan  6 00:06:02 3dr_solo local4.info +879 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:06:02 3dr_solo local4.info +879 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:06:02 3dr_solo local4.info +879 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Jan  6 00:06:04 3dr_solo local4.info +346 tlm: down: 107 m/s, 2916 b/s, 3%; up: 36 m/s, 3942 b/s, 4%
+Jan  6 00:06:14 3dr_solo local4.info +346 tlm: down: 159 m/s, 4636 b/s, 5%; up: 38 m/s, 4011 b/s, 4%
+Jan  6 00:06:24 3dr_solo local4.info +347 tlm: down: 109 m/s, 2968 b/s, 3%; up: 35 m/s, 3936 b/s, 4%
+Jan  6 00:06:34 3dr_solo local4.info +348 tlm: down: 107 m/s, 2922 b/s, 3%; up: 35 m/s, 3937 b/s, 4%
+Jan  6 00:06:44 3dr_solo local4.info +349 tlm: down: 107 m/s, 2914 b/s, 3%; up: 36 m/s, 3941 b/s, 4%
+Jan  6 00:06:54 3dr_solo local4.info +349 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3927 b/s, 4%
+Jan  6 00:07:04 3dr_solo local4.info +350 tlm: down: 108 m/s, 2938 b/s, 3%; up: 36 m/s, 3951 b/s, 4%
+Jan  6 00:07:14 3dr_solo local4.info +351 tlm: down: 109 m/s, 2971 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:07:24 3dr_solo local4.info +353 tlm: down: 107 m/s, 2913 b/s, 3%; up: 35 m/s, 3937 b/s, 4%
+Jan  6 00:07:34 3dr_solo local4.info +354 tlm: down: 107 m/s, 2914 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:07:44 3dr_solo local4.info +355 tlm: down: 108 m/s, 2938 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:07:54 3dr_solo local4.info +356 tlm: down: 109 m/s, 2971 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:08:04 3dr_solo local4.info +357 tlm: down: 107 m/s, 2914 b/s, 3%; up: 35 m/s, 3902 b/s, 4%
+Jan  6 00:08:14 3dr_solo local4.info +359 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3902 b/s, 4%
+Jan  6 00:08:24 3dr_solo local4.info +359 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3938 b/s, 4%
+Jan  6 00:08:34 3dr_solo local4.info +360 tlm: down: 109 m/s, 2982 b/s, 3%; up: 35 m/s, 3903 b/s, 4%
+Jan  6 00:08:44 3dr_solo local4.info +361 tlm: down: 107 m/s, 2922 b/s, 3%; up: 36 m/s, 3941 b/s, 4%
+Jan  6 00:08:54 3dr_solo local4.info +362 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3937 b/s, 4%
+Jan  6 00:09:04 3dr_solo local4.info +363 tlm: down: 108 m/s, 2938 b/s, 3%; up: 35 m/s, 3878 b/s, 4%
+Jan  6 00:09:14 3dr_solo local4.info +364 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3915 b/s, 4%
+Jan  6 00:09:24 3dr_solo local4.info +364 tlm: down: 109 m/s, 2962 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:09:34 3dr_solo local4.info +365 tlm: down: 107 m/s, 2915 b/s, 3%; up: 35 m/s, 3937 b/s, 4%
+Jan  6 00:09:44 3dr_solo local4.info +366 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:09:54 3dr_solo local4.info +367 tlm: down: 108 m/s, 2938 b/s, 3%; up: 35 m/s, 3915 b/s, 4%
+Jan  6 00:10:04 3dr_solo local4.info +367 tlm: down: 109 m/s, 2966 b/s, 3%; up: 35 m/s, 3854 b/s, 4%
+Jan  6 00:10:14 3dr_solo local4.info +368 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3927 b/s, 4%
+Jan  6 00:10:24 3dr_solo local4.info +369 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3891 b/s, 4%
+Jan  6 00:10:34 3dr_solo local4.info +370 tlm: down: 107 m/s, 2919 b/s, 3%; up: 34 m/s, 3828 b/s, 4%
+Jan  6 00:10:44 3dr_solo local4.info +370 tlm: down: 108 m/s, 2936 b/s, 3%; up: 35 m/s, 3916 b/s, 4%
+Jan  6 00:10:54 3dr_solo local4.info +371 tlm: down: 109 m/s, 2960 b/s, 3%; up: 35 m/s, 3915 b/s, 4%
+Jan  6 00:11:04 3dr_solo local4.info +372 tlm: down: 107 m/s, 2927 b/s, 3%; up: 35 m/s, 3937 b/s, 4%
+Jan  6 00:11:14 3dr_solo local4.info +372 tlm: down: 107 m/s, 2914 b/s, 3%; up: 35 m/s, 3916 b/s, 4%
+Jan  6 00:11:24 3dr_solo local4.info +373 tlm: down: 107 m/s, 2917 b/s, 3%; up: 35 m/s, 3937 b/s, 4%
+Jan  6 00:11:34 3dr_solo local4.info +374 tlm: down: 108 m/s, 2938 b/s, 3%; up: 35 m/s, 3925 b/s, 4%
+Jan  6 00:11:44 3dr_solo local4.info +375 tlm: down: 109 m/s, 2968 b/s, 3%; up: 35 m/s, 3890 b/s, 4%
+Jan  6 00:11:54 3dr_solo local4.info +377 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3901 b/s, 4%
+Jan  6 00:12:04 3dr_solo local4.info +377 tlm: down: 107 m/s, 2917 b/s, 3%; up: 35 m/s, 3904 b/s, 4%
+Jan  6 00:12:14 3dr_solo local4.info +378 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3910 b/s, 4%
+Jan  6 00:12:24 3dr_solo local4.info +379 tlm: down: 108 m/s, 2938 b/s, 3%; up: 35 m/s, 3879 b/s, 4%
+Jan  6 00:12:34 3dr_solo local4.info +379 tlm: down: 109 m/s, 2968 b/s, 3%; up: 35 m/s, 3913 b/s, 4%
+Jan  6 00:12:44 3dr_solo local4.info +380 tlm: down: 107 m/s, 2917 b/s, 3%; up: 35 m/s, 3937 b/s, 4%
+Jan  6 00:12:54 3dr_solo local4.info +381 tlm: down: 107 m/s, 2924 b/s, 3%; up: 35 m/s, 3903 b/s, 4%
+Jan  6 00:13:04 3dr_solo local4.info +382 tlm: down: 108 m/s, 2937 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:13:14 3dr_solo local4.info +383 tlm: down: 109 m/s, 2964 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:13:24 3dr_solo local4.info +384 tlm: down: 107 m/s, 2917 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:13:34 3dr_solo local4.info +384 tlm: down: 107 m/s, 2920 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:13:44 3dr_solo local4.info +385 tlm: down: 108 m/s, 2938 b/s, 3%; up: 36 m/s, 3965 b/s, 4%
+Jan  6 00:13:54 3dr_solo local4.info +386 tlm: down: 109 m/s, 2968 b/s, 3%; up: 35 m/s, 3887 b/s, 4%
+Jan  6 00:14:04 3dr_solo local4.info +386 tlm: down: 107 m/s, 2917 b/s, 3%; up: 35 m/s, 3915 b/s, 4%
+Jan  6 00:14:14 3dr_solo local4.info +387 tlm: down: 108 m/s, 2941 b/s, 3%; up: 36 m/s, 3953 b/s, 4%
+Jan  6 00:14:24 3dr_solo local4.info +388 tlm: down: 109 m/s, 2964 b/s, 3%; up: 35 m/s, 3949 b/s, 4%
+Jan  6 00:14:34 3dr_solo local4.info +389 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3880 b/s, 4%
+Jan  6 00:14:44 3dr_solo local4.info +389 tlm: down: 110 m/s, 2985 b/s, 3%; up: 36 m/s, 3941 b/s, 4%
+Jan  6 00:14:54 3dr_solo local4.info +390 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3938 b/s, 4%
+Jan  6 00:15:04 3dr_solo local4.info +391 tlm: down: 108 m/s, 2963 b/s, 3%; up: 35 m/s, 3877 b/s, 4%
+Jan  6 00:15:14 3dr_solo local4.info +391 tlm: down: 184 m/s, 5291 b/s, 5%; up: 36 m/s, 3875 b/s, 4%
+Jan  6 00:15:16 3dr_solo local4.info +844 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:15:16 3dr_solo local4.info +844 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:15:16 3dr_solo local4.info +844 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Jan  6 00:15:16 3dr_solo local4.info +844 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:15:16 3dr_solo local4.info +845 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:15:16 3dr_solo local4.info +845 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Jan  6 00:15:24 3dr_solo local4.info +392 tlm: down: 176 m/s, 5080 b/s, 5%; up: 39 m/s, 3995 b/s, 4%
+Jan  6 00:15:34 3dr_solo local4.info +393 tlm: down: 171 m/s, 4631 b/s, 5%; up: 36 m/s, 3950 b/s, 4%
+Jan  6 00:15:42 3dr_solo local4.info +877 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:15:42 3dr_solo local4.info +877 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:15:42 3dr_solo local4.info +877 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Jan  6 00:15:42 3dr_solo local4.info +887 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:15:42 3dr_solo local4.info +887 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:15:42 3dr_solo local4.info +887 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Jan  6 00:15:44 3dr_solo local4.info +394 tlm: down: 108 m/s, 2937 b/s, 3%; up: 35 m/s, 3904 b/s, 4%
+Jan  6 00:15:54 3dr_solo local4.info +395 tlm: down: 200 m/s, 5717 b/s, 6%; up: 37 m/s, 3967 b/s, 4%
+Jan  6 00:16:04 3dr_solo local4.info +395 tlm: down: 170 m/s, 4600 b/s, 4%; up: 35 m/s, 3891 b/s, 4%
+Jan  6 00:16:14 3dr_solo local4.info +396 tlm: down: 108 m/s, 2949 b/s, 3%; up: 36 m/s, 3931 b/s, 4%
+Jan  6 00:16:24 3dr_solo local4.info +397 tlm: down: 108 m/s, 2944 b/s, 3%; up: 35 m/s, 3936 b/s, 4%
+Jan  6 00:16:34 3dr_solo local4.info +398 tlm: down: 109 m/s, 2968 b/s, 3%; up: 35 m/s, 3842 b/s, 4%
+Jan  6 00:16:44 3dr_solo local4.info +399 tlm: down: 107 m/s, 2922 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:16:54 3dr_solo local4.info +400 tlm: down: 108 m/s, 2933 b/s, 3%; up: 35 m/s, 3936 b/s, 4%
+Jan  6 00:17:04 3dr_solo local4.info +401 tlm: down: 109 m/s, 2968 b/s, 3%; up: 34 m/s, 3783 b/s, 4%
+Jan  6 00:17:14 3dr_solo local4.info +401 tlm: down: 107 m/s, 2919 b/s, 3%; up: 34 m/s, 3814 b/s, 4%
+Jan  6 00:17:24 3dr_solo local4.info +402 tlm: down: 108 m/s, 2941 b/s, 3%; up: 35 m/s, 3830 b/s, 4%
+Jan  6 00:17:34 3dr_solo local4.info +403 tlm: down: 109 m/s, 2969 b/s, 3%; up: 35 m/s, 3882 b/s, 4%
+Jan  6 00:17:44 3dr_solo local4.info +403 tlm: down: 107 m/s, 2919 b/s, 3%; up: 36 m/s, 3999 b/s, 4%
+Jan  6 00:17:54 3dr_solo local4.info +404 tlm: down: 108 m/s, 2938 b/s, 3%; up: 35 m/s, 3877 b/s, 4%
+Jan  6 00:18:04 3dr_solo local4.info +405 tlm: down: 109 m/s, 2971 b/s, 3%; up: 35 m/s, 3889 b/s, 4%
+Jan  6 00:18:14 3dr_solo local4.info +405 tlm: down: 107 m/s, 2917 b/s, 3%; up: 34 m/s, 3780 b/s, 4%
+Jan  6 00:18:24 3dr_solo local4.info +406 tlm: down: 110 m/s, 3007 b/s, 3%; up: 35 m/s, 3913 b/s, 4%
+Jan  6 00:18:34 3dr_solo local4.info +407 tlm: down: 107 m/s, 2934 b/s, 3%; up: 34 m/s, 3818 b/s, 4%
+Jan  6 00:18:44 3dr_solo local4.info +408 tlm: down: 108 m/s, 2957 b/s, 3%; up: 34 m/s, 3782 b/s, 4%
+Jan  6 00:18:54 3dr_solo local4.info +408 tlm: down: 109 m/s, 2993 b/s, 3%; up: 33 m/s, 3699 b/s, 4%
+Jan  6 00:19:04 3dr_solo local4.info +409 tlm: down: 107 m/s, 2930 b/s, 3%; up: 35 m/s, 3880 b/s, 4%
+Jan  6 00:19:14 3dr_solo local4.info +410 tlm: down: 109 m/s, 2980 b/s, 3%; up: 24 m/s, 2681 b/s, 2%
+Jan  6 00:19:24 3dr_solo local4.info +410 tlm: down: 107 m/s, 2924 b/s, 3%; up: 1 m/s, 33 b/s, 0%
+Jan  6 00:19:34 3dr_solo local4.info +411 tlm: down: 109 m/s, 2993 b/s, 3%; up: 1 m/s, 33 b/s, 0%
+Jan  6 00:19:44 3dr_solo local4.info +412 tlm: down: 107 m/s, 2938 b/s, 3%; up: 2 m/s, 35 b/s, 0%
+Jan  6 00:19:54 3dr_solo local4.info +412 tlm: down: 109 m/s, 2974 b/s, 3%; up: 1 m/s, 32 b/s, 0%
+Jan  6 00:20:04 3dr_solo local4.info +413 tlm: down: 109 m/s, 2993 b/s, 3%; up: 1 m/s, 33 b/s, 0%
+Jan  6 00:20:14 3dr_solo local4.info +414 tlm: down: 143 m/s, 4216 b/s, 4%; up: 4 m/s, 115 b/s, 0%
+Jan  6 00:20:24 3dr_solo local4.info +414 tlm: down: 109 m/s, 2993 b/s, 3%; up: 2 m/s, 52 b/s, 0%
+Jan  6 00:20:34 3dr_solo local4.info +415 tlm: down: 109 m/s, 2993 b/s, 3%; up: 1 m/s, 33 b/s, 0%
+Jan  6 00:20:44 3dr_solo local4.info +416 tlm: down: 136 m/s, 3964 b/s, 4%; up: 1 m/s, 32 b/s, 0%
+Jan  6 00:20:54 3dr_solo local4.info +417 tlm: down: 115 m/s, 3185 b/s, 3%; up: 3 m/s, 67 b/s, 0%
+Jan  6 00:21:04 3dr_solo local4.info +418 tlm: down: 109 m/s, 2968 b/s, 3%; up: 1 m/s, 33 b/s, 0%
+Jan  6 00:21:14 3dr_solo local4.info +418 tlm: down: 107 m/s, 2943 b/s, 3%; up: 1 m/s, 18 b/s, 0%
+Jan  6 00:21:24 3dr_solo local4.info +419 tlm: down: 109 m/s, 2974 b/s, 3%; up: 0 m/s, 16 b/s, 0%
+Jan  6 00:21:34 3dr_solo local4.info +420 tlm: down: 109 m/s, 2993 b/s, 3%; up: 0 m/s, 15 b/s, 0%
+Jan  6 00:21:44 3dr_solo local4.info +421 tlm: down: 107 m/s, 2938 b/s, 3%; up: 0 m/s, 16 b/s, 0%
+Jan  6 00:21:54 3dr_solo local4.info +422 tlm: down: 109 m/s, 2973 b/s, 3%; up: 0 m/s, 15 b/s, 0%
+Jan  6 00:22:04 3dr_solo local4.info +423 tlm: down: 143 m/s, 4199 b/s, 4%; up: 2 m/s, 55 b/s, 0%
+Jan  6 00:22:14 3dr_solo local4.info +423 tlm: down: 163 m/s, 4885 b/s, 5%; up: 39 m/s, 3527 b/s, 3%
+Jan  6 00:22:24 3dr_solo local4.info +424 tlm: down: 135 m/s, 3914 b/s, 4%; up: 35 m/s, 3862 b/s, 4%
+Jan  6 00:22:24 3dr_solo local4.info +425 tlm: seq errs: (1,1):1
+Jan  6 00:22:34 3dr_solo local4.info +425 tlm: down: 107 m/s, 2919 b/s, 3%; up: 35 m/s, 3893 b/s, 4%
+Jan  6 00:22:44 3dr_solo local4.info +426 tlm: down: 108 m/s, 2938 b/s, 3%; up: 36 m/s, 3941 b/s, 4%
+Jan  6 00:22:54 3dr_solo local4.info +427 tlm: down: 109 m/s, 2968 b/s, 3%; up: 35 m/s, 3913 b/s, 4%
+Jan  6 00:23:04 3dr_solo local4.info +427 tlm: down: 108 m/s, 2947 b/s, 3%; up: 35 m/s, 3905 b/s, 4%
+Jan  6 00:23:14 3dr_solo local4.info +428 tlm: down: 109 m/s, 2968 b/s, 3%; up: 35 m/s, 3939 b/s, 4%
+Jan  6 00:23:24 3dr_solo local4.info +429 tlm: down: 81 m/s, 2199 b/s, 2%; up: 35 m/s, 3905 b/s, 4%
+Jan  6 00:23:34 3dr_solo local4.info +430 tlm: down: 205 m/s, 6329 b/s, 6%; up: 106 m/s, 5945 b/s, 6%
+Jan  6 00:23:34 3dr_solo local4.info +430 tlm: seq errs: (1,1):5
+Jan  6 00:23:44 3dr_solo local4.info +431 tlm: down: 364 m/s, 11453 b/s, 12%; up: 177 m/s, 7890 b/s, 8%
+Jan  6 00:23:44 3dr_solo local4.info +431 tlm: seq errs: (1,1):4
+Jan  6 00:23:54 3dr_solo local4.info +432 tlm: down: 363 m/s, 11489 b/s, 12%; up: 178 m/s, 7937 b/s, 8%
+Jan  6 00:23:54 3dr_solo local4.info +432 tlm: seq errs: (1,1):2
+Jan  6 00:24:04 3dr_solo local4.info +433 tlm: down: 364 m/s, 11464 b/s, 12%; up: 173 m/s, 7813 b/s, 8%
+Jan  6 00:24:04 3dr_solo local4.info +433 tlm: seq errs: (1,1):1
+Jan  6 00:24:14 3dr_solo local4.info +433 tlm: down: 364 m/s, 11480 b/s, 12%; up: 175 m/s, 7836 b/s, 8%
+Jan  6 00:24:14 3dr_solo local4.info +434 tlm: seq errs: (1,1):3
+Jan  6 00:24:24 3dr_solo local4.info +434 tlm: down: 369 m/s, 11640 b/s, 12%; up: 176 m/s, 7880 b/s, 8%
+Jan  6 00:24:24 3dr_solo local4.info +435 tlm: seq errs: (1,1):1
+Jan  6 00:24:34 3dr_solo local4.info +435 tlm: down: 367 m/s, 11575 b/s, 12%; up: 179 m/s, 8005 b/s, 8%
+Jan  6 00:24:34 3dr_solo local4.info +436 tlm: seq errs: (1,1):2
+Jan  6 00:24:44 3dr_solo local4.info +436 tlm: down: 359 m/s, 11335 b/s, 12%; up: 170 m/s, 7672 b/s, 8%
+Jan  6 00:24:44 3dr_solo local4.info +436 tlm: seq errs: (1,1):3
+Jan  6 00:24:49 3dr_solo local4.info +456 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:24:49 3dr_solo local4.info +456 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:24:49 3dr_solo local4.info +456 tlm: SET_MODE: custom_mode=0.0.0.4 target_system=1 base_mode=1
+Jan  6 00:24:54 3dr_solo local4.info +437 tlm: down: 356 m/s, 11188 b/s, 12%; up: 170 m/s, 7696 b/s, 8%
+Jan  6 00:24:54 3dr_solo local4.info +437 tlm: seq errs: (1,1):3
+Jan  6 00:25:04 3dr_solo local4.info +438 tlm: down: 367 m/s, 11558 b/s, 12%; up: 178 m/s, 7948 b/s, 8%
+Jan  6 00:25:04 3dr_solo local4.info +438 tlm: seq errs: (1,1):5
+Jan  6 00:25:14 3dr_solo local4.info +439 tlm: down: 363 m/s, 11417 b/s, 12%; up: 175 m/s, 7847 b/s, 8%
+Jan  6 00:25:14 3dr_solo local4.info +439 tlm: seq errs: (1,1):1
+Jan  6 00:25:24 3dr_solo local4.info +440 tlm: down: 371 m/s, 11708 b/s, 12%; up: 178 m/s, 7882 b/s, 8%
+Jan  6 00:25:24 3dr_solo local4.info +440 tlm: seq errs: (1,1):1
+Jan  6 00:25:34 3dr_solo local4.info +441 tlm: down: 360 m/s, 11325 b/s, 12%; up: 175 m/s, 7838 b/s, 8%
+Jan  6 00:25:34 3dr_solo local4.info +441 tlm: seq errs: (1,1):2
+Jan  6 00:25:44 3dr_solo local4.info +442 tlm: down: 375 m/s, 11826 b/s, 12%; up: 175 m/s, 7778 b/s, 8%
+Jan  6 00:25:45 3dr_solo local4.info +336 tlm: client 127.0.0.1:35749 timed out after 10.645s of inactivity; removing
+Jan  6 00:25:45 3dr_solo local4.info +336 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:25:46 3dr_solo local4.info +065 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:25:46 3dr_solo local4.info +065 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:25:54 3dr_solo local4.info +443 tlm: down: 368 m/s, 11594 b/s, 12%; up: 177 m/s, 7836 b/s, 8%
+Jan  6 00:25:54 3dr_solo local4.info +443 tlm: seq errs: (1,1):3
+Jan  6 00:26:04 3dr_solo local4.info +445 tlm: down: 371 m/s, 11685 b/s, 12%; up: 176 m/s, 7845 b/s, 8%
+Jan  6 00:26:04 3dr_solo local4.info +445 tlm: seq errs: (1,1):1
+Jan  6 00:26:14 3dr_solo local4.info +446 tlm: down: 360 m/s, 11319 b/s, 12%; up: 175 m/s, 7846 b/s, 8%
+Jan  6 00:26:14 3dr_solo local4.info +446 tlm: seq errs: (1,1):4
+Jan  6 00:26:20 3dr_solo local4.info +654 tlm: client 127.0.0.1:35749 timed out after 10.977s of inactivity; removing
+Jan  6 00:26:20 3dr_solo local4.info +655 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:26:21 3dr_solo local4.info +148 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:26:21 3dr_solo local4.info +148 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:26:24 3dr_solo local4.info +447 tlm: down: 373 m/s, 11776 b/s, 12%; up: 176 m/s, 7865 b/s, 8%
+Jan  6 00:26:34 3dr_solo local4.info +448 tlm: down: 358 m/s, 11251 b/s, 12%; up: 175 m/s, 7825 b/s, 8%
+Jan  6 00:26:34 3dr_solo local4.info +448 tlm: seq errs: (1,1):2
+Jan  6 00:26:44 3dr_solo local4.info +449 tlm: down: 373 m/s, 11789 b/s, 12%; up: 177 m/s, 7912 b/s, 8%
+Jan  6 00:26:44 3dr_solo local4.info +449 tlm: seq errs: (1,1):2
+Jan  6 00:26:50 3dr_solo local4.info +912 tlm: client 127.0.0.1:35749 timed out after 10.071s of inactivity; removing
+Jan  6 00:26:50 3dr_solo local4.info +912 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:26:51 3dr_solo local4.info +313 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:26:51 3dr_solo local4.info +313 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:26:54 3dr_solo local4.info +450 tlm: down: 362 m/s, 11392 b/s, 12%; up: 164 m/s, 6802 b/s, 7%
+Jan  6 00:27:04 3dr_solo local4.info +450 tlm: down: 367 m/s, 11537 b/s, 12%; up: 177 m/s, 7912 b/s, 8%
+Jan  6 00:27:04 3dr_solo local4.info +451 tlm: seq errs: (1,1):4
+Jan  6 00:27:14 3dr_solo local4.info +451 tlm: down: 374 m/s, 11778 b/s, 12%; up: 172 m/s, 7772 b/s, 8%
+Jan  6 00:27:14 3dr_solo local4.info +451 tlm: seq errs: (1,1):1
+Jan  6 00:27:16 3dr_solo local4.info +133 tlm: client 127.0.0.1:35749 timed out after 11.067s of inactivity; removing
+Jan  6 00:27:16 3dr_solo local4.info +133 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:27:16 3dr_solo local4.info +833 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:27:16 3dr_solo local4.info +833 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:27:24 3dr_solo local4.info +452 tlm: down: 378 m/s, 11900 b/s, 12%; up: 177 m/s, 7917 b/s, 8%
+Jan  6 00:27:34 3dr_solo local4.info +453 tlm: down: 374 m/s, 11775 b/s, 12%; up: 178 m/s, 7936 b/s, 8%
+Jan  6 00:27:34 3dr_solo local4.info +453 tlm: seq errs: (1,1):3
+Jan  6 00:27:41 3dr_solo local4.info +232 tlm: client 127.0.0.1:35749 timed out after 12.112s of inactivity; removing
+Jan  6 00:27:41 3dr_solo local4.info +232 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:27:41 3dr_solo local4.info +438 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:27:41 3dr_solo local4.info +438 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:27:44 3dr_solo local4.info +454 tlm: down: 384 m/s, 12099 b/s, 13%; up: 184 m/s, 8104 b/s, 8%
+Jan  6 00:27:44 3dr_solo local4.info +454 tlm: seq errs: (1,1):1
+Jan  6 00:27:54 3dr_solo local4.info +455 tlm: down: 375 m/s, 11790 b/s, 12%; up: 178 m/s, 7938 b/s, 8%
+Jan  6 00:27:54 3dr_solo local4.info +455 tlm: seq errs: (1,1):4
+Jan  6 00:28:04 3dr_solo local4.info +455 tlm: down: 377 m/s, 11854 b/s, 12%; up: 177 m/s, 7919 b/s, 8%
+Jan  6 00:28:04 3dr_solo local4.info +456 tlm: seq errs: (1,1):1
+Jan  6 00:28:14 3dr_solo local4.info +457 tlm: down: 381 m/s, 12009 b/s, 13%; up: 182 m/s, 7996 b/s, 8%
+Jan  6 00:28:14 3dr_solo local4.info +457 tlm: seq errs: (1,1):2
+Jan  6 00:28:21 3dr_solo local4.info +458 tlm: client 127.0.0.1:35749 timed out after 10.798s of inactivity; removing
+Jan  6 00:28:21 3dr_solo local4.info +458 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:28:21 3dr_solo local4.info +898 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:28:21 3dr_solo local4.info +898 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:28:24 3dr_solo local4.info +458 tlm: down: 376 m/s, 11831 b/s, 12%; up: 178 m/s, 7944 b/s, 8%
+Jan  6 00:28:24 3dr_solo local4.info +458 tlm: seq errs: (1,1):1
+Jan  6 00:28:34 3dr_solo local4.info +458 tlm: down: 379 m/s, 11902 b/s, 12%; up: 179 m/s, 7963 b/s, 8%
+Jan  6 00:28:34 3dr_solo local4.info +458 tlm: seq errs: (1,1):3
+Jan  6 00:28:44 3dr_solo local4.info +459 tlm: down: 369 m/s, 11590 b/s, 12%; up: 176 m/s, 7885 b/s, 8%
+Jan  6 00:28:46 3dr_solo local4.info +536 tlm: client 127.0.0.1:35749 timed out after 14.153s of inactivity; removing
+Jan  6 00:28:46 3dr_solo local4.info +536 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:28:47 3dr_solo local4.info +119 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:28:47 3dr_solo local4.info +120 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:28:54 3dr_solo local4.info +460 tlm: down: 383 m/s, 12060 b/s, 13%; up: 181 m/s, 8013 b/s, 8%
+Jan  6 00:29:01 3dr_solo local4.info +703 tlm: client 127.0.0.1:35749 timed out after 14.583s of inactivity; removing
+Jan  6 00:29:01 3dr_solo local4.info +703 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:29:02 3dr_solo local4.info +143 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:29:02 3dr_solo local4.info +143 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:29:04 3dr_solo local4.info +461 tlm: down: 385 m/s, 12115 b/s, 13%; up: 176 m/s, 7859 b/s, 8%
+Jan  6 00:29:14 3dr_solo local4.info +461 tlm: down: 374 m/s, 11782 b/s, 12%; up: 179 m/s, 7980 b/s, 8%
+Jan  6 00:29:14 3dr_solo local4.info +462 tlm: seq errs: (1,1):2
+Jan  6 00:29:24 3dr_solo local4.info +464 tlm: down: 383 m/s, 12075 b/s, 13%; up: 181 m/s, 8032 b/s, 8%
+Jan  6 00:29:26 3dr_solo local4.info +941 tlm: client 127.0.0.1:35749 timed out after 14.311s of inactivity; removing
+Jan  6 00:29:26 3dr_solo local4.info +942 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:29:27 3dr_solo local4.info +581 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:29:27 3dr_solo local4.info +581 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:29:34 3dr_solo local4.info +467 tlm: down: 382 m/s, 12012 b/s, 13%; up: 182 m/s, 8062 b/s, 8%
+Jan  6 00:29:34 3dr_solo local4.info +467 tlm: seq errs: (1,1):2
+Jan  6 00:29:44 3dr_solo local4.info +468 tlm: down: 379 m/s, 11944 b/s, 12%; up: 179 m/s, 7977 b/s, 8%
+Jan  6 00:29:44 3dr_solo local4.info +468 tlm: seq errs: (1,1):2
+Jan  6 00:29:52 3dr_solo local4.info +066 tlm: client 127.0.0.1:35749 timed out after 10.305s of inactivity; removing
+Jan  6 00:29:52 3dr_solo local4.info +066 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:29:52 3dr_solo local4.info +734 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:29:52 3dr_solo local4.info +734 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:29:54 3dr_solo local4.info +468 tlm: down: 383 m/s, 12048 b/s, 13%; up: 181 m/s, 7998 b/s, 8%
+Jan  6 00:30:04 3dr_solo local4.info +469 tlm: down: 384 m/s, 12104 b/s, 13%; up: 181 m/s, 7989 b/s, 8%
+Jan  6 00:30:14 3dr_solo local4.info +470 tlm: down: 374 m/s, 11774 b/s, 12%; up: 178 m/s, 7938 b/s, 8%
+Jan  6 00:30:14 3dr_solo local4.info +470 tlm: seq errs: (1,1):2
+Jan  6 00:30:24 3dr_solo local4.info +471 tlm: down: 365 m/s, 11468 b/s, 12%; up: 172 m/s, 7717 b/s, 8%
+Jan  6 00:30:24 3dr_solo local4.info +471 tlm: seq errs: (1,1):2
+Jan  6 00:30:34 3dr_solo local4.info +472 tlm: down: 378 m/s, 11885 b/s, 12%; up: 178 m/s, 7947 b/s, 8%
+Jan  6 00:30:34 3dr_solo local4.info +472 tlm: seq errs: (1,1):2
+Jan  6 00:30:44 3dr_solo local4.info +473 tlm: down: 376 m/s, 11838 b/s, 12%; up: 182 m/s, 7968 b/s, 8%
+Jan  6 00:30:44 3dr_solo local4.info +473 tlm: seq errs: (1,1):5
+Jan  6 00:30:54 3dr_solo local4.info +474 tlm: down: 373 m/s, 11730 b/s, 12%; up: 176 m/s, 7869 b/s, 8%
+Jan  6 00:30:54 3dr_solo local4.info +474 tlm: seq errs: (1,1):2
+Jan  6 00:31:02 3dr_solo local4.info +545 tlm: client 127.0.0.1:35749 timed out after 10.975s of inactivity; removing
+Jan  6 00:31:02 3dr_solo local4.info +546 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:31:02 3dr_solo local4.info +684 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:31:02 3dr_solo local4.info +684 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:31:04 3dr_solo local4.info +474 tlm: down: 384 m/s, 12096 b/s, 13%; up: 184 m/s, 8097 b/s, 8%
+Jan  6 00:31:04 3dr_solo local4.info +475 tlm: seq errs: (1,1):3
+Jan  6 00:31:14 3dr_solo local4.info +475 tlm: down: 374 m/s, 11753 b/s, 12%; up: 176 m/s, 7898 b/s, 8%
+Jan  6 00:31:17 3dr_solo local4.info +697 tlm: client 127.0.0.1:35749 timed out after 15.013s of inactivity; removing
+Jan  6 00:31:17 3dr_solo local4.info +697 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:31:18 3dr_solo local4.info +176 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:31:18 3dr_solo local4.info +176 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:31:20 3dr_solo local4.info +821 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:31:20 3dr_solo local4.info +821 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:31:20 3dr_solo local4.info +821 tlm: SET_MODE: custom_mode=0.0.0.4 target_system=1 base_mode=1
+Jan  6 00:31:24 3dr_solo local4.info +476 tlm: down: 358 m/s, 11350 b/s, 12%; up: 178 m/s, 7905 b/s, 8%
+Jan  6 00:31:24 3dr_solo local4.info +476 tlm: seq errs: (1,1):1
+Jan  6 00:31:34 3dr_solo local4.info +477 tlm: down: 360 m/s, 11350 b/s, 12%; up: 177 m/s, 7905 b/s, 8%
+Jan  6 00:31:34 3dr_solo local4.info +477 tlm: seq errs: (1,1):4
+Jan  6 00:31:44 3dr_solo local4.info +478 tlm: down: 365 m/s, 11510 b/s, 12%; up: 178 m/s, 7936 b/s, 8%
+Jan  6 00:31:44 3dr_solo local4.info +478 tlm: seq errs: (1,1):1
+Jan  6 00:31:54 3dr_solo local4.info +479 tlm: down: 374 m/s, 11792 b/s, 12%; up: 178 m/s, 7942 b/s, 8%
+Jan  6 00:31:54 3dr_solo local4.info +479 tlm: seq errs: (1,1):1
+Jan  6 00:31:58 3dr_solo local4.info +011 tlm: client 127.0.0.1:35749 timed out after 11.124s of inactivity; removing
+Jan  6 00:31:58 3dr_solo local4.info +011 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:31:58 3dr_solo local4.info +609 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:31:58 3dr_solo local4.info +609 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:32:04 3dr_solo local4.info +480 tlm: down: 371 m/s, 11706 b/s, 12%; up: 179 m/s, 7936 b/s, 8%
+Jan  6 00:32:04 3dr_solo local4.info +480 tlm: seq errs: (1,1):1
+Jan  6 00:32:14 3dr_solo local4.info +481 tlm: down: 368 m/s, 11601 b/s, 12%; up: 176 m/s, 7894 b/s, 8%
+Jan  6 00:32:14 3dr_solo local4.info +481 tlm: seq errs: (1,1):1
+Jan  6 00:32:24 3dr_solo local4.info +481 tlm: down: 355 m/s, 11162 b/s, 12%; up: 173 m/s, 7781 b/s, 8%
+Jan  6 00:32:24 3dr_solo local4.info +482 tlm: seq errs: (1,1):4
+Jan  6 00:32:34 3dr_solo local4.info +482 tlm: down: 370 m/s, 11644 b/s, 12%; up: 178 m/s, 7931 b/s, 8%
+Jan  6 00:32:34 3dr_solo local4.info +483 tlm: seq errs: (1,1):3
+Jan  6 00:32:44 3dr_solo local4.info +483 tlm: down: 379 m/s, 11937 b/s, 12%; up: 180 m/s, 8001 b/s, 8%
+Jan  6 00:32:44 3dr_solo local4.info +484 tlm: seq errs: (1,1):2
+Jan  6 00:32:52 3dr_solo local4.info +195 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:32:52 3dr_solo local4.info +195 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:32:52 3dr_solo local4.info +195 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Jan  6 00:32:52 3dr_solo local4.info +195 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:32:52 3dr_solo local4.info +195 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:32:52 3dr_solo local4.info +195 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Jan  6 00:32:54 3dr_solo local4.info +485 tlm: down: 350 m/s, 10968 b/s, 11%; up: 164 m/s, 7540 b/s, 8%
+Jan  6 00:32:54 3dr_solo local4.info +485 tlm: seq errs: (1,1):2
+Jan  6 00:33:04 3dr_solo local4.info +486 tlm: down: 341 m/s, 10733 b/s, 11%; up: 146 m/s, 7039 b/s, 7%
+Jan  6 00:33:04 3dr_solo local4.info +486 tlm: seq errs: (1,1):5
+Jan  6 00:33:14 3dr_solo local4.info +486 tlm: down: 373 m/s, 11727 b/s, 12%; up: 180 m/s, 7999 b/s, 8%
+Jan  6 00:33:14 3dr_solo local4.info +487 tlm: seq errs: (1,1):1
+Jan  6 00:33:23 3dr_solo local4.info +824 tlm: client 127.0.0.1:35749 timed out after 13.771s of inactivity; removing
+Jan  6 00:33:23 3dr_solo local4.info +824 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:33:24 3dr_solo local4.info +228 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:33:24 3dr_solo local4.info +228 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:33:24 3dr_solo local4.info +487 tlm: down: 379 m/s, 11925 b/s, 12%; up: 176 m/s, 7898 b/s, 8%
+Jan  6 00:33:34 3dr_solo local4.info +491 tlm: down: 383 m/s, 12058 b/s, 13%; up: 181 m/s, 8026 b/s, 8%
+Jan  6 00:33:44 3dr_solo local4.info +493 tlm: down: 272 m/s, 8375 b/s, 9%; up: 117 m/s, 6231 b/s, 6%
+Jan  6 00:33:54 3dr_solo local4.info +494 tlm: down: 405 m/s, 12417 b/s, 13%; up: 145 m/s, 7042 b/s, 7%
+Jan  6 00:33:54 3dr_solo local4.info +494 tlm: seq errs: (1,1):5
+Jan  6 00:34:04 3dr_solo local4.info +495 tlm: down: 444 m/s, 13662 b/s, 14%; up: 181 m/s, 8004 b/s, 8%
+Jan  6 00:34:04 3dr_solo local4.info +495 tlm: seq errs: (1,1):3
+Jan  6 00:34:14 3dr_solo local4.info +495 tlm: down: 351 m/s, 11015 b/s, 11%; up: 164 m/s, 7537 b/s, 8%
+Jan  6 00:34:14 3dr_solo local4.info +496 tlm: seq errs: (1,1):1
+Jan  6 00:34:24 3dr_solo local4.info +497 tlm: down: 437 m/s, 13425 b/s, 14%; up: 152 m/s, 7206 b/s, 7%
+Jan  6 00:34:24 3dr_solo local4.info +497 tlm: seq errs: (1,1):4
+Jan  6 00:34:34 3dr_solo local4.info +498 tlm: down: 328 m/s, 9906 b/s, 10%; up: 95 m/s, 5242 b/s, 5%
+Jan  6 00:34:44 3dr_solo local4.info +499 tlm: down: 263 m/s, 8063 b/s, 8%; up: 113 m/s, 6120 b/s, 6%
+Jan  6 00:34:54 3dr_solo local4.info +501 tlm: down: 373 m/s, 11460 b/s, 12%; up: 134 m/s, 6709 b/s, 7%
+Jan  6 00:34:54 3dr_solo local4.info +501 tlm: seq errs: (1,1):7
+Jan  6 00:35:04 3dr_solo local4.info +502 tlm: down: 438 m/s, 13565 b/s, 14%; up: 182 m/s, 8029 b/s, 8%
+Jan  6 00:35:04 3dr_solo local4.info +502 tlm: seq errs: (1,1):2
+Jan  6 00:35:04 3dr_solo local4.info +652 tlm: client 127.0.0.1:35749 timed out after 12.327s of inactivity; removing
+Jan  6 00:35:04 3dr_solo local4.info +652 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:35:05 3dr_solo local4.info +323 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:35:05 3dr_solo local4.info +323 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:35:14 3dr_solo local4.info +503 tlm: down: 380 m/s, 11962 b/s, 12%; up: 178 m/s, 7960 b/s, 8%
+Jan  6 00:35:24 3dr_solo local4.info +504 tlm: down: 374 m/s, 11753 b/s, 12%; up: 180 m/s, 7903 b/s, 8%
+Jan  6 00:35:24 3dr_solo local4.info +504 tlm: seq errs: (1,1):4
+Jan  6 00:35:34 3dr_solo local4.info +505 tlm: down: 334 m/s, 10443 b/s, 11%; up: 132 m/s, 6657 b/s, 7%
+Jan  6 00:35:34 3dr_solo local4.info +505 tlm: seq errs: (1,1):1
+Jan  6 00:35:44 3dr_solo local4.info +506 tlm: down: 484 m/s, 14675 b/s, 15%; up: 181 m/s, 8062 b/s, 8%
+Jan  6 00:35:44 3dr_solo local4.info +506 tlm: seq errs: (1,1):5
+Jan  6 00:35:46 3dr_solo local4.info +629 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:35:46 3dr_solo local4.info +629 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:35:46 3dr_solo local4.info +629 tlm: SET_MODE: custom_mode=0.0.0.4 target_system=1 base_mode=1
+Jan  6 00:35:54 3dr_solo local4.info +507 tlm: down: 351 m/s, 11107 b/s, 12%; up: 180 m/s, 7941 b/s, 8%
+Jan  6 00:35:54 3dr_solo local4.info +507 tlm: seq errs: (1,1):2
+Jan  6 00:36:04 3dr_solo local4.info +508 tlm: down: 368 m/s, 11615 b/s, 12%; up: 174 m/s, 7843 b/s, 8%
+Jan  6 00:36:04 3dr_solo local4.info +508 tlm: seq errs: (1,1):2
+Jan  6 00:36:10 3dr_solo local4.info +311 tlm: client 127.0.0.1:35749 timed out after 10.253s of inactivity; removing
+Jan  6 00:36:10 3dr_solo local4.info +311 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:36:10 3dr_solo local4.info +702 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:36:10 3dr_solo local4.info +703 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:36:14 3dr_solo local4.info +509 tlm: down: 372 m/s, 11733 b/s, 12%; up: 176 m/s, 7849 b/s, 8%
+Jan  6 00:36:24 3dr_solo local4.info +510 tlm: down: 375 m/s, 11830 b/s, 12%; up: 179 m/s, 8000 b/s, 8%
+Jan  6 00:36:25 3dr_solo local4.info +533 tlm: client 127.0.0.1:35749 timed out after 14.830s of inactivity; removing
+Jan  6 00:36:25 3dr_solo local4.info +533 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:36:25 3dr_solo local4.info +842 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:36:25 3dr_solo local4.info +842 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:36:34 3dr_solo local4.info +513 tlm: down: 363 m/s, 11424 b/s, 12%; up: 173 m/s, 7776 b/s, 8%
+Jan  6 00:36:34 3dr_solo local4.info +513 tlm: seq errs: (1,1):2
+Jan  6 00:36:44 3dr_solo local4.info +514 tlm: down: 364 m/s, 11484 b/s, 12%; up: 174 m/s, 7798 b/s, 8%
+Jan  6 00:36:45 3dr_solo local4.info +712 tlm: client 127.0.0.1:35749 timed out after 12.795s of inactivity; removing
+Jan  6 00:36:45 3dr_solo local4.info +712 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:36:46 3dr_solo local4.info +398 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:36:46 3dr_solo local4.info +398 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:36:54 3dr_solo local4.info +515 tlm: down: 367 m/s, 11585 b/s, 12%; up: 179 m/s, 7947 b/s, 8%
+Jan  6 00:36:54 3dr_solo local4.info +515 tlm: seq errs: (1,1):2
+Jan  6 00:37:04 3dr_solo local4.info +516 tlm: down: 367 m/s, 11577 b/s, 12%; up: 175 m/s, 7884 b/s, 8%
+Jan  6 00:37:04 3dr_solo local4.info +516 tlm: seq errs: (1,1):2
+Jan  6 00:37:14 3dr_solo local4.info +517 tlm: down: 365 m/s, 11495 b/s, 12%; up: 173 m/s, 7781 b/s, 8%
+Jan  6 00:37:14 3dr_solo local4.info +517 tlm: seq errs: (1,1):2
+Jan  6 00:37:24 3dr_solo local4.info +518 tlm: down: 361 m/s, 11411 b/s, 12%; up: 176 m/s, 7902 b/s, 8%
+Jan  6 00:37:24 3dr_solo local4.info +519 tlm: seq errs: (1,1):2
+Jan  6 00:37:34 3dr_solo local4.info +519 tlm: down: 371 m/s, 11703 b/s, 12%; up: 179 m/s, 7949 b/s, 8%
+Jan  6 00:37:36 3dr_solo local4.info +102 tlm: client 127.0.0.1:35749 timed out after 13.939s of inactivity; removing
+Jan  6 00:37:36 3dr_solo local4.info +102 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:37:36 3dr_solo local4.info +469 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:37:36 3dr_solo local4.info +469 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:37:44 3dr_solo local4.info +520 tlm: down: 359 m/s, 11349 b/s, 12%; up: 179 m/s, 7949 b/s, 8%
+Jan  6 00:37:44 3dr_solo local4.info +520 tlm: seq errs: (1,1):4
+Jan  6 00:37:54 3dr_solo local4.info +521 tlm: down: 368 m/s, 11601 b/s, 12%; up: 176 m/s, 7919 b/s, 8%
+Jan  6 00:37:54 3dr_solo local4.info +521 tlm: seq errs: (1,1):6
+Jan  6 00:38:04 3dr_solo local4.info +522 tlm: down: 367 m/s, 11581 b/s, 12%; up: 174 m/s, 7781 b/s, 8%
+Jan  6 00:38:04 3dr_solo local4.info +522 tlm: seq errs: (1,1):3
+Jan  6 00:38:14 3dr_solo local4.info +523 tlm: down: 366 m/s, 11551 b/s, 12%; up: 181 m/s, 8020 b/s, 8%
+Jan  6 00:38:14 3dr_solo local4.info +523 tlm: seq errs: (1,1):3
+Jan  6 00:38:24 3dr_solo local4.info +524 tlm: down: 375 m/s, 11846 b/s, 12%; up: 178 m/s, 7936 b/s, 8%
+Jan  6 00:38:24 3dr_solo local4.info +524 tlm: seq errs: (1,1):1
+Jan  6 00:38:31 3dr_solo local4.info +590 tlm: client 127.0.0.1:35749 timed out after 10.205s of inactivity; removing
+Jan  6 00:38:31 3dr_solo local4.info +590 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:38:32 3dr_solo local4.info +137 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:38:32 3dr_solo local4.info +137 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:38:34 3dr_solo local4.info +525 tlm: down: 366 m/s, 11516 b/s, 12%; up: 173 m/s, 7753 b/s, 8%
+Jan  6 00:38:44 3dr_solo local4.info +526 tlm: down: 369 m/s, 11629 b/s, 12%; up: 176 m/s, 7924 b/s, 8%
+Jan  6 00:38:46 3dr_solo local4.info +730 tlm: client 127.0.0.1:35749 timed out after 14.593s of inactivity; removing
+Jan  6 00:38:46 3dr_solo local4.info +730 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:38:47 3dr_solo local4.info +328 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:38:47 3dr_solo local4.info +328 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:38:53 3dr_solo local4.info +542 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:38:53 3dr_solo local4.info +542 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Jan  6 00:38:53 3dr_solo local4.info +542 tlm: SET_MODE: custom_mode=0.0.0.6 target_system=1 base_mode=1
+Jan  6 00:38:54 3dr_solo local4.info +526 tlm: down: 367 m/s, 11571 b/s, 12%; up: 175 m/s, 7797 b/s, 8%
+Jan  6 00:38:54 3dr_solo local4.info +527 tlm: seq errs: (1,1):1
+Jan  6 00:39:01 3dr_solo local4.info +793 tlm: client 127.0.0.1:35749 timed out after 12.139s of inactivity; removing
+Jan  6 00:39:01 3dr_solo local4.info +793 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:39:02 3dr_solo local4.info +445 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:39:02 3dr_solo local4.info +445 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:39:04 3dr_solo local4.info +527 tlm: down: 372 m/s, 11741 b/s, 12%; up: 177 m/s, 7947 b/s, 8%
+Jan  6 00:39:14 3dr_solo local4.info +528 tlm: down: 364 m/s, 11466 b/s, 12%; up: 175 m/s, 7860 b/s, 8%
+Jan  6 00:39:16 3dr_solo local4.info +857 tlm: client 127.0.0.1:35749 timed out after 13.312s of inactivity; removing
+Jan  6 00:39:16 3dr_solo local4.info +858 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:39:17 3dr_solo local4.info +279 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:39:17 3dr_solo local4.info +279 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:39:24 3dr_solo local4.info +529 tlm: down: 370 m/s, 11685 b/s, 12%; up: 174 m/s, 7791 b/s, 8%
+Jan  6 00:39:31 3dr_solo local4.info +904 tlm: client 127.0.0.1:35749 timed out after 14.625s of inactivity; removing
+Jan  6 00:39:31 3dr_solo local4.info +904 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:39:32 3dr_solo local4.info +569 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:39:32 3dr_solo local4.info +569 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:39:34 3dr_solo local4.info +530 tlm: down: 366 m/s, 11518 b/s, 12%; up: 170 m/s, 7711 b/s, 8%
+Jan  6 00:39:40 3dr_solo local4.info +655 tlm: SET_MODE: from 10.1.1.1:14550
+Jan  6 00:39:40 3dr_solo local4.info +655 tlm: SET_MODE: len=6 src_sys=255 src_comp=6
+Jan  6 00:39:40 3dr_solo local4.info +655 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Jan  6 00:39:44 3dr_solo local4.info +531 tlm: down: 371 m/s, 11665 b/s, 12%; up: 176 m/s, 7892 b/s, 8%
+Jan  6 00:39:44 3dr_solo local4.info +531 tlm: seq errs: (1,1):1
+Jan  6 00:39:54 3dr_solo local4.info +532 tlm: down: 375 m/s, 11815 b/s, 12%; up: 175 m/s, 7815 b/s, 8%
+Jan  6 00:39:54 3dr_solo local4.info +532 tlm: seq errs: (1,1):2
+Jan  6 00:40:02 3dr_solo local4.info +035 tlm: client 127.0.0.1:35749 timed out after 11.613s of inactivity; removing
+Jan  6 00:40:02 3dr_solo local4.info +035 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:40:02 3dr_solo local4.info +620 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:40:02 3dr_solo local4.info +620 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:40:04 3dr_solo local4.info +536 tlm: down: 380 m/s, 11954 b/s, 12%; up: 178 m/s, 7897 b/s, 8%
+Jan  6 00:40:04 3dr_solo local4.info +536 tlm: seq errs: (1,1):1
+Jan  6 00:40:14 3dr_solo local4.info +537 tlm: down: 374 m/s, 11786 b/s, 12%; up: 178 m/s, 7941 b/s, 8%
+Jan  6 00:40:14 3dr_solo local4.info +537 tlm: seq errs: (1,1):1
+Jan  6 00:40:17 3dr_solo local4.info +092 tlm: client 127.0.0.1:35749 timed out after 11.518s of inactivity; removing
+Jan  6 00:40:17 3dr_solo local4.info +092 tlm: ARP: Purging (255/0) from 127.0.0.1:35749 client=0x762fdc24
+Jan  6 00:40:17 3dr_solo local4.info +672 tlm: adding new client 127.0.0.1:35749
+Jan  6 00:40:17 3dr_solo local4.info +673 tlm: ARP: Seen (255/0) from 127.0.0.1:35749 client=0x762fdc44
+Jan  6 00:40:24 3dr_solo local4.info +538 tlm: down: 377 m/s, 11896 b/s, 12%; up: 178 m/s, 7950 b/s, 8%
+Jan  6 00:40:24 3dr_solo local4.info +538 tlm: seq errs: (1,1):1
+Jan  6 00:40:34 3dr_solo local4.info +539 tlm: down: 377 m/s, 11883 b/s, 12%; up: 179 m/s, 7943 b/s, 8%
+Jan  6 00:40:34 3dr_solo local4.info +540 tlm: seq errs: (1,1):2

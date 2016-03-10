@@ -1,0 +1,14 @@
+Jan  6 00:16:08 3dr_solo local0.info +254 pixrc: main: built Nov 17 2015 01:38:02
+Jan  6 00:16:08 3dr_solo local0.info +267 pixrc: main: rcSourceIps: 10.1.1.1,127.0.0.1
+Jan  6 00:16:08 3dr_solo local0.info +274 pixrc: main: rcDestPort:  5005
+Jan  6 00:16:08 3dr_solo local0.info +275 pixrc: main: rcDsmDev:    /dev/ttymxc2
+Jan  6 00:16:08 3dr_solo local0.info +276 pixrc: main: Throttle PWM in  1000...2000
+Jan  6 00:16:08 3dr_solo local0.info +297 pixrc: main:          PWM out 1000...1900
+Jan  6 00:16:08 3dr_solo local0.info +297 pixrc: main: Other    PWM in  1000...2000
+Jan  6 00:16:08 3dr_solo local0.info +297 pixrc: main:          PWM out 1000...2000
+Jan  6 00:16:08 3dr_solo local0.info +297 pixrc: udp: listening on port 5005
+Jan  6 00:16:08 3dr_solo local0.info +499 pixrc: serial: started
+Jan  6 00:16:14 3dr_solo local0.info +380 pixrc: cmd: uplink attached
+Jan  6 00:16:18 3dr_solo local0.info +342 pixrc: a:20,m:60,n:502,u:0,d:1,o:0,q:2,udp=44314,ser=21768
+Jan  6 00:16:28 3dr_solo local0.info +344 pixrc: a:20,m:30,n:500,u:0,d:0,o:0,q:0,udp=29559,ser=20814
+Jan  6 00:16:38 3dr_solo local0.info +343 pixrc: a:20,m:28,n:500,u:0,d:0,o:0,q:0,udp=28481,ser=21193

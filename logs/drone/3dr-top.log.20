@@ -1,0 +1,504 @@
+
+1980-01-06 00:21:09,134 proc_top starting
+
+1980-01-06 00:21:19,135
+   pid name                  utime  stime  pct
+   786 (python)                 32      7   4%
+   698 (wpa_supplicant)         23      1   2%
+    70 (kworker/u2:2)            0      8   1%
+    71 (mmcqd/0)                 0      5   1%
+
+1980-01-06 00:21:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         12      1   1%
+
+1980-01-06 00:21:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      1   2%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:21:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         10      4   1%
+    18 (kworker/u2:1)            0      6   1%
+
+1980-01-06 00:21:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)          9      3   1%
+
+1980-01-06 00:22:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      1   2%
+    70 (kworker/u2:2)            0      8   1%
+
+1980-01-06 00:22:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         12      1   1%
+
+1980-01-06 00:22:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      1   2%
+    70 (kworker/u2:2)            0      5   1%
+
+1980-01-06 00:22:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         10      4   1%
+    70 (kworker/u2:2)            0      6   1%
+
+1980-01-06 00:22:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         10      2   1%
+
+1980-01-06 00:22:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      2   2%
+    70 (kworker/u2:2)            0      7   1%
+
+1980-01-06 00:23:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)          9      4   1%
+
+1980-01-06 00:23:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      1   2%
+    70 (kworker/u2:2)            0      6   1%
+
+1980-01-06 00:23:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         10      4   1%
+    70 (kworker/u2:2)            0      6   1%
+
+1980-01-06 00:23:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      1   1%
+
+1980-01-06 00:23:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      2   2%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:23:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      1   1%
+
+1980-01-06 00:24:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      2   2%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:24:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         12      2   1%
+    18 (kworker/u2:1)            0      6   1%
+
+1980-01-06 00:24:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      1   1%
+
+1980-01-06 00:24:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      2   2%
+    18 (kworker/u2:1)            0      8   1%
+
+1980-01-06 00:24:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      1   1%
+
+1980-01-06 00:24:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      1   2%
+    70 (kworker/u2:2)            0      6   1%
+
+1980-01-06 00:25:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+    70 (kworker/u2:2)            0      5   1%
+
+1980-01-06 00:25:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         12      1   1%
+    70 (kworker/u2:2)            0      5   1%
+
+1980-01-06 00:25:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      2   2%
+    70 (kworker/u2:2)            0      7   1%
+
+1980-01-06 00:25:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      1   1%
+
+1980-01-06 00:25:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      1   2%
+    70 (kworker/u2:2)            0      6   1%
+
+1980-01-06 00:25:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         13      0   1%
+   898 (kworker/u2:0)            0      5   1%
+
+1980-01-06 00:26:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         14      0   1%
+
+1980-01-06 00:26:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      1   2%
+   898 (kworker/u2:0)            0      8   1%
+
+1980-01-06 00:26:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         12      1   1%
+
+1980-01-06 00:26:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         23      0   2%
+   898 (kworker/u2:0)            0      6   1%
+
+1980-01-06 00:26:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+   898 (kworker/u2:0)            0      5   1%
+
+1980-01-06 00:26:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         13      0   1%
+
+1980-01-06 00:27:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      2   2%
+    70 (kworker/u2:2)            0      6   1%
+
+1980-01-06 00:27:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         13      0   1%
+
+1980-01-06 00:27:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      2   2%
+   898 (kworker/u2:0)            0      6   1%
+
+1980-01-06 00:27:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         13      0   1%
+   898 (kworker/u2:0)            0      6   1%
+
+1980-01-06 00:27:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+
+1980-01-06 00:27:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      1   2%
+   898 (kworker/u2:0)            0      7   1%
+
+1980-01-06 00:28:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         13      0   1%
+
+1980-01-06 00:28:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         20      3   2%
+   898 (kworker/u2:0)            0      6   1%
+
+1980-01-06 00:28:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+    70 (kworker/u2:2)            0      6   1%
+
+1980-01-06 00:28:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         13      0   1%
+
+1980-01-06 00:28:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         19      4   2%
+    70 (kworker/u2:2)            0      7   1%
+
+1980-01-06 00:28:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         10      2   1%
+
+1980-01-06 00:29:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      1   2%
+   898 (kworker/u2:0)            0      6   1%
+
+1980-01-06 00:29:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)          9      4   1%
+   898 (kworker/u2:0)            0      6   1%
+
+1980-01-06 00:29:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+
+1980-01-06 00:29:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      2   2%
+   898 (kworker/u2:0)            0      8   1%
+
+1980-01-06 00:29:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         13      0   1%
+
+1980-01-06 00:29:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         17      6   2%
+    18 (kworker/u2:1)            0      7   1%
+
+1980-01-06 00:30:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         10      3   1%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:30:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:30:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         20      3   2%
+    71 (mmcqd/0)                 0      8   1%
+    18 (kworker/u2:1)            0      7   1%
+
+1980-01-06 00:30:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+
+1980-01-06 00:30:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         20      3   2%
+    18 (kworker/u2:1)            0      6   1%
+
+1980-01-06 00:30:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         12      1   1%
+    18 (kworker/u2:1)            0      6   1%
+
+1980-01-06 00:31:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         12      1   1%
+
+1980-01-06 00:31:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      1   2%
+    18 (kworker/u2:1)            0      8   1%
+
+1980-01-06 00:31:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+
+1980-01-06 00:31:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      1   2%
+    18 (kworker/u2:1)            0      7   1%
+
+1980-01-06 00:31:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:31:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         13      0   1%
+
+1980-01-06 00:32:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         20      3   2%
+    18 (kworker/u2:1)            0      8   1%
+
+1980-01-06 00:32:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+    71 (mmcqd/0)                 0      6   1%
+
+1980-01-06 00:32:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         20      3   2%
+    18 (kworker/u2:1)            0      6   1%
+
+1980-01-06 00:32:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         12      1   1%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:32:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         12      1   1%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:32:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         20      3   2%
+    18 (kworker/u2:1)            0      7   1%
+
+1980-01-06 00:33:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         10      2   1%
+
+1980-01-06 00:33:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      3   2%
+    18 (kworker/u2:1)            0      7   1%
+
+1980-01-06 00:33:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)          8      4   1%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:33:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+
+1980-01-06 00:33:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         20      3   2%
+    18 (kworker/u2:1)            0      8   1%
+
+1980-01-06 00:33:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         10      2   1%
+
+1980-01-06 00:34:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      2   2%
+    18 (kworker/u2:1)            0      6   1%
+
+1980-01-06 00:34:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         10      3   1%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:34:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:34:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         20      3   2%
+    18 (kworker/u2:1)            0      7   1%
+
+1980-01-06 00:34:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      1   1%
+
+1980-01-06 00:34:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      2   2%
+    18 (kworker/u2:1)            0      6   1%
+
+1980-01-06 00:35:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         10      3   1%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:35:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         13      0   1%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:35:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         19      4   2%
+    18 (kworker/u2:1)            0      7   1%
+
+1980-01-06 00:35:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      1   1%
+
+1980-01-06 00:35:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      3   2%
+    18 (kworker/u2:1)            0      7   1%
+
+1980-01-06 00:35:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         10      2   1%
+    18 (kworker/u2:1)            0      5   1%
+
+1980-01-06 00:36:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         12      2   1%
+
+1980-01-06 00:36:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         23      0   2%
+  1073 (kworker/u2:2)            0      7   1%
+
+1980-01-06 00:36:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         13      0   1%
+
+1980-01-06 00:36:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         23      0   2%
+  1073 (kworker/u2:2)            0      6   1%
+
+1980-01-06 00:36:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+  1073 (kworker/u2:2)            0      6   1%
+
+1980-01-06 00:36:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         13      0   1%
+
+1980-01-06 00:37:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         19      4   2%
+  1073 (kworker/u2:2)            0      7   1%
+
+1980-01-06 00:37:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         10      3   1%
+
+1980-01-06 00:37:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         24      0   2%
+  1073 (kworker/u2:2)            0      7   1%
+
+1980-01-06 00:37:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         12      1   1%
+  1073 (kworker/u2:2)            0      5   1%
+
+1980-01-06 00:37:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         13      0   1%
+
+1980-01-06 00:37:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      2   2%
+  1073 (kworker/u2:2)            0      7   1%
+
+1980-01-06 00:38:09,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      1   1%
+
+1980-01-06 00:38:19,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         22      2   2%
+  1073 (kworker/u2:2)            0      6   1%
+
+1980-01-06 00:38:29,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      2   1%
+  1073 (kworker/u2:2)            0      5   1%
+
+1980-01-06 00:38:39,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         12      1   1%
+  1073 (kworker/u2:2)            0      5   1%
+
+1980-01-06 00:38:49,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         21      2   2%
+  1073 (kworker/u2:2)            0      7   1%
+
+1980-01-06 00:38:59,135
+   pid name                  utime  stime  pct
+   698 (wpa_supplicant)         11      1   1%

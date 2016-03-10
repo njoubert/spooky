@@ -1,0 +1,534 @@
+
+2016-01-05 01:05:03,234 proc_top starting
+
+2016-01-05 01:05:13,234
+   pid name                  utime  stime  pct
+   779 (python)                 26     11   4%
+    62 (kworker/0:2)             0     28   3%
+   762 (hostapd)                13      6   2%
+    18 (kworker/u2:1)            0     14   1%
+
+2016-01-05 01:05:23,234
+   pid name                  utime  stime  pct
+   793 (stm32_up)                5     30   4%
+    62 (kworker/0:2)             0     28   3%
+    70 (mmcqd/1)                 0     10   1%
+   105 (loop0)                   0      5   1%
+
+1980-01-06 00:00:06,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                8     32   4%
+    62 (kworker/0:2)             0     28   3%
+   829 (tlm_main)                0     13   1%
+    70 (mmcqd/1)                 0      8   1%
+   822 (tlog)                    0      5   1%
+
+1980-01-06 00:00:16,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                9     30   4%
+    62 (kworker/0:2)             0     29   3%
+   829 (tlm_main)                0     13   1%
+    70 (mmcqd/1)                 0      7   1%
+   822 (tlog)                    2      4   1%
+   792 (stm32_down)              2      3   1%
+
+1980-01-06 00:00:26,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                0     45   5%
+    62 (kworker/0:2)             0     29   3%
+   829 (tlm_main)                3     11   1%
+   822 (tlog)                    0      6   1%
+   792 (stm32_down)              1      4   1%
+
+1980-01-06 00:00:36,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                0     44   4%
+    62 (kworker/0:2)             0     29   3%
+  1045 (udpsrc0:src)             8     10   2%
+   829 (tlm_main)                1     16   2%
+   822 (tlog)                    2      5   1%
+   792 (stm32_down)              0      6   1%
+
+1980-01-06 00:00:46,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                0     43   4%
+    62 (kworker/0:2)             0     28   3%
+  1045 (udpsrc0:src)            13      7   2%
+   829 (tlm_main)                2     17   2%
+   792 (stm32_down)              0      7   1%
+   822 (tlog)                    1      6   1%
+    70 (mmcqd/1)                 0      6   1%
+
+1980-01-06 00:00:56,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                0     40   4%
+    62 (kworker/0:2)             0     29   3%
+   829 (tlm_main)                4     16   2%
+  1045 (udpsrc0:src)             9      9   2%
+   822 (tlog)                    2      5   1%
+   792 (stm32_down)              0      6   1%
+
+1980-01-06 00:01:06,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                3     42   5%
+   793 (stm32_up)                0     35   4%
+    62 (kworker/0:2)             0     28   3%
+  1045 (udpsrc0:src)            13      7   2%
+   792 (stm32_down)              2     10   1%
+   822 (tlog)                    1     11   1%
+   820 (video_recv.sh)           0      5   1%
+
+1980-01-06 00:01:16,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                2     42   4%
+   793 (stm32_up)                0     37   4%
+    62 (kworker/0:2)             0     28   3%
+  1045 (udpsrc0:src)            13      6   2%
+   792 (stm32_down)              3      9   1%
+   822 (tlog)                    0     11   1%
+
+1980-01-06 00:01:26,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                7     37   4%
+   793 (stm32_up)                0     37   4%
+    62 (kworker/0:2)             0     27   3%
+  1045 (udpsrc0:src)            10      9   2%
+   792 (stm32_down)              1     10   1%
+   822 (tlog)                    3      8   1%
+
+1980-01-06 00:01:36,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                4     41   5%
+   793 (stm32_up)                0     35   4%
+    62 (kworker/0:2)             0     28   3%
+  1045 (udpsrc0:src)            13      5   2%
+   792 (stm32_down)              2     10   1%
+   822 (tlog)                    2      9   1%
+
+1980-01-06 00:01:46,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                3     42   5%
+   793 (stm32_up)                0     38   4%
+    62 (kworker/0:2)             0     29   3%
+  1045 (udpsrc0:src)            11      9   2%
+   792 (stm32_down)              1     11   1%
+   822 (tlog)                    1     11   1%
+
+1980-01-06 00:01:56,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                0     38   4%
+    62 (kworker/0:2)             0     28   3%
+   829 (tlm_main)                2     23   3%
+  1045 (udpsrc0:src)            12      7   2%
+   822 (tlog)                    0      8   1%
+   792 (stm32_down)              2      5   1%
+
+1980-01-06 00:02:06,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                3     36   4%
+    62 (kworker/0:2)             0     29   3%
+   829 (tlm_main)                1     26   3%
+  1045 (udpsrc0:src)            14      5   2%
+   792 (stm32_down)              0      8   1%
+   822 (tlog)                    0      8   1%
+
+1980-01-06 00:02:16,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                4     36   4%
+    62 (kworker/0:2)             0     29   3%
+   829 (tlm_main)                4     16   2%
+  1045 (udpsrc0:src)            15      3   2%
+   822 (tlog)                    2      4   1%
+   792 (stm32_down)              3      2   1%
+
+1980-01-06 00:02:26,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                3     37   4%
+    62 (kworker/0:2)             0     29   3%
+   829 (tlm_main)                1     19   2%
+  1045 (udpsrc0:src)            12      7   2%
+   822 (tlog)                    0      7   1%
+   792 (stm32_down)              2      4   1%
+
+1980-01-06 00:02:36,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                3     37   4%
+    62 (kworker/0:2)             0     29   3%
+   829 (tlm_main)                2     18   2%
+  1045 (udpsrc0:src)            13      5   2%
+   792 (stm32_down)              1      5   1%
+   822 (tlog)                    0      6   1%
+
+1980-01-06 00:02:46,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     37   4%
+   829 (tlm_main)                3     29   3%
+    62 (kworker/0:2)             0     29   3%
+  1045 (udpsrc0:src)            10      8   2%
+   792 (stm32_down)              2      7   1%
+   822 (tlog)                    2      7   1%
+
+1980-01-06 00:02:56,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                4     36   4%
+    62 (kworker/0:2)             0     29   3%
+   829 (tlm_main)                3     17   2%
+  1045 (udpsrc0:src)            14      4   2%
+   822 (tlog)                    2      4   1%
+   792 (stm32_down)              0      5   1%
+
+1980-01-06 00:03:06,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     37   4%
+    62 (kworker/0:2)             0     29   3%
+   829 (tlm_main)                3     17   2%
+  1045 (udpsrc0:src)            10      8   2%
+   822 (tlog)                    2      5   1%
+   792 (stm32_down)              2      4   1%
+
+1980-01-06 00:03:16,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     37   4%
+    62 (kworker/0:2)             0     29   3%
+   829 (tlm_main)                0     20   2%
+  1045 (udpsrc0:src)            13      6   2%
+   792 (stm32_down)              2      4   1%
+   822 (tlog)                    1      5   1%
+
+1980-01-06 00:03:26,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                3     36   4%
+    62 (kworker/0:2)             0     28   3%
+   829 (tlm_main)                4     16   2%
+  1045 (udpsrc0:src)            10      8   2%
+   792 (stm32_down)              1      5   1%
+   822 (tlog)                    1      5   1%
+
+1980-01-06 00:03:36,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     38   4%
+    62 (kworker/0:2)             0     29   3%
+   829 (tlm_main)                1     20   2%
+  1045 (udpsrc0:src)            12      7   2%
+   822 (tlog)                    1      6   1%
+   792 (stm32_down)              0      6   1%
+
+1980-01-06 00:03:46,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                3     36   4%
+    62 (kworker/0:2)             0     29   3%
+  1045 (udpsrc0:src)            15      3   2%
+   829 (tlm_main)                1     16   2%
+   822 (tlog)                    0      6   1%
+   792 (stm32_down)              2      3   1%
+
+1980-01-06 00:03:56,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     37   4%
+    62 (kworker/0:2)             0     30   3%
+  1045 (udpsrc0:src)            15      4   2%
+   829 (tlm_main)                1      8   1%
+
+1980-01-06 00:04:06,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                3     44   5%
+   793 (stm32_up)                3     35   4%
+    62 (kworker/0:2)             0     27   3%
+  1045 (udpsrc0:src)            15      4   2%
+   792 (stm32_down)              4      8   1%
+   822 (tlog)                    2     10   1%
+
+1980-01-06 00:04:16,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                8     48   6%
+   793 (stm32_up)                2     36   4%
+    62 (kworker/0:2)             0     28   3%
+  1045 (udpsrc0:src)            12      7   2%
+   822 (tlog)                    0     15   2%
+   792 (stm32_down)              2     12   1%
+
+1980-01-06 00:04:26,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                4     52   6%
+   793 (stm32_up)                2     35   4%
+    62 (kworker/0:2)             0     23   2%
+  1045 (udpsrc0:src)            12      7   2%
+   792 (stm32_down)              2     12   1%
+   822 (tlog)                    0     12   1%
+
+1980-01-06 00:04:36,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                3     37   4%
+  3495 (kworker/0:0)             0     29   3%
+  1045 (udpsrc0:src)            12      6   2%
+   829 (tlm_main)                0      6   1%
+
+1980-01-06 00:04:46,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                1     50   5%
+   793 (stm32_up)                2     34   4%
+  3495 (kworker/0:0)             0     26   3%
+  1045 (udpsrc0:src)            13      7   2%
+   792 (stm32_down)              3      9   1%
+   822 (tlog)                    0     12   1%
+
+1980-01-06 00:04:56,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                3     36   4%
+  3495 (kworker/0:0)             0     28   3%
+   829 (tlm_main)                1     19   2%
+  1045 (udpsrc0:src)            14      5   2%
+   792 (stm32_down)              1      6   1%
+   822 (tlog)                    1      5   1%
+
+1980-01-06 00:05:06,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     37   4%
+  3495 (kworker/0:0)             0     28   3%
+   829 (tlm_main)                0     11   1%
+  1045 (udpsrc0:src)             7      2   1%
+   822 (tlog)                    0      5   1%
+
+1980-01-06 00:05:16,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     35   4%
+  3495 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:05:26,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                3     35   4%
+  3495 (kworker/0:0)             0     27   3%
+
+1980-01-06 00:05:36,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     35   4%
+   829 (tlm_main)                4     27   3%
+  3495 (kworker/0:0)             0     27   3%
+   822 (tlog)                    0      8   1%
+   792 (stm32_down)              1      6   1%
+
+1980-01-06 00:05:46,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     37   4%
+  3495 (kworker/0:0)             0     28   3%
+   829 (tlm_main)                0     19   2%
+  1045 (udpsrc0:src)             5      4   1%
+   792 (stm32_down)              0      7   1%
+   822 (tlog)                    1      6   1%
+
+1980-01-06 00:05:56,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                3     35   4%
+  3495 (kworker/0:0)             0     28   3%
+   829 (tlm_main)                3     18   2%
+  1045 (udpsrc0:src)            12      6   2%
+   822 (tlog)                    1      5   1%
+   792 (stm32_down)              0      5   1%
+
+1980-01-06 00:06:06,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     37   4%
+   829 (tlm_main)                0     29   3%
+  3495 (kworker/0:0)             0     28   3%
+  1045 (udpsrc0:src)            14      6   2%
+   792 (stm32_down)              3      6   1%
+   822 (tlog)                    1      8   1%
+
+1980-01-06 00:06:16,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                4     61   7%
+   793 (stm32_up)                3     34   4%
+  3495 (kworker/0:0)             0     28   3%
+  1045 (udpsrc0:src)            15      5   2%
+   822 (tlog)                    0     15   2%
+   792 (stm32_down)              1     11   1%
+
+1980-01-06 00:06:26,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                4     58   6%
+   793 (stm32_up)                2     36   4%
+  3495 (kworker/0:0)             0     27   3%
+  1045 (udpsrc0:src)            13      6   2%
+   792 (stm32_down)              1     14   2%
+   822 (tlog)                    0     14   1%
+
+1980-01-06 00:06:36,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                8     55   6%
+   793 (stm32_up)                2     35   4%
+  3495 (kworker/0:0)             0     26   3%
+  1045 (udpsrc0:src)            11      8   2%
+   792 (stm32_down)              1     15   2%
+   822 (tlog)                    3     12   2%
+
+1980-01-06 00:06:46,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                2     40   4%
+   793 (stm32_up)                3     35   4%
+  3495 (kworker/0:0)             0     28   3%
+  1045 (udpsrc0:src)            15      5   2%
+   792 (stm32_down)              3      9   1%
+   822 (tlog)                    2      9   1%
+
+1980-01-06 00:06:56,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                4     68   7%
+   793 (stm32_up)                2     34   4%
+  3495 (kworker/0:0)             0     26   3%
+  1045 (udpsrc0:src)            12      9   2%
+   822 (tlog)                    0     18   2%
+   792 (stm32_down)              0     13   1%
+
+1980-01-06 00:07:06,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                6     59   7%
+   793 (stm32_up)                2     35   4%
+  3495 (kworker/0:0)             0     27   3%
+  1045 (udpsrc0:src)            11      7   2%
+   822 (tlog)                    1     14   2%
+   792 (stm32_down)              1     13   1%
+
+1980-01-06 00:07:16,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                3     36   4%
+  3495 (kworker/0:0)             0     28   3%
+   829 (tlm_main)                4     19   2%
+  1045 (udpsrc0:src)            15      4   2%
+   792 (stm32_down)              0      8   1%
+   822 (tlog)                    0      7   1%
+
+1980-01-06 00:07:26,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     36   4%
+   829 (tlm_main)                2     32   3%
+  3495 (kworker/0:0)             0     28   3%
+  1045 (udpsrc0:src)            12      8   2%
+   822 (tlog)                    2      9   1%
+   792 (stm32_down)              1      9   1%
+
+1980-01-06 00:07:36,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     38   4%
+  3495 (kworker/0:0)             0     28   3%
+   829 (tlm_main)                2     24   3%
+  1045 (udpsrc0:src)             7     13   2%
+   792 (stm32_down)              2      7   1%
+   822 (tlog)                    0      8   1%
+
+1980-01-06 00:07:46,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                3     36   4%
+  3495 (kworker/0:0)             0     29   3%
+   829 (tlm_main)                2     22   2%
+  1045 (udpsrc0:src)            14      5   2%
+   792 (stm32_down)              1      6   1%
+   822 (tlog)                    1      6   1%
+   762 (hostapd)                 5      0   1%
+
+1980-01-06 00:07:56,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                8     55   6%
+   793 (stm32_up)                2     35   4%
+  3495 (kworker/0:0)             0     27   3%
+  1045 (udpsrc0:src)            14      5   2%
+   792 (stm32_down)              1     15   2%
+   822 (tlog)                    0     16   2%
+
+1980-01-06 00:08:06,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                2     60   6%
+   793 (stm32_up)                2     36   4%
+  3495 (kworker/0:0)             0     27   3%
+  1045 (udpsrc0:src)            12      7   2%
+   792 (stm32_down)              2     13   2%
+   822 (tlog)                    0     14   1%
+
+1980-01-06 00:08:16,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                4     60   6%
+   793 (stm32_up)                3     34   4%
+  3495 (kworker/0:0)             0     26   3%
+  1045 (udpsrc0:src)            16      5   2%
+   792 (stm32_down)              2     14   2%
+   822 (tlog)                    3     12   2%
+
+1980-01-06 00:08:26,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                6     57   6%
+   793 (stm32_up)                2     35   4%
+  3495 (kworker/0:0)             0     27   3%
+  1045 (udpsrc0:src)            14      6   2%
+   792 (stm32_down)              2     14   2%
+   822 (tlog)                    1     14   2%
+
+1980-01-06 00:08:36,710
+   pid name                  utime  stime  pct
+   829 (tlm_main)                6     57   6%
+   793 (stm32_up)                2     35   4%
+  3495 (kworker/0:0)             0     27   3%
+  1045 (udpsrc0:src)            12      7   2%
+   792 (stm32_down)              2     14   2%
+   822 (tlog)                    0     16   2%
+
+1980-01-06 00:08:46,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                4     59   6%
+   793 (stm32_up)                2     36   4%
+  3495 (kworker/0:0)             0     27   3%
+  1045 (udpsrc0:src)            11      8   2%
+   792 (stm32_down)              2     14   2%
+   822 (tlog)                    0     15   2%
+
+1980-01-06 00:08:56,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                3     60   6%
+   793 (stm32_up)                2     35   4%
+  3495 (kworker/0:0)             0     27   3%
+  1045 (udpsrc0:src)            16      5   2%
+   792 (stm32_down)              2     14   2%
+   822 (tlog)                    3     11   1%
+
+1980-01-06 00:09:06,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                3     61   6%
+   793 (stm32_up)                2     36   4%
+  3495 (kworker/0:0)             0     27   3%
+  1045 (udpsrc0:src)            15      5   2%
+   792 (stm32_down)              0     16   2%
+   822 (tlog)                    1     14   2%
+
+1980-01-06 00:09:16,711
+   pid name                  utime  stime  pct
+   829 (tlm_main)                6     58   6%
+   793 (stm32_up)                3     34   4%
+  3495 (kworker/0:0)             0     27   3%
+  1045 (udpsrc0:src)            15      4   2%
+   792 (stm32_down)              0     17   2%
+   822 (tlog)                    4     11   2%
+
+1980-01-06 00:09:26,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                5     57   6%
+   793 (stm32_up)                2     36   4%
+  3495 (kworker/0:0)             0     27   3%
+  1045 (udpsrc0:src)            11     10   2%
+   792 (stm32_down)              2     13   2%
+   822 (tlog)                    2     13   2%
+
+1980-01-06 00:09:36,709
+   pid name                  utime  stime  pct
+   829 (tlm_main)                3     60   6%
+   793 (stm32_up)                2     36   4%
+  1045 (udpsrc0:src)             9     11   2%
+   792 (stm32_down)              3     13   2%
+   822 (tlog)                    1     14   2%
+  3495 (kworker/0:0)             0      7   1%
+
+1980-01-06 00:09:46,709
+   pid name                  utime  stime  pct
+   793 (stm32_up)                2     36   4%
+   829 (tlm_main)                0     34   3%
+  6492 (kworker/0:2)             0     27   3%
+  1045 (udpsrc0:src)            14      4   2%
+   792 (stm32_down)              2      9   1%
+   822 (tlog)                    0     10   1%

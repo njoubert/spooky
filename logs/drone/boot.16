@@ -1,0 +1,32 @@
+Thu Jan  1 00:00:06 1970: bootlogd.
+Thu Jan  1 00:00:07 1970: max_dgram_qlen=100
+Thu Jan  1 00:00:08 1970: Starting syslogd/klogd: done
+Thu Jan  1 00:00:08 1970: Configuring network interfaces... Successfully initialized wpa_supplicant
+Thu Jan  1 00:00:10 1970: rfkill: Cannot open RFKILL control device
+Thu Jan  1 00:00:10 1970: udhcpc (v1.21.1) started
+Thu Jan  1 00:00:10 1970: Sending discover...
+Thu Jan  1 00:00:11 1970: Sending discover...
+Thu Jan  1 00:00:11 1970: Sending select for 10.1.1.10...
+Thu Jan  1 00:00:11 1970: Lease of 10.1.1.10 obtained, lease time 7200
+Thu Jan  1 00:00:11 1970: /etc/udhcpc.d/50default: Adding DNS 8.8.8.8
+Thu Jan  1 00:00:11 1970: route: SIOCADDRT: File exists
+Thu Jan  1 00:00:11 1970: rotating 3dr logs
+Sun Jan  6 00:01:00 1980: Sun Jan  6 00:01:00 UTC 1980
+Sun Jan  6 00:01:00 1980: Starting OpenBSD Secure Shell server: sshd
+Sun Jan  6 00:01:00 1980: done.
+Sun Jan  6 00:01:00 1980: initializing pixhawk interface...
+Sun Jan  6 00:01:02 1980: pixhawk...
+Sun Jan  6 00:01:02 1980: pixhawk: running 1.2.0
+Sun Jan  6 00:01:03 1980: Gimbal update startup script v1.1.8
+Sun Jan  6 00:01:03 1980: Pixhawk found on USB
+Sun Jan  6 00:01:06 1980: Connecting via port /dev/serial/by-id/usb-3D_Robotics_PX4_FMU_v2.x_0-if00
+Sun Jan  6 00:01:06 1980: Software version: v1.2.0
+Sun Jan  6 00:01:06 1980: Serial number: GB11A5801295
+Sun Jan  6 00:01:06 1980: Assembled time: Mon Aug 17 03:06:39 2015
+Sun Jan  6 00:01:06 1980: Current gimbal software version 1.2.0
+Sun Jan  6 00:01:06 1980: Gimbal firmware is current, not updating.
+Sun Jan  6 00:01:06 1980: Sololink: Running same version
+Sun Jan  6 00:01:06 1980: INIT: Entering runlevel: 3
+Sun Jan  6 00:01:06 1980: starting DNS forwarder and DHCP server: dnsmasq... done.
+Sun Jan  6 00:01:06 1980: Running local boot scripts (/etc/rc.local).
+Sun Jan  6 00:01:06 1980: 

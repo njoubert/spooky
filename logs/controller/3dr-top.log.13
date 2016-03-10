@@ -1,0 +1,513 @@
+
+1980-01-06 00:28:03,245 proc_top starting
+
+1980-01-06 00:28:13,245
+   pid name                  utime  stime  pct
+   826 (python)                 31      6   4%
+    62 (kworker/0:2)             0     28   3%
+   809 (hostapd)                15      5   2%
+    18 (kworker/u2:1)            0     13   1%
+
+1980-01-06 00:28:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     32   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:28:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                4     32   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:28:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     34   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:28:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                1     35   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:29:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:29:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                4     31   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:29:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     34   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:29:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     34   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:29:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     34   4%
+    62 (kworker/0:2)             0     28   3%
+
+1980-01-06 00:29:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:30:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:30:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:30:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:30:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     33   4%
+    62 (kworker/0:2)             0     28   3%
+
+1980-01-06 00:30:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:30:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     32   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:31:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:31:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     33   4%
+    62 (kworker/0:2)             0     28   3%
+
+1980-01-06 00:31:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:31:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:31:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:31:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     33   4%
+    62 (kworker/0:2)             0     28   3%
+
+1980-01-06 00:32:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:32:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     32   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:32:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     34   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:32:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     32   4%
+    62 (kworker/0:2)             0     28   3%
+
+1980-01-06 00:32:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     34   4%
+    62 (kworker/0:2)             0     32   3%
+
+1980-01-06 00:32:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     32   4%
+    62 (kworker/0:2)             0     28   3%
+
+1980-01-06 00:33:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     34   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:33:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     32   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:33:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:33:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:33:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     33   4%
+    62 (kworker/0:2)             0     28   3%
+
+1980-01-06 00:33:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:34:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     33   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:34:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     34   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:34:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     32   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:34:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     34   4%
+    62 (kworker/0:2)             0     28   3%
+
+1980-01-06 00:34:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                4     35   4%
+    62 (kworker/0:2)             0     29   3%
+    68 (mmcqd/1)                 0     10   1%
+   104 (loop0)                   0      6   1%
+   839 (stm32_down)              0      5   1%
+
+1980-01-06 00:34:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     37   4%
+    62 (kworker/0:2)             0     29   3%
+    68 (mmcqd/1)                 0      8   1%
+   978 (sn_pktrcv)               0      7   1%
+
+1980-01-06 00:35:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     38   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:35:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     36   4%
+    62 (kworker/0:2)             0     28   3%
+
+1980-01-06 00:35:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     36   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:35:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:35:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     36   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:35:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+    62 (kworker/0:2)             0     28   3%
+
+1980-01-06 00:36:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                4     34   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:36:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+    62 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:36:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     35   4%
+
+1980-01-06 00:36:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:36:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:36:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)               13     25   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:37:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                1     37   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:37:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                1     37   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:37:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                6     32   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:37:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     36   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:37:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     36   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:37:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                1     37   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:38:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                0     39   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:38:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                0     39   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:38:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                0     37   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:38:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                0     39   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:38:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                0     38   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:38:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                0     37   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:39:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                0     36   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:39:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:39:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:39:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:39:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:39:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:40:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     35   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:40:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:40:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:40:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     35   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:40:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:40:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:41:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     35   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:41:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:41:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:41:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     35   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:41:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:41:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:42:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     35   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:42:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:42:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:42:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     36   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:42:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:42:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:43:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     35   4%
+  1885 (kworker/0:0)             0     28   3%
+
+1980-01-06 00:43:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  1885 (kworker/0:0)             0     29   3%
+
+1980-01-06 00:43:23,246
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+  1885 (kworker/0:0)             0      6   1%
+
+1980-01-06 00:43:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     35   4%
+  6071 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:43:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+  6071 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:43:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+  6071 (kworker/0:2)             0     28   3%
+
+1980-01-06 00:44:03,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     35   4%
+  6071 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:44:13,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  6071 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:44:23,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  6071 (kworker/0:2)             0     28   3%
+
+1980-01-06 00:44:33,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     35   4%
+  6071 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:44:43,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                2     35   4%
+  6071 (kworker/0:2)             0     29   3%
+
+1980-01-06 00:44:53,245
+   pid name                  utime  stime  pct
+   840 (stm32_up)                3     34   4%
+  6071 (kworker/0:2)             0     28   3%

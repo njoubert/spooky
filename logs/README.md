@@ -1,7 +1,7 @@
 
 # LOG INFORMATION:
 
-| filename     | git     | date   | description | start | float |
+| filename     | git     | date   | description | start | float | 
 |--------------|---------|--------|-------------|-------|-------|
 | state0000356 | d9a99a5 | Dec 19 | First flight, stationary, successful RTK.  | | 225 |
 | state0000435 | 716ba07 | Dec 23 | Single Person Waking Around (long) | 150 | 430 |
