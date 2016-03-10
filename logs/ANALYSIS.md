@@ -1,4 +1,6 @@
-# Full Analysis Graphs of Logs## state0000356.pickle
+# Full Analysis Graphs of Logs
+
+## state0000356.pickle
 ![state0000356](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000356.full.png)
 ## state0000435.pickle
 ![state0000435](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000435.full.png)
