@@ -13,7 +13,7 @@
 ## state0000455.pickle![state0000455](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000455.iconic.png)
 ## state0000628.pickle![state0000628](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000628.iconic.png)
 ## state0000680.pickle![state0000680](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000680.iconic.png)
-** Errors in Generation: **
+**Errors in Plot Generation:**
 ```
 Traceback (most recent call last):
   File "log_graph.py", line 472, in process_full_graphs
@@ -26,7 +26,7 @@ KeyError: 'MsgBaselineNED'
 ```
 ## state0000681.pickle![state0000681](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000681.iconic.png)
 ## state0000682.pickle![state0000682](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000682.iconic.png)
-** Errors in Generation: **
+**Errors in Plot Generation:**
 ```
 Traceback (most recent call last):
   File "log_graph.py", line 472, in process_full_graphs
@@ -38,7 +38,7 @@ Traceback (most recent call last):
 KeyError: 'MsgBaselineNED'
 ```
 ## state0000693.pickle![state0000693](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000693.iconic.png)
-** Errors in Generation: **
+**Errors in Plot Generation:**
 ```
 Traceback (most recent call last):
   File "log_graph.py", line 472, in process_full_graphs
@@ -51,7 +51,7 @@ KeyError: 'MsgBaselineNED'
 ```
 ## state0000894.pickle![state0000894](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000894.iconic.png)
 ## state0000903.pickle![state0000903](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000903.iconic.png)
-** Errors in Generation: **
+**Errors in Plot Generation:**
 ```
 Traceback (most recent call last):
   File "log_graph.py", line 472, in process_full_graphs
@@ -63,7 +63,7 @@ Traceback (most recent call last):
 KeyError: 'MsgVelNED'
 ```
 ## state0000905.pickle![state0000905](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000905.iconic.png)
-** Errors in Generation: **
+**Errors in Plot Generation:**
 ```
 Traceback (most recent call last):
   File "log_graph.py", line 472, in process_full_graphs
@@ -75,7 +75,7 @@ Traceback (most recent call last):
 KeyError: 'MsgBaselineNED'
 ```
 ## state0000906.pickle![state0000906](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000906.iconic.png)
-** Errors in Generation: **
+**Errors in Plot Generation:**
 ```
 Traceback (most recent call last):
   File "log_graph.py", line 472, in process_full_graphs
