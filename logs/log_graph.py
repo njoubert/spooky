@@ -464,6 +464,7 @@ def process_full_graphs(only_new=False):
 
   pylab.rcParams['figure.figsize'] = 16, 20
   
+  errors = {}
   for filename in logs:
     try:
       print "Processing", filename
@@ -473,9 +474,22 @@ def process_full_graphs(only_new=False):
       sys.exit(0)
     except Exception:
       import traceback
-      traceback.print_exc()
+      ex = traceback.format_exc()
+      errors[filename] = ex
+      print ex
 
-
+  logs = find_logs(only_new=False)
+  with open("ICONS.md", "w") as f:
+    f.write("# Full Analysis Graphs of Logs")
+    for filename in logs:
+      noext = splitext(filename)[0]
+      f.write("## " + filename)
+      f.write("![%s](https://raw.githubusercontent.com/njoubert/spooky/master/logs/%s)\n" % (noext, noext + ".iconic.png"))
+      if filename in errors:
+        f.write("** Errors in Generation: **\n")
+        f.write("```\n")
+        f.write(errors[filename])
+        f.write("```\n")
 # =============================================================================
 
 def save_iconic_trajectory(log, filename):
@@ -503,11 +517,6 @@ def process_icons(only_new=False):
       import traceback
       traceback.print_exc()
 
-  logs = find_logs(only_new=False)
-  with open("ICONS.md", "w") as f:
-    for filename in logs:
-      noext = splitext(filename)[0]
-      f.write("![%s](https://raw.githubusercontent.com/njoubert/spooky/master/logs/%s)\n" % (noext, noext + ".iconic.png"))
 
 
 # =============================================================================
