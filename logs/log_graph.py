@@ -483,8 +483,8 @@ def process_full_graphs(only_new=False):
     f.write("# Full Analysis Graphs of Logs")
     for filename in logs:
       noext = splitext(filename)[0]
-      f.write("## " + filename)
-      f.write("![%s](https://raw.githubusercontent.com/njoubert/spooky/master/logs/%s)\n" % (noext, noext + ".iconic.png"))
+      f.write("## " + filename + "\n")
+      f.write("![%s](https://raw.githubusercontent.com/njoubert/spooky/master/logs/%s)\n" % (noext, noext + ".full.png"))
       if filename in errors:
         f.write("**Errors in Plot Generation:**\n")
         f.write("```\n")
