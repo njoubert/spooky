@@ -1,0 +1,4 @@
+*.py
+*.o
+*.so
+*_wrap.cpp
