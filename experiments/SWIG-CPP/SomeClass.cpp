@@ -5,9 +5,9 @@ SomeClass::SomeClass() {
 	mValB = 0;
 };
 
-SomeClass::SomeClass(int a, int b) {
-	mValA = a;
-	mValB = b;
+SomeClass::SomeClass(const OtherClass & other) {
+	mValA = other.alpha;
+	mValB = other.theta;
 }
 
 SomeClass::~SomeClass() {

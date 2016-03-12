@@ -17,8 +17,8 @@ OBJECTS = $(SOURCES:.cpp=.o)
 
 all:
 	swig -Wall -c++ -python -o $(SWIG_OUTPUT) $(SWIG_INTERFACE)
-	g++ -fPIC -c $(SOURCES) $(SWIG_OUTPUT) $(INCLUDE) 
+	g++ -fPIC -c $(SOURCES) $(INCLUDE) 
 	g++ $(LIBS) $(OBJECTS) -o $(TARGET)
 
 clean:
-	rm -f $(OBJECTS) $(SWIG_OUTPUT) $(SWIG_MODULE)
+	rm -f $(OBJECTS) $(SWIG_OUTPUT) $(SWIG_MODULE) *.o *.so
