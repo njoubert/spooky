@@ -254,7 +254,8 @@ namespace toric
 		/// \return Vector3	the corresponding camera position in world coordinates
 		/***************************************************************************************************/
 
-		Vector3 computePosition(const Toric2 & t) const;
+		// HACK NJ: This is not implemented anywhere
+		// Vector3 computePosition(const Toric2 & t) const;
 		
 		/***************************************************************************************************/
 		/// \brief	Compute a camera position on the manifold surface

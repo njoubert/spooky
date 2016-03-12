@@ -263,7 +263,8 @@ namespace toric
 		/// \date	2012/07/29
 		/***************************************************************************************************/
 
-		Quaternion & normalise() ;
+		// HACK NJ: IT APPEARS THIS FUNCTION IS NOT DEFINED ANYWHERE
+		// Quaternion & normalise() ;
 	}; 
 }
 

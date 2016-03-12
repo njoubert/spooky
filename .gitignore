@@ -2,3 +2,5 @@
 *.exe
 
 .ipynb_checkpoints/*
+
+*.o

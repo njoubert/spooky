@@ -110,7 +110,7 @@ These are the dependencies. You can install them directly, or just install 'em f
 
 	git submodule init
 	git submodule update
-	cd libsbp/python
+	cd lib/libsbp/python
 	sudo python setup.py install
 	cd ../../mavlink/pymavlink
 	sudo python setup.py install
