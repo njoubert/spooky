@@ -19,6 +19,18 @@ You must copy this **ENTIRE** directory (including the shared object files) to w
 
 	$PYTHONPATH=<PATH_TO_SPOOKY>/shims/toric:$PYTHONPATH
 
+### Accessing Static Methods in Python
+
+Note that Python does not have an equivalent to Static Member Functions in C++. Swig autogenerates this to module-level functions by concantenating the Class and Function name.
+
+So, for exampe, in C++
+
+	Toric3::FromWorldPosition()
+
+becomes
+
+	Toric3_FromWorldPosition()
+
 ## RUN A TEST
 
 Included is a simple test that the library is working
