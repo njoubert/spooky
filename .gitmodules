@@ -1,9 +1,9 @@
-[submodule "libsbp"]
-	path = libsbp
+[submodule "lib/libsbp"]
+	path = lib/libsbp
 	url = https://github.com/swift-nav/libsbp.git
-[submodule "mavlink"]
-	path = mavlink
+[submodule "lib/mavlink"]
+	path = lib/mavlink
 	url = https://github.com/mavlink/mavlink.git
-[submodule "dronekit-python"]
-	path = dronekit-python
+[submodule "lib/dronekit-python"]
+	path = lib/dronekit-python
 	url = https://github.com/dronekit/dronekit-python.git
