@@ -10,19 +10,16 @@ See [Christophe's Website](https://sites.google.com/site/christophelino/librarie
 
 This builds a **Python Package** in the ```toric/``` subdirectory (aka one level DOWN from this directory)
 
-	```
+
 	python
 	>>> import toric
 	>>> import toric.samples
-	```
 
 ## RUN A TEST
 
 Included is a simple test that the library is working
 
-	```
 	python toric_test.py
-	```
 
 ## Build Instructions for Mac OS X
 
@@ -31,7 +28,7 @@ Included is a simple test that the library is working
 
 Building this shim requires SWIG
 
-	```brew install swig```
+	brew install swig
 
 ### Building Shim
 
