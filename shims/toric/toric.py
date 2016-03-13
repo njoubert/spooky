@@ -668,12 +668,12 @@ class Toric3(Toric2):
 Toric3_swigregister = _toric.Toric3_swigregister
 Toric3_swigregister(Toric3)
 
-def Toric3_FromWorldPosition(wpos, wposA, wposB):
-    return _toric.Toric3_FromWorldPosition(wpos, wposA, wposB)
+def Toric3_FromWorldPosition(*args):
+    return _toric.Toric3_FromWorldPosition(*args)
 Toric3_FromWorldPosition = _toric.Toric3_FromWorldPosition
 
-def Toric3_ToWorldPosition(tpos, wposA, wposB):
-    return _toric.Toric3_ToWorldPosition(tpos, wposA, wposB)
+def Toric3_ToWorldPosition(*args):
+    return _toric.Toric3_ToWorldPosition(*args)
 Toric3_ToWorldPosition = _toric.Toric3_ToWorldPosition
 
 def Toric3_ComputeThetaRatio(theta, alpha):
