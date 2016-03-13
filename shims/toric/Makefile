@@ -10,89 +10,78 @@ PYTHON_LIB         := python2.7
 # --------------------------------------------------------- #
 
 TORIC_DIR     := ../../lib/ToricCam-1.0.0
-TORIC_INCLUDE := $(TORIC_DIR)/Include
+TORIC_INCLUDE := -I$(TORIC_DIR)/Include
 TORIC_SOURCES := $(wildcard $(TORIC_DIR)/Source/*.cpp)
 
+TORIC_SAMPLES_INCLUDE := $(TORIC_INCLUDE) -I$(TORIC_DIR)/Samples
+TORIC_SAMPLES_SOURCES := $(filter-out $(TORIC_DIR)/Samples/main.cpp, $(wildcard $(TORIC_DIR)/Samples/*.cpp))
+
 # INPUTS
-SOURCES := $(TORIC_SOURCES)
 SWIG_INTERFACE := toric.i
+SWIG_INTERFACE_SAMPLES := toric.samples.i
 
 # OUTPUTS
-TARGET := _toric.so
+TARGET := ___init__.so
 SWIG_OUTPUT := toric_wrap.cpp
-SWIG_MODULE := toric.py
+SWIG_MODULE := __init__.py
+
+TARGET_SAMPLES := _samples.so
+SWIG_OUTPUT_SAMPLES := toric_samples_wrap.cpp
+SWIG_MODULE_SAMPLES := samples.py
+
 
 # C++ INCLUDES AND LIBS
 CXX     := g++
 CXXOPTS := -Wall -fPIC -std=c++11
-INCLUDE := -I$(PYTHON_INCLUDE_DIR) -I$(TORIC_INCLUDE)
+INCLUDE := -I$(PYTHON_INCLUDE_DIR) $(TORIC_SAMPLES_INCLUDE)
 LIBS    := -L$(PYTHON_LIB_DIR) -l$(PYTHON_LIB) -dynamiclib
 
 #### EVERYTHING BELOW IS BUILD COMMANDS. ####
 # ----------------------------------------- #
 
 .PHONY: all clean
-.DEFAULT_GOAL := $(TARGET)
+.DEFAULT_GOAL := all
 
 
 # AUTOGEN
-OBJECTS = $(SOURCES:.cpp=.o) $(SWIG_OUTPUT:.cpp=.o)
+OBJECTS = $(TORIC_SOURCES:.cpp=.o) $(SWIG_OUTPUT:.cpp=.o)
+SAMPLES_OBJECTS = $(TORIC_SAMPLES_SOURCES:.cpp=.o) $(SWIG_OUTPUT_SAMPLES:.cpp=.o)
+
+%.o : %.cpp
+	$(CXX) $(CXXOPTS) $(INCLUDE) -c -Wall $(CXXFLAGS) $< -o $@
 
 $(SWIG_OUTPUT): $(SWIG_INTERFACE)
 	@echo "***"
-	@echo "*** Generating Python and C++ Wrappers"
+	@echo "*** Generating Python and C++ Wrappers for SOURCE"
 	@echo "***"
-	swig -Wall -c++ -python -I$(TORIC_INCLUDE) -o $(SWIG_OUTPUT) $(SWIG_INTERFACE)
+	swig -Wall -c++ -python $(TORIC_INCLUDE) -o $(SWIG_OUTPUT) $(SWIG_INTERFACE)
 	@echo "***"
 	@echo "*** DONE"
 	@echo "***"
 	
-%.o : %.cpp
-	$(CXX) $(CXXOPTS) $(INCLUDE) -c -Wall $(CXXFLAGS) $< -o $@
-
-$(TARGET): $(SWIG_OUTPUT) $(OBJECTS)
+$(SWIG_OUTPUT_SAMPLES): $(SWIG_SAMPLES_INTERFACE)
 	@echo "***"
-	@echo "*** Linking"
+	@echo "*** Generating Python and C++ Wrappers for SAMPLES"
+	@echo "***"
+	swig -Wall -c++ -python $(TORIC_SAMPLES_INCLUDE) -o $(SWIG_OUTPUT_SAMPLES) $(SWIG_INTERFACE_SAMPLES)
+	@echo "***"
+	@echo "*** DONE"
+	@echo "***"
+
+
+$(TARGET): $(SWIG_OUTPUT) $(TORIC_SOURCES) $(OBJECTS)
+	@echo "***"
+	@echo "*** Linking SOURCE"
 	@echo "***"
 	$(CXX) $(LIBS) $(OBJECTS) -o $(TARGET)
 
-all: $(TARGET)
+$(TARGET_SAMPLES): $(SWIG_OUTPUT_SAMPLES) $(TORIC_SAMPLES_SOURCES) $(OBJECTS) $(SAMPLES_OBJECTS)
+	@echo "***"
+	@echo "*** Linking SAMPLES"
+	@echo "***"
+	$(CXX) $(LIBS) $(OBJECTS) $(SAMPLES_OBJECTS) -o $(TARGET_SAMPLES)
+
+all: $(TARGET) $(TARGET_SAMPLES)
 
 clean:
-	rm -f $(OBJECTS) $(SWIG_OUTPUT) $(SWIG_MODULE) *.o *.so
-
-
-
-
-# TARGET := main
-# SOURCES := $(wildcard ./Source/*.cpp) Samples/main.cpp
-
-# #Necessary declarations follow:
-# INCLUDE := -I./Include
-# LIBRARY := 
-# FRAMEWORK :=
-# MACROS :=
-# PLATFORM :=
-# LDFLAGS :=
-# CXXFLAGS :=
-
-
-# CC := gcc
-# CXX := g++
-# MACROS += 
-# CXXFLAGS += -Wall -O2 -fmessage-length=0 -std=c++11 $(INCLUDE) $(MACROS)
-# LDFLAGS += $(FRAMEWORK) $(LIBRARY) $(MACROS)
-
-# %.o : %.cpp
-# 	@echo "Compiling .cpp to .o for $(PLATFORM) Platform: $< " 
-# 	$(CXX) -c -Wall $(CXXFLAGS) $< -o $@
-
-# OBJECTS = $(SOURCES:.cpp=.o)
-
-# $(TARGET): $(OBJECTS)
-# 	$(CXX) $(LDFLAGS) $(OBJECTS) -o $(TARGET)
-
-# clean:
-# 	@echo "Removing compiled files."
-# 	/bin/rm -f $(OBJECTS) $(TARGET) $(TESTOBJECTS) $(TESTTARGETS) 
-
+	rm -f $(OBJECTS) $(SAMPLES_OBJECTS) $(SWIG_OUTPUT) $(SWIG_OUTPUT_SAMPLES) $(SWIG_MODULE) $(SWIG_MODULE_SAMPLES) *.o *.so *.pyc

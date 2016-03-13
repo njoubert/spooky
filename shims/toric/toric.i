@@ -1,6 +1,6 @@
-// toric.i - SWIG interface for ToricCam
+// toric.i - SWIG interface for ToricCam Source
 
-%module toric
+%module __init__
 %{
 
 #include "toric/Camera.h"
