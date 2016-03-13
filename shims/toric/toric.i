@@ -8,8 +8,8 @@
 #include "toric/Matrix.h"
 #include "toric/ProjectionMatrix.h"
 #include "toric/Quaternion.h"
-#include "toric/Toric.h"
 #include "toric/Vector.h"
+#include "toric/Toric.h"
 
 using namespace toric;
 
@@ -20,5 +20,5 @@ using namespace toric;
 %include "toric/Matrix.h"
 %include "toric/ProjectionMatrix.h"
 %include "toric/Quaternion.h"
-%include "toric/Toric.h"
 %include "toric/Vector.h"
+%include "toric/Toric.h"

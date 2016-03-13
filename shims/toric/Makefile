@@ -38,7 +38,7 @@ LIBS    := -L$(PYTHON_LIB_DIR) -l$(PYTHON_LIB) -dynamiclib
 # AUTOGEN
 OBJECTS = $(SOURCES:.cpp=.o) $(SWIG_OUTPUT:.cpp=.o)
 
-$(SWIG_OUTPUT):
+$(SWIG_OUTPUT): $(SWIG_INTERFACE)
 	@echo "***"
 	@echo "*** Generating Python and C++ Wrappers"
 	@echo "***"
