@@ -15,6 +15,10 @@ This builds a **Python Package** in the ```toric/``` subdirectory (aka one level
 	>>> import toric
 	>>> import toric.samples
 
+You must copy this **ENTIRE** directory (including the shared object files) to wherever you want to use it, or include the *current* directory in your python path as follows:
+
+	$PYTHONPATH=<PATH_TO_SPOOKY>/shims/toric:$PYTHONPATH
+
 ## RUN A TEST
 
 Included is a simple test that the library is working
