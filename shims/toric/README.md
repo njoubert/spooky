@@ -6,6 +6,24 @@ This shim uses SWIG to auto-generate python bindings for the ToricCam library by
 
 See [Christophe's Website](https://sites.google.com/site/christophelino/libraries) for details about ToricCam
 
+## USAGE
+
+This builds a **Python Package** in the ```toric/``` subdirectory (aka one level DOWN from this directory)
+
+	```
+	python
+	>>> import toric
+	>>> import toric.samples
+	```
+
+## RUN A TEST
+
+Included is a simple test that the library is working
+
+	```
+	python toric_test.py
+	```
+
 ## Build Instructions for Mac OS X
 
 
