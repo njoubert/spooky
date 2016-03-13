@@ -9,6 +9,8 @@ PYTHON_LIB         := python2.7
 #### EVERYTHING BELOW IS CONFIGURATION FOR THIS LIBRARY. ####
 # --------------------------------------------------------- #
 
+BUILD_DIR	  := toric
+
 TORIC_DIR     := ../../lib/ToricCam-1.0.0
 TORIC_INCLUDE := -I$(TORIC_DIR)/Include
 TORIC_SOURCES := $(wildcard $(TORIC_DIR)/Source/*.cpp)
@@ -21,13 +23,13 @@ SWIG_INTERFACE := toric.i
 SWIG_INTERFACE_SAMPLES := toric.samples.i
 
 # OUTPUTS
-TARGET := ___init__.so
-SWIG_OUTPUT := toric_wrap.cpp
-SWIG_MODULE := __init__.py
+TARGET := $(BUILD_DIR)/___init__.so
+SWIG_OUTPUT := $(BUILD_DIR)/toric_wrap.cpp
+SWIG_MODULE := $(BUILD_DIR)/__init__.py
 
-TARGET_SAMPLES := _samples.so
-SWIG_OUTPUT_SAMPLES := toric_samples_wrap.cpp
-SWIG_MODULE_SAMPLES := samples.py
+TARGET_SAMPLES := $(BUILD_DIR)/_samples.so
+SWIG_OUTPUT_SAMPLES := $(BUILD_DIR)/toric_samples_wrap.cpp
+SWIG_MODULE_SAMPLES := $(BUILD_DIR)/samples.py
 
 
 # C++ INCLUDES AND LIBS
