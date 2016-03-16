@@ -2,6 +2,10 @@
 # Copyright (2016) Stanford University
 # Niels Joubert
 
+import numpy as np
+import toric
+import toric.samples
+
 '''
 
 toricshims.py
@@ -10,18 +14,6 @@ toricshims.py
 
 '''
 
-import numpy as np
-
-def add_relative_to_current_source_file_path_to_sys_path(relpath):
-    import os, sys, inspect
-    path = os.path.realpath(os.path.abspath(os.path.join(os.path.split(inspect.getfile(inspect.currentframe()))[0],relpath)))
-    if path not in sys.path:
-        sys.path.insert(0,path)
-
-add_relative_to_current_source_file_path_to_sys_path("../../shims/toric")   
-
-import toric
-import toric.samples
 
 ###
 ### Monkey Patching SWIG Classes. 
@@ -64,6 +56,3 @@ def Toric3_ToWorldPositionNP(t, PA, PB):
   return c.np()
 
 toric.Toric3_ToWorldPositionNP = Toric3_ToWorldPositionNP
-
-
-
