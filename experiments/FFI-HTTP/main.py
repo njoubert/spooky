@@ -34,6 +34,12 @@ from quadrotorcamera3d import *
 add_import_search_dir('../../../Frankencopter/Code/HorusApp/app')
 import trajectoryAPI
 
+add_import_search_dir('../../shims/toric')
+import toric
+
+add_import_search_dir('../')
+import toricinterpolation
+
 #################################################
 # WEB SERVER ENDPOINTS
 #################################################
@@ -124,6 +130,48 @@ def get_trajectory():
   cameraPose_t_list = parsed_json['cameraPoseT']
 
   print "get_trajectory: Calling trajectoryAPI now..."
+  
+  P_cameraPose = c_[cameraPose_n_list, cameraPose_e_list, cameraPose_d_list]
+  T_cameraPose = c_[cameraPose_t_list, cameraPose_t_list, cameraPose_t_list]
+  P_interpolatedSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose, T_cameraPose)
+  
+  print "get_trajectory: Response from trajectoryAPI", P_interpolatedSpline
+
+  data = {
+    'interpolatedSpline': P_interpolatedSpline.tolist(),
+  }
+  return jsonify(data)
+
+@server.route('/get_toric_trajectory', methods = ['POST'])
+def get_toric_trajectory():
+  '''
+  Send a POST request to this URL.
+
+  Input: a JSON object as follows:
+    {
+      cameraPoseN: [0, ...],
+      cameraPoseE: [0, ...],
+      cameraPoseD: [0, ...],
+      cameraPoseT: [0, ...],
+    }
+
+  Returns: a JSON object as follows:
+  {
+    interpolatedSpline: [...],
+  }
+  '''
+  parsed_json = request.get_json()
+  if parsed_json is None:
+    return abort(400)
+
+  cameraPose_n_list = parsed_json['cameraPoseN']
+  cameraPose_e_list = parsed_json['cameraPoseE']
+  cameraPose_d_list = parsed_json['cameraPoseD']
+  cameraPose_t_list = parsed_json['cameraPoseT']
+
+  print "get_trajectory: Calling trajectoryAPI now..."
+
+  # toric interpolation
   
   P_cameraPose = c_[cameraPose_n_list, cameraPose_e_list, cameraPose_d_list]
   T_cameraPose = c_[cameraPose_t_list, cameraPose_t_list, cameraPose_t_list]
