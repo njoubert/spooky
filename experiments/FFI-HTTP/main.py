@@ -164,18 +164,45 @@ def get_toric_trajectory():
   if parsed_json is None:
     return abort(400)
 
-  cameraPose_n_list = parsed_json['cameraPoseN']
-  cameraPose_e_list = parsed_json['cameraPoseE']
-  cameraPose_d_list = parsed_json['cameraPoseD']
+  cameraPose_n_list = parsed_json['cameraPoseN'] #y
+  cameraPose_e_list = parsed_json['cameraPoseE'] #x
+  cameraPose_d_list = parsed_json['cameraPoseD'] #z
   cameraPose_t_list = parsed_json['cameraPoseT']
+  personA_list = parsed_json['personA']
+  personB_list = parsed_json['personB']
 
   print "get_trajectory: Calling trajectoryAPI now..."
 
   # toric interpolation
+
+  # starting people positons
+  PA_1 = toric.Vector3(personA_list[0],personA_list[1],personA_list[2])
+  PB_1 = toric.Vector3(personB_list[0],personB_list[1],personB_list[2])
+
+  # ending people positions: for the moment the positions are the same
+  PA_2 = toric.Vector3(personA_list[0],personA_list[1],personA_list[2])
+  PB_2 = toric.Vector3(personB_list[0],personB_list[1],personB_list[2])
+
+  # Starting camera position is *outside* of PA_1:
+  C_1 = toric.Vector3(cameraPose_n_list[0], cameraPose_e_list[0], cameraPose_d_list[0])
+  C_2 = toric.Vector3(cameraPose_n_list[1], cameraPose_e_list[1], cameraPose_d_list[1])
+  interpolated = toricinterpolation.toric_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2)
+
+  print C_1
+  print C_2
+
+  P_cameraPose_new = interpolated['F']
+
+  print "P: ", P_cameraPose_new
   
-  P_cameraPose = c_[cameraPose_n_list, cameraPose_e_list, cameraPose_d_list]
-  T_cameraPose = c_[cameraPose_t_list, cameraPose_t_list, cameraPose_t_list]
-  P_interpolatedSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose, T_cameraPose)
+  P_cameraPose_new[:,0] *= 1000.0;
+  P_cameraPose_new[:,1] *= 1000.0;
+  P_cameraPose_new[:,2] *= -1000.0; 
+  T_cameraPose_new = c_[interpolated['t'], interpolated['t'], interpolated['t']]
+
+
+  # scale
+  P_interpolatedSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose_new, T_cameraPose_new)
   
   print "get_trajectory: Response from trajectoryAPI", P_interpolatedSpline
 
