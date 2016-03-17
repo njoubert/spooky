@@ -36,8 +36,6 @@ def toric_to_cam_np(t, PA, PB):
     return vector3_to_np3(c)
 
 def slerp(p0, p1, t):
-    if p0.all() == p1.all():
-        return p0
     omega = np.arccos(np.dot(p0/np.linalg.norm(p0), p1/np.linalg.norm(p1)))
     so = np.sin(omega)
     return np.sin((1.0-t)*omega) / so * p0 + np.sin(t*omega)/so * p1
@@ -127,8 +125,12 @@ def toric_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
     # interpolate (lerp alpha and distance, slerp vantage)
     t = np.c_[np.linspace(0,1)]
 
-    PA = np.apply_along_axis(lambda t : slerp(vector3_to_np3(PA_1),vector3_to_np3(PA_1),t), axis=1, arr=t) # temporary, change this
-    PB = np.apply_along_axis(lambda t : slerp(vector3_to_np3(PB_1),vector3_to_np3(PB_1),t), axis=1, arr=t)
+    PA_x = np.linspace(PA_1.x(),PA_1.x())#np.apply_along_axis(lambda t : slerp(vector3_to_np3(PA_1),vector3_to_np3(PA_1),t), axis=1, arr=t) # temporary, change this
+    PA_y = np.linspace(PA_1.y(),PA_1.y())
+    PA_z = np.linspace(PA_1.z(),PA_1.z())
+    PB_x = np.linspace(PB_1.x(),PB_1.x())#alpha_lin = np.linspace(C_1_toric.getAlpha().valueRadians(),C_2_toric.getAlpha().valueRadians())
+    PB_y = np.linspace(PB_1.y(),PB_1.y())
+    PB_z = np.linspace(PB_1.z(),PB_1.z())
     alpha_lin = np.linspace(C_1_alpha,C_2_alpha)
     distance_A_lin = np.linspace(C_1_distance_A,C_2_distance_A)
     distance_B_lin = np.linspace(C_1_distance_B,C_2_distance_B)
@@ -136,8 +138,11 @@ def toric_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
     vantage_B_slerp = np.apply_along_axis(lambda t : slerp(C_1_vantage_B,C_2_vantage_B,t), axis=1, arr=t)
 
     # convert back to world space
-    V = np.c_[alpha_lin, distance_A_lin, distance_B_lin, vantage_A_slerp, vantage_B_slerp, PA, PB]
+    V = np.c_[alpha_lin, distance_A_lin, distance_B_lin, vantage_A_slerp, vantage_B_slerp, PA_x, PA_y, PA_z, PB_x, PB_y, PB_z]
     F = np.apply_along_axis(visualfeatures_to_world, axis=1, arr=V)
+
+    # for different PA_1, PB_1 and PA_2, PB_2
+    # compute second trajectory around PA_2 and PB_2 and combine through non-linear interpolation (p(t))
 
     return {'F':F, 't':t}
 
