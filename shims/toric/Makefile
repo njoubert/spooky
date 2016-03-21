@@ -11,7 +11,7 @@ PYTHON_LIB         := python2.7
 
 BUILD_DIR	  := toric
 
-TORIC_DIR     := ../../lib/ToricCam-1.0.0
+TORIC_DIR     := ../../lib/ToricCam-1.1.0
 TORIC_INCLUDE := -I$(TORIC_DIR)/Include
 TORIC_SOURCES := $(wildcard $(TORIC_DIR)/Source/*.cpp)
 
