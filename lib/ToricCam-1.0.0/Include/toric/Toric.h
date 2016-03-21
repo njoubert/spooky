@@ -10,7 +10,7 @@
  the Free Software Foundation, either version 3 of the License, or
  (at your option) any later version.
 
- This library is distributed in the hope that it will be useful,
+ ToricCam is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
@@ -78,7 +78,7 @@ namespace toric
 			///	\param[in] RadianPi alpha	the angle to satisfy
 			/***************************************************************************************************/
 
-			Equation(const Vector3 & A = Vector3(0,0,0), const Vector3 & B = Vector3(0,0,0), const RadianPi & alpha = 0);
+			Equation(const Vector3 & A = Vector3::ZERO, const Vector3 & B = Vector3::ZERO, const RadianPi & alpha = 0);
 
 			/***************************************************************************************************/
 			/// \brief	Get the first target's world position
@@ -124,7 +124,7 @@ namespace toric
 			/// \return double		the value associated to a world position
 			/***************************************************************************************************/
 
-			double getValue(const Vector3 & p) const;
+			double getValue( const Vector3 & p ) const;
 
 			/***************************************************************************************************/
 			/// \brief	Get the absolute value (distance) associated to a world position
@@ -152,13 +152,13 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Creates a manifold surface so that world position wposA projects at pA on the screen, and world position wposB projects at pB on the screen
 		///
-		///	\param[in]	const RadianPi & fovX			the horizontal field of view of the camera
-		///	\param[in]	const double & aspect			the aspect ratio of the camera
-		///	\param[in]	const Vector2 & pA				the first target's screen position in [-1;+1]^2
-		///	\param[in]	const Vector2 & pB				the second target's screen position in [-1;+1]^2
-		///	\param[in]	const Vector3 & wposA			the first target's world position
-		///	\param[in]	const Vector3 & wposB			the second target's world position
-		/// \param[in]	const Vector3 & zero			(optional) the vector defining phi=0. In the general case, one should not use it.
+		///	\param[in]	RadianPi  fovX			the horizontal field of view of the camera
+		///	\param[in]	double  aspect			the aspect ratio of the camera
+		///	\param[in]	Vector2  pA				the first target's screen position in [-1;+1]^2
+		///	\param[in]	Vector2  pB				the second target's screen position in [-1;+1]^2
+		///	\param[in]	Vector3  wposA			the first target's world position
+		///	\param[in]	Vector3  wposB			the second target's world position
+		/// \param[in]	Vector3  zero			(optional) the vector defining phi=0. In the general case, one should not use it.
 		///
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
@@ -169,13 +169,13 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Creates a manifold surface so that world position wposA projects at pA on the screen, and world position wposB projects at pB on the screen
 		///
-		/// \param[in]	const RadianPi & fovX			the horizontal field of view of the camera
-		/// \param[in]	const double & aspect			the aspect ratio of the camera
-		/// \param[in]	const Vector3 & pA				the first target's screen position in [-1;+1]^2 x R
-		/// \param[in]	const Vector3 & pB				the second target's screen position in [-1;+1]^2 x R
-		/// \param[in]	const Vector3 & wposA			the first target's world position
-		/// \param[in]	const Vector3 & wposB			the second target's world position
-		/// \param[in]	const Vector3 & zero			(optional) the vector defining phi=0. In the general case, one should not use it.
+		/// \param[in]	RadianPi  fovX			the horizontal field of view of the camera
+		/// \param[in]	double  aspect			the aspect ratio of the camera
+		/// \param[in]	Vector3  pA				the first target's screen position in [-1;+1]^2 x R
+		/// \param[in]	Vector3  pB				the second target's screen position in [-1;+1]^2 x R
+		/// \param[in]	Vector3  wposA			the first target's world position
+		/// \param[in]	Vector3  wposB			the second target's world position
+		/// \param[in]	Vector3  zero			(optional) the vector defining phi=0. In the general case, one should not use it.
 		///
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
@@ -186,13 +186,13 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Creates a manifold surface so that world position wposA projects at pA on the screen, and world position wposB projects at pB on the screen
 		///
-		/// \param[in]	const RadianPi & fovX			the horizontal field of view of the camera
-		/// \param[in]	const RadianPi & fovY			the vertical field of view of the camera
-		/// \param[in]	const Vector2 & pA				the first target's screen position in [-1;+1]^2
-		/// \param[in]	const Vector2& pB				the second target's screen position in [-1;+1]^2
-		/// \param[in]	const Vector3 & wposA			the first target's world position
-		/// \param[in]	const Vector3 & wposB			the second target's world position
-		/// \param[in]	const Vector3 & zero			(optional) the vector defining phi=0. In the general case, one should not use it.
+		/// \param[in]	RadianPi  fovX			the horizontal field of view of the camera
+		/// \param[in]	RadianPi  fovY			the vertical field of view of the camera
+		/// \param[in]	Vector2  pA				the first target's screen position in [-1;+1]^2
+		/// \param[in]	Vector2 pB				the second target's screen position in [-1;+1]^2
+		/// \param[in]	Vector3  wposA			the first target's world position
+		/// \param[in]	Vector3  wposB			the second target's world position
+		/// \param[in]	Vector3  zero			(optional) the vector defining phi=0. In the general case, one should not use it.
 		///
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
@@ -203,13 +203,13 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Creates a manifold surface so that world position wposA projects at pA on the screen, and world position wposB projects at pB on the screen
 		///
-		/// \param[in]	const RadianPi & fovX			the horizontal field of view of the camera
-		/// \param[in]	const RadianPi & fovY			the vertical field of view of the camera
-		/// \param[in]	const Vector3 & pA				the first target's screen position in [-1;+1]^2 x R
-		/// \param[in]	const Vector3 & pB				the second target's screen position in [-1;+1]^2 x R
-		/// \param[in]	const Vector3 & wposA			the first target's world position
-		/// \param[in]	const Vector3 & wposB			the second target's world position
-		/// \param[in]	const Vector3 & zero			(optional) the vector defining phi=0. In the general case, one should not use it.
+		/// \param[in]	RadianPi  fovX			the horizontal field of view of the camera
+		/// \param[in]	RadianPi  fovY			the vertical field of view of the camera
+		/// \param[in]	Vector3  pA				the first target's screen position in [-1;+1]^2 x R
+		/// \param[in]	Vector3  pB				the second target's screen position in [-1;+1]^2 x R
+		/// \param[in]	Vector3  wposA			the first target's world position
+		/// \param[in]	Vector3  wposB			the second target's world position
+		/// \param[in]	Vector3  zero			(optional) the vector defining phi=0. In the general case, one should not use it.
 		///
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
@@ -220,14 +220,14 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Creates a manifold surface from an angle to satisfy, and so that world position wposA projects at pA on the screen, and world position wposB projects at pB on the screen
 		///
-		/// \param[in]	const RadianPi & alpha			the angle to satisfy
-		/// \param[out]	const RadianPi & fovX			the horizontal field of view of the camera
-		/// \param[in]	const double & aspect			the aspect ratio of the camera
-		/// \param[in]	const Vector3 & pA				the first target's screen position in [-1;+1]^2
-		/// \param[in]	const Vector3 & pB				the second target's screen position in [-1;+1]^2
-		/// \param[in]	const Vector3 & wposA			the first target's world position
-		/// \param[in]	const Vector3 & wposB			the second target's world position
-		/// \param[in]	const Vector3 & zero			(optional) the vector defining phi=0. In the general case, one should not use it.
+		/// \param[in]	RadianPi  alpha			the angle to satisfy
+		/// \param[out]	RadianPi  fovX			the horizontal field of view of the camera
+		/// \param[in]	double  aspect			the aspect ratio of the camera
+		/// \param[in]	Vector3  pA				the first target's screen position in [-1;+1]^2
+		/// \param[in]	Vector3  pB				the second target's screen position in [-1;+1]^2
+		/// \param[in]	Vector3  wposA			the first target's world position
+		/// \param[in]	Vector3  wposB			the second target's world position
+		/// \param[in]	Vector3  zero			(optional) the vector defining phi=0. In the general case, one should not use it.
 		///
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
@@ -246,7 +246,7 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute a camera position on the manifold surface
 		///
-		/// \param[in]	const Toric2 & t			the camera position in its toric representation
+		/// \param[in]	Toric2 & t			the camera position in its toric representation
 		///
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
@@ -254,14 +254,14 @@ namespace toric
 		/// \return Vector3	the corresponding camera position in world coordinates
 		/***************************************************************************************************/
 
-		// HACK NJ: This is not implemented anywhere
-		// Vector3 computePosition(const Toric2 & t) const;
+		// NJ FIX: Doesn't appear to be defined anywhere.
+		//Vector3 computePosition(Toric2 & t) const;
 		
 		/***************************************************************************************************/
 		/// \brief	Compute a camera position on the manifold surface
 		///
-		/// \param[in]	const Radian2Pi & theta			the horizontal angle on the manifold, within ]0;2*(pi-getAlpha())[
-		/// \param[in]	const RadianPi & phi			the vertical angle on the manifold, within [-pi;+pi]
+		/// \param[in]	Radian2Pi & theta			the horizontal angle on the manifold, within ]0;2*(pi-getAlpha())[
+		/// \param[in]	RadianPi & phi			the vertical angle on the manifold, within [-pi;+pi]
 		///
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
@@ -274,7 +274,7 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute the camera orientation corresponding to a given position on the manifold surface
 		///
-		/// \param[in]	const Vector3 & position		the camera position on the manifold surface
+		/// \param[in]	Vector3 & position		the camera position on the manifold surface
 		///
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
@@ -290,7 +290,7 @@ namespace toric
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
 		///
-		/// \return const RadianPi &	the angle to satisfy
+		/// \return RadianPi &	the angle to satisfy
 		/***************************************************************************************************/
 
 		const RadianPi& getAlpha() const;
@@ -301,7 +301,7 @@ namespace toric
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
 		///
-		/// \return const Vector3 &	the first target's world position
+		/// \return Vector3 &	the first target's world position
 		/***************************************************************************************************/
 
 		const Vector3 & getPositionA() const;
@@ -312,7 +312,7 @@ namespace toric
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
 		///
-		/// \return const Vector3 &	the second target's world position
+		/// \return Vector3 &	the second target's world position
 		/***************************************************************************************************/
 
 		const Vector3 & getPositionB() const { return m_equation.m_B; }
@@ -323,10 +323,10 @@ namespace toric
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
 		///
-		/// \return const Vector3 &	the zero vector in world coordinates
+		/// \return Vector3 &	the zero vector in world coordinates
 		/***************************************************************************************************/
 
-		const Vector3 & getZero() const { return m_zero; }
+		Vector3 & getZero() { return m_zero; }
 
 		/***************************************************************************************************/
 		/// \brief	Access the upper bound (not included) of the allowed interval of values for the horizontal angle
@@ -353,7 +353,7 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute the distance between a world position and the mandfold surface
 		///
-		/// \param[in] const Vector3 & point	the world position to consider
+		/// \param[in] Vector3 & point	the world position to consider
 		///
 		///
 		/// \author	Christophe Lino
@@ -367,7 +367,7 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute the set of solutions to an exact distance constraint to A
 		///
-		/// \param[in] const double & distance	the distance constraint
+		/// \param[in] double & distance	the distance constraint
 		///
 		///
 		/// \author	Christophe Lino
@@ -381,7 +381,7 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute the set of solutions to an exact distance constraint to B
 		///
-		/// \param[in] const double & distance	the distance constraint
+		/// \param[in] double & distance	the distance constraint
 		///
 		///
 		/// \author	Christophe Lino
@@ -395,7 +395,7 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute the camera position which satisfies an exact vantage constraint to A
 		///
-		/// \param[in] const Vector3 & vectorFromA		the vantage angle constraint, as a direction from the first target
+		/// \param[in] Vector3 & vectorFromA		the vantage angle constraint, as a direction from the first target
 		///
 		///
 		/// \author	Christophe Lino
@@ -409,7 +409,7 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute the camera position which satisfies an exact vantage constraint to A
 		///
-		/// \param[in] const Vector3 & vectorFromB		the vantage angle constraint, as a direction from the first target
+		/// \param[in] Vector3 & vectorFromB		the vantage angle constraint, as a direction from the first target
 		///
 		///
 		/// \author	Christophe Lino
@@ -423,7 +423,7 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute the camera position which satisfies an exact vantage constraint to the middle point of A and B
 		///
-		/// \param[in] const Vector3 & vectorFromMiddle		the vantage constraint, as a direction from the middle point of both targets
+		/// \param[in] Vector3 & vectorFromMiddle		the vantage constraint, as a direction from the middle point of both targets
 		///
 		///
 		/// \author	Christophe Lino
@@ -437,7 +437,7 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute the horizontal angle which corresponds to a ratio within ]0;1[
 		///
-		/// \param[in] const double & thetaRatio		the ratio on the horizontal angle (0=second target's world position, 1=first target's world position)
+		/// \param[in] double & thetaRatio		the ratio on the horizontal angle (0=second target's world position, 1=first target's world position)
 		///
 		///
 		/// \author	Christophe Lino
@@ -470,7 +470,7 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Copy of the 2d toric representation of a camera position
 		///
-		/// \param[in]	const Toric2 & t				the position to copy
+		/// \param[in]	Toric2 & t				the position to copy
 		///
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
@@ -480,13 +480,13 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Create the 2d toric representation of a camera position
 		///
-		/// \param[in]	const RadianPi2 & theta				the horizontal angle on the manifold surface
-		/// \param[in]	const RadianPi & phi				the vertical angle on the manifold surface
+		/// \param[in]	RadianPi2 & theta				the horizontal angle on the manifold surface
+		/// \param[in]	RadianPi & phi				the vertical angle on the manifold surface
 		///
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
 		/***************************************************************************************************/
-		Toric2(const Radian2Pi & theta = 0, const RadianPi & phi = 0);
+		Toric2(const Radian2Pi & theta, const RadianPi & phi);
 		
 		/***************************************************************************************************/
 		/// \brief	Access the horizontal angle
@@ -494,9 +494,9 @@ namespace toric
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
 		///
-		/// \return	const RadianPi2 &		the horizontal angle on the manifold surface
+		/// \return	RadianPi2 &		the horizontal angle on the manifold surface
 		/***************************************************************************************************/
-		const Radian2Pi   & getTheta() const;
+		const Radian2Pi & getTheta() const;
 		
 		/***************************************************************************************************/
 		/// \brief	Access the vertical angle
@@ -504,9 +504,9 @@ namespace toric
 		/// \author	Christophe Lino
 		/// \date	2012/07/29
 		///
-		/// \return	const RadianPi &		the vertical angle on the manifold surface
+		/// \return	RadianPi &		the vertical angle on the manifold surface
 		/***************************************************************************************************/
-		const RadianPi    & getPhi()   const;
+		const RadianPi & getPhi() const;
 	};
 
 	/***************************************************************************************************/
@@ -528,7 +528,7 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Copy of the 3d toric representation of a camera position
 		///
-		/// \param[in]	const Toric3 & t				the position to copy
+		/// \param[in]	Toric3 & t				the position to copy
 		///
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
@@ -539,9 +539,9 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Create the 2d toric representation of a camera position
 		///
-		/// \param[in]	const RadianPi & alpha				the angle which generates the manifold surface
-		/// \param[in]	const RadianPi2 & theta				the horizontal angle on the manifold surface. Should be whithin ]0;2*(pi-alpha)[
-		/// \param[in]	const RadianPi & phi				the vertical angle on the manifold surface
+		/// \param[in]	RadianPi & alpha				the angle which generates the manifold surface
+		/// \param[in]	RadianPi2 & theta				the horizontal angle on the manifold surface. Should be whithin ]0;2*(pi-alpha)[
+		/// \param[in]	RadianPi & phi				the vertical angle on the manifold surface
 		///
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
@@ -555,15 +555,15 @@ namespace toric
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
 		///
-		/// \return	const RadianPi &		the angle which generates the manifold surface
+		/// \return	RadianPi 		the angle which generates the manifold surface
 		/***************************************************************************************************/
 
-		const RadianPi & getAlpha() const;
+		const RadianPi& getAlpha() const;
 
 		/***************************************************************************************************/
 		/// \brief	Change the horizontal angle
 		///
-		/// \param[in]	const RadianPi2 & theta		the new horizontal angle on the manifold surface
+		/// \param[in]	RadianPi2  theta		the new horizontal angle on the manifold surface
 		/// 
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
@@ -574,24 +574,24 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Change the vertical angle
 		///
-		/// \param[in]	const RadianPi & phi		the new vertical angle on the manifold surface
+		/// \param[in]	RadianPi  phi		the new vertical angle on the manifold surface
 		/// 
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
 		/***************************************************************************************************/
 
-		void setPhi  (const RadianPi  & phi);
+		void setPhi  (const RadianPi & phi);
 
 		/***************************************************************************************************/
 		/// \brief	Change the generator angle
 		///
-		/// \param[in]	const RadianPi & alpha		the generator angle of the new manifold surface
+		/// \param[in]	RadianPi  alpha		the generator angle of the new manifold surface
 		/// 
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
 		/***************************************************************************************************/
 
-		void setAlpha(const RadianPi  & alpha);
+		void setAlpha(const RadianPi & alpha);
 
 		/***************************************************************************************************/
 		/// \brief	Access the ratio on the horizontal angle, in ]0;1[
@@ -607,15 +607,15 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Change all the angles
 		///
-		/// \param[in]	const RadianPi & alpha				the angle which generates the manifold surface
-		/// \param[in]	const RadianPi2 & theta				the horizontal angle on the manifold surface
-		/// \param[in]	const RadianPi & phi				the vertical angle on the manifold surface
+		/// \param[in]	RadianPi  alpha				the angle which generates the manifold surface
+		/// \param[in]	RadianPi2  theta				the horizontal angle on the manifold surface
+		/// \param[in]	RadianPi  phi				the vertical angle on the manifold surface
 		/// 
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
 		/***************************************************************************************************/
 
-		void set(const RadianPi  & alpha, const Radian2Pi & theta, const RadianPi  & phi);
+		void set(const RadianPi & alpha, const Radian2Pi & theta, const RadianPi & phi);
 
 		bool operator==(const Toric3 & t) const;
 		bool operator!=(const Toric3 & t) const;
@@ -623,10 +623,10 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute the Toric representation of a camera position expressed in its Cartesian representation
 		///
-		/// \param[in]	const Vector3 & wpos			the camera's world position (Cartesian)
-		/// \param[in]	const Vector3 & wposA			the first target's world position
-		/// \param[in]	const Vector3 & wposB			the second target's world position
-		/// \param[in]	const Vector3 & zero			(optional) the vector defining phi=0. In the general case, one should not use it.
+		/// \param[in]	Vector3  wpos			the camera's world position (Cartesian)
+		/// \param[in]	Vector3  wposA			the first target's world position
+		/// \param[in]	Vector3  wposB			the second target's world position
+		/// \param[in]	Vector3  zero			(optional) the vector defining phi=0. In the general case, one should not use it.
 		/// 
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
@@ -634,15 +634,15 @@ namespace toric
 		/// \return Toric3		the Toric representation of the input Cartesian position w.r.t the pair of input targets' positions
 		/***************************************************************************************************/
 
-		static Toric3  FromWorldPosition(const Vector3 & wpos, const Vector3 & wposA, const Vector3 & wposB, const Vector3 & zero = Vector3(0,0,0));
+		static Toric3  FromWorldPosition(const Vector3 & wpos, const Vector3 & wposA, const Vector3 & wposB, const Vector3 & zero = Vector3::ZERO);
 
 		/***************************************************************************************************/
 		/// \brief	Compute the Cartesian representation of a camera position expressed in its Toric representation
 		///
-		/// \param[in]	const Toric3 & tposP			the camera's world position (Cartesian)
-		/// \param[in]	const Vector3 & wposA			the first target's world position
-		/// \param[in]	const Vector3 & wposB			the second target's world position
-		/// \param[in]	const Vector3 & zero			(optional) the vector defining phi=0. In the general case, one should not use it.
+		/// \param[in]	Toric3  tposP			the camera's world position (Cartesian)
+		/// \param[in]	Vector3  wposA			the first target's world position
+		/// \param[in]	Vector3  wposB			the second target's world position
+		/// \param[in]	Vector3  zero			(optional) the vector defining phi=0. In the general case, one should not use it.
 		/// 
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
@@ -650,13 +650,13 @@ namespace toric
 		/// \return Toric3		the Cartesian representation of the Toric position w.r.t the pair of input targets' positions
 		/***************************************************************************************************/
 
-		static Vector3 ToWorldPosition  (const Toric3  & tpos, const Vector3 & wposA, const Vector3 & wposB, const Vector3 & zero = Vector3(0,0,0));
+		static Vector3 ToWorldPosition (const Toric3 & tpos,  const Vector3 & wposA, const Vector3 & wposB, const Vector3 & zero = Vector3::ZERO);
 
 		/***************************************************************************************************/
 		/// \brief	Compute a ratio of horizontal angle, in ]0;1[, from its value in radians on a given ToricManifold surface
 		/// 
-		/// \param[in]	const RadianPi2 & theta				the horizontal angle on the manifold surface
-		/// \param[in]	const RadianPi & alpha				the angle which generates the manifold surface
+		/// \param[in]	RadianPi2  theta				the horizontal angle on the manifold surface
+		/// \param[in]	RadianPi  alpha				the angle which generates the manifold surface
 		///
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
@@ -664,13 +664,13 @@ namespace toric
 		/// \return	double		the ratio of horizontal angle
 		/***************************************************************************************************/
 
-		static double    ComputeThetaRatio(const Radian2Pi & theta,		 const RadianPi & alpha);
+		static double ComputeThetaRatio(const Radian2Pi & theta,	const RadianPi & alpha);
 		
 		/***************************************************************************************************/
 		/// \brief	Compute an horizontal angle in radians from its ratio value, in ]0;1[, on a given manifold surface
 		/// 
-		/// \param[in]	const double & thetaRatio			the horizontal angle ratio on the manifold surface
-		/// \param[in]	const RadianPi & alpha				the angle which generates the manifold surface
+		/// \param[in]	double  thetaRatio			the horizontal angle ratio on the manifold surface
+		/// \param[in]	RadianPi  alpha				the angle which generates the manifold surface
 		///
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
@@ -678,13 +678,13 @@ namespace toric
 		/// \return	RadianPi2		the horizontal angle
 		/***************************************************************************************************/
 
-		static Radian2Pi ComputeTheta     (const double    & thetaRatio, const RadianPi & alpha);
+		static Radian2Pi ComputeTheta     (const double & thetaRatio, const RadianPi & alpha);
 
 		/***************************************************************************************************/
 		/// \brief	Scales an input Toric position by using a new generator angle
 		/// 
-		/// \param[in]	const Toric3 & reference			the initial Toric position
-		/// \param[in]	const RadianPi & alpha				the angle which generates the new manifold surface
+		/// \param[in]	Toric3  reference			the initial Toric position
+		/// \param[in]	RadianPi  alpha				the angle which generates the new manifold surface
 		///
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
@@ -697,11 +697,11 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute the camera orientation which, from a position, forces a single target to project at a given screen position
 		/// 
-		/// \param[in]	const Vector3 & campos			the camera's world position
-		/// \param[in]	const Vector2 & spos			the target's screen position
-		/// \param[in]	const Vector3 & wpos			the target's world position
-		/// \param[in]	const RadianPi & fovX			the camera's horizontal field of view angle
-		/// \param[in]	const RadianPi & fovY			the camera's vertical field of view angle
+		/// \param[in]	Vector3  campos			the camera's world position
+		/// \param[in]	Vector2  spos			the target's screen position
+		/// \param[in]	Vector3  wpos			the target's world position
+		/// \param[in]	RadianPi  fovX			the camera's horizontal field of view angle
+		/// \param[in]	RadianPi  fovY			the camera's vertical field of view angle
 		///
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
@@ -714,13 +714,13 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute the camera orientation which, from a position, forces two targets to project at two given screen positions
 		/// 
-		/// \param[in]	const Vector3 & campos			the camera's world position
-		/// \param[in]	const Vector2 & sposA			the first target's screen position
-		/// \param[in]	const Vector2 & sposB			the second target's screen position
-		/// \param[in]	const Vector3 & wposA			the first target's world position
-		/// \param[in]	const Vector3 & wposB			the second target's world position
-		/// \param[in]	const RadianPi & fovX			the camera's horizontal field of view angle
-		/// \param[in]	const RadianPi & fovY			the camera's vertical field of view angle
+		/// \param[in]	Vector3  campos			the camera's world position
+		/// \param[in]	Vector2  sposA			the first target's screen position
+		/// \param[in]	Vector2  sposB			the second target's screen position
+		/// \param[in]	Vector3  wposA			the first target's world position
+		/// \param[in]	Vector3  wposB			the second target's world position
+		/// \param[in]	RadianPi  fovX			the camera's horizontal field of view angle
+		/// \param[in]	RadianPi  fovY			the camera's vertical field of view angle
 		///
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
@@ -733,13 +733,13 @@ namespace toric
 		/***************************************************************************************************/
 		/// \brief	Compute the camera orientation which, from a position, frames two targets at two given screen positions, with a roll angle equal to 0. NB: it does not strictly enforces the screen positions.
 		/// 
-		/// \param[in]	const Vector3 & campos			the camera's world position
-		/// \param[in]	const Vector2 & sposA			the first target's screen position
-		/// \param[in]	const Vector2 & sposB			the second target's screen position
-		/// \param[in]	const Vector3 & wposA			the first target's world position
-		/// \param[in]	const Vector3 & wposB			the second target's world position
-		/// \param[in]	const RadianPi & fovX			the camera's horizontal field of view angle
-		/// \param[in]	const RadianPi & fovY			the camera's vertical field of view angle
+		/// \param[in]	Vector3  campos			the camera's world position
+		/// \param[in]	Vector2  sposA			the first target's screen position
+		/// \param[in]	Vector2  sposB			the second target's screen position
+		/// \param[in]	Vector3  wposA			the first target's world position
+		/// \param[in]	Vector3  wposB			the second target's world position
+		/// \param[in]	RadianPi  fovX			the camera's horizontal field of view angle
+		/// \param[in]	RadianPi  fovY			the camera's vertical field of view angle
 		///
 		/// \author	Christophe Lino
 		/// \date	2013/10/03
@@ -747,7 +747,7 @@ namespace toric
 		/// \return	Quaternion		the camera (free from roll) orientation
 		/***************************************************************************************************/
 		
-		//static Quaternion ComputeOrientationForTwoTargetsWithNoRoll( const Vector3 & campos, const Vector2 & sposA, const Vector2 & sposB, const Vector3 & wposA, const Vector3 & wposB, const RadianPi & fovX, const RadianPi & fovY );
+		//static Quaternion ComputeOrientationForTwoTargetsWithNoRoll( Vector3  campos, Vector2  sposA, Vector2  sposB, Vector3  wposA, Vector3  wposB, RadianPi  fovX, RadianPi  fovY );
 		
 		/// You should not use the following function except if you know what you are doing !
 		RadianPi _getBeta() const;
@@ -757,15 +757,20 @@ namespace toric
 		/// You should not use the following function except if you know what you are doing !
 		static Quaternion _ComputeOrientationForTwoTargets( const Vector3 & campos, const Vector2 & sposA, const Vector2 & sposB, const Vector3 & wposA, const Vector3 & wposB, const double & Sx, const double & Sy );
 		/// You should not use the following function except if you know what you are doing !
-		//static Quaternion _ComputeOrientationForTwoTargetsWithNoRoll( const Vector3 & campos, const Vector2 & sposA, const Vector2 & sposB, const Vector3 & wposA, const Vector3 & wposB, const double & Sx, const double & Sy );
+		//static Quaternion _ComputeOrientationForTwoTargetsWithNoRoll( Vector3  campos, Vector2  sposA, Vector2  sposB, Vector3  wposA, Vector3  wposB, double  Sx, double  Sy );
 
 		/// You should not use the following function except if you know what you are doing !
 		static Quaternion _ComputeOrientationForOneTarget( const Vector3 & campos, const Vector3 & spos, const Vector3 & wpos, const double & Sx, const double & Sy );
 		/// You should not use the following function except if you know what you are doing !
 		static Quaternion _ComputeOrientationForTwoTargets( const Vector3 & campos, const Vector3 & sposA, const Vector3 & sposB, const Vector3 & wposA, const Vector3 & wposB, const double & Sx, const double & Sy );
 		/// You should not use the following function except if you know what you are doing !
-		//static Quaternion _ComputeOrientationForTwoTargetsWithNoRoll( const Vector3 & campos, const Vector3 & sposA, const Vector3 & sposB, const Vector3 & wposA, const Vector3 & wposB, const double & Sx, const double & Sy );
+		//static Quaternion _ComputeOrientationForTwoTargetsWithNoRoll( Vector3  campos, Vector3  sposA, Vector3  sposB, Vector3  wposA, Vector3  wposB, double  Sx, double  Sy );
 	};
+
+	static double ComputeDistanceToA( const double & AB, const RadianPi & alpha, const Radian2Pi & theta )
+	{
+		return ( AB * sin(alpha.valueRadians()+theta.valueRadians()/2.) ) / sin(alpha);
+	}
 }
 
 #endif

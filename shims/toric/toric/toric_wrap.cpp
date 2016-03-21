@@ -2976,19 +2976,22 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 #define SWIGTYPE_p_std__vectorT_toric__Radian2Pi_t swig_types[6]
 #define SWIGTYPE_p_toric__Camera swig_types[7]
 #define SWIGTYPE_p_toric__Matrix3 swig_types[8]
-#define SWIGTYPE_p_toric__ProjectionMatrix swig_types[9]
-#define SWIGTYPE_p_toric__Quaternion swig_types[10]
-#define SWIGTYPE_p_toric__Radian2Pi swig_types[11]
-#define SWIGTYPE_p_toric__RadianPi swig_types[12]
-#define SWIGTYPE_p_toric__Toric2 swig_types[13]
-#define SWIGTYPE_p_toric__Toric3 swig_types[14]
-#define SWIGTYPE_p_toric__ToricManifold swig_types[15]
-#define SWIGTYPE_p_toric__Vector2 swig_types[16]
-#define SWIGTYPE_p_toric__Vector3 swig_types[17]
-#define SWIGTYPE_p_toric__VectorT_2_t swig_types[18]
-#define SWIGTYPE_p_toric__VectorT_3_t swig_types[19]
-static swig_type_info *swig_types[21];
-static swig_module_info swig_module = {swig_types, 20, 0, 0, 0, 0};
+#define SWIGTYPE_p_toric__Plane swig_types[9]
+#define SWIGTYPE_p_toric__ProjectionMatrix swig_types[10]
+#define SWIGTYPE_p_toric__Quaternion swig_types[11]
+#define SWIGTYPE_p_toric__Radian2Pi swig_types[12]
+#define SWIGTYPE_p_toric__RadianPi swig_types[13]
+#define SWIGTYPE_p_toric__Toric2 swig_types[14]
+#define SWIGTYPE_p_toric__Toric3 swig_types[15]
+#define SWIGTYPE_p_toric__ToricInterpolationInfo swig_types[16]
+#define SWIGTYPE_p_toric__ToricInterpolator swig_types[17]
+#define SWIGTYPE_p_toric__ToricManifold swig_types[18]
+#define SWIGTYPE_p_toric__Vector2 swig_types[19]
+#define SWIGTYPE_p_toric__Vector3 swig_types[20]
+#define SWIGTYPE_p_toric__VectorT_2_t swig_types[21]
+#define SWIGTYPE_p_toric__VectorT_3_t swig_types[22]
+static swig_type_info *swig_types[24];
+static swig_module_info swig_module = {swig_types, 23, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3097,10 +3100,12 @@ namespace swig {
 #include "toric/Camera.h"
 #include "toric/Euler.h"
 #include "toric/Matrix.h"
+#include "toric/Plane.h"
 #include "toric/ProjectionMatrix.h"
 #include "toric/Quaternion.h"
 #include "toric/Vector.h"
 #include "toric/Toric.h"
+#include "toric/ToricInterpolator.h"
 
 using namespace toric;
 
@@ -3840,6 +3845,40 @@ SWIGINTERN PyObject *_wrap_RadianPi___neg__(PyObject *SWIGUNUSEDPARM(self), PyOb
   }
   arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
   result = ((toric::RadianPi const *)arg1)->operator -();
+  resultobj = SWIG_NewPointerObj((new toric::RadianPi(static_cast< const toric::RadianPi& >(result))), SWIGTYPE_p_toric__RadianPi, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RadianPi___sub__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::RadianPi *arg1 = (toric::RadianPi *) 0 ;
+  toric::RadianPi *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  toric::RadianPi result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:RadianPi___sub__",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__RadianPi, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RadianPi___sub__" "', argument " "1"" of type '" "toric::RadianPi const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RadianPi___sub__" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RadianPi___sub__" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
+  result = ((toric::RadianPi const *)arg1)->operator -((toric::RadianPi const &)*arg2);
   resultobj = SWIG_NewPointerObj((new toric::RadianPi(static_cast< const toric::RadianPi& >(result))), SWIGTYPE_p_toric__RadianPi, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
@@ -4724,6 +4763,421 @@ SWIGINTERN PyObject *Matrix3_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObje
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
   SWIG_TypeNewClientData(SWIGTYPE_p_toric__Matrix3, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_new_Plane(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double *arg3 = 0 ;
+  double *arg4 = 0 ;
+  double temp1 ;
+  double val1 ;
+  int ecode1 = 0 ;
+  double temp2 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  double temp3 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  double temp4 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  toric::Plane *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_Plane",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  ecode1 = SWIG_AsVal_double(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Plane" "', argument " "1"" of type '" "double""'");
+  } 
+  temp1 = static_cast< double >(val1);
+  arg1 = &temp1;
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Plane" "', argument " "2"" of type '" "double""'");
+  } 
+  temp2 = static_cast< double >(val2);
+  arg2 = &temp2;
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_Plane" "', argument " "3"" of type '" "double""'");
+  } 
+  temp3 = static_cast< double >(val3);
+  arg3 = &temp3;
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_Plane" "', argument " "4"" of type '" "double""'");
+  } 
+  temp4 = static_cast< double >(val4);
+  arg4 = &temp4;
+  result = (toric::Plane *)new toric::Plane((double const &)*arg1,(double const &)*arg2,(double const &)*arg3,(double const &)*arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Plane, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_createPlaneFromUnitNormal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Vector3 *arg1 = 0 ;
+  Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  SwigValueWrapper< toric::Plane > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_createPlaneFromUnitNormal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_createPlaneFromUnitNormal" "', argument " "1"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromUnitNormal" "', argument " "1"" of type '" "Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< Vector3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_createPlaneFromUnitNormal" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromUnitNormal" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< Vector3 * >(argp2);
+  result = toric::Plane::createPlaneFromUnitNormal((Vector3 const &)*arg1,(Vector3 const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new toric::Plane(static_cast< const toric::Plane& >(result))), SWIGTYPE_p_toric__Plane, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_createPlaneFromNormal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Vector3 *arg1 = 0 ;
+  Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  SwigValueWrapper< toric::Plane > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_createPlaneFromNormal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_createPlaneFromNormal" "', argument " "1"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromNormal" "', argument " "1"" of type '" "Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< Vector3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_createPlaneFromNormal" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromNormal" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< Vector3 * >(argp2);
+  result = toric::Plane::createPlaneFromNormal((Vector3 const &)*arg1,(Vector3 const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new toric::Plane(static_cast< const toric::Plane& >(result))), SWIGTYPE_p_toric__Plane, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_createPlaneFromVectors(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Vector3 *arg1 = 0 ;
+  Vector3 *arg2 = 0 ;
+  Vector3 *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  SwigValueWrapper< toric::Plane > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Plane_createPlaneFromVectors",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_createPlaneFromVectors" "', argument " "1"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromVectors" "', argument " "1"" of type '" "Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< Vector3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_createPlaneFromVectors" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromVectors" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< Vector3 * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Plane_createPlaneFromVectors" "', argument " "3"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromVectors" "', argument " "3"" of type '" "Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< Vector3 * >(argp3);
+  result = toric::Plane::createPlaneFromVectors((Vector3 const &)*arg1,(Vector3 const &)*arg2,(Vector3 const &)*arg3);
+  resultobj = SWIG_NewPointerObj((new toric::Plane(static_cast< const toric::Plane& >(result))), SWIGTYPE_p_toric__Plane, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_createPlaneFromTriangle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  Vector3 *arg1 = 0 ;
+  Vector3 *arg2 = 0 ;
+  Vector3 *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  SwigValueWrapper< toric::Plane > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Plane_createPlaneFromTriangle",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_createPlaneFromTriangle" "', argument " "1"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromTriangle" "', argument " "1"" of type '" "Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< Vector3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_createPlaneFromTriangle" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromTriangle" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< Vector3 * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Plane_createPlaneFromTriangle" "', argument " "3"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromTriangle" "', argument " "3"" of type '" "Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< Vector3 * >(argp3);
+  result = toric::Plane::createPlaneFromTriangle((Vector3 const &)*arg1,(Vector3 const &)*arg2,(Vector3 const &)*arg3);
+  resultobj = SWIG_NewPointerObj((new toric::Plane(static_cast< const toric::Plane& >(result))), SWIGTYPE_p_toric__Plane, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_getNormal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Plane *arg1 = (toric::Plane *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Plane_getNormal",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_getNormal" "', argument " "1"" of type '" "toric::Plane const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Plane * >(argp1);
+  result = ((toric::Plane const *)arg1)->getNormal();
+  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_getDistance(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Plane *arg1 = (toric::Plane *) 0 ;
+  Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_getDistance",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_getDistance" "', argument " "1"" of type '" "toric::Plane const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Plane * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_getDistance" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_getDistance" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< Vector3 * >(argp2);
+  result = (double)((toric::Plane const *)arg1)->getDistance((Vector3 const &)*arg2);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_getValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Plane *arg1 = (toric::Plane *) 0 ;
+  Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_getValue",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_getValue" "', argument " "1"" of type '" "toric::Plane const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Plane * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_getValue" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_getValue" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< Vector3 * >(argp2);
+  result = (double)((toric::Plane const *)arg1)->getValue((Vector3 const &)*arg2);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_getProjection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Plane *arg1 = (toric::Plane *) 0 ;
+  Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_getProjection",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_getProjection" "', argument " "1"" of type '" "toric::Plane const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Plane * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_getProjection" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_getProjection" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< Vector3 * >(argp2);
+  result = ((toric::Plane const *)arg1)->getProjection((Vector3 const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_belongs(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Plane *arg1 = (toric::Plane *) 0 ;
+  Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  bool result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_belongs",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_belongs" "', argument " "1"" of type '" "toric::Plane const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Plane * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_belongs" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_belongs" "', argument " "2"" of type '" "Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< Vector3 * >(argp2);
+  result = (bool)((toric::Plane const *)arg1)->belongs((Vector3 const &)*arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_Plane(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Plane *arg1 = (toric::Plane *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_Plane",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Plane" "', argument " "1"" of type '" "toric::Plane *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Plane * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *Plane_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_toric__Plane, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
@@ -9759,10 +10213,10 @@ SWIGINTERN PyObject *_wrap_ToricManifold_getZero(PyObject *SWIGUNUSEDPARM(self),
   if (!PyArg_ParseTuple(args,(char *)"O:ToricManifold_getZero",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricManifold, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricManifold_getZero" "', argument " "1"" of type '" "toric::ToricManifold const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricManifold_getZero" "', argument " "1"" of type '" "toric::ToricManifold *""'"); 
   }
   arg1 = reinterpret_cast< toric::ToricManifold * >(argp1);
-  result = (toric::Vector3 *) &((toric::ToricManifold const *)arg1)->getZero();
+  result = (toric::Vector3 *) &(arg1)->getZero();
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Vector3, 0 |  0 );
   return resultobj;
 fail:
@@ -10139,44 +10593,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Toric2__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Radian2Pi *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  toric::Toric2 *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:new_Toric2",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Radian2Pi,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Toric2" "', argument " "1"" of type '" "toric::Radian2Pi const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Toric2" "', argument " "1"" of type '" "toric::Radian2Pi const &""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Radian2Pi * >(argp1);
-  result = (toric::Toric2 *)new toric::Toric2((toric::Radian2Pi const &)*arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Toric2, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_Toric2__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Toric2 *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)":new_Toric2")) SWIG_fail;
-  result = (toric::Toric2 *)new toric::Toric2();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Toric2, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_new_Toric2(PyObject *self, PyObject *args) {
   int argc;
   PyObject *argv[3] = {
@@ -10188,17 +10604,6 @@ SWIGINTERN PyObject *_wrap_new_Toric2(PyObject *self, PyObject *args) {
   argc = args ? (int)PyObject_Length(args) : 0;
   for (ii = 0; (ii < 2) && (ii < argc); ii++) {
     argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 0) {
-    return _wrap_new_Toric2__SWIG_3(self, args);
-  }
-  if (argc == 1) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__Radian2Pi, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_Toric2__SWIG_2(self, args);
-    }
   }
   if (argc == 1) {
     int _v;
@@ -10225,9 +10630,7 @@ fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_Toric2'.\n"
     "  Possible C/C++ prototypes are:\n"
     "    toric::Toric2::Toric2(toric::Toric2 const &)\n"
-    "    toric::Toric2::Toric2(toric::Radian2Pi const &,toric::RadianPi const &)\n"
-    "    toric::Toric2::Toric2(toric::Radian2Pi const &)\n"
-    "    toric::Toric2::Toric2()\n");
+    "    toric::Toric2::Toric2(toric::Radian2Pi const &,toric::RadianPi const &)\n");
   return 0;
 }
 
@@ -11963,6 +12366,615 @@ SWIGINTERN PyObject *Toric3_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObjec
   return SWIG_Py_Void();
 }
 
+SWIGINTERN PyObject *_wrap_ComputeDistanceToA(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  double *arg1 = 0 ;
+  toric::RadianPi *arg2 = 0 ;
+  toric::Radian2Pi *arg3 = 0 ;
+  double temp1 ;
+  double val1 ;
+  int ecode1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:ComputeDistanceToA",&obj0,&obj1,&obj2)) SWIG_fail;
+  ecode1 = SWIG_AsVal_double(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "ComputeDistanceToA" "', argument " "1"" of type '" "double""'");
+  } 
+  temp1 = static_cast< double >(val1);
+  arg1 = &temp1;
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ComputeDistanceToA" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ComputeDistanceToA" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Radian2Pi,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ComputeDistanceToA" "', argument " "3"" of type '" "toric::Radian2Pi const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ComputeDistanceToA" "', argument " "3"" of type '" "toric::Radian2Pi const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Radian2Pi * >(argp3);
+  result = (double)toric::ComputeDistanceToA((double const &)*arg1,(toric::RadianPi const &)*arg2,(toric::Radian2Pi const &)*arg3);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToricInterpolationInfo_startVector_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolationInfo *arg1 = (toric::ToricInterpolationInfo *) 0 ;
+  toric::Vector3 *arg2 = (toric::Vector3 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ToricInterpolationInfo_startVector_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolationInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricInterpolationInfo_startVector_set" "', argument " "1"" of type '" "toric::ToricInterpolationInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolationInfo * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_toric__Vector3, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ToricInterpolationInfo_startVector_set" "', argument " "2"" of type '" "toric::Vector3 *""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  if (arg1) (arg1)->startVector = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToricInterpolationInfo_startVector_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolationInfo *arg1 = (toric::ToricInterpolationInfo *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::Vector3 *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:ToricInterpolationInfo_startVector_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolationInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricInterpolationInfo_startVector_get" "', argument " "1"" of type '" "toric::ToricInterpolationInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolationInfo * >(argp1);
+  result = (toric::Vector3 *)& ((arg1)->startVector);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Vector3, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToricInterpolationInfo_viewAngleChange_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolationInfo *arg1 = (toric::ToricInterpolationInfo *) 0 ;
+  toric::RadianPi *arg2 = (toric::RadianPi *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ToricInterpolationInfo_viewAngleChange_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolationInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricInterpolationInfo_viewAngleChange_set" "', argument " "1"" of type '" "toric::ToricInterpolationInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolationInfo * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_toric__RadianPi, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ToricInterpolationInfo_viewAngleChange_set" "', argument " "2"" of type '" "toric::RadianPi *""'"); 
+  }
+  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
+  if (arg1) (arg1)->viewAngleChange = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToricInterpolationInfo_viewAngleChange_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolationInfo *arg1 = (toric::ToricInterpolationInfo *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::RadianPi *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:ToricInterpolationInfo_viewAngleChange_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolationInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricInterpolationInfo_viewAngleChange_get" "', argument " "1"" of type '" "toric::ToricInterpolationInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolationInfo * >(argp1);
+  result = (toric::RadianPi *)& ((arg1)->viewAngleChange);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__RadianPi, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToricInterpolationInfo_viewHeightChange_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolationInfo *arg1 = (toric::ToricInterpolationInfo *) 0 ;
+  toric::RadianPi *arg2 = (toric::RadianPi *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ToricInterpolationInfo_viewHeightChange_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolationInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricInterpolationInfo_viewHeightChange_set" "', argument " "1"" of type '" "toric::ToricInterpolationInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolationInfo * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_toric__RadianPi, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ToricInterpolationInfo_viewHeightChange_set" "', argument " "2"" of type '" "toric::RadianPi *""'"); 
+  }
+  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
+  if (arg1) (arg1)->viewHeightChange = *arg2;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToricInterpolationInfo_viewHeightChange_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolationInfo *arg1 = (toric::ToricInterpolationInfo *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::RadianPi *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:ToricInterpolationInfo_viewHeightChange_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolationInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricInterpolationInfo_viewHeightChange_get" "', argument " "1"" of type '" "toric::ToricInterpolationInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolationInfo * >(argp1);
+  result = (toric::RadianPi *)& ((arg1)->viewHeightChange);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__RadianPi, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToricInterpolationInfo_distance_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolationInfo *arg1 = (toric::ToricInterpolationInfo *) 0 ;
+  double *arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ToricInterpolationInfo_distance_set",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolationInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricInterpolationInfo_distance_set" "', argument " "1"" of type '" "toric::ToricInterpolationInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolationInfo * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_double, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ToricInterpolationInfo_distance_set" "', argument " "2"" of type '" "double [2]""'"); 
+  } 
+  arg2 = reinterpret_cast< double * >(argp2);
+  {
+    if (arg2) {
+      size_t ii = 0;
+      for (; ii < (size_t)2; ++ii) *(double *)&arg1->distance[ii] = *((double *)arg2 + ii);
+    } else {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in variable '""distance""' of type '""double [2]""'");
+    }
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToricInterpolationInfo_distance_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolationInfo *arg1 = (toric::ToricInterpolationInfo *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:ToricInterpolationInfo_distance_get",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolationInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricInterpolationInfo_distance_get" "', argument " "1"" of type '" "toric::ToricInterpolationInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolationInfo * >(argp1);
+  result = (double *)(double *) ((arg1)->distance);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_ToricInterpolationInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolationInfo *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_ToricInterpolationInfo")) SWIG_fail;
+  result = (toric::ToricInterpolationInfo *)new toric::ToricInterpolationInfo();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ToricInterpolationInfo, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_ToricInterpolationInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolationInfo *arg1 = (toric::ToricInterpolationInfo *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_ToricInterpolationInfo",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolationInfo, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ToricInterpolationInfo" "', argument " "1"" of type '" "toric::ToricInterpolationInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolationInfo * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *ToricInterpolationInfo_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_toric__ToricInterpolationInfo, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_new_ToricInterpolator__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolator *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_ToricInterpolator")) SWIG_fail;
+  result = (toric::ToricInterpolator *)new toric::ToricInterpolator();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ToricInterpolator, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_ToricInterpolator__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Vector3 *arg1 = 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  toric::Toric3 *arg3 = 0 ;
+  toric::Toric3 *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  toric::ToricInterpolator *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_ToricInterpolator",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_ToricInterpolator" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ToricInterpolator" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Vector3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_ToricInterpolator" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ToricInterpolator" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Toric3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_ToricInterpolator" "', argument " "3"" of type '" "toric::Toric3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ToricInterpolator" "', argument " "3"" of type '" "toric::Toric3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Toric3 * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_toric__Toric3,  0  | 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_ToricInterpolator" "', argument " "4"" of type '" "toric::Toric3 const &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ToricInterpolator" "', argument " "4"" of type '" "toric::Toric3 const &""'"); 
+  }
+  arg4 = reinterpret_cast< toric::Toric3 * >(argp4);
+  result = (toric::ToricInterpolator *)new toric::ToricInterpolator((toric::Vector3 const &)*arg1,(toric::Vector3 const &)*arg2,(toric::Toric3 const &)*arg3,(toric::Toric3 const &)*arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ToricInterpolator, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_ToricInterpolator(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[5] = {
+    0
+  };
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 4) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_ToricInterpolator__SWIG_0(self, args);
+  }
+  if (argc == 4) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__Vector3, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__Vector3, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__Toric3, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_toric__Toric3, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_new_ToricInterpolator__SWIG_1(self, args);
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_ToricInterpolator'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    toric::ToricInterpolator::ToricInterpolator()\n"
+    "    toric::ToricInterpolator::ToricInterpolator(toric::Vector3 const &,toric::Vector3 const &,toric::Toric3 const &,toric::Toric3 const &)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToricInterpolator_init(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolator *arg1 = (toric::ToricInterpolator *) 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  toric::Toric3 *arg4 = 0 ;
+  toric::Toric3 *arg5 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:ToricInterpolator_init",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricInterpolator_init" "', argument " "1"" of type '" "toric::ToricInterpolator *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolator * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ToricInterpolator_init" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ToricInterpolator_init" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ToricInterpolator_init" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ToricInterpolator_init" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_toric__Toric3,  0  | 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "ToricInterpolator_init" "', argument " "4"" of type '" "toric::Toric3 const &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ToricInterpolator_init" "', argument " "4"" of type '" "toric::Toric3 const &""'"); 
+  }
+  arg4 = reinterpret_cast< toric::Toric3 * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5, SWIGTYPE_p_toric__Toric3,  0  | 0);
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "ToricInterpolator_init" "', argument " "5"" of type '" "toric::Toric3 const &""'"); 
+  }
+  if (!argp5) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ToricInterpolator_init" "', argument " "5"" of type '" "toric::Toric3 const &""'"); 
+  }
+  arg5 = reinterpret_cast< toric::Toric3 * >(argp5);
+  (arg1)->init((toric::Vector3 const &)*arg2,(toric::Vector3 const &)*arg3,(toric::Toric3 const &)*arg4,(toric::Toric3 const &)*arg5);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToricInterpolator_interpolateVector(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolator *arg1 = (toric::ToricInterpolator *) 0 ;
+  double *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  toric::Vector3 *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double temp2 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:ToricInterpolator_interpolateVector",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricInterpolator_interpolateVector" "', argument " "1"" of type '" "toric::ToricInterpolator *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolator * >(argp1);
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ToricInterpolator_interpolateVector" "', argument " "2"" of type '" "double""'");
+  } 
+  temp2 = static_cast< double >(val2);
+  arg2 = &temp2;
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ToricInterpolator_interpolateVector" "', argument " "3"" of type '" "toric::Vector3 &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ToricInterpolator_interpolateVector" "', argument " "3"" of type '" "toric::Vector3 &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_toric__Vector3,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "ToricInterpolator_interpolateVector" "', argument " "4"" of type '" "toric::Vector3 &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ToricInterpolator_interpolateVector" "', argument " "4"" of type '" "toric::Vector3 &""'"); 
+  }
+  arg4 = reinterpret_cast< toric::Vector3 * >(argp4);
+  (arg1)->interpolateVector((double const &)*arg2,*arg3,*arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToricInterpolator_interpolate(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolator *arg1 = (toric::ToricInterpolator *) 0 ;
+  double *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double temp2 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  toric::Toric3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ToricInterpolator_interpolate",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToricInterpolator_interpolate" "', argument " "1"" of type '" "toric::ToricInterpolator *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolator * >(argp1);
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ToricInterpolator_interpolate" "', argument " "2"" of type '" "double""'");
+  } 
+  temp2 = static_cast< double >(val2);
+  arg2 = &temp2;
+  result = (arg1)->interpolate((double const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new toric::Toric3(static_cast< const toric::Toric3& >(result))), SWIGTYPE_p_toric__Toric3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_ToricInterpolator(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ToricInterpolator *arg1 = (toric::ToricInterpolator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_ToricInterpolator",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ToricInterpolator, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ToricInterpolator" "', argument " "1"" of type '" "toric::ToricInterpolator *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ToricInterpolator * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *ToricInterpolator_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_toric__ToricInterpolator, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SWIG_PyInstanceMethod_New", (PyCFunction)SWIG_PyInstanceMethod_New, METH_O, NULL},
 	 { (char *)"Camera_fovX_set", _wrap_Camera_fovX_set, METH_VARARGS, NULL},
@@ -11984,6 +12996,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RadianPi_valueRadians", _wrap_RadianPi_valueRadians, METH_VARARGS, NULL},
 	 { (char *)"RadianPi_valueDegrees", _wrap_RadianPi_valueDegrees, METH_VARARGS, NULL},
 	 { (char *)"RadianPi___neg__", _wrap_RadianPi___neg__, METH_VARARGS, NULL},
+	 { (char *)"RadianPi___sub__", _wrap_RadianPi___sub__, METH_VARARGS, NULL},
 	 { (char *)"RadianPi___mul__", _wrap_RadianPi___mul__, METH_VARARGS, NULL},
 	 { (char *)"RadianPi___div__", _wrap_RadianPi___div__, METH_VARARGS, NULL},
 	 { (char *)"delete_RadianPi", _wrap_delete_RadianPi, METH_VARARGS, NULL},
@@ -12012,6 +13025,18 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Matrix3___mul__", _wrap_Matrix3___mul__, METH_VARARGS, NULL},
 	 { (char *)"delete_Matrix3", _wrap_delete_Matrix3, METH_VARARGS, NULL},
 	 { (char *)"Matrix3_swigregister", Matrix3_swigregister, METH_VARARGS, NULL},
+	 { (char *)"new_Plane", _wrap_new_Plane, METH_VARARGS, NULL},
+	 { (char *)"Plane_createPlaneFromUnitNormal", _wrap_Plane_createPlaneFromUnitNormal, METH_VARARGS, NULL},
+	 { (char *)"Plane_createPlaneFromNormal", _wrap_Plane_createPlaneFromNormal, METH_VARARGS, NULL},
+	 { (char *)"Plane_createPlaneFromVectors", _wrap_Plane_createPlaneFromVectors, METH_VARARGS, NULL},
+	 { (char *)"Plane_createPlaneFromTriangle", _wrap_Plane_createPlaneFromTriangle, METH_VARARGS, NULL},
+	 { (char *)"Plane_getNormal", _wrap_Plane_getNormal, METH_VARARGS, NULL},
+	 { (char *)"Plane_getDistance", _wrap_Plane_getDistance, METH_VARARGS, NULL},
+	 { (char *)"Plane_getValue", _wrap_Plane_getValue, METH_VARARGS, NULL},
+	 { (char *)"Plane_getProjection", _wrap_Plane_getProjection, METH_VARARGS, NULL},
+	 { (char *)"Plane_belongs", _wrap_Plane_belongs, METH_VARARGS, NULL},
+	 { (char *)"delete_Plane", _wrap_delete_Plane, METH_VARARGS, NULL},
+	 { (char *)"Plane_swigregister", Plane_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_ProjectionMatrix", _wrap_new_ProjectionMatrix, METH_VARARGS, NULL},
 	 { (char *)"ProjectionMatrix_setFieldOfView", _wrap_ProjectionMatrix_setFieldOfView, METH_VARARGS, NULL},
 	 { (char *)"ProjectionMatrix_setPosition", _wrap_ProjectionMatrix_setPosition, METH_VARARGS, NULL},
@@ -12123,6 +13148,24 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Toric3__ComputeOrientationForTwoTargets", _wrap_Toric3__ComputeOrientationForTwoTargets, METH_VARARGS, NULL},
 	 { (char *)"delete_Toric3", _wrap_delete_Toric3, METH_VARARGS, NULL},
 	 { (char *)"Toric3_swigregister", Toric3_swigregister, METH_VARARGS, NULL},
+	 { (char *)"ComputeDistanceToA", _wrap_ComputeDistanceToA, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolationInfo_startVector_set", _wrap_ToricInterpolationInfo_startVector_set, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolationInfo_startVector_get", _wrap_ToricInterpolationInfo_startVector_get, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolationInfo_viewAngleChange_set", _wrap_ToricInterpolationInfo_viewAngleChange_set, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolationInfo_viewAngleChange_get", _wrap_ToricInterpolationInfo_viewAngleChange_get, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolationInfo_viewHeightChange_set", _wrap_ToricInterpolationInfo_viewHeightChange_set, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolationInfo_viewHeightChange_get", _wrap_ToricInterpolationInfo_viewHeightChange_get, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolationInfo_distance_set", _wrap_ToricInterpolationInfo_distance_set, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolationInfo_distance_get", _wrap_ToricInterpolationInfo_distance_get, METH_VARARGS, NULL},
+	 { (char *)"new_ToricInterpolationInfo", _wrap_new_ToricInterpolationInfo, METH_VARARGS, NULL},
+	 { (char *)"delete_ToricInterpolationInfo", _wrap_delete_ToricInterpolationInfo, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolationInfo_swigregister", ToricInterpolationInfo_swigregister, METH_VARARGS, NULL},
+	 { (char *)"new_ToricInterpolator", _wrap_new_ToricInterpolator, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolator_init", _wrap_ToricInterpolator_init, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolator_interpolateVector", _wrap_ToricInterpolator_interpolateVector, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolator_interpolate", _wrap_ToricInterpolator_interpolate, METH_VARARGS, NULL},
+	 { (char *)"delete_ToricInterpolator", _wrap_delete_ToricInterpolator, METH_VARARGS, NULL},
+	 { (char *)"ToricInterpolator_swigregister", ToricInterpolator_swigregister, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -12147,12 +13190,15 @@ static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)
 static swig_type_info _swigt__p_std__vectorT_toric__Radian2Pi_t = {"_p_std__vectorT_toric__Radian2Pi_t", "std::vector< toric::Radian2Pi > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_toric__Camera = {"_p_toric__Camera", "toric::Camera *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_toric__Matrix3 = {"_p_toric__Matrix3", "toric::Matrix3 *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_toric__Plane = {"_p_toric__Plane", "toric::Plane *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_toric__ProjectionMatrix = {"_p_toric__ProjectionMatrix", "toric::ProjectionMatrix *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_toric__Quaternion = {"_p_toric__Quaternion", "toric::Quaternion *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_toric__Radian2Pi = {"_p_toric__Radian2Pi", "toric::Radian2Pi *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_toric__RadianPi = {"_p_toric__RadianPi", "toric::RadianPi *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_toric__Toric2 = {"_p_toric__Toric2", "toric::Toric2 *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_toric__Toric3 = {"_p_toric__Toric3", "toric::Toric3 *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_toric__ToricInterpolationInfo = {"_p_toric__ToricInterpolationInfo", "toric::ToricInterpolationInfo *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_toric__ToricInterpolator = {"_p_toric__ToricInterpolator", "toric::ToricInterpolator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_toric__ToricManifold = {"_p_toric__ToricManifold", "toric::ToricManifold *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_toric__Vector2 = {"_p_toric__Vector2", "toric::Vector2 *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_toric__Vector3 = {"_p_toric__Vector3", "toric::Vector3 *", 0, 0, (void*)0, 0};
@@ -12169,12 +13215,15 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_std__vectorT_toric__Radian2Pi_t,
   &_swigt__p_toric__Camera,
   &_swigt__p_toric__Matrix3,
+  &_swigt__p_toric__Plane,
   &_swigt__p_toric__ProjectionMatrix,
   &_swigt__p_toric__Quaternion,
   &_swigt__p_toric__Radian2Pi,
   &_swigt__p_toric__RadianPi,
   &_swigt__p_toric__Toric2,
   &_swigt__p_toric__Toric3,
+  &_swigt__p_toric__ToricInterpolationInfo,
+  &_swigt__p_toric__ToricInterpolator,
   &_swigt__p_toric__ToricManifold,
   &_swigt__p_toric__Vector2,
   &_swigt__p_toric__Vector3,
@@ -12191,12 +13240,15 @@ static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0
 static swig_cast_info _swigc__p_std__vectorT_toric__Radian2Pi_t[] = {  {&_swigt__p_std__vectorT_toric__Radian2Pi_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_toric__Camera[] = {  {&_swigt__p_toric__Camera, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_toric__Matrix3[] = {  {&_swigt__p_toric__Matrix3, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_toric__Plane[] = {  {&_swigt__p_toric__Plane, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_toric__ProjectionMatrix[] = {  {&_swigt__p_toric__ProjectionMatrix, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_toric__Quaternion[] = {  {&_swigt__p_toric__Quaternion, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_toric__Radian2Pi[] = {  {&_swigt__p_toric__Radian2Pi, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_toric__RadianPi[] = {  {&_swigt__p_toric__RadianPi, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_toric__Toric2[] = {  {&_swigt__p_toric__Toric2, 0, 0, 0},  {&_swigt__p_toric__Toric3, _p_toric__Toric3To_p_toric__Toric2, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_toric__Toric3[] = {  {&_swigt__p_toric__Toric3, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_toric__ToricInterpolationInfo[] = {  {&_swigt__p_toric__ToricInterpolationInfo, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_toric__ToricInterpolator[] = {  {&_swigt__p_toric__ToricInterpolator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_toric__ToricManifold[] = {  {&_swigt__p_toric__ToricManifold, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_toric__Vector2[] = {  {&_swigt__p_toric__Vector2, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_toric__Vector3[] = {  {&_swigt__p_toric__Vector3, 0, 0, 0},{0, 0, 0, 0}};
@@ -12213,12 +13265,15 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_std__vectorT_toric__Radian2Pi_t,
   _swigc__p_toric__Camera,
   _swigc__p_toric__Matrix3,
+  _swigc__p_toric__Plane,
   _swigc__p_toric__ProjectionMatrix,
   _swigc__p_toric__Quaternion,
   _swigc__p_toric__Radian2Pi,
   _swigc__p_toric__RadianPi,
   _swigc__p_toric__Toric2,
   _swigc__p_toric__Toric3,
+  _swigc__p_toric__ToricInterpolationInfo,
+  _swigc__p_toric__ToricInterpolator,
   _swigc__p_toric__ToricManifold,
   _swigc__p_toric__Vector2,
   _swigc__p_toric__Vector3,

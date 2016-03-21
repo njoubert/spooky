@@ -5,12 +5,12 @@
  Copyright (c) 2015 Christophe Lino
  Also see acknowledgments in readme.txt
  
- This library is free software: you can redistribute it and/or modify
+ ToricCam is free software: you can redistribute it and/or modify
  it under the terms of the GNU General Public License as published by
  the Free Software Foundation, either version 3 of the License, or
  (at your option) any later version.
 
- This library is distributed in the hope that it will be useful,
+ ToricCam is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
@@ -263,8 +263,8 @@ namespace toric
 		/// \date	2012/07/29
 		/***************************************************************************************************/
 
-		// HACK NJ: IT APPEARS THIS FUNCTION IS NOT DEFINED ANYWHERE
-		// Quaternion & normalise() ;
+		// NJ FIX: This method is not defined anywhere.
+		//Quaternion & normalise() ;
 	}; 
 }
 

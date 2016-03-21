@@ -393,11 +393,6 @@ namespace toric
 		return alpha;
 	}
 
-	double ComputeDistanceToA( const double & AB, const RadianPi & alpha, const Radian2Pi & theta )
-	{
-		return ( AB * sin(alpha.valueRadians()+theta.valueRadians()/2.) ) / sin(alpha);
-	}
-
 	Toric3::Toric3(const Toric3 & t) 
 		: Toric2(t.getTheta(), t.getPhi()), m_alpha(t.getAlpha())
 	{

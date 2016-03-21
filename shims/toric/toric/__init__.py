@@ -157,6 +157,9 @@ class RadianPi(_object):
     def __neg__(self):
         return ___init__.RadianPi___neg__(self)
 
+    def __sub__(self, other):
+        return ___init__.RadianPi___sub__(self, other)
+
     def __mul__(self, val):
         return ___init__.RadianPi___mul__(self, val)
 
@@ -261,6 +264,67 @@ class Matrix3(_object):
     __del__ = lambda self: None
 Matrix3_swigregister = ___init__.Matrix3_swigregister
 Matrix3_swigregister(Matrix3)
+
+class Plane(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Plane, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, Plane, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, a, b, c, d):
+        this = ___init__.new_Plane(a, b, c, d)
+        try:
+            self.this.append(this)
+        except:
+            self.this = this
+    __swig_getmethods__["createPlaneFromUnitNormal"] = lambda x: ___init__.Plane_createPlaneFromUnitNormal
+    if _newclass:
+        createPlaneFromUnitNormal = staticmethod(___init__.Plane_createPlaneFromUnitNormal)
+    __swig_getmethods__["createPlaneFromNormal"] = lambda x: ___init__.Plane_createPlaneFromNormal
+    if _newclass:
+        createPlaneFromNormal = staticmethod(___init__.Plane_createPlaneFromNormal)
+    __swig_getmethods__["createPlaneFromVectors"] = lambda x: ___init__.Plane_createPlaneFromVectors
+    if _newclass:
+        createPlaneFromVectors = staticmethod(___init__.Plane_createPlaneFromVectors)
+    __swig_getmethods__["createPlaneFromTriangle"] = lambda x: ___init__.Plane_createPlaneFromTriangle
+    if _newclass:
+        createPlaneFromTriangle = staticmethod(___init__.Plane_createPlaneFromTriangle)
+
+    def getNormal(self):
+        return ___init__.Plane_getNormal(self)
+
+    def getDistance(self, p):
+        return ___init__.Plane_getDistance(self, p)
+
+    def getValue(self, p):
+        return ___init__.Plane_getValue(self, p)
+
+    def getProjection(self, p):
+        return ___init__.Plane_getProjection(self, p)
+
+    def belongs(self, point):
+        return ___init__.Plane_belongs(self, point)
+    __swig_destroy__ = ___init__.delete_Plane
+    __del__ = lambda self: None
+Plane_swigregister = ___init__.Plane_swigregister
+Plane_swigregister(Plane)
+
+def Plane_createPlaneFromUnitNormal(normal, point):
+    return ___init__.Plane_createPlaneFromUnitNormal(normal, point)
+Plane_createPlaneFromUnitNormal = ___init__.Plane_createPlaneFromUnitNormal
+
+def Plane_createPlaneFromNormal(normal, point):
+    return ___init__.Plane_createPlaneFromNormal(normal, point)
+Plane_createPlaneFromNormal = ___init__.Plane_createPlaneFromNormal
+
+def Plane_createPlaneFromVectors(vec1, vec2, point):
+    return ___init__.Plane_createPlaneFromVectors(vec1, vec2, point)
+Plane_createPlaneFromVectors = ___init__.Plane_createPlaneFromVectors
+
+def Plane_createPlaneFromTriangle(point1, point2, point3):
+    return ___init__.Plane_createPlaneFromTriangle(point1, point2, point3)
+Plane_createPlaneFromTriangle = ___init__.Plane_createPlaneFromTriangle
 
 class ProjectionMatrix(_object):
     __swig_setmethods__ = {}
@@ -703,6 +767,71 @@ Toric3__ComputeOrientationForOneTarget = ___init__.Toric3__ComputeOrientationFor
 def Toric3__ComputeOrientationForTwoTargets(*args):
     return ___init__.Toric3__ComputeOrientationForTwoTargets(*args)
 Toric3__ComputeOrientationForTwoTargets = ___init__.Toric3__ComputeOrientationForTwoTargets
+
+
+def ComputeDistanceToA(AB, alpha, theta):
+    return ___init__.ComputeDistanceToA(AB, alpha, theta)
+ComputeDistanceToA = ___init__.ComputeDistanceToA
+class ToricInterpolationInfo(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ToricInterpolationInfo, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, ToricInterpolationInfo, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["startVector"] = ___init__.ToricInterpolationInfo_startVector_set
+    __swig_getmethods__["startVector"] = ___init__.ToricInterpolationInfo_startVector_get
+    if _newclass:
+        startVector = _swig_property(___init__.ToricInterpolationInfo_startVector_get, ___init__.ToricInterpolationInfo_startVector_set)
+    __swig_setmethods__["viewAngleChange"] = ___init__.ToricInterpolationInfo_viewAngleChange_set
+    __swig_getmethods__["viewAngleChange"] = ___init__.ToricInterpolationInfo_viewAngleChange_get
+    if _newclass:
+        viewAngleChange = _swig_property(___init__.ToricInterpolationInfo_viewAngleChange_get, ___init__.ToricInterpolationInfo_viewAngleChange_set)
+    __swig_setmethods__["viewHeightChange"] = ___init__.ToricInterpolationInfo_viewHeightChange_set
+    __swig_getmethods__["viewHeightChange"] = ___init__.ToricInterpolationInfo_viewHeightChange_get
+    if _newclass:
+        viewHeightChange = _swig_property(___init__.ToricInterpolationInfo_viewHeightChange_get, ___init__.ToricInterpolationInfo_viewHeightChange_set)
+    __swig_setmethods__["distance"] = ___init__.ToricInterpolationInfo_distance_set
+    __swig_getmethods__["distance"] = ___init__.ToricInterpolationInfo_distance_get
+    if _newclass:
+        distance = _swig_property(___init__.ToricInterpolationInfo_distance_get, ___init__.ToricInterpolationInfo_distance_set)
+
+    def __init__(self):
+        this = ___init__.new_ToricInterpolationInfo()
+        try:
+            self.this.append(this)
+        except:
+            self.this = this
+    __swig_destroy__ = ___init__.delete_ToricInterpolationInfo
+    __del__ = lambda self: None
+ToricInterpolationInfo_swigregister = ___init__.ToricInterpolationInfo_swigregister
+ToricInterpolationInfo_swigregister(ToricInterpolationInfo)
+
+class ToricInterpolator(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ToricInterpolator, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, ToricInterpolator, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = ___init__.new_ToricInterpolator(*args)
+        try:
+            self.this.append(this)
+        except:
+            self.this = this
+
+    def init(self, wposA, wposB, t1, t2):
+        return ___init__.ToricInterpolator_init(self, wposA, wposB, t1, t2)
+
+    def interpolateVector(self, t, pOutVecA, pOutVecB):
+        return ___init__.ToricInterpolator_interpolateVector(self, t, pOutVecA, pOutVecB)
+
+    def interpolate(self, t):
+        return ___init__.ToricInterpolator_interpolate(self, t)
+    __swig_destroy__ = ___init__.delete_ToricInterpolator
+    __del__ = lambda self: None
+ToricInterpolator_swigregister = ___init__.ToricInterpolator_swigregister
+ToricInterpolator_swigregister(ToricInterpolator)
 
 # This file is compatible with both classic and new-style classes.
 
