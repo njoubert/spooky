@@ -223,6 +223,115 @@ asin = ___init__.asin
 def atan(r):
     return ___init__.atan(r)
 atan = ___init__.atan
+class Vector2(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Vector2, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, Vector2, name)
+    __repr__ = _swig_repr
+
+    def __init__(self, *args):
+        this = ___init__.new_Vector2(*args)
+        try:
+            self.this.append(this)
+        except:
+            self.this = this
+
+    def x(self):
+        return ___init__.Vector2_x(self)
+
+    def y(self):
+        return ___init__.Vector2_y(self)
+
+    def rotate90(self):
+        return ___init__.Vector2_rotate90(self)
+
+    def rotate180(self):
+        return ___init__.Vector2_rotate180(self)
+
+    def rotate270(self):
+        return ___init__.Vector2_rotate270(self)
+
+    def rotate(self, theta):
+        return ___init__.Vector2_rotate(self, theta)
+
+    def rotated90(self):
+        return ___init__.Vector2_rotated90(self)
+
+    def rotated180(self):
+        return ___init__.Vector2_rotated180(self)
+
+    def rotated270(self):
+        return ___init__.Vector2_rotated270(self)
+    __swig_destroy__ = ___init__.delete_Vector2
+    __del__ = lambda self: None
+Vector2_swigregister = ___init__.Vector2_swigregister
+Vector2_swigregister(Vector2)
+
+class Vector3(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Vector3, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, Vector3, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["ZERO"] = ___init__.Vector3_ZERO_set
+    __swig_getmethods__["ZERO"] = ___init__.Vector3_ZERO_get
+    if _newclass:
+        ZERO = _swig_property(___init__.Vector3_ZERO_get, ___init__.Vector3_ZERO_set)
+    __swig_setmethods__["UNIT_X"] = ___init__.Vector3_UNIT_X_set
+    __swig_getmethods__["UNIT_X"] = ___init__.Vector3_UNIT_X_get
+    if _newclass:
+        UNIT_X = _swig_property(___init__.Vector3_UNIT_X_get, ___init__.Vector3_UNIT_X_set)
+    __swig_setmethods__["UNIT_Y"] = ___init__.Vector3_UNIT_Y_set
+    __swig_getmethods__["UNIT_Y"] = ___init__.Vector3_UNIT_Y_get
+    if _newclass:
+        UNIT_Y = _swig_property(___init__.Vector3_UNIT_Y_get, ___init__.Vector3_UNIT_Y_set)
+    __swig_setmethods__["UNIT_Z"] = ___init__.Vector3_UNIT_Z_set
+    __swig_getmethods__["UNIT_Z"] = ___init__.Vector3_UNIT_Z_get
+    if _newclass:
+        UNIT_Z = _swig_property(___init__.Vector3_UNIT_Z_get, ___init__.Vector3_UNIT_Z_set)
+
+    def __init__(self, *args):
+        this = ___init__.new_Vector3(*args)
+        try:
+            self.this.append(this)
+        except:
+            self.this = this
+
+    def x(self):
+        return ___init__.Vector3_x(self)
+
+    def y(self):
+        return ___init__.Vector3_y(self)
+
+    def z(self):
+        return ___init__.Vector3_z(self)
+
+    def projectX(self):
+        return ___init__.Vector3_projectX(self)
+
+    def projectY(self):
+        return ___init__.Vector3_projectY(self)
+
+    def projectZ(self):
+        return ___init__.Vector3_projectZ(self)
+
+    def crossProduct(self, v):
+        return ___init__.Vector3_crossProduct(self, v)
+
+    def __xor__(self, v):
+        return ___init__.Vector3___xor__(self, v)
+
+    def perpendicular(self):
+        return ___init__.Vector3_perpendicular(self)
+
+    def directedAngle(self, vec, normal):
+        return ___init__.Vector3_directedAngle(self, vec, normal)
+    __swig_destroy__ = ___init__.delete_Vector3
+    __del__ = lambda self: None
+Vector3_swigregister = ___init__.Vector3_swigregister
+Vector3_swigregister(Vector3)
+
 class Matrix3(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Matrix3, name, value)
@@ -452,115 +561,6 @@ Quaternion_swigregister = ___init__.Quaternion_swigregister
 Quaternion_swigregister(Quaternion)
 Quaternion.ZERO = ___init__.cvar.Quaternion_ZERO
 Quaternion.IDENTITY = ___init__.cvar.Quaternion_IDENTITY
-
-class Vector2(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Vector2, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, Vector2, name)
-    __repr__ = _swig_repr
-
-    def __init__(self, *args):
-        this = ___init__.new_Vector2(*args)
-        try:
-            self.this.append(this)
-        except:
-            self.this = this
-
-    def x(self):
-        return ___init__.Vector2_x(self)
-
-    def y(self):
-        return ___init__.Vector2_y(self)
-
-    def rotate90(self):
-        return ___init__.Vector2_rotate90(self)
-
-    def rotate180(self):
-        return ___init__.Vector2_rotate180(self)
-
-    def rotate270(self):
-        return ___init__.Vector2_rotate270(self)
-
-    def rotate(self, theta):
-        return ___init__.Vector2_rotate(self, theta)
-
-    def rotated90(self):
-        return ___init__.Vector2_rotated90(self)
-
-    def rotated180(self):
-        return ___init__.Vector2_rotated180(self)
-
-    def rotated270(self):
-        return ___init__.Vector2_rotated270(self)
-    __swig_destroy__ = ___init__.delete_Vector2
-    __del__ = lambda self: None
-Vector2_swigregister = ___init__.Vector2_swigregister
-Vector2_swigregister(Vector2)
-
-class Vector3(_object):
-    __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, Vector3, name, value)
-    __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, Vector3, name)
-    __repr__ = _swig_repr
-    __swig_setmethods__["ZERO"] = ___init__.Vector3_ZERO_set
-    __swig_getmethods__["ZERO"] = ___init__.Vector3_ZERO_get
-    if _newclass:
-        ZERO = _swig_property(___init__.Vector3_ZERO_get, ___init__.Vector3_ZERO_set)
-    __swig_setmethods__["UNIT_X"] = ___init__.Vector3_UNIT_X_set
-    __swig_getmethods__["UNIT_X"] = ___init__.Vector3_UNIT_X_get
-    if _newclass:
-        UNIT_X = _swig_property(___init__.Vector3_UNIT_X_get, ___init__.Vector3_UNIT_X_set)
-    __swig_setmethods__["UNIT_Y"] = ___init__.Vector3_UNIT_Y_set
-    __swig_getmethods__["UNIT_Y"] = ___init__.Vector3_UNIT_Y_get
-    if _newclass:
-        UNIT_Y = _swig_property(___init__.Vector3_UNIT_Y_get, ___init__.Vector3_UNIT_Y_set)
-    __swig_setmethods__["UNIT_Z"] = ___init__.Vector3_UNIT_Z_set
-    __swig_getmethods__["UNIT_Z"] = ___init__.Vector3_UNIT_Z_get
-    if _newclass:
-        UNIT_Z = _swig_property(___init__.Vector3_UNIT_Z_get, ___init__.Vector3_UNIT_Z_set)
-
-    def __init__(self, *args):
-        this = ___init__.new_Vector3(*args)
-        try:
-            self.this.append(this)
-        except:
-            self.this = this
-
-    def x(self):
-        return ___init__.Vector3_x(self)
-
-    def y(self):
-        return ___init__.Vector3_y(self)
-
-    def z(self):
-        return ___init__.Vector3_z(self)
-
-    def projectX(self):
-        return ___init__.Vector3_projectX(self)
-
-    def projectY(self):
-        return ___init__.Vector3_projectY(self)
-
-    def projectZ(self):
-        return ___init__.Vector3_projectZ(self)
-
-    def crossProduct(self, v):
-        return ___init__.Vector3_crossProduct(self, v)
-
-    def __xor__(self, v):
-        return ___init__.Vector3___xor__(self, v)
-
-    def perpendicular(self):
-        return ___init__.Vector3_perpendicular(self)
-
-    def directedAngle(self, vec, normal):
-        return ___init__.Vector3_directedAngle(self, vec, normal)
-    __swig_destroy__ = ___init__.delete_Vector3
-    __del__ = lambda self: None
-Vector3_swigregister = ___init__.Vector3_swigregister
-Vector3_swigregister(Vector3)
 
 class ToricManifold(_object):
     __swig_setmethods__ = {}

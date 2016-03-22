@@ -2969,29 +2969,28 @@ SWIG_Python_NonDynamicSetAttr(PyObject *obj, PyObject *name, PyObject *value) {
 
 #define SWIGTYPE_p_Quaternion swig_types[0]
 #define SWIGTYPE_p_RadianPi swig_types[1]
-#define SWIGTYPE_p_Vector2 swig_types[2]
-#define SWIGTYPE_p_Vector3 swig_types[3]
-#define SWIGTYPE_p_char swig_types[4]
-#define SWIGTYPE_p_double swig_types[5]
-#define SWIGTYPE_p_std__vectorT_toric__Radian2Pi_t swig_types[6]
-#define SWIGTYPE_p_toric__Camera swig_types[7]
-#define SWIGTYPE_p_toric__Matrix3 swig_types[8]
-#define SWIGTYPE_p_toric__Plane swig_types[9]
-#define SWIGTYPE_p_toric__ProjectionMatrix swig_types[10]
-#define SWIGTYPE_p_toric__Quaternion swig_types[11]
-#define SWIGTYPE_p_toric__Radian2Pi swig_types[12]
-#define SWIGTYPE_p_toric__RadianPi swig_types[13]
-#define SWIGTYPE_p_toric__Toric2 swig_types[14]
-#define SWIGTYPE_p_toric__Toric3 swig_types[15]
-#define SWIGTYPE_p_toric__ToricInterpolationInfo swig_types[16]
-#define SWIGTYPE_p_toric__ToricInterpolator swig_types[17]
-#define SWIGTYPE_p_toric__ToricManifold swig_types[18]
-#define SWIGTYPE_p_toric__Vector2 swig_types[19]
-#define SWIGTYPE_p_toric__Vector3 swig_types[20]
-#define SWIGTYPE_p_toric__VectorT_2_t swig_types[21]
-#define SWIGTYPE_p_toric__VectorT_3_t swig_types[22]
-static swig_type_info *swig_types[24];
-static swig_module_info swig_module = {swig_types, 23, 0, 0, 0, 0};
+#define SWIGTYPE_p_Vector3 swig_types[2]
+#define SWIGTYPE_p_char swig_types[3]
+#define SWIGTYPE_p_double swig_types[4]
+#define SWIGTYPE_p_std__vectorT_toric__Radian2Pi_t swig_types[5]
+#define SWIGTYPE_p_toric__Camera swig_types[6]
+#define SWIGTYPE_p_toric__Matrix3 swig_types[7]
+#define SWIGTYPE_p_toric__Plane swig_types[8]
+#define SWIGTYPE_p_toric__ProjectionMatrix swig_types[9]
+#define SWIGTYPE_p_toric__Quaternion swig_types[10]
+#define SWIGTYPE_p_toric__Radian2Pi swig_types[11]
+#define SWIGTYPE_p_toric__RadianPi swig_types[12]
+#define SWIGTYPE_p_toric__Toric2 swig_types[13]
+#define SWIGTYPE_p_toric__Toric3 swig_types[14]
+#define SWIGTYPE_p_toric__ToricInterpolationInfo swig_types[15]
+#define SWIGTYPE_p_toric__ToricInterpolator swig_types[16]
+#define SWIGTYPE_p_toric__ToricManifold swig_types[17]
+#define SWIGTYPE_p_toric__Vector2 swig_types[18]
+#define SWIGTYPE_p_toric__Vector3 swig_types[19]
+#define SWIGTYPE_p_toric__VectorT_2_t swig_types[20]
+#define SWIGTYPE_p_toric__VectorT_3_t swig_types[21]
+static swig_type_info *swig_types[23];
+static swig_module_info swig_module = {swig_types, 22, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3099,11 +3098,11 @@ namespace swig {
 
 #include "toric/Camera.h"
 #include "toric/Euler.h"
+#include "toric/Vector.h"
 #include "toric/Matrix.h"
 #include "toric/Plane.h"
 #include "toric/ProjectionMatrix.h"
 #include "toric/Quaternion.h"
-#include "toric/Vector.h"
 #include "toric/Toric.h"
 #include "toric/ToricInterpolator.h"
 
@@ -4319,3327 +4318,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_Matrix3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Matrix3 *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)":new_Matrix3")) SWIG_fail;
-  result = (toric::Matrix3 *)new toric::Matrix3();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Matrix3, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Matrix3_at(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
-  size_t *arg2 = 0 ;
-  size_t *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  size_t temp2 ;
-  size_t val2 ;
-  int ecode2 = 0 ;
-  size_t temp3 ;
-  size_t val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  double *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Matrix3_at",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3_at" "', argument " "1"" of type '" "toric::Matrix3 *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
-  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3_at" "', argument " "2"" of type '" "size_t""'");
-  } 
-  temp2 = static_cast< size_t >(val2);
-  arg2 = &temp2;
-  ecode3 = SWIG_AsVal_size_t(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Matrix3_at" "', argument " "3"" of type '" "size_t""'");
-  } 
-  temp3 = static_cast< size_t >(val3);
-  arg3 = &temp3;
-  result = (double *) &(arg1)->at((size_t const &)*arg2,(size_t const &)*arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Matrix3___call____SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
-  size_t *arg2 = 0 ;
-  size_t *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  size_t temp2 ;
-  size_t val2 ;
-  int ecode2 = 0 ;
-  size_t temp3 ;
-  size_t val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  double *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Matrix3___call__",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3___call__" "', argument " "1"" of type '" "toric::Matrix3 *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
-  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3___call__" "', argument " "2"" of type '" "size_t""'");
-  } 
-  temp2 = static_cast< size_t >(val2);
-  arg2 = &temp2;
-  ecode3 = SWIG_AsVal_size_t(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Matrix3___call__" "', argument " "3"" of type '" "size_t""'");
-  } 
-  temp3 = static_cast< size_t >(val3);
-  arg3 = &temp3;
-  result = (double *) &(arg1)->operator ()((size_t const &)*arg2,(size_t const &)*arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Matrix3___call____SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
-  size_t *arg2 = 0 ;
-  size_t *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  size_t temp2 ;
-  size_t val2 ;
-  int ecode2 = 0 ;
-  size_t temp3 ;
-  size_t val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  double *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Matrix3___call__",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3___call__" "', argument " "1"" of type '" "toric::Matrix3 const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
-  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3___call__" "', argument " "2"" of type '" "size_t""'");
-  } 
-  temp2 = static_cast< size_t >(val2);
-  arg2 = &temp2;
-  ecode3 = SWIG_AsVal_size_t(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Matrix3___call__" "', argument " "3"" of type '" "size_t""'");
-  } 
-  temp3 = static_cast< size_t >(val3);
-  arg3 = &temp3;
-  result = (double *) &((toric::Matrix3 const *)arg1)->operator ()((size_t const &)*arg2,(size_t const &)*arg3);
-  resultobj = SWIG_From_double(static_cast< double >(*result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Matrix3___call__(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[4] = {
-    0
-  };
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 3) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Matrix3, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_size_t(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        {
-          int res = SWIG_AsVal_size_t(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          return _wrap_Matrix3___call____SWIG_0(self, args);
-        }
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Matrix3, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_size_t(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        {
-          int res = SWIG_AsVal_size_t(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          return _wrap_Matrix3___call____SWIG_1(self, args);
-        }
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'Matrix3___call__'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    toric::Matrix3::operator ()(size_t const &,size_t const &)\n"
-    "    toric::Matrix3::operator ()(size_t const &,size_t const &) const\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_Matrix3_getColumn(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
-  size_t *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  size_t temp2 ;
-  size_t val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  Vector3 result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Matrix3_getColumn",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3_getColumn" "', argument " "1"" of type '" "toric::Matrix3 const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
-  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3_getColumn" "', argument " "2"" of type '" "size_t""'");
-  } 
-  temp2 = static_cast< size_t >(val2);
-  arg2 = &temp2;
-  result = ((toric::Matrix3 const *)arg1)->getColumn((size_t const &)*arg2);
-  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Matrix3_getRow(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
-  size_t *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  size_t temp2 ;
-  size_t val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  Vector3 result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Matrix3_getRow",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3_getRow" "', argument " "1"" of type '" "toric::Matrix3 const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
-  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3_getRow" "', argument " "2"" of type '" "size_t""'");
-  } 
-  temp2 = static_cast< size_t >(val2);
-  arg2 = &temp2;
-  result = ((toric::Matrix3 const *)arg1)->getRow((size_t const &)*arg2);
-  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Matrix3_swapColumn(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
-  size_t *arg2 = 0 ;
-  Vector3 *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  size_t temp2 ;
-  size_t val2 ;
-  int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Matrix3_swapColumn",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3_swapColumn" "', argument " "1"" of type '" "toric::Matrix3 *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
-  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3_swapColumn" "', argument " "2"" of type '" "size_t""'");
-  } 
-  temp2 = static_cast< size_t >(val2);
-  arg2 = &temp2;
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Matrix3_swapColumn" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Matrix3_swapColumn" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  arg3 = reinterpret_cast< Vector3 * >(argp3);
-  (arg1)->swapColumn((size_t const &)*arg2,(Vector3 const &)*arg3);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Matrix3_swapRow(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
-  size_t *arg2 = 0 ;
-  Vector3 *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  size_t temp2 ;
-  size_t val2 ;
-  int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Matrix3_swapRow",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3_swapRow" "', argument " "1"" of type '" "toric::Matrix3 *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
-  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3_swapRow" "', argument " "2"" of type '" "size_t""'");
-  } 
-  temp2 = static_cast< size_t >(val2);
-  arg2 = &temp2;
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Matrix3_swapRow" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Matrix3_swapRow" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  arg3 = reinterpret_cast< Vector3 * >(argp3);
-  (arg1)->swapRow((size_t const &)*arg2,(Vector3 const &)*arg3);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Matrix3_getDeterminant(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Matrix3_getDeterminant",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3_getDeterminant" "', argument " "1"" of type '" "toric::Matrix3 const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
-  result = (double)((toric::Matrix3 const *)arg1)->getDeterminant();
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Matrix3___mul__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
-  Vector3 *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  Vector3 result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Matrix3___mul__",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3___mul__" "', argument " "1"" of type '" "toric::Matrix3 const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Matrix3___mul__" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Matrix3___mul__" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  result = ((toric::Matrix3 const *)arg1)->operator *((Vector3 const &)*arg2);
-  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_Matrix3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_Matrix3",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Matrix3" "', argument " "1"" of type '" "toric::Matrix3 *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
-  delete arg1;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *Matrix3_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_toric__Matrix3, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *_wrap_new_Plane(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double *arg3 = 0 ;
-  double *arg4 = 0 ;
-  double temp1 ;
-  double val1 ;
-  int ecode1 = 0 ;
-  double temp2 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  double temp3 ;
-  double val3 ;
-  int ecode3 = 0 ;
-  double temp4 ;
-  double val4 ;
-  int ecode4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  toric::Plane *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_Plane",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  ecode1 = SWIG_AsVal_double(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Plane" "', argument " "1"" of type '" "double""'");
-  } 
-  temp1 = static_cast< double >(val1);
-  arg1 = &temp1;
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Plane" "', argument " "2"" of type '" "double""'");
-  } 
-  temp2 = static_cast< double >(val2);
-  arg2 = &temp2;
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_Plane" "', argument " "3"" of type '" "double""'");
-  } 
-  temp3 = static_cast< double >(val3);
-  arg3 = &temp3;
-  ecode4 = SWIG_AsVal_double(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_Plane" "', argument " "4"" of type '" "double""'");
-  } 
-  temp4 = static_cast< double >(val4);
-  arg4 = &temp4;
-  result = (toric::Plane *)new toric::Plane((double const &)*arg1,(double const &)*arg2,(double const &)*arg3,(double const &)*arg4);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Plane, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Plane_createPlaneFromUnitNormal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Vector3 *arg1 = 0 ;
-  Vector3 *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  SwigValueWrapper< toric::Plane > result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_createPlaneFromUnitNormal",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_createPlaneFromUnitNormal" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromUnitNormal" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  arg1 = reinterpret_cast< Vector3 * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_createPlaneFromUnitNormal" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromUnitNormal" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  result = toric::Plane::createPlaneFromUnitNormal((Vector3 const &)*arg1,(Vector3 const &)*arg2);
-  resultobj = SWIG_NewPointerObj((new toric::Plane(static_cast< const toric::Plane& >(result))), SWIGTYPE_p_toric__Plane, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Plane_createPlaneFromNormal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Vector3 *arg1 = 0 ;
-  Vector3 *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  SwigValueWrapper< toric::Plane > result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_createPlaneFromNormal",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_createPlaneFromNormal" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromNormal" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  arg1 = reinterpret_cast< Vector3 * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_createPlaneFromNormal" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromNormal" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  result = toric::Plane::createPlaneFromNormal((Vector3 const &)*arg1,(Vector3 const &)*arg2);
-  resultobj = SWIG_NewPointerObj((new toric::Plane(static_cast< const toric::Plane& >(result))), SWIGTYPE_p_toric__Plane, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Plane_createPlaneFromVectors(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Vector3 *arg1 = 0 ;
-  Vector3 *arg2 = 0 ;
-  Vector3 *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  SwigValueWrapper< toric::Plane > result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Plane_createPlaneFromVectors",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_createPlaneFromVectors" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromVectors" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  arg1 = reinterpret_cast< Vector3 * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_createPlaneFromVectors" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromVectors" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Plane_createPlaneFromVectors" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromVectors" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  arg3 = reinterpret_cast< Vector3 * >(argp3);
-  result = toric::Plane::createPlaneFromVectors((Vector3 const &)*arg1,(Vector3 const &)*arg2,(Vector3 const &)*arg3);
-  resultobj = SWIG_NewPointerObj((new toric::Plane(static_cast< const toric::Plane& >(result))), SWIGTYPE_p_toric__Plane, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Plane_createPlaneFromTriangle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Vector3 *arg1 = 0 ;
-  Vector3 *arg2 = 0 ;
-  Vector3 *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  SwigValueWrapper< toric::Plane > result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Plane_createPlaneFromTriangle",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_createPlaneFromTriangle" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromTriangle" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  arg1 = reinterpret_cast< Vector3 * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_createPlaneFromTriangle" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromTriangle" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Plane_createPlaneFromTriangle" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromTriangle" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  arg3 = reinterpret_cast< Vector3 * >(argp3);
-  result = toric::Plane::createPlaneFromTriangle((Vector3 const &)*arg1,(Vector3 const &)*arg2,(Vector3 const &)*arg3);
-  resultobj = SWIG_NewPointerObj((new toric::Plane(static_cast< const toric::Plane& >(result))), SWIGTYPE_p_toric__Plane, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Plane_getNormal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Plane *arg1 = (toric::Plane *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  Vector3 result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Plane_getNormal",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_getNormal" "', argument " "1"" of type '" "toric::Plane const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Plane * >(argp1);
-  result = ((toric::Plane const *)arg1)->getNormal();
-  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Plane_getDistance(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Plane *arg1 = (toric::Plane *) 0 ;
-  Vector3 *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_getDistance",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_getDistance" "', argument " "1"" of type '" "toric::Plane const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Plane * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_getDistance" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_getDistance" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  result = (double)((toric::Plane const *)arg1)->getDistance((Vector3 const &)*arg2);
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Plane_getValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Plane *arg1 = (toric::Plane *) 0 ;
-  Vector3 *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_getValue",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_getValue" "', argument " "1"" of type '" "toric::Plane const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Plane * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_getValue" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_getValue" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  result = (double)((toric::Plane const *)arg1)->getValue((Vector3 const &)*arg2);
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Plane_getProjection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Plane *arg1 = (toric::Plane *) 0 ;
-  Vector3 *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  Vector3 result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_getProjection",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_getProjection" "', argument " "1"" of type '" "toric::Plane const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Plane * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_getProjection" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_getProjection" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  result = ((toric::Plane const *)arg1)->getProjection((Vector3 const &)*arg2);
-  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Plane_belongs(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Plane *arg1 = (toric::Plane *) 0 ;
-  Vector3 *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  bool result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_belongs",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_belongs" "', argument " "1"" of type '" "toric::Plane const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Plane * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_belongs" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_belongs" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  result = (bool)((toric::Plane const *)arg1)->belongs((Vector3 const &)*arg2);
-  resultobj = SWIG_From_bool(static_cast< bool >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_Plane(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Plane *arg1 = (toric::Plane *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_Plane",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Plane" "', argument " "1"" of type '" "toric::Plane *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Plane * >(argp1);
-  delete arg1;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *Plane_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_toric__Plane, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *_wrap_new_ProjectionMatrix__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::ProjectionMatrix *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)":new_ProjectionMatrix")) SWIG_fail;
-  result = (toric::ProjectionMatrix *)new toric::ProjectionMatrix();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_ProjectionMatrix__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Camera *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  toric::ProjectionMatrix *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:new_ProjectionMatrix",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Camera,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::Camera const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::Camera const &""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Camera * >(argp1);
-  result = (toric::ProjectionMatrix *)new toric::ProjectionMatrix((toric::Camera const &)*arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_ProjectionMatrix__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::RadianPi *arg1 = 0 ;
-  double *arg2 = 0 ;
-  Vector3 *arg3 = 0 ;
-  Quaternion *arg4 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  double temp2 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  toric::ProjectionMatrix *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_ProjectionMatrix",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_ProjectionMatrix" "', argument " "2"" of type '" "double""'");
-  } 
-  temp2 = static_cast< double >(val2);
-  arg2 = &temp2;
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  arg3 = reinterpret_cast< Vector3 * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_Quaternion,  0  | 0);
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "Quaternion const &""'"); 
-  }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "Quaternion const &""'"); 
-  }
-  arg4 = reinterpret_cast< Quaternion * >(argp4);
-  result = (toric::ProjectionMatrix *)new toric::ProjectionMatrix((toric::RadianPi const &)*arg1,(double const &)*arg2,(Vector3 const &)*arg3,(Quaternion const &)*arg4);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_ProjectionMatrix__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::RadianPi *arg1 = 0 ;
-  toric::RadianPi *arg2 = 0 ;
-  Vector3 *arg3 = 0 ;
-  Quaternion *arg4 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  toric::ProjectionMatrix *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_ProjectionMatrix",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_ProjectionMatrix" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  arg3 = reinterpret_cast< Vector3 * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_Quaternion,  0  | 0);
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "Quaternion const &""'"); 
-  }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "Quaternion const &""'"); 
-  }
-  arg4 = reinterpret_cast< Quaternion * >(argp4);
-  result = (toric::ProjectionMatrix *)new toric::ProjectionMatrix((toric::RadianPi const &)*arg1,(toric::RadianPi const &)*arg2,(Vector3 const &)*arg3,(Quaternion const &)*arg4);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_ProjectionMatrix__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::RadianPi *arg1 = 0 ;
-  double *arg2 = 0 ;
-  Vector3 *arg3 = 0 ;
-  toric::Matrix3 *arg4 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  double temp2 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  toric::ProjectionMatrix *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_ProjectionMatrix",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_ProjectionMatrix" "', argument " "2"" of type '" "double""'");
-  } 
-  temp2 = static_cast< double >(val2);
-  arg2 = &temp2;
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  arg3 = reinterpret_cast< Vector3 * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_toric__Matrix3,  0  | 0);
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "toric::Matrix3 const &""'"); 
-  }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "toric::Matrix3 const &""'"); 
-  }
-  arg4 = reinterpret_cast< toric::Matrix3 * >(argp4);
-  result = (toric::ProjectionMatrix *)new toric::ProjectionMatrix((toric::RadianPi const &)*arg1,(double const &)*arg2,(Vector3 const &)*arg3,(toric::Matrix3 const &)*arg4);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_ProjectionMatrix__SWIG_5(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::RadianPi *arg1 = 0 ;
-  toric::RadianPi *arg2 = 0 ;
-  Vector3 *arg3 = 0 ;
-  toric::Matrix3 *arg4 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  toric::ProjectionMatrix *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_ProjectionMatrix",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_ProjectionMatrix" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  arg3 = reinterpret_cast< Vector3 * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_toric__Matrix3,  0  | 0);
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "toric::Matrix3 const &""'"); 
-  }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "toric::Matrix3 const &""'"); 
-  }
-  arg4 = reinterpret_cast< toric::Matrix3 * >(argp4);
-  result = (toric::ProjectionMatrix *)new toric::ProjectionMatrix((toric::RadianPi const &)*arg1,(toric::RadianPi const &)*arg2,(Vector3 const &)*arg3,(toric::Matrix3 const &)*arg4);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_ProjectionMatrix(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[5] = {
-    0
-  };
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 4) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 0) {
-    return _wrap_new_ProjectionMatrix__SWIG_0(self, args);
-  }
-  if (argc == 1) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__Camera, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_ProjectionMatrix__SWIG_1(self, args);
-    }
-  }
-  if (argc == 4) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__RadianPi, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_Vector3, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_Quaternion, 0);
-          _v = SWIG_CheckState(res);
-          if (_v) {
-            return _wrap_new_ProjectionMatrix__SWIG_3(self, args);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__RadianPi, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_Vector3, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_toric__Matrix3, 0);
-          _v = SWIG_CheckState(res);
-          if (_v) {
-            return _wrap_new_ProjectionMatrix__SWIG_5(self, args);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__RadianPi, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_double(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_Vector3, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_toric__Matrix3, 0);
-          _v = SWIG_CheckState(res);
-          if (_v) {
-            return _wrap_new_ProjectionMatrix__SWIG_4(self, args);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__RadianPi, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_double(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_Vector3, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_Quaternion, 0);
-          _v = SWIG_CheckState(res);
-          if (_v) {
-            return _wrap_new_ProjectionMatrix__SWIG_2(self, args);
-          }
-        }
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_ProjectionMatrix'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    toric::ProjectionMatrix::ProjectionMatrix()\n"
-    "    toric::ProjectionMatrix::ProjectionMatrix(toric::Camera const &)\n"
-    "    toric::ProjectionMatrix::ProjectionMatrix(toric::RadianPi const &,double const &,Vector3 const &,Quaternion const &)\n"
-    "    toric::ProjectionMatrix::ProjectionMatrix(toric::RadianPi const &,toric::RadianPi const &,Vector3 const &,Quaternion const &)\n"
-    "    toric::ProjectionMatrix::ProjectionMatrix(toric::RadianPi const &,double const &,Vector3 const &,toric::Matrix3 const &)\n"
-    "    toric::ProjectionMatrix::ProjectionMatrix(toric::RadianPi const &,toric::RadianPi const &,Vector3 const &,toric::Matrix3 const &)\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_setFieldOfView__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
-  toric::RadianPi *arg2 = 0 ;
-  double *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  double temp3 ;
-  double val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:ProjectionMatrix_setFieldOfView",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "1"" of type '" "toric::ProjectionMatrix *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "3"" of type '" "double""'");
-  } 
-  temp3 = static_cast< double >(val3);
-  arg3 = &temp3;
-  (arg1)->setFieldOfView((toric::RadianPi const &)*arg2,(double const &)*arg3);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_setFieldOfView__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
-  toric::RadianPi *arg2 = 0 ;
-  toric::RadianPi *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:ProjectionMatrix_setFieldOfView",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "1"" of type '" "toric::ProjectionMatrix *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "3"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "3"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg3 = reinterpret_cast< toric::RadianPi * >(argp3);
-  (arg1)->setFieldOfView((toric::RadianPi const &)*arg2,(toric::RadianPi const &)*arg3);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_setFieldOfView(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[4] = {
-    0
-  };
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 3) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__ProjectionMatrix, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__RadianPi, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          return _wrap_ProjectionMatrix_setFieldOfView__SWIG_1(self, args);
-        }
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__ProjectionMatrix, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        {
-          int res = SWIG_AsVal_double(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          return _wrap_ProjectionMatrix_setFieldOfView__SWIG_0(self, args);
-        }
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'ProjectionMatrix_setFieldOfView'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    toric::ProjectionMatrix::setFieldOfView(toric::RadianPi const &,double const &)\n"
-    "    toric::ProjectionMatrix::setFieldOfView(toric::RadianPi const &,toric::RadianPi const &)\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_setPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
-  Vector3 *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:ProjectionMatrix_setPosition",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_setPosition" "', argument " "1"" of type '" "toric::ProjectionMatrix *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_setPosition" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_setPosition" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  (arg1)->setPosition((Vector3 const &)*arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_setOrientation(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
-  Quaternion *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:ProjectionMatrix_setOrientation",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_setOrientation" "', argument " "1"" of type '" "toric::ProjectionMatrix *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Quaternion,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_setOrientation" "', argument " "2"" of type '" "Quaternion const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_setOrientation" "', argument " "2"" of type '" "Quaternion const &""'"); 
-  }
-  arg2 = reinterpret_cast< Quaternion * >(argp2);
-  (arg1)->setOrientation((Quaternion const &)*arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_screenProjection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
-  Vector3 *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  Vector2 result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:ProjectionMatrix_screenProjection",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_screenProjection" "', argument " "1"" of type '" "toric::ProjectionMatrix const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_screenProjection" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_screenProjection" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  result = ((toric::ProjectionMatrix const *)arg1)->screenProjection((Vector3 const &)*arg2);
-  resultobj = SWIG_NewPointerObj((new Vector2(static_cast< const Vector2& >(result))), SWIGTYPE_p_Vector2, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_getSx(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:ProjectionMatrix_getSx",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_getSx" "', argument " "1"" of type '" "toric::ProjectionMatrix const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
-  result = (double *) &((toric::ProjectionMatrix const *)arg1)->getSx();
-  resultobj = SWIG_From_double(static_cast< double >(*result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_getSy(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:ProjectionMatrix_getSy",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_getSy" "', argument " "1"" of type '" "toric::ProjectionMatrix const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
-  result = (double *) &((toric::ProjectionMatrix const *)arg1)->getSy();
-  resultobj = SWIG_From_double(static_cast< double >(*result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_ComputeScale__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::RadianPi *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double *arg3 = 0 ;
-  double *arg4 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  double temp2 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:ProjectionMatrix_ComputeScale",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "2"" of type '" "double""'");
-  } 
-  temp2 = static_cast< double >(val2);
-  arg2 = &temp2;
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_double,  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "3"" of type '" "double &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "3"" of type '" "double &""'"); 
-  }
-  arg3 = reinterpret_cast< double * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_double,  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "4"" of type '" "double &""'"); 
-  }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "4"" of type '" "double &""'"); 
-  }
-  arg4 = reinterpret_cast< double * >(argp4);
-  toric::ProjectionMatrix::ComputeScale((toric::RadianPi const &)*arg1,(double const &)*arg2,*arg3,*arg4);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_ComputeScale__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::RadianPi *arg1 = 0 ;
-  toric::RadianPi *arg2 = 0 ;
-  double *arg3 = 0 ;
-  double *arg4 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:ProjectionMatrix_ComputeScale",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_double,  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "3"" of type '" "double &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "3"" of type '" "double &""'"); 
-  }
-  arg3 = reinterpret_cast< double * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_double,  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "4"" of type '" "double &""'"); 
-  }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "4"" of type '" "double &""'"); 
-  }
-  arg4 = reinterpret_cast< double * >(argp4);
-  toric::ProjectionMatrix::ComputeScale((toric::RadianPi const &)*arg1,(toric::RadianPi const &)*arg2,*arg3,*arg4);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_ComputeScale(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[5] = {
-    0
-  };
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 4) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 4) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__RadianPi, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_double, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_double, 0);
-          _v = SWIG_CheckState(res);
-          if (_v) {
-            return _wrap_ProjectionMatrix_ComputeScale__SWIG_1(self, args);
-          }
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__RadianPi, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_double(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        void *vptr = 0;
-        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_double, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_double, 0);
-          _v = SWIG_CheckState(res);
-          if (_v) {
-            return _wrap_ProjectionMatrix_ComputeScale__SWIG_0(self, args);
-          }
-        }
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'ProjectionMatrix_ComputeScale'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    toric::ProjectionMatrix::ComputeScale(toric::RadianPi const &,double const &,double &,double &)\n"
-    "    toric::ProjectionMatrix::ComputeScale(toric::RadianPi const &,toric::RadianPi const &,double &,double &)\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_GetVectorInCameraSpace__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Vector3 *arg1 = 0 ;
-  toric::RadianPi *arg2 = 0 ;
-  toric::RadianPi *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  Vector3 result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:ProjectionMatrix_GetVectorInCameraSpace",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  arg1 = reinterpret_cast< Vector3 * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "3"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "3"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg3 = reinterpret_cast< toric::RadianPi * >(argp3);
-  result = toric::ProjectionMatrix::GetVectorInCameraSpace((Vector3 const &)*arg1,(toric::RadianPi const &)*arg2,(toric::RadianPi const &)*arg3);
-  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_GetVectorInCameraSpace__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Vector3 *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  double temp2 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  double temp3 ;
-  double val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  Vector3 result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:ProjectionMatrix_GetVectorInCameraSpace",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  arg1 = reinterpret_cast< Vector3 * >(argp1);
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "2"" of type '" "double""'");
-  } 
-  temp2 = static_cast< double >(val2);
-  arg2 = &temp2;
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "3"" of type '" "double""'");
-  } 
-  temp3 = static_cast< double >(val3);
-  arg3 = &temp3;
-  result = toric::ProjectionMatrix::GetVectorInCameraSpace((Vector3 const &)*arg1,(double const &)*arg2,(double const &)*arg3);
-  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_ProjectionMatrix_GetVectorInCameraSpace(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[4] = {
-    0
-  };
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 3) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_Vector3, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__RadianPi, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          return _wrap_ProjectionMatrix_GetVectorInCameraSpace__SWIG_0(self, args);
-        }
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_Vector3, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_double(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        {
-          int res = SWIG_AsVal_double(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          return _wrap_ProjectionMatrix_GetVectorInCameraSpace__SWIG_1(self, args);
-        }
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'ProjectionMatrix_GetVectorInCameraSpace'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    toric::ProjectionMatrix::GetVectorInCameraSpace(Vector3 const &,toric::RadianPi const &,toric::RadianPi const &)\n"
-    "    toric::ProjectionMatrix::GetVectorInCameraSpace(Vector3 const &,double const &,double const &)\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_ProjectionMatrix(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_ProjectionMatrix",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ProjectionMatrix" "', argument " "1"" of type '" "toric::ProjectionMatrix *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
-  delete arg1;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *ProjectionMatrix_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_toric__ProjectionMatrix, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN int Swig_var_Quaternion_ZERO_set(PyObject *) {
-  SWIG_Error(SWIG_AttributeError,"Variable Quaternion_ZERO is read-only.");
-  return 1;
-}
-
-
-SWIGINTERN PyObject *Swig_var_Quaternion_ZERO_get(void) {
-  PyObject *pyobj = 0;
-  
-  pyobj = SWIG_NewPointerObj(SWIG_as_voidptr(&toric::Quaternion::ZERO), SWIGTYPE_p_toric__Quaternion,  0 );
-  return pyobj;
-}
-
-
-SWIGINTERN int Swig_var_Quaternion_IDENTITY_set(PyObject *) {
-  SWIG_Error(SWIG_AttributeError,"Variable Quaternion_IDENTITY is read-only.");
-  return 1;
-}
-
-
-SWIGINTERN PyObject *Swig_var_Quaternion_IDENTITY_get(void) {
-  PyObject *pyobj = 0;
-  
-  pyobj = SWIG_NewPointerObj(SWIG_as_voidptr(&toric::Quaternion::IDENTITY), SWIGTYPE_p_toric__Quaternion,  0 );
-  return pyobj;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double *arg3 = 0 ;
-  double *arg4 = 0 ;
-  double temp1 ;
-  double val1 ;
-  int ecode1 = 0 ;
-  double temp2 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  double temp3 ;
-  double val3 ;
-  int ecode3 = 0 ;
-  double temp4 ;
-  double val4 ;
-  int ecode4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  toric::Quaternion *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_Quaternion",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  ecode1 = SWIG_AsVal_double(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "double""'");
-  } 
-  temp1 = static_cast< double >(val1);
-  arg1 = &temp1;
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Quaternion" "', argument " "2"" of type '" "double""'");
-  } 
-  temp2 = static_cast< double >(val2);
-  arg2 = &temp2;
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_Quaternion" "', argument " "3"" of type '" "double""'");
-  } 
-  temp3 = static_cast< double >(val3);
-  arg3 = &temp3;
-  ecode4 = SWIG_AsVal_double(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_Quaternion" "', argument " "4"" of type '" "double""'");
-  } 
-  temp4 = static_cast< double >(val4);
-  arg4 = &temp4;
-  result = (toric::Quaternion *)new toric::Quaternion((double const &)*arg1,(double const &)*arg2,(double const &)*arg3,(double const &)*arg4);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double *arg3 = 0 ;
-  double temp1 ;
-  double val1 ;
-  int ecode1 = 0 ;
-  double temp2 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  double temp3 ;
-  double val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  toric::Quaternion *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:new_Quaternion",&obj0,&obj1,&obj2)) SWIG_fail;
-  ecode1 = SWIG_AsVal_double(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "double""'");
-  } 
-  temp1 = static_cast< double >(val1);
-  arg1 = &temp1;
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Quaternion" "', argument " "2"" of type '" "double""'");
-  } 
-  temp2 = static_cast< double >(val2);
-  arg2 = &temp2;
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_Quaternion" "', argument " "3"" of type '" "double""'");
-  } 
-  temp3 = static_cast< double >(val3);
-  arg3 = &temp3;
-  result = (toric::Quaternion *)new toric::Quaternion((double const &)*arg1,(double const &)*arg2,(double const &)*arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  double *arg1 = 0 ;
-  double *arg2 = 0 ;
-  double temp1 ;
-  double val1 ;
-  int ecode1 = 0 ;
-  double temp2 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  toric::Quaternion *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:new_Quaternion",&obj0,&obj1)) SWIG_fail;
-  ecode1 = SWIG_AsVal_double(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "double""'");
-  } 
-  temp1 = static_cast< double >(val1);
-  arg1 = &temp1;
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Quaternion" "', argument " "2"" of type '" "double""'");
-  } 
-  temp2 = static_cast< double >(val2);
-  arg2 = &temp2;
-  result = (toric::Quaternion *)new toric::Quaternion((double const &)*arg1,(double const &)*arg2);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  double *arg1 = 0 ;
-  double temp1 ;
-  double val1 ;
-  int ecode1 = 0 ;
-  PyObject * obj0 = 0 ;
-  toric::Quaternion *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:new_Quaternion",&obj0)) SWIG_fail;
-  ecode1 = SWIG_AsVal_double(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "double""'");
-  } 
-  temp1 = static_cast< double >(val1);
-  arg1 = &temp1;
-  result = (toric::Quaternion *)new toric::Quaternion((double const &)*arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)":new_Quaternion")) SWIG_fail;
-  result = (toric::Quaternion *)new toric::Quaternion();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_5(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Vector3 *arg1 = 0 ;
-  toric::RadianPi *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  toric::Quaternion *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:new_Quaternion",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  arg1 = reinterpret_cast< Vector3 * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Quaternion" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
-  result = (toric::Quaternion *)new toric::Quaternion((Vector3 const &)*arg1,(toric::RadianPi const &)*arg2);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_6(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  double *arg1 = 0 ;
-  Vector3 *arg2 = 0 ;
-  double temp1 ;
-  double val1 ;
-  int ecode1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  toric::Quaternion *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:new_Quaternion",&obj0,&obj1)) SWIG_fail;
-  ecode1 = SWIG_AsVal_double(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "double""'");
-  } 
-  temp1 = static_cast< double >(val1);
-  arg1 = &temp1;
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Quaternion" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  result = (toric::Quaternion *)new toric::Quaternion((double const &)*arg1,(Vector3 const &)*arg2);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_7(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  Vector3 *arg1 = 0 ;
-  Vector3 *arg2 = 0 ;
-  Vector3 *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  toric::Quaternion *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:new_Quaternion",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "1"" of type '" "Vector3 const &""'"); 
-  }
-  arg1 = reinterpret_cast< Vector3 * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Quaternion" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_Quaternion" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  arg3 = reinterpret_cast< Vector3 * >(argp3);
-  result = (toric::Quaternion *)new toric::Quaternion((Vector3 const &)*arg1,(Vector3 const &)*arg2,(Vector3 const &)*arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_8(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Matrix3 *arg1 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  toric::Quaternion *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:new_Quaternion",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Matrix3,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "toric::Matrix3 const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "1"" of type '" "toric::Matrix3 const &""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
-  result = (toric::Quaternion *)new toric::Quaternion((toric::Matrix3 const &)*arg1);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_Quaternion(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[5] = {
-    0
-  };
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 4) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 0) {
-    return _wrap_new_Quaternion__SWIG_4(self, args);
-  }
-  if (argc == 1) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__Matrix3, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_new_Quaternion__SWIG_8(self, args);
-    }
-  }
-  if (argc == 1) {
-    int _v;
-    {
-      int res = SWIG_AsVal_double(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
-    if (_v) {
-      return _wrap_new_Quaternion__SWIG_3(self, args);
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_Vector3, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap_new_Quaternion__SWIG_5(self, args);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    {
-      int res = SWIG_AsVal_double(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
-    if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_Vector3, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap_new_Quaternion__SWIG_6(self, args);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    {
-      int res = SWIG_AsVal_double(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
-    if (_v) {
-      {
-        int res = SWIG_AsVal_double(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        return _wrap_new_Quaternion__SWIG_2(self, args);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v;
-    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_Vector3, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_Vector3, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_Vector3, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          return _wrap_new_Quaternion__SWIG_7(self, args);
-        }
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v;
-    {
-      int res = SWIG_AsVal_double(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
-    if (_v) {
-      {
-        int res = SWIG_AsVal_double(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        {
-          int res = SWIG_AsVal_double(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          return _wrap_new_Quaternion__SWIG_1(self, args);
-        }
-      }
-    }
-  }
-  if (argc == 4) {
-    int _v;
-    {
-      int res = SWIG_AsVal_double(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
-    if (_v) {
-      {
-        int res = SWIG_AsVal_double(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        {
-          int res = SWIG_AsVal_double(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          {
-            int res = SWIG_AsVal_double(argv[3], NULL);
-            _v = SWIG_CheckState(res);
-          }
-          if (_v) {
-            return _wrap_new_Quaternion__SWIG_0(self, args);
-          }
-        }
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_Quaternion'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    toric::Quaternion::Quaternion(double const &,double const &,double const &,double const &)\n"
-    "    toric::Quaternion::Quaternion(double const &,double const &,double const &)\n"
-    "    toric::Quaternion::Quaternion(double const &,double const &)\n"
-    "    toric::Quaternion::Quaternion(double const &)\n"
-    "    toric::Quaternion::Quaternion()\n"
-    "    toric::Quaternion::Quaternion(Vector3 const &,toric::RadianPi const &)\n"
-    "    toric::Quaternion::Quaternion(double const &,Vector3 const &)\n"
-    "    toric::Quaternion::Quaternion(Vector3 const &,Vector3 const &,Vector3 const &)\n"
-    "    toric::Quaternion::Quaternion(toric::Matrix3 const &)\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_set__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  double *arg2 = 0 ;
-  Vector3 *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  double temp2 ;
-  double val2 ;
-  int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Quaternion_set",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_set" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Quaternion_set" "', argument " "2"" of type '" "double""'");
-  } 
-  temp2 = static_cast< double >(val2);
-  arg2 = &temp2;
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Quaternion_set" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_set" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  arg3 = reinterpret_cast< Vector3 * >(argp3);
-  (arg1)->set((double const &)*arg2,(Vector3 const &)*arg3);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_set__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  Vector3 *arg2 = 0 ;
-  toric::RadianPi *arg3 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:Quaternion_set",&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_set" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion_set" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_set" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__RadianPi,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Quaternion_set" "', argument " "3"" of type '" "toric::RadianPi const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_set" "', argument " "3"" of type '" "toric::RadianPi const &""'"); 
-  }
-  arg3 = reinterpret_cast< toric::RadianPi * >(argp3);
-  (arg1)->set((Vector3 const &)*arg2,(toric::RadianPi const &)*arg3);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_set(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[4] = {
-    0
-  };
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 3) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_Vector3, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__RadianPi, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          return _wrap_Quaternion_set__SWIG_1(self, args);
-        }
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      {
-        int res = SWIG_AsVal_double(argv[1], NULL);
-        _v = SWIG_CheckState(res);
-      }
-      if (_v) {
-        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_Vector3, 0);
-        _v = SWIG_CheckState(res);
-        if (_v) {
-          return _wrap_Quaternion_set__SWIG_0(self, args);
-        }
-      }
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'Quaternion_set'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    toric::Quaternion::set(double const &,Vector3 const &)\n"
-    "    toric::Quaternion::set(Vector3 const &,toric::RadianPi const &)\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_FromAxes(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  Vector3 *arg2 = 0 ;
-  Vector3 *arg3 = 0 ;
-  Vector3 *arg4 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:Quaternion_FromAxes",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_FromAxes" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion_FromAxes" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_FromAxes" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Quaternion_FromAxes" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_FromAxes" "', argument " "3"" of type '" "Vector3 const &""'"); 
-  }
-  arg3 = reinterpret_cast< Vector3 * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "Quaternion_FromAxes" "', argument " "4"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_FromAxes" "', argument " "4"" of type '" "Vector3 const &""'"); 
-  }
-  arg4 = reinterpret_cast< Vector3 * >(argp4);
-  (arg1)->FromAxes((Vector3 const &)*arg2,(Vector3 const &)*arg3,(Vector3 const &)*arg4);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_ToAxes(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  Vector3 *arg2 = 0 ;
-  Vector3 *arg3 = 0 ;
-  Vector3 *arg4 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOOO:Quaternion_ToAxes",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_ToAxes" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion_ToAxes" "', argument " "2"" of type '" "Vector3 &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_ToAxes" "', argument " "2"" of type '" "Vector3 &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Vector3,  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Quaternion_ToAxes" "', argument " "3"" of type '" "Vector3 &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_ToAxes" "', argument " "3"" of type '" "Vector3 &""'"); 
-  }
-  arg3 = reinterpret_cast< Vector3 * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_Vector3,  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "Quaternion_ToAxes" "', argument " "4"" of type '" "Vector3 &""'"); 
-  }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_ToAxes" "', argument " "4"" of type '" "Vector3 &""'"); 
-  }
-  arg4 = reinterpret_cast< Vector3 * >(argp4);
-  ((toric::Quaternion const *)arg1)->ToAxes(*arg2,*arg3,*arg4);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_FromRotationMatrix(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  toric::Matrix3 *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Quaternion_FromRotationMatrix",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_FromRotationMatrix" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Matrix3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion_FromRotationMatrix" "', argument " "2"" of type '" "toric::Matrix3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_FromRotationMatrix" "', argument " "2"" of type '" "toric::Matrix3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< toric::Matrix3 * >(argp2);
-  (arg1)->FromRotationMatrix((toric::Matrix3 const &)*arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_ToRotationMatrix(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  toric::Matrix3 *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Quaternion_ToRotationMatrix",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_ToRotationMatrix" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Matrix3,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion_ToRotationMatrix" "', argument " "2"" of type '" "toric::Matrix3 &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_ToRotationMatrix" "', argument " "2"" of type '" "toric::Matrix3 &""'"); 
-  }
-  arg2 = reinterpret_cast< toric::Matrix3 * >(argp2);
-  ((toric::Quaternion const *)arg1)->ToRotationMatrix(*arg2);
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_xAxis(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  Vector3 result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_xAxis",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_xAxis" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = ((toric::Quaternion const *)arg1)->xAxis();
-  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_yAxis(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  Vector3 result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_yAxis",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_yAxis" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = ((toric::Quaternion const *)arg1)->yAxis();
-  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_zAxis(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  Vector3 result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_zAxis",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_zAxis" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = ((toric::Quaternion const *)arg1)->zAxis();
-  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_s__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_s",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_s" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = (double *) &(arg1)->s();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_s__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_s",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_s" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = (double *) &((toric::Quaternion const *)arg1)->s();
-  resultobj = SWIG_From_double(static_cast< double >(*result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_s(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[2] = {
-    0
-  };
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 1) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_Quaternion_s__SWIG_0(self, args);
-    }
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_Quaternion_s__SWIG_1(self, args);
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'Quaternion_s'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    toric::Quaternion::s()\n"
-    "    toric::Quaternion::s() const\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_v__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  Vector3 *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_v",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_v" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = (Vector3 *) &((toric::Quaternion const *)arg1)->v();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Vector3, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_v__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  Vector3 *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_v",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_v" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = (Vector3 *) &(arg1)->v();
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Vector3, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_v(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[2] = {
-    0
-  };
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 1) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_Quaternion_v__SWIG_1(self, args);
-    }
-  }
-  if (argc == 1) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      return _wrap_Quaternion_v__SWIG_0(self, args);
-    }
-  }
-  
-fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'Quaternion_v'.\n"
-    "  Possible C/C++ prototypes are:\n"
-    "    toric::Quaternion::v() const\n"
-    "    toric::Quaternion::v()\n");
-  return 0;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_w(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_w",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_w" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = (double *) &((toric::Quaternion const *)arg1)->w();
-  resultobj = SWIG_From_double(static_cast< double >(*result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_x(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_x",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_x" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = (double *) &((toric::Quaternion const *)arg1)->x();
-  resultobj = SWIG_From_double(static_cast< double >(*result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_y(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_y",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_y" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = (double *) &((toric::Quaternion const *)arg1)->y();
-  resultobj = SWIG_From_double(static_cast< double >(*result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_z(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double *result = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_z",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_z" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = (double *) &((toric::Quaternion const *)arg1)->z();
-  resultobj = SWIG_From_double(static_cast< double >(*result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion___mul____SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  toric::Quaternion *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  toric::Quaternion result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Quaternion___mul__",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion___mul__" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Quaternion,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion___mul__" "', argument " "2"" of type '" "toric::Quaternion const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion___mul__" "', argument " "2"" of type '" "toric::Quaternion const &""'"); 
-  }
-  arg2 = reinterpret_cast< toric::Quaternion * >(argp2);
-  result = ((toric::Quaternion const *)arg1)->operator *((toric::Quaternion const &)*arg2);
-  resultobj = SWIG_NewPointerObj((new toric::Quaternion(static_cast< const toric::Quaternion& >(result))), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion___mul____SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  Vector3 *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  Vector3 result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Quaternion___mul__",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion___mul__" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Vector3,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion___mul__" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion___mul__" "', argument " "2"" of type '" "Vector3 const &""'"); 
-  }
-  arg2 = reinterpret_cast< Vector3 * >(argp2);
-  result = ((toric::Quaternion const *)arg1)->operator *((Vector3 const &)*arg2);
-  resultobj = SWIG_NewPointerObj((new Vector3(static_cast< const Vector3& >(result))), SWIGTYPE_p_Vector3, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion___mul__(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[3] = {
-    0
-  };
-  int ii;
-  
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = args ? (int)PyObject_Length(args) : 0;
-  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
-  }
-  if (argc == 2) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__Quaternion, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap_Quaternion___mul____SWIG_0(self, args);
-      }
-    }
-  }
-  if (argc == 2) {
-    int _v;
-    void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
-    _v = SWIG_CheckState(res);
-    if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_Vector3, 0);
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap_Quaternion___mul____SWIG_1(self, args);
-      }
-    }
-  }
-  
-fail:
-  Py_INCREF(Py_NotImplemented);
-  return Py_NotImplemented;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_inverse(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  toric::Quaternion result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_inverse",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_inverse" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = ((toric::Quaternion const *)arg1)->inverse();
-  resultobj = SWIG_NewPointerObj((new toric::Quaternion(static_cast< const toric::Quaternion& >(result))), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_norm2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_norm2",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_norm2" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = (double)((toric::Quaternion const *)arg1)->norm2();
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_norm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_norm",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_norm" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  result = (double)((toric::Quaternion const *)arg1)->norm();
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Quaternion_dotProduct(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  toric::Quaternion *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  double result;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Quaternion_dotProduct",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_dotProduct" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Quaternion,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion_dotProduct" "', argument " "2"" of type '" "toric::Quaternion const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_dotProduct" "', argument " "2"" of type '" "toric::Quaternion const &""'"); 
-  }
-  arg2 = reinterpret_cast< toric::Quaternion * >(argp2);
-  result = (double)((toric::Quaternion const *)arg1)->dotProduct((toric::Quaternion const &)*arg2);
-  resultobj = SWIG_From_double(static_cast< double >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_Quaternion(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_Quaternion",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Quaternion" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
-  }
-  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
-  delete arg1;
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *Quaternion_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_toric__Quaternion, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
 SWIGINTERN PyObject *_wrap_new_Vector2__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   double *arg1 = 0 ;
@@ -8736,6 +5414,3327 @@ SWIGINTERN PyObject *Vector3_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObje
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
   SWIG_TypeNewClientData(SWIGTYPE_p_toric__Vector3, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_new_Matrix3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Matrix3 *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_Matrix3")) SWIG_fail;
+  result = (toric::Matrix3 *)new toric::Matrix3();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Matrix3, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Matrix3_at(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
+  size_t *arg2 = 0 ;
+  size_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t temp2 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  size_t temp3 ;
+  size_t val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Matrix3_at",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3_at" "', argument " "1"" of type '" "toric::Matrix3 *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3_at" "', argument " "2"" of type '" "size_t""'");
+  } 
+  temp2 = static_cast< size_t >(val2);
+  arg2 = &temp2;
+  ecode3 = SWIG_AsVal_size_t(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Matrix3_at" "', argument " "3"" of type '" "size_t""'");
+  } 
+  temp3 = static_cast< size_t >(val3);
+  arg3 = &temp3;
+  result = (double *) &(arg1)->at((size_t const &)*arg2,(size_t const &)*arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Matrix3___call____SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
+  size_t *arg2 = 0 ;
+  size_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t temp2 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  size_t temp3 ;
+  size_t val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Matrix3___call__",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3___call__" "', argument " "1"" of type '" "toric::Matrix3 *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3___call__" "', argument " "2"" of type '" "size_t""'");
+  } 
+  temp2 = static_cast< size_t >(val2);
+  arg2 = &temp2;
+  ecode3 = SWIG_AsVal_size_t(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Matrix3___call__" "', argument " "3"" of type '" "size_t""'");
+  } 
+  temp3 = static_cast< size_t >(val3);
+  arg3 = &temp3;
+  result = (double *) &(arg1)->operator ()((size_t const &)*arg2,(size_t const &)*arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Matrix3___call____SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
+  size_t *arg2 = 0 ;
+  size_t *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t temp2 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  size_t temp3 ;
+  size_t val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Matrix3___call__",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3___call__" "', argument " "1"" of type '" "toric::Matrix3 const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3___call__" "', argument " "2"" of type '" "size_t""'");
+  } 
+  temp2 = static_cast< size_t >(val2);
+  arg2 = &temp2;
+  ecode3 = SWIG_AsVal_size_t(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Matrix3___call__" "', argument " "3"" of type '" "size_t""'");
+  } 
+  temp3 = static_cast< size_t >(val3);
+  arg3 = &temp3;
+  result = (double *) &((toric::Matrix3 const *)arg1)->operator ()((size_t const &)*arg2,(size_t const &)*arg3);
+  resultobj = SWIG_From_double(static_cast< double >(*result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Matrix3___call__(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4] = {
+    0
+  };
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Matrix3, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_size_t(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        {
+          int res = SWIG_AsVal_size_t(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          return _wrap_Matrix3___call____SWIG_0(self, args);
+        }
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Matrix3, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_size_t(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        {
+          int res = SWIG_AsVal_size_t(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          return _wrap_Matrix3___call____SWIG_1(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'Matrix3___call__'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    toric::Matrix3::operator ()(size_t const &,size_t const &)\n"
+    "    toric::Matrix3::operator ()(size_t const &,size_t const &) const\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_Matrix3_getColumn(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
+  size_t *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t temp2 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  toric::Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Matrix3_getColumn",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3_getColumn" "', argument " "1"" of type '" "toric::Matrix3 const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3_getColumn" "', argument " "2"" of type '" "size_t""'");
+  } 
+  temp2 = static_cast< size_t >(val2);
+  arg2 = &temp2;
+  result = ((toric::Matrix3 const *)arg1)->getColumn((size_t const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new toric::Vector3(static_cast< const toric::Vector3& >(result))), SWIGTYPE_p_toric__Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Matrix3_getRow(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
+  size_t *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t temp2 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  toric::Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Matrix3_getRow",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3_getRow" "', argument " "1"" of type '" "toric::Matrix3 const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3_getRow" "', argument " "2"" of type '" "size_t""'");
+  } 
+  temp2 = static_cast< size_t >(val2);
+  arg2 = &temp2;
+  result = ((toric::Matrix3 const *)arg1)->getRow((size_t const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new toric::Vector3(static_cast< const toric::Vector3& >(result))), SWIGTYPE_p_toric__Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Matrix3_swapColumn(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
+  size_t *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t temp2 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Matrix3_swapColumn",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3_swapColumn" "', argument " "1"" of type '" "toric::Matrix3 *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3_swapColumn" "', argument " "2"" of type '" "size_t""'");
+  } 
+  temp2 = static_cast< size_t >(val2);
+  arg2 = &temp2;
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Matrix3_swapColumn" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Matrix3_swapColumn" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  (arg1)->swapColumn((size_t const &)*arg2,(toric::Vector3 const &)*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Matrix3_swapRow(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
+  size_t *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t temp2 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Matrix3_swapRow",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3_swapRow" "', argument " "1"" of type '" "toric::Matrix3 *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Matrix3_swapRow" "', argument " "2"" of type '" "size_t""'");
+  } 
+  temp2 = static_cast< size_t >(val2);
+  arg2 = &temp2;
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Matrix3_swapRow" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Matrix3_swapRow" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  (arg1)->swapRow((size_t const &)*arg2,(toric::Vector3 const &)*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Matrix3_getDeterminant(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Matrix3_getDeterminant",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3_getDeterminant" "', argument " "1"" of type '" "toric::Matrix3 const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
+  result = (double)((toric::Matrix3 const *)arg1)->getDeterminant();
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Matrix3___mul__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  toric::Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Matrix3___mul__",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Matrix3___mul__" "', argument " "1"" of type '" "toric::Matrix3 const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Matrix3___mul__" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Matrix3___mul__" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  result = ((toric::Matrix3 const *)arg1)->operator *((toric::Vector3 const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new toric::Vector3(static_cast< const toric::Vector3& >(result))), SWIGTYPE_p_toric__Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_Matrix3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Matrix3 *arg1 = (toric::Matrix3 *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_Matrix3",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Matrix3, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Matrix3" "', argument " "1"" of type '" "toric::Matrix3 *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *Matrix3_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_toric__Matrix3, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_new_Plane(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double *arg3 = 0 ;
+  double *arg4 = 0 ;
+  double temp1 ;
+  double val1 ;
+  int ecode1 = 0 ;
+  double temp2 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  double temp3 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  double temp4 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  toric::Plane *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_Plane",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  ecode1 = SWIG_AsVal_double(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Plane" "', argument " "1"" of type '" "double""'");
+  } 
+  temp1 = static_cast< double >(val1);
+  arg1 = &temp1;
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Plane" "', argument " "2"" of type '" "double""'");
+  } 
+  temp2 = static_cast< double >(val2);
+  arg2 = &temp2;
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_Plane" "', argument " "3"" of type '" "double""'");
+  } 
+  temp3 = static_cast< double >(val3);
+  arg3 = &temp3;
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_Plane" "', argument " "4"" of type '" "double""'");
+  } 
+  temp4 = static_cast< double >(val4);
+  arg4 = &temp4;
+  result = (toric::Plane *)new toric::Plane((double const &)*arg1,(double const &)*arg2,(double const &)*arg3,(double const &)*arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Plane, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_createPlaneFromUnitNormal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Vector3 *arg1 = 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  SwigValueWrapper< toric::Plane > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_createPlaneFromUnitNormal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_createPlaneFromUnitNormal" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromUnitNormal" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Vector3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_createPlaneFromUnitNormal" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromUnitNormal" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  result = toric::Plane::createPlaneFromUnitNormal((toric::Vector3 const &)*arg1,(toric::Vector3 const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new toric::Plane(static_cast< const toric::Plane& >(result))), SWIGTYPE_p_toric__Plane, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_createPlaneFromNormal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Vector3 *arg1 = 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  SwigValueWrapper< toric::Plane > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_createPlaneFromNormal",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_createPlaneFromNormal" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromNormal" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Vector3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_createPlaneFromNormal" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromNormal" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  result = toric::Plane::createPlaneFromNormal((toric::Vector3 const &)*arg1,(toric::Vector3 const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new toric::Plane(static_cast< const toric::Plane& >(result))), SWIGTYPE_p_toric__Plane, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_createPlaneFromVectors(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Vector3 *arg1 = 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  SwigValueWrapper< toric::Plane > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Plane_createPlaneFromVectors",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_createPlaneFromVectors" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromVectors" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Vector3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_createPlaneFromVectors" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromVectors" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Plane_createPlaneFromVectors" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromVectors" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  result = toric::Plane::createPlaneFromVectors((toric::Vector3 const &)*arg1,(toric::Vector3 const &)*arg2,(toric::Vector3 const &)*arg3);
+  resultobj = SWIG_NewPointerObj((new toric::Plane(static_cast< const toric::Plane& >(result))), SWIGTYPE_p_toric__Plane, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_createPlaneFromTriangle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Vector3 *arg1 = 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  SwigValueWrapper< toric::Plane > result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Plane_createPlaneFromTriangle",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_createPlaneFromTriangle" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromTriangle" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Vector3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_createPlaneFromTriangle" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromTriangle" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Plane_createPlaneFromTriangle" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_createPlaneFromTriangle" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  result = toric::Plane::createPlaneFromTriangle((toric::Vector3 const &)*arg1,(toric::Vector3 const &)*arg2,(toric::Vector3 const &)*arg3);
+  resultobj = SWIG_NewPointerObj((new toric::Plane(static_cast< const toric::Plane& >(result))), SWIGTYPE_p_toric__Plane, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_getNormal(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Plane *arg1 = (toric::Plane *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Plane_getNormal",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_getNormal" "', argument " "1"" of type '" "toric::Plane const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Plane * >(argp1);
+  result = ((toric::Plane const *)arg1)->getNormal();
+  resultobj = SWIG_NewPointerObj((new toric::Vector3(static_cast< const toric::Vector3& >(result))), SWIGTYPE_p_toric__Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_getDistance(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Plane *arg1 = (toric::Plane *) 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_getDistance",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_getDistance" "', argument " "1"" of type '" "toric::Plane const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Plane * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_getDistance" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_getDistance" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  result = (double)((toric::Plane const *)arg1)->getDistance((toric::Vector3 const &)*arg2);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_getValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Plane *arg1 = (toric::Plane *) 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_getValue",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_getValue" "', argument " "1"" of type '" "toric::Plane const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Plane * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_getValue" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_getValue" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  result = (double)((toric::Plane const *)arg1)->getValue((toric::Vector3 const &)*arg2);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_getProjection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Plane *arg1 = (toric::Plane *) 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  toric::Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_getProjection",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_getProjection" "', argument " "1"" of type '" "toric::Plane const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Plane * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_getProjection" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_getProjection" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  result = ((toric::Plane const *)arg1)->getProjection((toric::Vector3 const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new toric::Vector3(static_cast< const toric::Vector3& >(result))), SWIGTYPE_p_toric__Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Plane_belongs(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Plane *arg1 = (toric::Plane *) 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  bool result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Plane_belongs",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Plane_belongs" "', argument " "1"" of type '" "toric::Plane const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Plane * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Plane_belongs" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Plane_belongs" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  result = (bool)((toric::Plane const *)arg1)->belongs((toric::Vector3 const &)*arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_Plane(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Plane *arg1 = (toric::Plane *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_Plane",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Plane, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Plane" "', argument " "1"" of type '" "toric::Plane *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Plane * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *Plane_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_toric__Plane, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *_wrap_new_ProjectionMatrix__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ProjectionMatrix *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_ProjectionMatrix")) SWIG_fail;
+  result = (toric::ProjectionMatrix *)new toric::ProjectionMatrix();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_ProjectionMatrix__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Camera *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::ProjectionMatrix *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:new_ProjectionMatrix",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Camera,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::Camera const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::Camera const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Camera * >(argp1);
+  result = (toric::ProjectionMatrix *)new toric::ProjectionMatrix((toric::Camera const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_ProjectionMatrix__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::RadianPi *arg1 = 0 ;
+  double *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  toric::Quaternion *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double temp2 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  toric::ProjectionMatrix *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_ProjectionMatrix",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_ProjectionMatrix" "', argument " "2"" of type '" "double""'");
+  } 
+  temp2 = static_cast< double >(val2);
+  arg2 = &temp2;
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_toric__Quaternion,  0  | 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "toric::Quaternion const &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "toric::Quaternion const &""'"); 
+  }
+  arg4 = reinterpret_cast< toric::Quaternion * >(argp4);
+  result = (toric::ProjectionMatrix *)new toric::ProjectionMatrix((toric::RadianPi const &)*arg1,(double const &)*arg2,(toric::Vector3 const &)*arg3,(toric::Quaternion const &)*arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_ProjectionMatrix__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::RadianPi *arg1 = 0 ;
+  toric::RadianPi *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  toric::Quaternion *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  toric::ProjectionMatrix *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_ProjectionMatrix",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_ProjectionMatrix" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_toric__Quaternion,  0  | 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "toric::Quaternion const &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "toric::Quaternion const &""'"); 
+  }
+  arg4 = reinterpret_cast< toric::Quaternion * >(argp4);
+  result = (toric::ProjectionMatrix *)new toric::ProjectionMatrix((toric::RadianPi const &)*arg1,(toric::RadianPi const &)*arg2,(toric::Vector3 const &)*arg3,(toric::Quaternion const &)*arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_ProjectionMatrix__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::RadianPi *arg1 = 0 ;
+  double *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  toric::Matrix3 *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double temp2 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  toric::ProjectionMatrix *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_ProjectionMatrix",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_ProjectionMatrix" "', argument " "2"" of type '" "double""'");
+  } 
+  temp2 = static_cast< double >(val2);
+  arg2 = &temp2;
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_toric__Matrix3,  0  | 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "toric::Matrix3 const &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "toric::Matrix3 const &""'"); 
+  }
+  arg4 = reinterpret_cast< toric::Matrix3 * >(argp4);
+  result = (toric::ProjectionMatrix *)new toric::ProjectionMatrix((toric::RadianPi const &)*arg1,(double const &)*arg2,(toric::Vector3 const &)*arg3,(toric::Matrix3 const &)*arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_ProjectionMatrix__SWIG_5(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::RadianPi *arg1 = 0 ;
+  toric::RadianPi *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  toric::Matrix3 *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  toric::ProjectionMatrix *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_ProjectionMatrix",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_ProjectionMatrix" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_toric__Matrix3,  0  | 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "toric::Matrix3 const &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_ProjectionMatrix" "', argument " "4"" of type '" "toric::Matrix3 const &""'"); 
+  }
+  arg4 = reinterpret_cast< toric::Matrix3 * >(argp4);
+  result = (toric::ProjectionMatrix *)new toric::ProjectionMatrix((toric::RadianPi const &)*arg1,(toric::RadianPi const &)*arg2,(toric::Vector3 const &)*arg3,(toric::Matrix3 const &)*arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_ProjectionMatrix(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[5] = {
+    0
+  };
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 4) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_ProjectionMatrix__SWIG_0(self, args);
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__Camera, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_ProjectionMatrix__SWIG_1(self, args);
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__RadianPi, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__Vector3, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_toric__Quaternion, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_new_ProjectionMatrix__SWIG_3(self, args);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__RadianPi, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__Vector3, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_toric__Matrix3, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_new_ProjectionMatrix__SWIG_5(self, args);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__RadianPi, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_double(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__Vector3, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_toric__Matrix3, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_new_ProjectionMatrix__SWIG_4(self, args);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__RadianPi, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_double(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__Vector3, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          int res = SWIG_ConvertPtr(argv[3], 0, SWIGTYPE_p_toric__Quaternion, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_new_ProjectionMatrix__SWIG_2(self, args);
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_ProjectionMatrix'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    toric::ProjectionMatrix::ProjectionMatrix()\n"
+    "    toric::ProjectionMatrix::ProjectionMatrix(toric::Camera const &)\n"
+    "    toric::ProjectionMatrix::ProjectionMatrix(toric::RadianPi const &,double const &,toric::Vector3 const &,toric::Quaternion const &)\n"
+    "    toric::ProjectionMatrix::ProjectionMatrix(toric::RadianPi const &,toric::RadianPi const &,toric::Vector3 const &,toric::Quaternion const &)\n"
+    "    toric::ProjectionMatrix::ProjectionMatrix(toric::RadianPi const &,double const &,toric::Vector3 const &,toric::Matrix3 const &)\n"
+    "    toric::ProjectionMatrix::ProjectionMatrix(toric::RadianPi const &,toric::RadianPi const &,toric::Vector3 const &,toric::Matrix3 const &)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_setFieldOfView__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
+  toric::RadianPi *arg2 = 0 ;
+  double *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  double temp3 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:ProjectionMatrix_setFieldOfView",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "1"" of type '" "toric::ProjectionMatrix *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "3"" of type '" "double""'");
+  } 
+  temp3 = static_cast< double >(val3);
+  arg3 = &temp3;
+  (arg1)->setFieldOfView((toric::RadianPi const &)*arg2,(double const &)*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_setFieldOfView__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
+  toric::RadianPi *arg2 = 0 ;
+  toric::RadianPi *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:ProjectionMatrix_setFieldOfView",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "1"" of type '" "toric::ProjectionMatrix *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "3"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_setFieldOfView" "', argument " "3"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::RadianPi * >(argp3);
+  (arg1)->setFieldOfView((toric::RadianPi const &)*arg2,(toric::RadianPi const &)*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_setFieldOfView(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4] = {
+    0
+  };
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__ProjectionMatrix, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__RadianPi, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_ProjectionMatrix_setFieldOfView__SWIG_1(self, args);
+        }
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__ProjectionMatrix, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        {
+          int res = SWIG_AsVal_double(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          return _wrap_ProjectionMatrix_setFieldOfView__SWIG_0(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'ProjectionMatrix_setFieldOfView'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    toric::ProjectionMatrix::setFieldOfView(toric::RadianPi const &,double const &)\n"
+    "    toric::ProjectionMatrix::setFieldOfView(toric::RadianPi const &,toric::RadianPi const &)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_setPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ProjectionMatrix_setPosition",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_setPosition" "', argument " "1"" of type '" "toric::ProjectionMatrix *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_setPosition" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_setPosition" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  (arg1)->setPosition((toric::Vector3 const &)*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_setOrientation(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
+  toric::Quaternion *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ProjectionMatrix_setOrientation",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_setOrientation" "', argument " "1"" of type '" "toric::ProjectionMatrix *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Quaternion,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_setOrientation" "', argument " "2"" of type '" "toric::Quaternion const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_setOrientation" "', argument " "2"" of type '" "toric::Quaternion const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Quaternion * >(argp2);
+  (arg1)->setOrientation((toric::Quaternion const &)*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_screenProjection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  toric::Vector2 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:ProjectionMatrix_screenProjection",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_screenProjection" "', argument " "1"" of type '" "toric::ProjectionMatrix const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_screenProjection" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_screenProjection" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  result = ((toric::ProjectionMatrix const *)arg1)->screenProjection((toric::Vector3 const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new toric::Vector2(static_cast< const toric::Vector2& >(result))), SWIGTYPE_p_toric__Vector2, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_getSx(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:ProjectionMatrix_getSx",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_getSx" "', argument " "1"" of type '" "toric::ProjectionMatrix const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
+  result = (double *) &((toric::ProjectionMatrix const *)arg1)->getSx();
+  resultobj = SWIG_From_double(static_cast< double >(*result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_getSy(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:ProjectionMatrix_getSy",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_getSy" "', argument " "1"" of type '" "toric::ProjectionMatrix const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
+  result = (double *) &((toric::ProjectionMatrix const *)arg1)->getSy();
+  resultobj = SWIG_From_double(static_cast< double >(*result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_ComputeScale__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::RadianPi *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double *arg3 = 0 ;
+  double *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double temp2 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:ProjectionMatrix_ComputeScale",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "2"" of type '" "double""'");
+  } 
+  temp2 = static_cast< double >(val2);
+  arg2 = &temp2;
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_double,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "3"" of type '" "double &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "3"" of type '" "double &""'"); 
+  }
+  arg3 = reinterpret_cast< double * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_double,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "4"" of type '" "double &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "4"" of type '" "double &""'"); 
+  }
+  arg4 = reinterpret_cast< double * >(argp4);
+  toric::ProjectionMatrix::ComputeScale((toric::RadianPi const &)*arg1,(double const &)*arg2,*arg3,*arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_ComputeScale__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::RadianPi *arg1 = 0 ;
+  toric::RadianPi *arg2 = 0 ;
+  double *arg3 = 0 ;
+  double *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:ProjectionMatrix_ComputeScale",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "1"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::RadianPi * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_double,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "3"" of type '" "double &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "3"" of type '" "double &""'"); 
+  }
+  arg3 = reinterpret_cast< double * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_double,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "ProjectionMatrix_ComputeScale" "', argument " "4"" of type '" "double &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_ComputeScale" "', argument " "4"" of type '" "double &""'"); 
+  }
+  arg4 = reinterpret_cast< double * >(argp4);
+  toric::ProjectionMatrix::ComputeScale((toric::RadianPi const &)*arg1,(toric::RadianPi const &)*arg2,*arg3,*arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_ComputeScale(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[5] = {
+    0
+  };
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 4) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 4) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__RadianPi, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_double, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_double, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_ProjectionMatrix_ComputeScale__SWIG_1(self, args);
+          }
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__RadianPi, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_double(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        void *vptr = 0;
+        int res = SWIG_ConvertPtr(argv[2], &vptr, SWIGTYPE_p_double, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          void *vptr = 0;
+          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_double, 0);
+          _v = SWIG_CheckState(res);
+          if (_v) {
+            return _wrap_ProjectionMatrix_ComputeScale__SWIG_0(self, args);
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'ProjectionMatrix_ComputeScale'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    toric::ProjectionMatrix::ComputeScale(toric::RadianPi const &,double const &,double &,double &)\n"
+    "    toric::ProjectionMatrix::ComputeScale(toric::RadianPi const &,toric::RadianPi const &,double &,double &)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_GetVectorInCameraSpace__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Vector3 *arg1 = 0 ;
+  toric::RadianPi *arg2 = 0 ;
+  toric::RadianPi *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  toric::Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:ProjectionMatrix_GetVectorInCameraSpace",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Vector3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "3"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "3"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::RadianPi * >(argp3);
+  result = toric::ProjectionMatrix::GetVectorInCameraSpace((toric::Vector3 const &)*arg1,(toric::RadianPi const &)*arg2,(toric::RadianPi const &)*arg3);
+  resultobj = SWIG_NewPointerObj((new toric::Vector3(static_cast< const toric::Vector3& >(result))), SWIGTYPE_p_toric__Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_GetVectorInCameraSpace__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Vector3 *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double temp2 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  double temp3 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  toric::Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:ProjectionMatrix_GetVectorInCameraSpace",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Vector3 * >(argp1);
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "2"" of type '" "double""'");
+  } 
+  temp2 = static_cast< double >(val2);
+  arg2 = &temp2;
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "ProjectionMatrix_GetVectorInCameraSpace" "', argument " "3"" of type '" "double""'");
+  } 
+  temp3 = static_cast< double >(val3);
+  arg3 = &temp3;
+  result = toric::ProjectionMatrix::GetVectorInCameraSpace((toric::Vector3 const &)*arg1,(double const &)*arg2,(double const &)*arg3);
+  resultobj = SWIG_NewPointerObj((new toric::Vector3(static_cast< const toric::Vector3& >(result))), SWIGTYPE_p_toric__Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProjectionMatrix_GetVectorInCameraSpace(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4] = {
+    0
+  };
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 3) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__Vector3, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__RadianPi, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_ProjectionMatrix_GetVectorInCameraSpace__SWIG_0(self, args);
+        }
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__Vector3, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_double(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        {
+          int res = SWIG_AsVal_double(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          return _wrap_ProjectionMatrix_GetVectorInCameraSpace__SWIG_1(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'ProjectionMatrix_GetVectorInCameraSpace'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    toric::ProjectionMatrix::GetVectorInCameraSpace(toric::Vector3 const &,toric::RadianPi const &,toric::RadianPi const &)\n"
+    "    toric::ProjectionMatrix::GetVectorInCameraSpace(toric::Vector3 const &,double const &,double const &)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_ProjectionMatrix(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::ProjectionMatrix *arg1 = (toric::ProjectionMatrix *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_ProjectionMatrix",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__ProjectionMatrix, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ProjectionMatrix" "', argument " "1"" of type '" "toric::ProjectionMatrix *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::ProjectionMatrix * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *ProjectionMatrix_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_toric__ProjectionMatrix, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN int Swig_var_Quaternion_ZERO_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable Quaternion_ZERO is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *Swig_var_Quaternion_ZERO_get(void) {
+  PyObject *pyobj = 0;
+  
+  pyobj = SWIG_NewPointerObj(SWIG_as_voidptr(&toric::Quaternion::ZERO), SWIGTYPE_p_toric__Quaternion,  0 );
+  return pyobj;
+}
+
+
+SWIGINTERN int Swig_var_Quaternion_IDENTITY_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable Quaternion_IDENTITY is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *Swig_var_Quaternion_IDENTITY_get(void) {
+  PyObject *pyobj = 0;
+  
+  pyobj = SWIG_NewPointerObj(SWIG_as_voidptr(&toric::Quaternion::IDENTITY), SWIGTYPE_p_toric__Quaternion,  0 );
+  return pyobj;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double *arg3 = 0 ;
+  double *arg4 = 0 ;
+  double temp1 ;
+  double val1 ;
+  int ecode1 = 0 ;
+  double temp2 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  double temp3 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  double temp4 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  toric::Quaternion *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:new_Quaternion",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  ecode1 = SWIG_AsVal_double(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "double""'");
+  } 
+  temp1 = static_cast< double >(val1);
+  arg1 = &temp1;
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Quaternion" "', argument " "2"" of type '" "double""'");
+  } 
+  temp2 = static_cast< double >(val2);
+  arg2 = &temp2;
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_Quaternion" "', argument " "3"" of type '" "double""'");
+  } 
+  temp3 = static_cast< double >(val3);
+  arg3 = &temp3;
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_Quaternion" "', argument " "4"" of type '" "double""'");
+  } 
+  temp4 = static_cast< double >(val4);
+  arg4 = &temp4;
+  result = (toric::Quaternion *)new toric::Quaternion((double const &)*arg1,(double const &)*arg2,(double const &)*arg3,(double const &)*arg4);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double *arg3 = 0 ;
+  double temp1 ;
+  double val1 ;
+  int ecode1 = 0 ;
+  double temp2 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  double temp3 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  toric::Quaternion *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:new_Quaternion",&obj0,&obj1,&obj2)) SWIG_fail;
+  ecode1 = SWIG_AsVal_double(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "double""'");
+  } 
+  temp1 = static_cast< double >(val1);
+  arg1 = &temp1;
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Quaternion" "', argument " "2"" of type '" "double""'");
+  } 
+  temp2 = static_cast< double >(val2);
+  arg2 = &temp2;
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_Quaternion" "', argument " "3"" of type '" "double""'");
+  } 
+  temp3 = static_cast< double >(val3);
+  arg3 = &temp3;
+  result = (toric::Quaternion *)new toric::Quaternion((double const &)*arg1,(double const &)*arg2,(double const &)*arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  double *arg1 = 0 ;
+  double *arg2 = 0 ;
+  double temp1 ;
+  double val1 ;
+  int ecode1 = 0 ;
+  double temp2 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  toric::Quaternion *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_Quaternion",&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_double(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "double""'");
+  } 
+  temp1 = static_cast< double >(val1);
+  arg1 = &temp1;
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Quaternion" "', argument " "2"" of type '" "double""'");
+  } 
+  temp2 = static_cast< double >(val2);
+  arg2 = &temp2;
+  result = (toric::Quaternion *)new toric::Quaternion((double const &)*arg1,(double const &)*arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  double *arg1 = 0 ;
+  double temp1 ;
+  double val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::Quaternion *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:new_Quaternion",&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_double(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "double""'");
+  } 
+  temp1 = static_cast< double >(val1);
+  arg1 = &temp1;
+  result = (toric::Quaternion *)new toric::Quaternion((double const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_Quaternion")) SWIG_fail;
+  result = (toric::Quaternion *)new toric::Quaternion();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_5(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Vector3 *arg1 = 0 ;
+  toric::RadianPi *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  toric::Quaternion *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_Quaternion",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Vector3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Quaternion" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "2"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::RadianPi * >(argp2);
+  result = (toric::Quaternion *)new toric::Quaternion((toric::Vector3 const &)*arg1,(toric::RadianPi const &)*arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_6(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  double *arg1 = 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  double temp1 ;
+  double val1 ;
+  int ecode1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  toric::Quaternion *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:new_Quaternion",&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_double(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "double""'");
+  } 
+  temp1 = static_cast< double >(val1);
+  arg1 = &temp1;
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Quaternion" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  result = (toric::Quaternion *)new toric::Quaternion((double const &)*arg1,(toric::Vector3 const &)*arg2);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_7(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Vector3 *arg1 = 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  toric::Quaternion *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:new_Quaternion",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "1"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Vector3 * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Quaternion" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_Quaternion" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  result = (toric::Quaternion *)new toric::Quaternion((toric::Vector3 const &)*arg1,(toric::Vector3 const &)*arg2,(toric::Vector3 const &)*arg3);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Quaternion__SWIG_8(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Matrix3 *arg1 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::Quaternion *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:new_Quaternion",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_toric__Matrix3,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Quaternion" "', argument " "1"" of type '" "toric::Matrix3 const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Quaternion" "', argument " "1"" of type '" "toric::Matrix3 const &""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Matrix3 * >(argp1);
+  result = (toric::Quaternion *)new toric::Quaternion((toric::Matrix3 const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Quaternion(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[5] = {
+    0
+  };
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 4) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_Quaternion__SWIG_4(self, args);
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__Matrix3, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_Quaternion__SWIG_8(self, args);
+    }
+  }
+  if (argc == 1) {
+    int _v;
+    {
+      int res = SWIG_AsVal_double(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      return _wrap_new_Quaternion__SWIG_3(self, args);
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__Vector3, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__RadianPi, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_Quaternion__SWIG_5(self, args);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    {
+      int res = SWIG_AsVal_double(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__Vector3, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_new_Quaternion__SWIG_6(self, args);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    {
+      int res = SWIG_AsVal_double(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      {
+        int res = SWIG_AsVal_double(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        return _wrap_new_Quaternion__SWIG_2(self, args);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_toric__Vector3, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__Vector3, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__Vector3, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_new_Quaternion__SWIG_7(self, args);
+        }
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    {
+      int res = SWIG_AsVal_double(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      {
+        int res = SWIG_AsVal_double(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        {
+          int res = SWIG_AsVal_double(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          return _wrap_new_Quaternion__SWIG_1(self, args);
+        }
+      }
+    }
+  }
+  if (argc == 4) {
+    int _v;
+    {
+      int res = SWIG_AsVal_double(argv[0], NULL);
+      _v = SWIG_CheckState(res);
+    }
+    if (_v) {
+      {
+        int res = SWIG_AsVal_double(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        {
+          int res = SWIG_AsVal_double(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          {
+            int res = SWIG_AsVal_double(argv[3], NULL);
+            _v = SWIG_CheckState(res);
+          }
+          if (_v) {
+            return _wrap_new_Quaternion__SWIG_0(self, args);
+          }
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'new_Quaternion'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    toric::Quaternion::Quaternion(double const &,double const &,double const &,double const &)\n"
+    "    toric::Quaternion::Quaternion(double const &,double const &,double const &)\n"
+    "    toric::Quaternion::Quaternion(double const &,double const &)\n"
+    "    toric::Quaternion::Quaternion(double const &)\n"
+    "    toric::Quaternion::Quaternion()\n"
+    "    toric::Quaternion::Quaternion(toric::Vector3 const &,toric::RadianPi const &)\n"
+    "    toric::Quaternion::Quaternion(double const &,toric::Vector3 const &)\n"
+    "    toric::Quaternion::Quaternion(toric::Vector3 const &,toric::Vector3 const &,toric::Vector3 const &)\n"
+    "    toric::Quaternion::Quaternion(toric::Matrix3 const &)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_set__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  double *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double temp2 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Quaternion_set",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_set" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Quaternion_set" "', argument " "2"" of type '" "double""'");
+  } 
+  temp2 = static_cast< double >(val2);
+  arg2 = &temp2;
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Quaternion_set" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_set" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  (arg1)->set((double const &)*arg2,(toric::Vector3 const &)*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_set__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  toric::RadianPi *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Quaternion_set",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_set" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion_set" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_set" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__RadianPi,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Quaternion_set" "', argument " "3"" of type '" "toric::RadianPi const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_set" "', argument " "3"" of type '" "toric::RadianPi const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::RadianPi * >(argp3);
+  (arg1)->set((toric::Vector3 const &)*arg2,(toric::RadianPi const &)*arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_set(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4] = {
+    0
+  };
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 3) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__Vector3, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__RadianPi, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_Quaternion_set__SWIG_1(self, args);
+        }
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      {
+        int res = SWIG_AsVal_double(argv[1], NULL);
+        _v = SWIG_CheckState(res);
+      }
+      if (_v) {
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_toric__Vector3, 0);
+        _v = SWIG_CheckState(res);
+        if (_v) {
+          return _wrap_Quaternion_set__SWIG_0(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'Quaternion_set'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    toric::Quaternion::set(double const &,toric::Vector3 const &)\n"
+    "    toric::Quaternion::set(toric::Vector3 const &,toric::RadianPi const &)\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_FromAxes(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  toric::Vector3 *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:Quaternion_FromAxes",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_FromAxes" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion_FromAxes" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_FromAxes" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Quaternion_FromAxes" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_FromAxes" "', argument " "3"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "Quaternion_FromAxes" "', argument " "4"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_FromAxes" "', argument " "4"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg4 = reinterpret_cast< toric::Vector3 * >(argp4);
+  (arg1)->FromAxes((toric::Vector3 const &)*arg2,(toric::Vector3 const &)*arg3,(toric::Vector3 const &)*arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_ToAxes(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  toric::Vector3 *arg3 = 0 ;
+  toric::Vector3 *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:Quaternion_ToAxes",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_ToAxes" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion_ToAxes" "', argument " "2"" of type '" "toric::Vector3 &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_ToAxes" "', argument " "2"" of type '" "toric::Vector3 &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_toric__Vector3,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Quaternion_ToAxes" "', argument " "3"" of type '" "toric::Vector3 &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_ToAxes" "', argument " "3"" of type '" "toric::Vector3 &""'"); 
+  }
+  arg3 = reinterpret_cast< toric::Vector3 * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_toric__Vector3,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "Quaternion_ToAxes" "', argument " "4"" of type '" "toric::Vector3 &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_ToAxes" "', argument " "4"" of type '" "toric::Vector3 &""'"); 
+  }
+  arg4 = reinterpret_cast< toric::Vector3 * >(argp4);
+  ((toric::Quaternion const *)arg1)->ToAxes(*arg2,*arg3,*arg4);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_FromRotationMatrix(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  toric::Matrix3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Quaternion_FromRotationMatrix",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_FromRotationMatrix" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Matrix3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion_FromRotationMatrix" "', argument " "2"" of type '" "toric::Matrix3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_FromRotationMatrix" "', argument " "2"" of type '" "toric::Matrix3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Matrix3 * >(argp2);
+  (arg1)->FromRotationMatrix((toric::Matrix3 const &)*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_ToRotationMatrix(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  toric::Matrix3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Quaternion_ToRotationMatrix",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_ToRotationMatrix" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Matrix3,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion_ToRotationMatrix" "', argument " "2"" of type '" "toric::Matrix3 &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_ToRotationMatrix" "', argument " "2"" of type '" "toric::Matrix3 &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Matrix3 * >(argp2);
+  ((toric::Quaternion const *)arg1)->ToRotationMatrix(*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_xAxis(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_xAxis",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_xAxis" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = ((toric::Quaternion const *)arg1)->xAxis();
+  resultobj = SWIG_NewPointerObj((new toric::Vector3(static_cast< const toric::Vector3& >(result))), SWIGTYPE_p_toric__Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_yAxis(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_yAxis",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_yAxis" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = ((toric::Quaternion const *)arg1)->yAxis();
+  resultobj = SWIG_NewPointerObj((new toric::Vector3(static_cast< const toric::Vector3& >(result))), SWIGTYPE_p_toric__Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_zAxis(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_zAxis",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_zAxis" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = ((toric::Quaternion const *)arg1)->zAxis();
+  resultobj = SWIG_NewPointerObj((new toric::Vector3(static_cast< const toric::Vector3& >(result))), SWIGTYPE_p_toric__Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_s__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_s",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_s" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = (double *) &(arg1)->s();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_double, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_s__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_s",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_s" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = (double *) &((toric::Quaternion const *)arg1)->s();
+  resultobj = SWIG_From_double(static_cast< double >(*result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_s(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2] = {
+    0
+  };
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 1) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_Quaternion_s__SWIG_0(self, args);
+    }
+  }
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_Quaternion_s__SWIG_1(self, args);
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'Quaternion_s'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    toric::Quaternion::s()\n"
+    "    toric::Quaternion::s() const\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_v__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::Vector3 *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_v",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_v" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = (toric::Vector3 *) &((toric::Quaternion const *)arg1)->v();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Vector3, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_v__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::Vector3 *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_v",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_v" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = (toric::Vector3 *) &(arg1)->v();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_toric__Vector3, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_v(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2] = {
+    0
+  };
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 1) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_Quaternion_v__SWIG_1(self, args);
+    }
+  }
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_Quaternion_v__SWIG_0(self, args);
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"Wrong number or type of arguments for overloaded function 'Quaternion_v'.\n"
+    "  Possible C/C++ prototypes are:\n"
+    "    toric::Quaternion::v() const\n"
+    "    toric::Quaternion::v()\n");
+  return 0;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_w(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_w",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_w" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = (double *) &((toric::Quaternion const *)arg1)->w();
+  resultobj = SWIG_From_double(static_cast< double >(*result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_x(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_x",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_x" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = (double *) &((toric::Quaternion const *)arg1)->x();
+  resultobj = SWIG_From_double(static_cast< double >(*result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_y(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_y",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_y" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = (double *) &((toric::Quaternion const *)arg1)->y();
+  resultobj = SWIG_From_double(static_cast< double >(*result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_z(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_z",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_z" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = (double *) &((toric::Quaternion const *)arg1)->z();
+  resultobj = SWIG_From_double(static_cast< double >(*result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion___mul____SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  toric::Quaternion *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  toric::Quaternion result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Quaternion___mul__",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion___mul__" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Quaternion,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion___mul__" "', argument " "2"" of type '" "toric::Quaternion const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion___mul__" "', argument " "2"" of type '" "toric::Quaternion const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Quaternion * >(argp2);
+  result = ((toric::Quaternion const *)arg1)->operator *((toric::Quaternion const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new toric::Quaternion(static_cast< const toric::Quaternion& >(result))), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion___mul____SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  toric::Vector3 *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  toric::Vector3 result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Quaternion___mul__",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion___mul__" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Vector3,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion___mul__" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion___mul__" "', argument " "2"" of type '" "toric::Vector3 const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Vector3 * >(argp2);
+  result = ((toric::Quaternion const *)arg1)->operator *((toric::Vector3 const &)*arg2);
+  resultobj = SWIG_NewPointerObj((new toric::Vector3(static_cast< const toric::Vector3& >(result))), SWIGTYPE_p_toric__Vector3, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion___mul__(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[3] = {
+    0
+  };
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = args ? (int)PyObject_Length(args) : 0;
+  for (ii = 0; (ii < 2) && (ii < argc); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__Quaternion, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_Quaternion___mul____SWIG_0(self, args);
+      }
+    }
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_toric__Quaternion, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_toric__Vector3, 0);
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_Quaternion___mul____SWIG_1(self, args);
+      }
+    }
+  }
+  
+fail:
+  Py_INCREF(Py_NotImplemented);
+  return Py_NotImplemented;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_inverse(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  toric::Quaternion result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_inverse",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_inverse" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = ((toric::Quaternion const *)arg1)->inverse();
+  resultobj = SWIG_NewPointerObj((new toric::Quaternion(static_cast< const toric::Quaternion& >(result))), SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_norm2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_norm2",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_norm2" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = (double)((toric::Quaternion const *)arg1)->norm2();
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_norm(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Quaternion_norm",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_norm" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  result = (double)((toric::Quaternion const *)arg1)->norm();
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Quaternion_dotProduct(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  toric::Quaternion *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  double result;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Quaternion_dotProduct",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Quaternion_dotProduct" "', argument " "1"" of type '" "toric::Quaternion const *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_toric__Quaternion,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Quaternion_dotProduct" "', argument " "2"" of type '" "toric::Quaternion const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Quaternion_dotProduct" "', argument " "2"" of type '" "toric::Quaternion const &""'"); 
+  }
+  arg2 = reinterpret_cast< toric::Quaternion * >(argp2);
+  result = (double)((toric::Quaternion const *)arg1)->dotProduct((toric::Quaternion const &)*arg2);
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_Quaternion(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  toric::Quaternion *arg1 = (toric::Quaternion *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_Quaternion",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_toric__Quaternion, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Quaternion" "', argument " "1"" of type '" "toric::Quaternion *""'"); 
+  }
+  arg1 = reinterpret_cast< toric::Quaternion * >(argp1);
+  delete arg1;
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *Quaternion_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O:swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_toric__Quaternion, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
 }
 
@@ -13014,6 +13013,39 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"acos", _wrap_acos, METH_VARARGS, NULL},
 	 { (char *)"asin", _wrap_asin, METH_VARARGS, NULL},
 	 { (char *)"atan", _wrap_atan, METH_VARARGS, NULL},
+	 { (char *)"new_Vector2", _wrap_new_Vector2, METH_VARARGS, NULL},
+	 { (char *)"Vector2_x", _wrap_Vector2_x, METH_VARARGS, NULL},
+	 { (char *)"Vector2_y", _wrap_Vector2_y, METH_VARARGS, NULL},
+	 { (char *)"Vector2_rotate90", _wrap_Vector2_rotate90, METH_VARARGS, NULL},
+	 { (char *)"Vector2_rotate180", _wrap_Vector2_rotate180, METH_VARARGS, NULL},
+	 { (char *)"Vector2_rotate270", _wrap_Vector2_rotate270, METH_VARARGS, NULL},
+	 { (char *)"Vector2_rotate", _wrap_Vector2_rotate, METH_VARARGS, NULL},
+	 { (char *)"Vector2_rotated90", _wrap_Vector2_rotated90, METH_VARARGS, NULL},
+	 { (char *)"Vector2_rotated180", _wrap_Vector2_rotated180, METH_VARARGS, NULL},
+	 { (char *)"Vector2_rotated270", _wrap_Vector2_rotated270, METH_VARARGS, NULL},
+	 { (char *)"delete_Vector2", _wrap_delete_Vector2, METH_VARARGS, NULL},
+	 { (char *)"Vector2_swigregister", Vector2_swigregister, METH_VARARGS, NULL},
+	 { (char *)"Vector3_ZERO_get", _wrap_Vector3_ZERO_get, METH_VARARGS, NULL},
+	 { (char *)"Vector3_ZERO_set", _wrap_Vector3_ZERO_set, METH_VARARGS, NULL},
+	 { (char *)"Vector3_UNIT_X_get", _wrap_Vector3_UNIT_X_get, METH_VARARGS, NULL},
+	 { (char *)"Vector3_UNIT_X_set", _wrap_Vector3_UNIT_X_set, METH_VARARGS, NULL},
+	 { (char *)"Vector3_UNIT_Y_get", _wrap_Vector3_UNIT_Y_get, METH_VARARGS, NULL},
+	 { (char *)"Vector3_UNIT_Y_set", _wrap_Vector3_UNIT_Y_set, METH_VARARGS, NULL},
+	 { (char *)"Vector3_UNIT_Z_get", _wrap_Vector3_UNIT_Z_get, METH_VARARGS, NULL},
+	 { (char *)"Vector3_UNIT_Z_set", _wrap_Vector3_UNIT_Z_set, METH_VARARGS, NULL},
+	 { (char *)"new_Vector3", _wrap_new_Vector3, METH_VARARGS, NULL},
+	 { (char *)"Vector3_x", _wrap_Vector3_x, METH_VARARGS, NULL},
+	 { (char *)"Vector3_y", _wrap_Vector3_y, METH_VARARGS, NULL},
+	 { (char *)"Vector3_z", _wrap_Vector3_z, METH_VARARGS, NULL},
+	 { (char *)"Vector3_projectX", _wrap_Vector3_projectX, METH_VARARGS, NULL},
+	 { (char *)"Vector3_projectY", _wrap_Vector3_projectY, METH_VARARGS, NULL},
+	 { (char *)"Vector3_projectZ", _wrap_Vector3_projectZ, METH_VARARGS, NULL},
+	 { (char *)"Vector3_crossProduct", _wrap_Vector3_crossProduct, METH_VARARGS, NULL},
+	 { (char *)"Vector3___xor__", _wrap_Vector3___xor__, METH_VARARGS, NULL},
+	 { (char *)"Vector3_perpendicular", _wrap_Vector3_perpendicular, METH_VARARGS, NULL},
+	 { (char *)"Vector3_directedAngle", _wrap_Vector3_directedAngle, METH_VARARGS, NULL},
+	 { (char *)"delete_Vector3", _wrap_delete_Vector3, METH_VARARGS, NULL},
+	 { (char *)"Vector3_swigregister", Vector3_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_Matrix3", _wrap_new_Matrix3, METH_VARARGS, NULL},
 	 { (char *)"Matrix3_at", _wrap_Matrix3_at, METH_VARARGS, NULL},
 	 { (char *)"Matrix3___call__", _wrap_Matrix3___call__, METH_VARARGS, NULL},
@@ -13070,39 +13102,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Quaternion_dotProduct", _wrap_Quaternion_dotProduct, METH_VARARGS, NULL},
 	 { (char *)"delete_Quaternion", _wrap_delete_Quaternion, METH_VARARGS, NULL},
 	 { (char *)"Quaternion_swigregister", Quaternion_swigregister, METH_VARARGS, NULL},
-	 { (char *)"new_Vector2", _wrap_new_Vector2, METH_VARARGS, NULL},
-	 { (char *)"Vector2_x", _wrap_Vector2_x, METH_VARARGS, NULL},
-	 { (char *)"Vector2_y", _wrap_Vector2_y, METH_VARARGS, NULL},
-	 { (char *)"Vector2_rotate90", _wrap_Vector2_rotate90, METH_VARARGS, NULL},
-	 { (char *)"Vector2_rotate180", _wrap_Vector2_rotate180, METH_VARARGS, NULL},
-	 { (char *)"Vector2_rotate270", _wrap_Vector2_rotate270, METH_VARARGS, NULL},
-	 { (char *)"Vector2_rotate", _wrap_Vector2_rotate, METH_VARARGS, NULL},
-	 { (char *)"Vector2_rotated90", _wrap_Vector2_rotated90, METH_VARARGS, NULL},
-	 { (char *)"Vector2_rotated180", _wrap_Vector2_rotated180, METH_VARARGS, NULL},
-	 { (char *)"Vector2_rotated270", _wrap_Vector2_rotated270, METH_VARARGS, NULL},
-	 { (char *)"delete_Vector2", _wrap_delete_Vector2, METH_VARARGS, NULL},
-	 { (char *)"Vector2_swigregister", Vector2_swigregister, METH_VARARGS, NULL},
-	 { (char *)"Vector3_ZERO_get", _wrap_Vector3_ZERO_get, METH_VARARGS, NULL},
-	 { (char *)"Vector3_ZERO_set", _wrap_Vector3_ZERO_set, METH_VARARGS, NULL},
-	 { (char *)"Vector3_UNIT_X_get", _wrap_Vector3_UNIT_X_get, METH_VARARGS, NULL},
-	 { (char *)"Vector3_UNIT_X_set", _wrap_Vector3_UNIT_X_set, METH_VARARGS, NULL},
-	 { (char *)"Vector3_UNIT_Y_get", _wrap_Vector3_UNIT_Y_get, METH_VARARGS, NULL},
-	 { (char *)"Vector3_UNIT_Y_set", _wrap_Vector3_UNIT_Y_set, METH_VARARGS, NULL},
-	 { (char *)"Vector3_UNIT_Z_get", _wrap_Vector3_UNIT_Z_get, METH_VARARGS, NULL},
-	 { (char *)"Vector3_UNIT_Z_set", _wrap_Vector3_UNIT_Z_set, METH_VARARGS, NULL},
-	 { (char *)"new_Vector3", _wrap_new_Vector3, METH_VARARGS, NULL},
-	 { (char *)"Vector3_x", _wrap_Vector3_x, METH_VARARGS, NULL},
-	 { (char *)"Vector3_y", _wrap_Vector3_y, METH_VARARGS, NULL},
-	 { (char *)"Vector3_z", _wrap_Vector3_z, METH_VARARGS, NULL},
-	 { (char *)"Vector3_projectX", _wrap_Vector3_projectX, METH_VARARGS, NULL},
-	 { (char *)"Vector3_projectY", _wrap_Vector3_projectY, METH_VARARGS, NULL},
-	 { (char *)"Vector3_projectZ", _wrap_Vector3_projectZ, METH_VARARGS, NULL},
-	 { (char *)"Vector3_crossProduct", _wrap_Vector3_crossProduct, METH_VARARGS, NULL},
-	 { (char *)"Vector3___xor__", _wrap_Vector3___xor__, METH_VARARGS, NULL},
-	 { (char *)"Vector3_perpendicular", _wrap_Vector3_perpendicular, METH_VARARGS, NULL},
-	 { (char *)"Vector3_directedAngle", _wrap_Vector3_directedAngle, METH_VARARGS, NULL},
-	 { (char *)"delete_Vector3", _wrap_delete_Vector3, METH_VARARGS, NULL},
-	 { (char *)"Vector3_swigregister", Vector3_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_ToricManifold", _wrap_new_ToricManifold, METH_VARARGS, NULL},
 	 { (char *)"ToricManifold_BuildFromAlpha", _wrap_ToricManifold_BuildFromAlpha, METH_VARARGS, NULL},
 	 { (char *)"ToricManifold_computePosition", _wrap_ToricManifold_computePosition, METH_VARARGS, NULL},
@@ -13183,7 +13182,6 @@ static void *_p_toric__Vector3To_p_toric__VectorT_3_t(void *x, int *SWIGUNUSEDPA
 }
 static swig_type_info _swigt__p_Quaternion = {"_p_Quaternion", "Quaternion *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_RadianPi = {"_p_RadianPi", "RadianPi *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Vector2 = {"_p_Vector2", "Vector2 *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Vector3 = {"_p_Vector3", "Vector3 *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_double = {"_p_double", "double *", 0, 0, (void*)0, 0};
@@ -13208,7 +13206,6 @@ static swig_type_info _swigt__p_toric__VectorT_3_t = {"_p_toric__VectorT_3_t", "
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Quaternion,
   &_swigt__p_RadianPi,
-  &_swigt__p_Vector2,
   &_swigt__p_Vector3,
   &_swigt__p_char,
   &_swigt__p_double,
@@ -13233,7 +13230,6 @@ static swig_type_info *swig_type_initial[] = {
 
 static swig_cast_info _swigc__p_Quaternion[] = {  {&_swigt__p_Quaternion, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_RadianPi[] = {  {&_swigt__p_RadianPi, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Vector2[] = {  {&_swigt__p_Vector2, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Vector3[] = {  {&_swigt__p_Vector3, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
@@ -13258,7 +13254,6 @@ static swig_cast_info _swigc__p_toric__VectorT_3_t[] = {  {&_swigt__p_toric__Vec
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Quaternion,
   _swigc__p_RadianPi,
-  _swigc__p_Vector2,
   _swigc__p_Vector3,
   _swigc__p_char,
   _swigc__p_double,
@@ -13970,12 +13965,12 @@ SWIG_init(void) {
   SWIG_addvarlink(SWIG_globals(),(char*)"HALF_PI",Swig_var_HALF_PI_get, Swig_var_HALF_PI_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"RadianPi_ZERO",Swig_var_RadianPi_ZERO_get, Swig_var_RadianPi_ZERO_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"Radian2Pi_ZERO",Swig_var_Radian2Pi_ZERO_get, Swig_var_Radian2Pi_ZERO_set);
-  SWIG_addvarlink(SWIG_globals(),(char*)"Quaternion_ZERO",Swig_var_Quaternion_ZERO_get, Swig_var_Quaternion_ZERO_set);
-  SWIG_addvarlink(SWIG_globals(),(char*)"Quaternion_IDENTITY",Swig_var_Quaternion_IDENTITY_get, Swig_var_Quaternion_IDENTITY_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"Vector3_ZERO",Swig_var_Vector3_ZERO_get, Swig_var_Vector3_ZERO_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"Vector3_UNIT_X",Swig_var_Vector3_UNIT_X_get, Swig_var_Vector3_UNIT_X_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"Vector3_UNIT_Y",Swig_var_Vector3_UNIT_Y_get, Swig_var_Vector3_UNIT_Y_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"Vector3_UNIT_Z",Swig_var_Vector3_UNIT_Z_get, Swig_var_Vector3_UNIT_Z_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"Quaternion_ZERO",Swig_var_Quaternion_ZERO_get, Swig_var_Quaternion_ZERO_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"Quaternion_IDENTITY",Swig_var_Quaternion_IDENTITY_get, Swig_var_Quaternion_IDENTITY_set);
 #if PY_VERSION_HEX >= 0x03000000
   return m;
 #else
