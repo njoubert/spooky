@@ -106,7 +106,7 @@ def visualfeatures_to_world(a):
 # Interpolate visual features
 #
 
-def toric_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
+def toric_interpolation_simple(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
     # convert to visual features
     visualfeatures_1 = world_to_visualfeatures(C_1, PA_1, PB_1)
     C_1_alpha = visualfeatures_1['alpha']
@@ -145,6 +145,18 @@ def toric_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
     # compute second trajectory around PA_2 and PB_2 and combine through non-linear interpolation (p(t))
 
     return {'F':F, 't':t}
+
+
+def toric_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
+    C_1t = toric.Toric3_FromWorldPosition(C_1, PA_1, PB_1)
+    C_2t = toric.Toric3_FromWorldPosition(C_2, PA_1, PB_1)
+
+    interp = toric.ToricInterpolator(PA_1, PB_1, C_1t, C_2t)
+    t = np.linspace(0,1)
+    sigma = np.array([toric.Toric3_ToWorldPosition(interp.interpolate(a),PA_1,PB_1).np() for a in t])
+    
+    return {'F':sigma, 't':t}
+
 
 #
 # Basic Test

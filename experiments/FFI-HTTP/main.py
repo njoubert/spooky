@@ -133,6 +133,9 @@ def get_trajectory():
   
   P_cameraPose = c_[cameraPose_n_list, cameraPose_e_list, cameraPose_d_list]
   T_cameraPose = c_[cameraPose_t_list, cameraPose_t_list, cameraPose_t_list]
+
+  print "P: ", P_cameraPose
+
   P_interpolatedSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose, T_cameraPose)
   
   print "get_trajectory: Response from trajectoryAPI", P_interpolatedSpline
@@ -171,7 +174,7 @@ def get_toric_trajectory():
   personA_list = parsed_json['personA']
   personB_list = parsed_json['personB']
 
-  print "get_trajectory: Calling trajectoryAPI now..."
+  print "get_toric_trajectory: Calling trajectoryAPI now..."
 
   # toric interpolation
 
@@ -194,17 +197,16 @@ def get_toric_trajectory():
   P_cameraPose_new = interpolated['F']
 
   print "P: ", P_cameraPose_new
-  
+
+  # scale
   P_cameraPose_new[:,0] *= 1000.0;
   P_cameraPose_new[:,1] *= 1000.0;
   P_cameraPose_new[:,2] *= -1000.0; 
   T_cameraPose_new = c_[interpolated['t'], interpolated['t'], interpolated['t']]
 
-
-  # scale
   P_interpolatedSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose_new, T_cameraPose_new)
   
-  print "get_trajectory: Response from trajectoryAPI", P_interpolatedSpline
+  print "get_toric_trajectory: Response from trajectoryAPI", P_interpolatedSpline
 
   data = {
     'interpolatedSpline': P_interpolatedSpline.tolist(),
