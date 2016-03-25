@@ -108,12 +108,12 @@ def get_trajectory():
   Send a POST request to this URL.
 
   Input: a JSON object as follows:
-    {
-      cameraPoseN: [0, ...],
-      cameraPoseE: [0, ...],
-      cameraPoseD: [0, ...],
-      cameraPoseT: [0, ...],
-    }
+  {
+    cameraPoseN: [0, ...],
+    cameraPoseE: [0, ...],
+    cameraPoseD: [0, ...],
+    cameraPoseT: [0, ...],
+  }
 
   Returns: a JSON object as follows:
   {
@@ -151,12 +151,14 @@ def get_toric_trajectory():
   Send a POST request to this URL.
 
   Input: a JSON object as follows:
-    {
-      cameraPoseN: [0, ...],
-      cameraPoseE: [0, ...],
-      cameraPoseD: [0, ...],
-      cameraPoseT: [0, ...],
-    }
+  {
+    cameraPoseN: [0, ...],
+    cameraPoseE: [0, ...],
+    cameraPoseD: [0, ...],
+    cameraPoseT: [0, ...],
+    personA: [x, y, z]
+    personB: [x, y, z]
+  }
 
   Returns: a JSON object as follows:
   {
@@ -213,7 +215,67 @@ def get_toric_trajectory():
   }
   return jsonify(data)
 
+@server.route('/get_orientation', methods = ['POST'])
+def get_orientation():
+  '''
+  Send a POST request to this URL.
 
+  Input: a JSON object as follows:
+  {
+    camera: [x, y, z]
+    screenSpaceA: [x, y]
+    screenSpaceB: [x, y]
+    personA: [x, y, z]
+    personB: [x, y, z]
+    fov: [x, y]
+    numTargets: 1 or 2
+  }
+
+  Returns: a JSON object as follows:
+  {
+    'w': w
+    'x': x
+    'y': y
+    'z': z
+  }
+  '''
+  parsed_json = request.get_json()
+  if parsed_json is None:
+    return abort(400)
+
+  camera_list = parsed_json['camera']
+  screenA_list = parsed_json['screenSpaceA']
+  screenB_list = parsed_json['screenSpaceB']
+  personA_list = parsed_json['personA']
+  personB_list = parsed_json['personB']
+  fov_list = parsed_json['fov']
+  numTargets_list = parsed_json['numTargets']
+
+  print "get_toric_trajectory: Calling trajectoryAPI now..."
+
+  # toric interpolation
+
+  numTargets = numTargets_list[0]
+  C = toric.Vector3(camera_list[0],camera_list[1],camera_list[2])
+  SA = toric.Vector2(screenA_list[0],screenA_list[1])
+  PA = toric.Vector3(personA_list[0],personA_list[1],personA_list[2])
+  SB = toric.Vector2(screenB_list[0],screenB_list[1])
+  PB = toric.Vector3(personB_list[0],personB_list[1],personB_list[2])
+  fovX = toric.RadianPi(fov_list[0])
+  fovY = toric.RadianPi(fov_list[1])
+
+  q = toricinterpolation.toric_orientation(C, SA, SB, PA, PB, fovX, fovY, numTargets)
+  
+  print "get_orientation: Response from trajectoryAPI [w: ", q['w'], ", x: ", q['x'], ", y: ", q['y'], ", z: ", q['z']
+
+  data = {
+    'w': q['w'],
+    'x': q['x'],
+    'y': q['y'],
+    'z': q['z']
+  }
+
+  return jsonify(data)
 
 #################################################
 # OTHER STUFF

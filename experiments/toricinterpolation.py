@@ -146,17 +146,33 @@ def toric_interpolation_simple(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
 
     return {'F':F, 't':t}
 
-
 def toric_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
     C_1t = toric.Toric3_FromWorldPosition(C_1, PA_1, PB_1)
     C_2t = toric.Toric3_FromWorldPosition(C_2, PA_1, PB_1)
 
     interp = toric.ToricInterpolator(PA_1, PB_1, C_1t, C_2t)
     t = np.linspace(0,1)
-    sigma = np.array([toric.Toric3_ToWorldPosition(interp.interpolate(a),PA_1,PB_1).np() for a in t])
+    sigma = np.array([toric.Toric3_ToWorldPosition(interp.interpolate(a), PA_1, PB_1).np() for a in t])
     
     return {'F':sigma, 't':t}
 
+def toric_orientation(C, SA, SB, PA, PB, fovX, fovY, numTargets):
+    if (numTargets == 2):
+        rotation = toric.Toric3_ComputeOrientationForTwoTargets(C, SA, SB, PA, PB, fovX, fovY)
+    else:
+        rotation = toric.Toric3_ComputeOrientationForOneTarget(C, SA, PA, fovX, fovY)
+  
+    print "C: ", C
+    print "SA: ", SA
+    print "SB: ", SB
+    print "PA: ", PA
+    print "PB: ", PB
+    print "fovX ", fovX.valueRadians()
+    print "fovY ", fovY.valueRadians()
+    print "x axis: ", rotation.xAxis()
+    print "y axis: ", rotation.yAxis()
+    print "z axis: ", rotation.zAxis()
+    return {'w':rotation.w(), 'x':rotation.x(), 'y':rotation.y(), 'z':rotation.z()}
 
 #
 # Basic Test
