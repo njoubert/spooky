@@ -173,8 +173,15 @@ def get_toric_trajectory():
   cameraPose_e_list = parsed_json['cameraPoseE'] #x
   cameraPose_d_list = parsed_json['cameraPoseD'] #z
   cameraPose_t_list = parsed_json['cameraPoseT']
-  personA_list = parsed_json['personA']
-  personB_list = parsed_json['personB']
+
+  # SA_1, SA_2
+  screen_x_list = parsed_json['screenSpaceX']
+  screen_y_list = parsed_json['screenSpaceY']
+  person_n_list = parsed_json['personN']
+  person_e_list = parsed_json['personE']
+  person_d_list = parsed_json['personD']
+  fov_list = parsed_json['fov']
+  numTargets_list = parsed_json['numTargets']
 
   print "get_toric_trajectory: Calling trajectoryAPI now..."
 
@@ -191,27 +198,34 @@ def get_toric_trajectory():
   # Starting camera position is *outside* of PA_1:
   C_1 = toric.Vector3(cameraPose_n_list[0], cameraPose_e_list[0], cameraPose_d_list[0])
   C_2 = toric.Vector3(cameraPose_n_list[1], cameraPose_e_list[1], cameraPose_d_list[1])
-  interpolated = toricinterpolation.toric_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2)
+  interpolated = toricinterpolation.toric_position_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2)
 
   print C_1
   print C_2
 
-  P_cameraPose_new = interpolated['F']
+  P_cameraPose = interpolated['F']
+  P_cameraOrient = toricinterpolation.toric_orientation_interpolation(P_cameraPose, SA_1, SB_1, SA_2, SB_2, PA_1, PB_1, PA_2, PB_2)
 
-  print "P: ", P_cameraPose_new
+  print "P: ", P_cameraPose
 
   # scale
-  P_cameraPose_new[:,0] *= 1000.0;
-  P_cameraPose_new[:,1] *= 1000.0;
-  P_cameraPose_new[:,2] *= -1000.0; 
-  T_cameraPose_new = c_[interpolated['t'], interpolated['t'], interpolated['t']]
+  P_cameraPose[:,0] *= 1000.0;
+  P_cameraPose[:,1] *= 1000.0;
+  P_cameraPose[:,2] *= -1000.0; 
+  P_cameraOrient[:,0] *= 1000.0;
+  P_cameraOrient[:,1] *= 1000.0;
+  P_cameraOrient[:,2] *= -1000.0; 
+  T_cameraPose = c_[interpolated['t'], interpolated['t'], interpolated['t']]
 
-  P_interpolatedSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose_new, T_cameraPose_new)
+  P_positionSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose, T_cameraPose)
+  P_orientationSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraOrient, T_cameraPose)
   
-  print "get_toric_trajectory: Response from trajectoryAPI", P_interpolatedSpline
+  print "get_toric_trajectory (position): Response from trajectoryAPI", P_positionSpline
+  print "get_toric_trajectory (orientation): Response from trajectoryAPI", P_orientationSpline
 
   data = {
-    'interpolatedSpline': P_interpolatedSpline.tolist(),
+    'positionSpline': P_positionSpline.tolist(),
+    'orientationSpline': P_orientationSpline.tolist(),
   }
   return jsonify(data)
 
@@ -222,13 +236,16 @@ def get_orientation():
 
   Input: a JSON object as follows:
   {
-    camera: [x, y, z]
-    screenSpaceA: [x, y]
-    screenSpaceB: [x, y]
-    personA: [x, y, z]
-    personB: [x, y, z]
-    fov: [x, y]
-    numTargets: 1 or 2
+    cameraPoseN: [0, ...],
+    cameraPoseE: [0, ...],
+    cameraPoseD: [0, ...],
+    screenSpaceX: [0, ...],
+    screenSpaceY: [0, ...],
+    personN: [0, ...],
+    personE: [0, ...],
+    personD: [0, ...],
+    fovX: [0, ...],
+    fovY: [0, ...],
   }
 
   Returns: a JSON object as follows:
@@ -243,26 +260,37 @@ def get_orientation():
   if parsed_json is None:
     return abort(400)
 
-  camera_list = parsed_json['camera']
-  screenA_list = parsed_json['screenSpaceA']
-  screenB_list = parsed_json['screenSpaceB']
-  personA_list = parsed_json['personA']
-  personB_list = parsed_json['personB']
-  fov_list = parsed_json['fov']
-  numTargets_list = parsed_json['numTargets']
+  # camera_list = parsed_json['camera']
+  # screenA_list = parsed_json['screenSpaceA']
+  # screenB_list = parsed_json['screenSpaceB']
+  # personA_list = parsed_json['personA']
+  # personB_list = parsed_json['personB']
+  # fov_list = parsed_json['fov']
+  cameraPose_n_list = parsed_json['cameraPoseN'] #y
+  cameraPose_e_list = parsed_json['cameraPoseE'] #x
+  cameraPose_d_list = parsed_json['cameraPoseD'] #z
+  screen_x_list = parsed_json['screenSpaceX']
+  screen_y_list = parsed_json['screenSpaceY']
+  person_n_list = parsed_json['personN']
+  person_e_list = parsed_json['personE']
+  person_d_list = parsed_json['personD']
+  fov_x_list = parsed_json['fovX']
+  fov_y_list = parsed_json['fovY']
 
   print "get_toric_trajectory: Calling trajectoryAPI now..."
 
   # toric interpolation
+  C = toric.Vector3(cameraPose_n_list[0],cameraPose_e_list[0],cameraPose_d_list[0])
+  SA = toric.Vector2(screen_x_list[0],screen_y_list[0])
+  PA = toric.Vector3(person_n_list[0],person_e_list[0],person_d_list[0])
+  numTargets = len(screen_x_list)
+  if (numTargets > 1):
+    SB = toric.Vector2(screen_x_list[1],screen_y_list[1])
+    PB = toric.Vector3(person_n_list[1],person_e_list[1],person_d_list[1])
+  fovX = toric.RadianPi(fov_x_list[0])
+  fovY = toric.RadianPi(fov_y_list[0])
 
-  numTargets = numTargets_list[0]
-  C = toric.Vector3(camera_list[0],camera_list[1],camera_list[2])
-  SA = toric.Vector2(screenA_list[0],screenA_list[1])
-  PA = toric.Vector3(personA_list[0],personA_list[1],personA_list[2])
-  SB = toric.Vector2(screenB_list[0],screenB_list[1])
-  PB = toric.Vector3(personB_list[0],personB_list[1],personB_list[2])
-  fovX = toric.RadianPi(fov_list[0])
-  fovY = toric.RadianPi(fov_list[1])
+  print "numTargets", numTargets
 
   q = toricinterpolation.toric_orientation(C, SA, SB, PA, PB, fovX, fovY, numTargets)
   
