@@ -146,7 +146,7 @@ def toric_interpolation_simple(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
 
     return {'F':F, 't':t}
 
-def toric_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
+def toric_position_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
     C_1t = toric.Toric3_FromWorldPosition(C_1, PA_1, PB_1)
     C_2t = toric.Toric3_FromWorldPosition(C_2, PA_1, PB_1)
 
@@ -155,6 +155,26 @@ def toric_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
     sigma = np.array([toric.Toric3_ToWorldPosition(interp.interpolate(a), PA_1, PB_1).np() for a in t])
     
     return {'F':sigma, 't':t}
+
+def toric_orientation_interpolation(sigma, SA_1, SB_1, SA_2, SB_2, PA_1, PB_1, PA_2, PB_2):
+    # for each point along the position trajectory
+    # calculate the first and final framing orientation
+    rotations_S1 = np.array([toric.Toric3_ComputeOrientationForTwoTargets(np3_to_vector3(c), SA_1, SB_1, PA_1, PB_1, fovX_1, fovY_1) for c in sigma])
+    rotations_S2 = np.array([toric.Toric3_ComputeOrientationForTwoTargets(np3_to_vector3(c), SA_2, SB_2, PA_2, PB_2, fovX_2, fovY_2) for c in sigma])
+
+    print rotations_S2.size
+    print dir(rotations_S2[0])
+
+    vectors_S1 = np.array([v.yAxis().np() for v in rotations_S1])
+    vectors_S2 = np.array([v.yAxis().np() for v in rotations_S2])
+
+    t = np.c_[np.linspace(0,1)]
+    S1_S2_slerp = np.zeros(vectors_S1.shape)
+    for i in range(0, t.size):
+        S1_S2_slerp[i] = slerp(vectors_S1[i],vectors_S2[i],t[i])
+    #f1.quiver(sigma[:,0],sigma[:,1],S1_S2_slerp[:,0],S1_S2_slerp[:,1],angles='xy',scale_units='xy',scale=1)
+    
+    return {'C':S1_S2_slerp, 't':t}
 
 def toric_orientation(C, SA, SB, PA, PB, fovX, fovY, numTargets):
     if (numTargets == 2):
@@ -193,5 +213,5 @@ PB_2 = toric.Vector3(2,0,0)
 C_1 = toric.Vector3(-1,-0.5,0)
 C_2 = toric.Vector3( 3,-1,0)
 
-toric_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2)
+toric_position_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2)
 
