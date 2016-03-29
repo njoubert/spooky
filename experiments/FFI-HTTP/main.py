@@ -284,6 +284,8 @@ def get_orientation():
   SA = toric.Vector2(screen_x_list[0],screen_y_list[0])
   PA = toric.Vector3(person_n_list[0],person_e_list[0],person_d_list[0])
   numTargets = len(screen_x_list)
+  SB = toric.Vector2(0,0)
+  PB = toric.Vector3(0,0,0)
   if (numTargets > 1):
     SB = toric.Vector2(screen_x_list[1],screen_y_list[1])
     PB = toric.Vector3(person_n_list[1],person_e_list[1],person_d_list[1])
