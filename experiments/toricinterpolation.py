@@ -1,5 +1,11 @@
+#################################################
+# IMPORTS
+#################################################
+
+# Globally useful stuff
 import os, inspect, sys
 
+# Numpy stuff
 import numpy as np
 import numpy.linalg as la
 
