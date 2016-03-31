@@ -23,6 +23,7 @@
 #include "toric/ProjectionMatrix.h"
 
 #include <assert.h>
+#include <iostream>
 
 namespace toric
 {
@@ -582,6 +583,7 @@ namespace toric
 			u = dB.crossProduct(dA);	u.normalize();
 			f = dA + dB;	f.normalize();
 			r = f.crossProduct(u);		r.normalize();
+			std::cout<<"a: "<<dA[0]<<","<<dA[1]<<","<<dA[2]<<" b: "<<dB[0]<<","<<dB[1]<<","<<dB[2]<<" u: "<<u[0]<<","<<u[1]<<","<<u[2]<<std::endl;
 		}
 		Quaternion q_ref(r, f, u);
 
