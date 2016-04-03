@@ -161,8 +161,9 @@ def toric_position_interpolation(C_1, PA_1, PB_1, C_2, PA_2, PB_2):
     sigma = np.array([toric.Toric3_ToWorldPosition(interp.interpolate(a), PA_1, PB_1).np() for a in t])
     
     return {'F':sigma, 't':t}
-
+  
 def toric_orientation_interpolation(sigma, SA_1, SB_1, SA_2, SB_2, PA_1, PB_1, PA_2, PB_2):
+    print sigma
     # for each point along the position trajectory
     # calculate the first and final framing orientation
     rotations_S1 = np.array([toric.Toric3_ComputeOrientationForTwoTargets(np3_to_vector3(c), SA_1, SB_1, PA_1, PB_1, fovX_1, fovY_1) for c in sigma])
