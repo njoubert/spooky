@@ -237,13 +237,13 @@ def get_optimized_blended_spherical_trajectory():
     screenSpaceA : [x, y, ...],
     screenSpaceB : [x, y, ...],
     params: {
-      min_dist: 1
+      minDist: 1
     }
   }
 
   Returns: a JSON object as follows:
   {
-    interpolatedSpline: [...],
+    positionSpline: [...],
   }
   '''
 
@@ -273,13 +273,21 @@ def get_optimized_blended_spherical_trajectory():
   print "  C1 is", C1
   print "  params is:", params
   
-  sigma, wA, sigmaAvg, sigmaA, sigmaB = osp.calculate_position_trajectory_as_optimized_blend_of_spherical_trajectories(
+  sigma, wA, sigmaAvg, sigmaA, sigmaB, t = osp.calculate_position_trajectory_as_optimized_blend_of_spherical_trajectories(
     PA, PB, C0, C1, osp.real_optimizer_unconstrained_at_endpoints, params)
 
   print "Parameterizing returned sigma trajectory over time..."
 
-  
+  P_cameraPose = sigma
 
+  print "P: ", P_cameraPose
+  T_cameraPose = c_[t, t, t]
+  P_positionSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose, T_cameraPose)
+
+  data = {
+    'positionSpline': P_positionSpline.tolist(),
+  }
+  return jsonify(data)
   
 
 @server.route('/get_orientation', methods = ['POST'])

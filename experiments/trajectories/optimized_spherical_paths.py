@@ -76,7 +76,7 @@ def calculate_position_trajectory_as_optimized_blend_of_spherical_trajectories(A
     
     '''
     nsamples = params['nsamples'] if 'nsamples' in params else 50
-    min_dist = params['min_dist'] if 'min_dist' in params else 1
+    min_dist = params['minDist'] if 'minDist' in params else 1
     
     # Set up interpolation vector
     u = np.c_[np.linspace(0,1,num=nsamples)]
@@ -106,7 +106,7 @@ def calculate_position_trajectory_as_optimized_blend_of_spherical_trajectories(A
     sigmaAvg = (sigmaA + sigmaB)/2
     wA, sigmaBlended = blendOptimizer(u, sigmaA, sigmaB, A, B, min_dist, min_dist, params)
 
-    return sigmaBlended, wA, sigmaAvg, sigmaA, sigmaB 
+    return sigmaBlended, wA, sigmaAvg, sigmaA, sigmaB, u
 
 
 ###############################################################################
@@ -117,7 +117,7 @@ def optimize_blending_function_between_two_distance_sigmas(sigmaA, sigmaB, perso
     This function finds a blend between two trajectories that respect two minimum distance constraints.
     '''
     # Some important parameters here
-    nsamples = params['nsamples']
+    nsamples = params['nsamples'] if 'nsamples' in params else 50
     ndims    = 6
     
     dt = 0.01
