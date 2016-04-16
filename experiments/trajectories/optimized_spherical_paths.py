@@ -56,7 +56,7 @@ def slerp(p0, p1, t):
 
 
 ###############################################################################
-# This is an entrypoint
+# This is an entrypoint with customizable optimizers
 ###############################################################################
 def calculate_position_trajectory_as_optimized_blend_of_spherical_trajectories(A, B, C0, C1, blendOptimizer, params):
     '''
@@ -75,8 +75,8 @@ def calculate_position_trajectory_as_optimized_blend_of_spherical_trajectories(A
     All the trajectories it calculates
     
     '''
-    nsamples = params['nsamples']
-    min_dist = params['min_dist']
+    nsamples = params['nsamples'] if 'nsamples' in params else 50
+    min_dist = params['min_dist'] if 'min_dist' in params else 1
     
     # Set up interpolation vector
     u = np.c_[np.linspace(0,1,num=nsamples)]

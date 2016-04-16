@@ -36,6 +36,10 @@ import toric
 add_import_search_dir('../')
 import toricinterpolation
 
+add_import_search_dir('../trajectories')
+import optimized_spherical_paths as osp
+import numpy as np
+
 #################################################
 # WEB SERVER ENDPOINTS
 #################################################
@@ -216,6 +220,67 @@ def get_toric_trajectory():
     #'orientationSpline': P_orientationSpline.tolist(),
   }
   return jsonify(data)
+
+@server.route('/get_optimized_blended_spherical_trajectory', methods = ['POST'])
+def get_optimized_blended_spherical_trajectory():
+  '''
+  Send a POST request to this URL.
+
+  Input: a JSON object as follows:
+  {
+    cameraPoseN: [0, ...],
+    cameraPoseE: [0, ...],
+    cameraPoseD: [0, ...],
+    cameraPoseT: [0, ...],
+    personA: [x, y, z, ...],
+    personB: [x, y, z, ...],
+    screenSpaceA : [x, y, ...],
+    screenSpaceB : [x, y, ...],
+    params: {
+      min_dist: 1
+    }
+  }
+
+  Returns: a JSON object as follows:
+  {
+    interpolatedSpline: [...],
+  }
+  '''
+
+  parsed_json = request.get_json()
+  if parsed_json is None:
+    return abort(400)
+
+  cameraPose_n_list = parsed_json['cameraPoseN'] #y
+  cameraPose_e_list = parsed_json['cameraPoseE'] #x
+  cameraPose_d_list = parsed_json['cameraPoseD'] #z
+  cameraPose_t_list = parsed_json['cameraPoseT']
+  screenSpaceA_list = parsed_json['screenSpaceA']
+  screenSpaceB_list = parsed_json['screenSpaceB']
+
+  PA = np.array(parsed_json['personA'])
+  PB = np.array(parsed_json['personB'])
+
+  C0 = np.array([cameraPose_n_list[0], cameraPose_e_list[0], cameraPose_d_list[0]])
+  C1 = np.array([cameraPose_n_list[1], cameraPose_e_list[1], cameraPose_d_list[1]])
+
+  params = parsed_json['params']
+
+  print "get_optimized_blended_spherical_trajectory: Calling optimizer now..."
+  print "  PA is", PA
+  print "  PB is", PB
+  print "  C0 is", C0
+  print "  C1 is", C1
+  print "  params is:", params
+  
+  sigma, wA, sigmaAvg, sigmaA, sigmaB = osp.calculate_position_trajectory_as_optimized_blend_of_spherical_trajectories(
+    PA, PB, C0, C1, osp.real_optimizer_unconstrained_at_endpoints, params)
+
+  print "Parameterizing returned sigma trajectory over time..."
+
+  
+
+  
 
 @server.route('/get_orientation', methods = ['POST'])
 def get_orientation():
