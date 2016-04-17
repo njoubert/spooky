@@ -138,7 +138,7 @@ def get_trajectory():
 
   P_interpolatedSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose, T_cameraPose)
   
-  print "get_trajectory: Response from trajectoryAPI", P_interpolatedSpline
+  #print "get_trajectory: Response from trajectoryAPI", P_interpolatedSpline
 
   data = {
     'interpolatedSpline': P_interpolatedSpline.tolist(),
@@ -212,7 +212,7 @@ def get_toric_trajectory():
   T_cameraPose = c_[interpolated['t'], interpolated['t'], interpolated['t']]
   P_positionSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose, T_cameraPose)
   
-  print "get_toric_trajectory (position): Response from trajectoryAPI", P_positionSpline
+  #print "get_toric_trajectory (position): Response from trajectoryAPI", P_positionSpline
   #print "get_toric_trajectory (orientation): Response from trajectoryAPI", P_orientationSpline
 
   data = {
@@ -272,6 +272,7 @@ def get_optimized_blended_spherical_trajectory():
   print "  C0 is", C0
   print "  C1 is", C1
   print "  params is:", params
+
   
   sigma, wA, sigmaAvg, sigmaA, sigmaB, t = osp.calculate_position_trajectory_as_optimized_blend_of_spherical_trajectories(
     PA, PB, C0, C1, osp.real_optimizer_unconstrained_at_endpoints, params)
