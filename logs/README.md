@@ -30,7 +30,9 @@ To generate images, run ```python log_graph.py``` in this directory.
 | state0000905 | - | Mar 2  | Canada Community College, Stationary | | | ![state0000905](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000905.iconic.png) |
 | state0000906 | - | Mar 2  | Canada Community College, Jane walking (low sat count) | | | ![state0000906](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000906.iconic.png) |
 | state0000907 | - | Mar 2  | Canada Community College, Jane and Niels walking | | | ![state0000907](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000907.iconic.png) |
-
+| state0000923 | - | Apr 18 | Stationary points, in Gates lawn | | | ![state0000923](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000923.iconic.png) |
+| state0000924 | - | Apr 18 | Walking (mostly stationary) in Gates lawn | | | ![state0000924](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000924.iconic.png) |
+| state0000925 | - | Apr 18 | Walking (mostly stationary) and flying in Gates lawn | | | ![state0000925](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000925.iconic.png) |
 
 
 

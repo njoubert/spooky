@@ -1,6 +1,4 @@
-# Full Analysis Graphs of Logs
-
-## state0000356.pickle
+# Full Analysis Graphs of Logs## state0000356.pickle
 ![state0000356](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000356.full.png)
 ## state0000435.pickle
 ![state0000435](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000435.full.png)
@@ -46,3 +44,9 @@
 ![state0000906](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000906.full.png)
 ## state0000907.pickle
 ![state0000907](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000907.full.png)
+## state0000923.pickle
+![state0000923](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000923.full.png)
+## state0000924.pickle
+![state0000924](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000924.full.png)
+## state0000925.pickle
+![state0000925](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000925.full.png)
