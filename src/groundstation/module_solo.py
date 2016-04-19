@@ -475,6 +475,34 @@ class SoloModule(spooky.modules.SpookyModule):
 
     self.vehicle.send_mavlink(msg)
 
+  def sendLookAtSpookyNED_COMMAND_INT(self, ned, vel=[0,0,0]):
+    if not self.vehicle:
+      return False
+
+    print "sendLookAtSpookyNED_COMMAND_INT", ned
+    llh = self._spooky_to_vehicle_llh_relative(ned)
+    if llh is None:
+      print "Can't look-at, no home location!"
+      return
+
+    # ==================================================
+    # The new, standard, accurate DO_SET_ROI call
+    # ==================================================
+
+    msg = self.vehicle.message_factory.command_int_encode(
+                                                    1, 1,    # target system, target component
+                                                    mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT_INT,
+                                                    mavutil.mavlink.MAV_CMD_DO_SET_ROI, #command
+                                                    0, #confirmation
+                                                    0, #autocontinue
+                                                    0, 0, 0, 0, #params 1-4
+                                                    llh[0],
+                                                    llh[1],
+                                                    llh[2]
+                                                    )
+    self.vehicle.send_mavlink(msg)
+
+
   def sendLookFromSpookyNED_simple(self, ned, vel=[0,0,0], useVel=False):
     if not self.vehicle:
       return False
@@ -607,7 +635,7 @@ class SoloModule(spooky.modules.SpookyModule):
           useVel = desiredstate['usevel'] == 'true'
           self.sendLookFromSpookyNED(desiredstate['position'], vel=self._spooky_to_vehicle_vel(desiredstate['positiondot']), useVel=useVel)
           if desiredstate['orientationtype'] == 'lookat':
-            self.sendLookAtSpookyNED(desiredstate['lookat'])          
+            self.sendLookAtSpookyNED_COMMAND_INT(desiredstate['lookat'])          
           else:
             self.sendCameraOrientation(desiredstate['gimbal'])
         else:
