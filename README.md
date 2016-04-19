@@ -353,6 +353,7 @@ According to Paul Riseborough:
 
 > You can run EKF2 instances for as many IMU’s as your hardware can handle. With EKF_ENABLE  = 0 (legacy EKF disabled), I have flown with three IMU’s on a Solo (EK2_IMU_BITMASK = 7), but was getting some frame overruns. 
 > My preference when using a PX2 with the three IMU’s is to set EK2_IMU_BITMASK = 5 so that is uses IMU1 and 3 (isolated and non-isolated MPU-6000), but if you are doing lots of high speed flight or have higher than average vibration levels, you may want  to use IMU2 instead of IMU3 (EK2_IMU_BITMASK = 3) as although IMU2 tends to have larger offset, it has the benefit of being isolated. The other option if you want to preserve maximum processing resources for your own development is to just use IMU1 (EK2_IMU_BITMASK = 1)
+>  
 > When you set EK2_ALT_SOURCE = 2, it uses GPS as the primary, but maintains a baro to GPS offset, so it can switch across to BARO is GPS drops out. This is a feature I’m keen to get some user testing on (the fallback on loss of GPs has only been tested in SITL), so let me know if you run into any bugs, and i will try to address them quickly.
 
 Turn on the Piksi's simulation mode, and in mavproxy, run:
