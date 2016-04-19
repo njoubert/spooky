@@ -166,6 +166,46 @@ Piksi Console can **send** SBP messages to:
 
 ## Integration with 3DR Solo:
 
+
+### The 3DR Solo Dev Environment
+
+Your main reference is [http://dev.3dr.com/](http://dev.3dr.com/)
+
+The Solo developer toolkit comes with a wonderful command line utility, ```solo```.
+
+#### Flashing Solo
+
+So, you wanna flash your solo with an official release?
+
+	solo flash both latest --clean
+
+So, you wanna build your own copy of the code and flash that?
+
+	git clone https://github.com/3drobotics/ardupilot-solo
+	cd ardupilot-solo
+	git submodule init
+	git submodule update
+	cd ArduCopter
+	make px4-v2
+	make pv4-v2-solo-upload
+
+#### Downloading Logs
+
+So, you wanna download logs?
+
+There's the controller and drone logs. I have not investigates these closely.
+
+Then there's the ArduPilot Dataflash logs. These are mint!
+
+Currently, I believe you can only download through MAVProxy. Connect to SoloLink, then:
+
+	mavproxy --master=0.0.0.0:14550
+	>>> log list
+	>>> log download <XXX>
+
+
+### Integrating 3DR Solo into Spooky
+
 Solo creates a wireless network. The controller, Solo, and any connected devices are on the same network subnet. The network layout is:
 
 	10.1.1.1    - Controller
