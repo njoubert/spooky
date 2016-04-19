@@ -343,10 +343,12 @@ To enable GPS Altitude, set the following params. (Thanks to Paul Riseborough fo
 This enables the secondary EKF, and runs multiple instances for redundancy.
 **NOTE:** *This only works if you are flying a version of Solo that has the EKF2 enabled. This might be the default by now, but as of this writing, I flashed the ArduCopter-rebased-onto-Solo version available here: https://github.com/3drobotics/ardupilot-solo-rebase*
 
-	param set EK2_ENABLE  1
 	param set EKF_ENABLE  0
+	param set EK2_ENABLE  1
 	param set AHRS_EKF_TYPE  2
 	param set EK2_IMU_MASK  3
+	param set EK2_ALT_SOURCE 2
+	param set EK2_POSNE_NOISE 0.05
 
 
 According to Paul Riseborough:
@@ -364,6 +366,25 @@ You should see:
 
 	GPS_RAW_INT {time_usec : 642108000, fix_type : 5, lat : 374292190, lon : -1221738005, alt : 69740, eph : 160, epv : 65535, vel : 396, cog : 12748, satellites_visible : 9}
 	GPS2_RAW {time_usec : 0, fix_type : 1, lat : 373625480, lon : -1221125932, alt : -208190, eph : 9999, epv : 65535, vel : 0, cog : 0, satellites_visible : 0, dgps_numch : 0, dgps_age : 0}
+
+### Tuning Your EKF Estimator and PID Controllers
+
+For best trajectory following, you need a good estimation and control tune.
+
+Parameters you need to tune for your EKF:
+
+	EK2_IMU_MASK
+		3 - uses IMU2, better for high vibration
+		5 - uses IMU1&3, Paul's ideal.
+	
+	EK2_POSNE_NOISE
+
+	EK2_GPS_DELAY
+
+	GPS_CHECK
+		-1 - does all checks
+		0  - skips all GPS preflight checks
+
 
 ### Creating a SBP Relay from Solo to the Ground Station
 
