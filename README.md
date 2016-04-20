@@ -179,15 +179,17 @@ So, you wanna flash your solo with an official release?
 
 	solo flash both latest --clean
 
-So, you wanna build your own copy of the code and flash that?
+So, you wanna build your own copy of the code and flash that? You can flash one of two firmwares. [ardupilot-solo](https://github.com/3drobotics/ardupilot-solo) is the commercial, stock firmware. This is based off an older version of ArduCopter, but includes all the Solo-specific peripherals such as the ESC LEDs.  [ardupilot-solo-rebase](https://github.com/3drobotics/ardupilot-solo-rebase) is the (almost) current master of ArduPilot, rebased on top of solo-specific fixes. This includes the latest ArduCopter code, but does not include all the Solo-specific magic. **For this project, we recommend flashing and developing on top of ardupilot-solo-rebase**
 
-	git clone https://github.com/3drobotics/ardupilot-solo
-	cd ardupilot-solo
+	git clone https://github.com/3drobotics/ardupilot-solo-rebase
+	cd ardupilot-solo-rebase
 	git submodule init
 	git submodule update
 	cd ArduCopter
 	make px4-v2
 	make pv4-v2-solo-upload
+
+
 
 #### Downloading Logs
 
