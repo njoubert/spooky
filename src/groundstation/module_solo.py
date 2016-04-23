@@ -258,10 +258,29 @@ class SoloModule(spooky.modules.SpookyModule):
     if not self.vehicle:
       print "_update_vehicle_home: no vehicle attached"
       return
+
     cmds = self.vehicle.commands
+    cmds.wait_ready()
+
     cmds.download()
     cmds.wait_ready()
     self.vehicle_home = self.vehicle.home_location
+
+
+    ###### NJ HACK: HERE WE RE-SEND THE HOME LOCATION, WHICH ROUNDS TO NEAREST FLOAT
+    
+    self.vehicle.home_location = self.vehicle_home
+
+    # Send MAVLink update.
+    self.vehicle.send_mavlink(self.vehicle.message_factory.command_long_encode(
+        0, 0,  # target system, target component
+        mavutil.mavlink.MAV_CMD_DO_SET_HOME,  # command
+        0,  # confirmation
+        2,  # param 1: 1 to use current position, 2 to use the entered values.
+        0, 0, 0,  # params 2-4
+        self.vehicle_home.lat, self.vehicle_home.lon, self.vehicle_home.alt))
+
+    ###########################################################################
 
     if self.vehicle_home is not None:
       home_location_llh = {
@@ -293,7 +312,21 @@ class SoloModule(spooky.modules.SpookyModule):
       self.vehicle.add_attribute_listener('mount', self.callback_mount)
       self.vehicle.add_attribute_listener('gps_0', self.callback_gps_0)
 
+      msg = self.vehicle.message_factory.command_long_encode(
+          0, 0,    # target system, target component
+          mavutil.mavlink.MAV_CMD_DO_SET_HOME, #command
+          0, #confirmation
+          2, #param 1
+          0, # speed in metres/second
+          0, 0, 
+          37.371208169, 122.110969, 75 #param 3 - 7
+          )
+
+      # send command to vehicle
+      self.vehicle.send_mavlink(msg)
+
       self.set_piksi_home()
+
 
       print "Vehicle Ready!"
 
