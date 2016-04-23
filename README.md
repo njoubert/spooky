@@ -206,6 +206,8 @@ Currently, I believe you can only download through MAVProxy. Connect to SoloLink
 
 ### Integrating 3DR Solo into Spooky
 
+#### Provisioning your Solo
+
 Solo creates a wireless network. The controller, Solo, and any connected devices are on the same network subnet. The network layout is:
 
 	10.1.1.1    - Controller
@@ -223,15 +225,45 @@ Install [solo cli](https://github.com/3drobotics/solo-cli) and check out [docs](
 
 	pip install -UI git+https://github.com/3drobotics/solo-cli
 
-Update and provision Solo:
+Update and provision Solo: **THE ORDER OF THESE STEPS ARE IMPORTANT**
 
 	solo flash both latest --clean
 	solo wifi --name="wifi ssid" --password="wifi password"
-	solo resize
-	<restart by hand>
+	solo install-smart
 	solo resize
 	solo info	
 	solo provision
+	solo install-runit
+	solo install-pip
+
+*Confirming Partition Table Success:*
+
+The resulting partition table should look like:
+
+	root@3dr_solo:~# df -h
+	Filesystem                Size      Used Available Use% Mounted on
+	none                     85.2M     12.0K     85.2M   0% /dev
+	/dev/mmcblk0p2           95.8M     73.3M     22.5M  77% /mnt/boot
+	/dev/loop0               64.6M     64.6M         0 100% /mnt/rootfs.ro
+	/dev/mmcblk0p3          666.4M     63.4M    568.7M  10% /mnt/rootfs.rw
+	none                    666.4M     63.4M    568.7M  10% /
+	tmpfs                   249.9M    188.0K    249.8M   0% /run
+	tmpfs                   249.9M     16.0K    249.9M   0% /var/volatile
+	/dev/mmcblk0p4            6.3G     15.9M      6.0G   0% /log
+
+*Connecting Solo to a WiFi network with an annoying pop-up confirmation box*
+
+You can create an SSH tunnel from your laptop to Solo, so you can click 
+
+*Debugging Help:*
+
+- Be sure your solo is connected to the internet successfully: SSH into solo and ping google
+- The Smart package manager needs to work before resize can succeed. Check that you can run "smart install parted" from the solo shell first.
+- If the solo command line calls fail, check out [their source](https://github.com/3drobotics/solo-cli/tree/master/soloutils) and try to run commands one at a time until you find the culprit
+- Smart has a sticky cache that can get dirty. You can clean this removing all the files in "/var/lib/smart/channels", and running "smart update". There should be no errors.
+
+
+#### Getting Started
 
 Get started with [dronekit from the ground station](http://python.dronekit.io/guide/getting_started.html):
 
