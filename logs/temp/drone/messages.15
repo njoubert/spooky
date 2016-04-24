@@ -1,0 +1,14 @@
+Jan  6 00:56:57 3dr_solo auth.info sshd[13388]: Accepted publickey for root from 10.1.1.153 port 49992 ssh2
+Jan  6 00:56:57 3dr_solo auth.info sshd[13444]: lastlog_openseek: Couldn't stat /var/log/lastlog: No such file or directory
+Jan  6 00:56:57 3dr_solo auth.info sshd[13444]: lastlog_openseek: Couldn't stat /var/log/lastlog: No such file or directory
+Jan  6 00:53:39 3dr_solo user.info kernel: usb 1-1: USB disconnect, device number 2
+Jan  6 00:53:39 3dr_solo user.info kernel: ftdi_sio ttyUSB0: FTDI USB Serial Device converter now disconnected from ttyUSB0
+Jan  6 00:53:39 3dr_solo user.info kernel: ftdi_sio 1-1:1.0: device disconnected
+Jan  6 00:55:31 3dr_solo user.notice shutdown[17970]: shutting down for system reboot
+Jan  6 00:55:31 3dr_solo daemon.info init: Switching to runlevel: 6
+Jan  6 00:55:31 3dr_solo user.warn kernel: mxc_vpu 2040000.vpu: VPU interrupt received.
+Jan  6 00:55:31 3dr_solo user.warn kernel: imx-ipuv3 2400000.ipu: IPU Warning - IPU_INT_STAT_10 = 0x00000001
+Jan  6 00:55:32 3dr_solo daemon.info dnsmasq[839]: reading /etc/resolv.conf
+Jan  6 00:55:32 3dr_solo daemon.info dnsmasq[839]: using nameserver 8.8.8.8#53
+Jan  6 00:55:32 3dr_solo daemon.info dnsmasq[839]: exiting on receipt of SIGTERM
+Jan  6 00:55:32 3dr_solo syslog.info syslogd exiting

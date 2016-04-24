@@ -1,0 +1,20 @@
+Jan  6 00:55:58 3dr_solo local4.info +892 tlm: Installing SIGQUIT signal handler
+Jan  6 00:55:58 3dr_solo local4.info +896 tlm: telem_forwarder starting: built Nov 17 2015 01:38:09
+Jan  6 00:55:58 3dr_solo local4.info +899 tlm: serial port: /dev/ttymxc1
+Jan  6 00:55:58 3dr_solo local4.info +905 tlm: serial baudrate: 921600
+Jan  6 00:55:58 3dr_solo local4.info +905 tlm: serial hw flow: true
+Jan  6 00:55:58 3dr_solo local4.info +905 tlm: UDP dest port: 14550
+Jan  6 00:55:58 3dr_solo local4.info +905 tlm: use GPS time: true
+Jan  6 00:55:58 3dr_solo local4.info +905 tlm: tos: 0x60
+Jan  6 00:55:58 3dr_solo local4.info +906 tlm: opened port 14560
+Jan  6 00:55:58 3dr_solo local4.info +909 tlm: opened serial port /dev/ttymxc1
+Jan  6 00:56:00 3dr_solo local4.info +419 tlm: GPS time: 2014-04-06 00:58:33.026000
+Apr  6 00:58:33 3dr_solo local4.info +026 tlm: clock set from GPS
+Apr  6 00:58:37 3dr_solo local4.info +005 tlm: adding new client 127.0.0.1:52909
+Apr  6 00:58:37 3dr_solo local4.info +005 tlm: ARP: Seen (255/0) from 127.0.0.1:52909 client=0x762fdc44
+Apr  6 00:58:37 3dr_solo local4.info +707 tlm: SET_MODE: from 127.0.0.1:52909
+Apr  6 00:58:37 3dr_solo local4.info +707 tlm: SET_MODE: len=6 src_sys=255 src_comp=0
+Apr  6 00:58:37 3dr_solo local4.info +707 tlm: SET_MODE: custom_mode=0.0.0.5 target_system=1 base_mode=1
+Apr  6 00:58:41 3dr_solo local4.info +570 tlm: down: 178 m/s, 5513 b/s, 5%; up: 2 m/s, 43 b/s, 0%
+Apr  6 00:58:51 3dr_solo local4.info +570 tlm: down: 103 m/s, 2868 b/s, 3%; up: 2 m/s, 35 b/s, 0%
+Apr  6 00:59:01 3dr_solo local4.info +571 tlm: down: 107 m/s, 2935 b/s, 3%; up: 1 m/s, 33 b/s, 0%

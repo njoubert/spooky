@@ -11,7 +11,7 @@
 		"dronekit-streamrate":       10,
 		"dronekit-airspeed":         0.1,
 		"dronekit-groundspeed":      0.1,
-		"sololink-my-ip":           "10.1.1.100",
+		"sololink-my-ip":           "10.1.1.153",
 		"solo-ip":                  "10.1.1.10",
 		"solo-sbp-port":            18000,
 		"solo-sbp-relay-send-port": 18002,

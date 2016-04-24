@@ -1,0 +1,96 @@
+Jan  6 00:36:03 3dr_controller local0.info +371 stm32: main: starting: built Nov 17 2015 01:38:05
+Jan  6 00:36:03 3dr_controller local0.info +386 stm32: logging telemetry gaps >= 1000 msec
+Jan  6 00:36:03 3dr_controller local0.info +386 stm32: pkt: opened port 5005
+Jan  6 00:36:03 3dr_controller local0.info +386 stm32: pkt: opened port 5015
+Jan  6 00:36:03 3dr_controller local0.info +386 stm32: pkt: opened port 5012
+Jan  6 00:36:03 3dr_controller local0.info +386 stm32: pkt: opened port 5013
+Jan  6 00:36:03 3dr_controller local0.info +386 stm32: pkt: opened port 5014
+Jan  6 00:36:03 3dr_controller local0.info +386 stm32: pkt: opened port 5011
+Jan  6 00:36:03 3dr_controller local0.info +387 stm32: pkt: opened port 5010
+Jan  6 00:36:03 3dr_controller local0.info +387 stm32: pkt: opened port 5024
+Jan  6 00:36:03 3dr_controller local0.info +387 stm32: pkt: opened port 5022
+Jan  6 00:36:03 3dr_controller local0.info +387 stm32: pkt: opened port 5016
+Jan  6 00:36:03 3dr_controller local0.info +387 stm32: pkt: opened port 5021
+Jan  6 00:36:03 3dr_controller local0.info +388 stm32: pkt: opened port 5017
+Jan  6 00:36:03 3dr_controller local0.info +388 stm32: pkt: opened port 5018
+Jan  6 00:36:03 3dr_controller local0.info +388 stm32: pkt: opened port 5019
+Jan  6 00:36:03 3dr_controller local0.info +388 stm32: pkt: opened port 5020
+Jan  6 00:36:03 3dr_controller local0.info +388 stm32: pkt: opened port 5026
+Jan  6 00:36:03 3dr_controller local0.info +389 stm32: opened serial port /dev/ttymxc1
+Jan  6 00:36:03 3dr_controller local0.info +452 stm32: ButtonEvent downstream_thread: starting
+Jan  6 00:36:03 3dr_controller local0.info +453 stm32: InputReport downstream_thread: starting
+Jan  6 00:36:03 3dr_controller local0.info +453 stm32: InputReport listen_thread: starting
+Jan  6 00:36:03 3dr_controller local0.info +453 stm32: ButtonEvent listen_thread: starting
+Jan  6 00:36:03 3dr_controller local0.info +489 stm32: slip - initial sync
+Jan  6 00:36:03 3dr_controller local0.info +493 stm32: sys: unique id: 30:ff:d3:05:46:59:39:38:08:66:20:43
+Jan  6 00:36:03 3dr_controller local0.info +493 stm32: sys: hardware ver: 3
+Jan  6 00:36:03 3dr_controller local0.info +493 stm32: sys: software ver: v1.2.6
+Jan  6 00:36:03 3dr_controller local0.info +493 stm32: sys: (try 2)
+Jan  6 00:36:13 3dr_controller local0.info +495 stm32: up 1:504 3:11 14:505 0 B 0.00 KB/s dn 0 B 0.00 KB/s
+Jan  6 00:36:19 3dr_controller local0.info +497 stm32: got solo ip: 10.1.1.10
+Jan  5 23:59:58 3dr_controller local0.info +901 stm32: up 1:500 3:10 14:499 5200 B 0.51 KB/s dn 66086 B 6.45 KB/s
+Jan  5 23:59:59 3dr_controller local0.info +625 stm32: ButtonEvent listen_thread: adding client 29 at 10.1.1.10:50047
+Jan  6 00:00:08 3dr_controller local0.info +904 stm32: up 1:500 3:10 14:501 13000 B 1.27 KB/s dn 80760 B 7.88 KB/s
+Jan  6 00:00:18 3dr_controller local0.info +906 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 80874 B 7.90 KB/s
+Jan  6 00:00:28 3dr_controller local0.info +909 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 78876 B 7.70 KB/s
+Jan  6 00:00:38 3dr_controller local0.info +912 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 81658 B 7.97 KB/s
+Jan  6 00:00:48 3dr_controller local0.info +915 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 79403 B 7.75 KB/s
+Jan  6 00:00:58 3dr_controller local0.info +918 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 81609 B 7.97 KB/s
+Jan  6 00:01:08 3dr_controller local0.info +921 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 79403 B 7.75 KB/s
+Jan  6 00:01:18 3dr_controller local0.info +923 stm32: up 1:501 3:10 14:501 13026 B 1.27 KB/s dn 81302 B 7.94 KB/s
+Jan  6 00:01:28 3dr_controller local0.info +929 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 78513 B 7.66 KB/s
+Jan  6 00:01:38 3dr_controller local0.info +931 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 78560 B 7.67 KB/s
+Jan  6 00:01:48 3dr_controller local0.info +934 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76510 B 7.47 KB/s
+Jan  6 00:01:58 3dr_controller local0.info +935 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 75293 B 7.35 KB/s
+Jan  6 00:02:08 3dr_controller local0.info +939 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76505 B 7.47 KB/s
+Jan  6 00:02:18 3dr_controller local0.info +943 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76780 B 7.50 KB/s
+Jan  6 00:02:28 3dr_controller local0.info +946 stm32: up 1:501 3:10 14:501 13026 B 1.27 KB/s dn 76424 B 7.46 KB/s
+Jan  6 00:02:38 3dr_controller local0.info +949 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 75480 B 7.37 KB/s
+Jan  6 00:02:48 3dr_controller local0.info +952 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76780 B 7.50 KB/s
+Jan  6 00:02:58 3dr_controller local0.info +953 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76245 B 7.44 KB/s
+Jan  6 00:03:08 3dr_controller local0.info +957 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76869 B 7.50 KB/s
+Jan  6 00:03:18 3dr_controller local0.info +960 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 74953 B 7.32 KB/s
+Jan  6 00:03:28 3dr_controller local0.info +963 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76780 B 7.50 KB/s
+Jan  6 00:03:38 3dr_controller local0.info +966 stm32: up 1:501 3:10 14:500 13026 B 1.27 KB/s dn 76951 B 7.51 KB/s
+Jan  6 00:03:48 3dr_controller local0.info +969 stm32: up 1:500 3:10 14:501 13000 B 1.27 KB/s dn 74847 B 7.31 KB/s
+Jan  6 00:03:58 3dr_controller local0.info +971 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76780 B 7.50 KB/s
+Jan  6 00:04:08 3dr_controller local0.info +974 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76424 B 7.46 KB/s
+Jan  6 00:04:18 3dr_controller local0.info +977 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76681 B 7.49 KB/s
+Jan  6 00:04:28 3dr_controller local0.info +980 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 75203 B 7.34 KB/s
+Jan  6 00:04:38 3dr_controller local0.info +983 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76424 B 7.46 KB/s
+Jan  6 00:04:48 3dr_controller local0.info +985 stm32: up 1:499 3:10 14:499 12974 B 1.27 KB/s dn 76951 B 7.51 KB/s
+Jan  6 00:04:58 3dr_controller local0.info +988 stm32: up 1:501 3:10 14:501 13026 B 1.27 KB/s dn 74953 B 7.32 KB/s
+Jan  6 00:05:08 3dr_controller local0.info +992 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76780 B 7.50 KB/s
+Jan  6 00:05:18 3dr_controller local0.info +995 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76845 B 7.50 KB/s
+Jan  6 00:05:28 3dr_controller local0.info +997 stm32: up 1:499 3:10 14:499 12974 B 1.27 KB/s dn 76269 B 7.45 KB/s
+Jan  6 00:05:39 3dr_controller local0.info +000 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 75309 B 7.35 KB/s
+Jan  6 00:05:49 3dr_controller local0.info +003 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76424 B 7.46 KB/s
+Jan  6 00:05:59 3dr_controller local0.info +006 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76951 B 7.51 KB/s
+Jan  6 00:06:09 3dr_controller local0.info +009 stm32: up 1:501 3:10 14:501 13026 B 1.27 KB/s dn 76674 B 7.49 KB/s
+Jan  6 00:06:19 3dr_controller local0.info +012 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 74953 B 7.32 KB/s
+Jan  6 00:06:29 3dr_controller local0.info +015 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76951 B 7.51 KB/s
+Jan  6 00:06:39 3dr_controller local0.info +018 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76510 B 7.47 KB/s
+Jan  6 00:06:49 3dr_controller local0.info +021 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 74953 B 7.32 KB/s
+Jan  6 00:06:59 3dr_controller local0.info +024 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76845 B 7.50 KB/s
+Jan  6 00:07:09 3dr_controller local0.info +027 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76424 B 7.46 KB/s
+Jan  6 00:07:19 3dr_controller local0.info +030 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76780 B 7.50 KB/s
+Jan  6 00:07:29 3dr_controller local0.info +033 stm32: up 1:501 3:10 14:501 13026 B 1.27 KB/s dn 75480 B 7.37 KB/s
+Jan  6 00:07:39 3dr_controller local0.info +036 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76424 B 7.46 KB/s
+Jan  6 00:07:49 3dr_controller local0.info +038 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76519 B 7.47 KB/s
+Jan  6 00:07:59 3dr_controller local0.info +041 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 74953 B 7.32 KB/s
+Jan  6 00:08:09 3dr_controller local0.info +044 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76951 B 7.51 KB/s
+Jan  6 00:08:19 3dr_controller local0.info +049 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76780 B 7.49 KB/s
+Jan  6 00:08:29 3dr_controller local0.info +052 stm32: up 1:501 3:10 14:501 13026 B 1.27 KB/s dn 76424 B 7.46 KB/s
+Jan  6 00:08:39 3dr_controller local0.info +055 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 75374 B 7.36 KB/s
+Jan  6 00:08:49 3dr_controller local0.info +058 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76424 B 7.46 KB/s
+Jan  6 00:08:59 3dr_controller local0.info +061 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76510 B 7.47 KB/s
+Jan  6 00:09:09 3dr_controller local0.info +064 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 74953 B 7.32 KB/s
+Jan  6 00:09:19 3dr_controller local0.info +068 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76845 B 7.50 KB/s
+Jan  6 00:09:29 3dr_controller local0.info +071 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76780 B 7.50 KB/s
+Jan  6 00:09:39 3dr_controller local0.info +075 stm32: up 1:501 3:10 14:501 13026 B 1.27 KB/s dn 76424 B 7.46 KB/s
+Jan  6 00:09:49 3dr_controller local0.info +081 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 75480 B 7.37 KB/s
+Jan  6 00:09:59 3dr_controller local0.info +084 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76424 B 7.46 KB/s
+Jan  6 00:10:09 3dr_controller local0.info +087 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 76519 B 7.47 KB/s
+Jan  6 00:10:19 3dr_controller local0.info +091 stm32: up 1:500 3:10 14:500 13000 B 1.27 KB/s dn 74953 B 7.32 KB/s
+Jan  6 00:10:29 3dr_controller local0.info +094 stm32: up 1:501 3:10 14:500 13026 B 1.27 KB/s dn 76951 B 7.51 KB/s
+Jan  6 00:10:39 3dr_controller local0.info +097 stm32: up 1:500 3:10 14:501 13000 B 1.27 KB/s dn 76780 B 7.50 KB/s

@@ -1,0 +1,146 @@
+2015-04-21 01:31:07,090 net  INFO     hostapdconfig.py starting
+2015-04-21 01:31:07,093 net  INFO     --ssid SoloLink_
+2015-04-21 01:31:07,099 net  INFO     changing ssid in /etc/hostapd.conf from SoloLink_Default to SoloLink_
+2015-04-21 01:31:07,112 net  INFO     --ssidmac wlan0-ap
+2015-04-21 01:31:07,127 net  INFO     changing ssid in /etc/hostapd.conf from SoloLink_ to SoloLink_3EF318
+2015-04-21 01:31:07,487 net  INFO     hostapdconfig.py starting
+2015-04-21 01:31:07,490 net  INFO     --channel wlan0
+2015-04-21 01:31:07,514 net  INFO     can't get wlan0 frequency; defaulting to channel 0
+2015-04-21 01:31:07,522 net  INFO     changing channel in /etc/hostapd.conf from 0 to 0
+2015-04-21 01:31:08,492 pair INFO     pair_server starting
+2015-04-21 01:31:08,513 pair INFO     using default check_versions=True
+2015-04-21 01:31:08,514 pair INFO     sololink version "0.6.12"
+2015-04-21 01:31:08,515 pair INFO     firmware version "0.6.14"
+
+acs_num_scans=5
+wlan0-ap:
+   Freq   Noise   OnChan   ChBusy  ExtBusy    Rxing    Txing
+Ch  MHz     dBm     msec     msec     msec     msec     msec
+ 1 2412     -95     8634     3105              2846        0
+ 2 2417     -95      109        0                 0        0
+ 3 2422     -95      109        0                 0        0
+ 4 2427     -95      109        0                 0        0
+ 5 2432     -95      109        0                 0        0
+ 6 2437     -95      109        0                 0        0
+ 7 2442     -95      109        0                 0        0
+ 8 2447     -95      109        0                 0        0
+ 9 2452     -94      109        0                 0        0
+10 2457     -94      109        0                 0        0
+11 2462 *   -95     4506      262               135      113
+
+2015-04-21 01:31:01,385 net  INFO     hostapdconfig.py starting
+2015-04-21 01:31:01,396 net  INFO     --channel wlan0
+2015-04-21 01:31:01,420 net  INFO     can't get wlan0 frequency; defaulting to channel 0
+2015-04-21 01:31:01,428 net  INFO     changing channel in /etc/hostapd.conf from 0 to 0
+2015-04-21 01:31:02,486 pair INFO     pair_server starting
+2015-04-21 01:31:02,506 pair INFO     using default check_versions=True
+2015-04-21 01:31:02,507 pair INFO     sololink version "0.6.12"
+2015-04-21 01:31:02,508 pair INFO     firmware version "0.6.14"
+
+acs_num_scans=5
+wlan0-ap:
+   Freq   Noise   OnChan   ChBusy  ExtBusy    Rxing    Txing
+Ch  MHz     dBm     msec     msec     msec     msec     msec
+ 1 2412     -93     2525      762               611        0
+ 2 2417     -92      109       37                25        0
+ 3 2422     -93      109       41                35        0
+ 4 2427     -93      109       38                33        0
+ 5 2432     -93      109       38                33        0
+ 6 2437     -93      109       46                38        0
+ 7 2442     -93      109       38                32        0
+ 8 2447     -93      109       29                19        0
+ 9 2452     -93      109       38                32        0
+10 2457     -93      109       21                16        0
+11 2462 *   -93     4466     1387              1188       98
+
+2015-04-21 01:31:21,738 pair INFO     pin request: name="Solo", mac=88:dc:96:3d:60:14, uuid=87a550e0-40c2-5096-96fb-208921cec380
+2015-04-21 01:31:21,739 pair INFO     pin request from unknown solo; need user confirmation
+2015-04-21 01:31:21,741 pair INFO     IDLE -> USER_WAIT
+2015-04-21 01:31:48,596 pair INFO     setting 88:dc:96:3d:60:14 as paired solo
+2015-04-21 01:31:48,607 pair INFO     USER_WAIT -> CONNECTED
+2015-04-21 01:31:58,883 pair INFO     solo version "0.6.12"; firmware "0.1.0"
+2015-04-21 01:31:58,884 pair INFO     connected with ('10.1.1.10', 33366)
+2015-04-21 01:31:58,886 pair INFO     switching to runlevel.READY
+2015-04-21 01:32:04.000 vid  INFO     starting
+2015-04-21 01:32:05.000 vid  INFO     link to solo at 10.1.1.10 is up
+2015-04-21 01:32:05.000 vid  INFO     starting video
+2015-04-21 01:32:06,595 vid  INFO     starting
+2015-04-21 01:32:06,759 app  INFO     starting
+2015-04-21 01:32:06,848 app  INFO     waiting for connection
+2015-04-21 01:32:09,178 tlm  INFO     starting
+2015-04-21 01:32:09,224 tlm  INFO     solo is at 10.1.1.10:14560
+2015-04-21 01:32:39,315 tlm  INFO     downlink: 2383    uplink: 0
+2015-04-21 01:33:09,225 tlm  INFO     downlink: 4755    uplink: 0
+2015-04-21 01:33:39,227 tlm  INFO     downlink: 7129    uplink: 0
+2015-04-21 01:34:09,240 tlm  INFO     downlink: 9521    uplink: 0
+2015-04-21 01:34:39,244 tlm  INFO     downlink: 11902    uplink: 0
+2015-04-21 01:35:09,260 tlm  INFO     downlink: 14286    uplink: 0
+2015-04-21 01:35:39,248 tlm  INFO     downlink: 16510    uplink: 0
+2015-04-21 01:36:09,295 tlm  INFO     downlink: 18758    uplink: 6
+2015-04-21 01:36:38.000 vid  INFO     terminate
+2015-04-21 01:36:01,381 net  INFO     hostapdconfig.py starting
+2015-04-21 01:36:01,395 net  INFO     --channel wlan0
+2015-04-21 01:36:01,419 net  INFO     can't get wlan0 frequency; defaulting to channel 0
+2015-04-21 01:36:01,427 net  INFO     changing channel in /etc/hostapd.conf from 0 to 0
+2015-04-21 01:36:02,418 pair INFO     pair_server starting
+2015-04-21 01:36:02,446 pair INFO     using default check_versions=True
+2015-04-21 01:36:02,447 pair INFO     sololink version "0.6.12"
+2015-04-21 01:36:02,448 pair INFO     firmware version "0.6.14"
+2015-04-21 01:36:01,387 net  INFO     hostapdconfig.py starting
+2015-04-21 01:36:01,401 net  INFO     --channel wlan0
+2015-04-21 01:36:01,425 net  INFO     can't get wlan0 frequency; defaulting to channel 0
+2015-04-21 01:36:01,433 net  INFO     changing channel in /etc/hostapd.conf from 0 to 0
+2015-04-21 01:36:02,515 pair INFO     pair_server starting
+2015-04-21 01:36:02,547 pair INFO     using default check_versions=True
+2015-04-21 01:36:02,548 pair INFO     sololink version "0.6.12"
+2015-04-21 01:36:02,548 pair INFO     firmware version "0.6.14"
+
+acs_num_scans=5
+wlan0-ap:
+   Freq   Noise   OnChan   ChBusy  ExtBusy    Rxing    Txing
+Ch  MHz     dBm     msec     msec     msec     msec     msec
+ 1 2412     -94     2572     1078               981        0
+ 2 2417     -93      109       44                40        0
+ 3 2422     -95      109       39                34        0
+ 4 2427 *   -95     4486     1117               741       91
+ 5 2432     -93      109       39                37        0
+ 6 2437     -93      109       53                51        0
+ 7 2442     -95      109       48                44        0
+ 8 2447     -93      109       50                47        0
+ 9 2452     -93      109       47                43        0
+10 2457     -93      109       55                49        0
+11 2462     -93      109       73                70        0
+
+2015-04-21 01:36:25,667 pair INFO     connection request from known solo: send CONN_ACK (yes)
+2015-04-21 01:36:25,669 pair INFO     solo version "0.6.12"; firmware "0.1.0"
+2015-04-21 01:36:25,670 pair INFO     IDLE -> CONNECTED
+2015-04-21 01:36:25,670 pair INFO     connected with ('10.1.1.10', 57676)
+2015-04-21 01:36:25,671 pair INFO     switching to runlevel.READY
+2015-04-21 01:36:29,210 tlm  INFO     starting
+2015-04-21 01:36:29,366 tlm  INFO     solo is at 10.1.1.10:14560
+2015-04-21 01:36:29.000 vid  INFO     starting
+2015-04-21 01:36:30.000 vid  INFO     link to solo at 10.1.1.10 is up
+2015-04-21 01:36:30.000 vid  INFO     starting video
+2015-04-21 01:36:31,051 vid  INFO     starting
+2015-04-21 01:36:31,108 app  INFO     starting
+2015-04-21 01:36:31,130 app  INFO     waiting for connection
+2015-04-21 01:36:59,362 tlm  INFO     downlink: 2393    uplink: 0
+2015-04-21 01:37:04,357 tlm  INFO     adding ('a0:99:9b:a4:2c:c2', '10.1.1.174')
+2015-04-21 01:37:12,574 app  INFO     connection from ('10.1.1.174', 58850)
+2015-04-21 01:37:12,575 app  INFO     app IP is 10.1.1.174
+2015-04-21 01:37:12,624 vid  INFO     0.1 pkts/s, 2 bytes/s, 16 bits/s)
+2015-04-21 01:37:12,658 vid  INFO     0.1 pkts/s, 2 bytes/s, 16 bits/s)
+2015-04-21 01:37:12,691 vid  INFO     0.1 pkts/s, 2 bytes/s, 16 bits/s)
+2015-04-21 01:37:12,724 vid  INFO     0.1 pkts/s, 2 bytes/s, 16 bits/s)
+2015-04-21 01:37:21,125 vid  INFO     26.0 pkts/s, 1295 bytes/s, 10360 bits/s)
+2015-04-21 01:37:29,268 tlm  INFO     downlink: 4730    uplink: 47
+2015-04-21 01:37:31,128 vid  INFO     31.2 pkts/s, 1779 bytes/s, 14232 bits/s)
+2015-04-21 01:37:41,133 vid  INFO     30.8 pkts/s, 1396 bytes/s, 11168 bits/s)
+2015-04-21 01:37:51,109 vid  INFO     31.1 pkts/s, 1776 bytes/s, 14208 bits/s)
+2015-04-21 01:37:59,423 tlm  INFO     downlink: 7044    uplink: 76
+2015-04-21 01:38:01,106 vid  INFO     30.8 pkts/s, 1395 bytes/s, 11160 bits/s)
+2015-04-21 01:38:11,120 vid  INFO     31.2 pkts/s, 1777 bytes/s, 14216 bits/s)
+2015-04-21 01:38:21,109 vid  INFO     30.8 pkts/s, 1396 bytes/s, 11168 bits/s)
+2015-04-21 01:38:29,297 tlm  INFO     downlink: 9386    uplink: 106
+2015-04-21 01:38:31,111 vid  INFO     30.8 pkts/s, 1395 bytes/s, 11160 bits/s)
+2015-04-21 01:38:40.000 vid  INFO     terminate

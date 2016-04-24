@@ -1,0 +1,253 @@
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 3.10.17-rt12-1.0.0_ga+g4176d57 (jfinley@ip-10-100-24-103) (gcc version 4.8.1 (GCC) ) #8 SMP PREEMPT Wed Nov 18 20:25:43 UTC 2015
+[    0.000000] CPU: ARMv7 Processor [412fc09a] revision 10 (ARMv7), cr=10c53c7d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine: Freescale i.MX6 Quad/DualLite (Device Tree), model: 3DRobotics i.MX6 Solo HDTC
+[    0.000000] cma: CMA: reserved 320 MiB at 1c000000
+[    0.000000] Memory policy: ECC disabled, Data cache writealloc
+[    0.000000] On node 0 totalpages: 131072
+[    0.000000] free_area_init_node: node 0, pgdat 81004b80, node_mem_map 81069000
+[    0.000000]   DMA zone: 1024 pages used for memmap
+[    0.000000]   DMA zone: 0 pages reserved
+[    0.000000]   DMA zone: 131072 pages, LIFO batch:31
+[    0.000000] PERCPU: Embedded 8 pages/cpu @8147c000 s9024 r8192 d15552 u32768
+[    0.000000] pcpu-alloc: s9024 r8192 d15552 u32768 alloc=8*4096
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 130048
+[    0.000000] Kernel command line: console=ttymxc0,115200 nosmp root=/dev/mmcblk0p2 rootwait ro video=mxcfb0:dev=hdmi,1280x720M@60 consoleblank=0 factoryreset=0 vt.global_cursor_default=0
+[    0.000000] PID hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Memory: 512MB = 512MB total
+[    0.000000] Memory: 174488k/174488k available, 349800k reserved, 0K highmem
+[    0.000000] Virtual kernel memory layout:
+    vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+    fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+    vmalloc : 0xa0800000 - 0xff000000   (1512 MB)
+    lowmem  : 0x80000000 - 0xa0000000   ( 512 MB)
+    pkmap   : 0x7fe00000 - 0x80000000   (   2 MB)
+    modules : 0x7f000000 - 0x7fe00000   (  14 MB)
+      .text : 0x80008000 - 0x8065018c   (6433 kB)
+      .init : 0x80651000 - 0x80fcc340   (9709 kB)
+      .data : 0x80fce000 - 0x81006000   ( 224 kB)
+       .bss : 0x81006000 - 0x810682e0   ( 393 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=1.
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] L310 cache controller enabled
+[    0.000000] l2x0: 16 ways, CACHE_ID 0x410000c8, AUX_CTRL 0x32050000, Cache size: 524288 B
+[    0.000000] sched_clock: 32 bits at 3000kHz, resolution 333ns, wraps every 1431655ms
+[    0.000000] CPU identified as i.MX6DL, silicon rev 1.3
+[    0.000000] Console: colour dummy device 80x30
+[    0.000775] Calibrating delay loop... 1581.05 BogoMIPS (lpj=7905280)
+[    0.090128] pid_max: default: 32768 minimum: 301
+[    0.090303] Mount-cache hash table entries: 512
+[    0.091030] CPU: Testing write buffer coherency: ok
+[    0.091285] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.091318] Setting up static identity map for 0x804a7bd8 - 0x804a7c30
+[    0.130322] Brought up 1 CPUs
+[    0.130333] SMP: Total of 1 processors activated (1581.05 BogoMIPS).
+[    0.130338] CPU: All CPU(s) started in SVC mode.
+[    0.130875] devtmpfs: initialized
+[    0.134810] pinctrl core: initialized pinctrl subsystem
+[    0.135092] regulator-dummy: no parameters
+[    0.154225] NET: Registered protocol family 16
+[    0.163535] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.164226] Use WDOG1 as reset source
+[    0.172493] syscon 20c8000.anatop: regmap [mem 0x020c8000-0x020c8fff] registered
+[    0.172741] vdd1p1: 800 <--> 1375 mV at 1125 mV 
+[    0.173045] vdd3p0: 2800 <--> 3150 mV at 3000 mV 
+[    0.173321] vdd2p5: 2000 <--> 2750 mV at 2425 mV 
+[    0.173593] cpu: 725 <--> 1450 mV at 1150 mV 
+[    0.173878] vddpu: 725 <--> 1450 mV 
+[    0.174172] vddsoc: 725 <--> 1450 mV at 1200 mV 
+[    0.175887] syscon 20e0000.iomuxc-gpr: regmap [mem 0x020e0000-0x020e0037] registered
+[    0.178530] syscon 21bc000.ocotp-ctrl: regmap [mem 0x021bc000-0x021bffff] registered
+[    0.182529] hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
+[    0.182538] hw-breakpoint: maximum watchpoint size is 4 bytes.
+[    0.184020] imx6dl-pinctrl 20e0000.iomuxc: initialized IMX pinctrl driver
+[    0.188376] bio: create slab <bio-0> at 0
+[    0.190291] mxs-dma 110000.dma-apbh: initialized
+[    0.191051] usb_otg_vbus: 5000 mV 
+[    0.191246] usb_h1_vbus: 5000 mV 
+[    0.191446] mipi_dsi_pwr_on: no parameters
+[    0.191639] 3P3V: 3300 mV 
+[    0.191813] 1P8V: 1800 mV 
+[    0.192016] sensor-supply: 3300 mV 
+[    0.192293] vgaarb: loaded
+[    0.192836] usbcore: registered new interface driver usbfs
+[    0.192895] usbcore: registered new interface driver hub
+[    0.193006] usbcore: registered new device driver usb
+[    0.193817] i2c i2c-0: IMX I2C adapter registered
+[    0.194467] i2c i2c-1: IMX I2C adapter registered
+[    0.194724] i2c i2c-2: IMX I2C adapter registered
+[    0.194834] Linux video capture interface: v2.00
+[    0.194873] pps_core: LinuxPPS API ver. 1 registered
+[    0.194880] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.194899] PTP clock support registered
+[    0.210526] imx-ipuv3 2400000.ipu: IPU DMFC NORMAL mode: 1(0~1), 5B(4,5), 5F(6,7)
+[    0.211354] Advanced Linux Sound Architecture Driver Initialized.
+[    0.211898] Switching to clocksource mxc_timer1
+[    0.346429] PCI host bridge to bus 0000:00
+[    0.346446] pci_bus 0000:00: root bus resource [io  0x1000-0x10000]
+[    0.346456] pci_bus 0000:00: root bus resource [mem 0x01000000-0x01efffff]
+[    0.346468] pci_bus 0000:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.346511] pci 0000:00:00.0: [16c3:abcd] type 01 class 0x060400
+[    0.346539] pci 0000:00:00.0: reg 10: [mem 0x00000000-0x000fffff]
+[    0.346565] pci 0000:00:00.0: reg 38: [mem 0x00000000-0x0000ffff pref]
+[    0.346626] pci 0000:00:00.0: supports D1
+[    0.346635] pci 0000:00:00.0: PME# supported from D0 D1 D3hot D3cold
+[    0.346844] PCI: bus0: Fast back to back transfers disabled
+[    0.347075] pci 0000:01:00.0: [168c:0030] type 00 class 0x028000
+[    0.347169] pci 0000:01:00.0: reg 10: [mem 0x00000000-0x0001ffff 64bit]
+[    0.347361] pci 0000:01:00.0: reg 30: [mem 0x00000000-0x0000ffff pref]
+[    0.347493] pci 0000:01:00.0: supports D1
+[    0.347501] pci 0000:01:00.0: PME# supported from D0 D1 D3hot
+[    0.347727] PCI: bus1: Fast back to back transfers disabled
+[    0.347742] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+[    0.347757] pci_bus 0000:00: busn_res: [bus 00-ff] end is updated to 01
+[    0.347816] pci 0000:00:00.0: BAR 0: assigned [mem 0x01000000-0x010fffff]
+[    0.347832] pci 0000:00:00.0: BAR 8: assigned [mem 0x01100000-0x011fffff]
+[    0.347844] pci 0000:00:00.0: BAR 9: assigned [mem 0x01200000-0x012fffff pref]
+[    0.347855] pci 0000:00:00.0: BAR 6: assigned [mem 0x01300000-0x0130ffff pref]
+[    0.347870] pci 0000:01:00.0: BAR 0: assigned [mem 0x01100000-0x0111ffff 64bit]
+[    0.347918] pci 0000:01:00.0: BAR 6: assigned [mem 0x01200000-0x0120ffff pref]
+[    0.347929] pci 0000:00:00.0: PCI bridge to [bus 01]
+[    0.347941] pci 0000:00:00.0:   bridge window [mem 0x01100000-0x011fffff]
+[    0.347952] pci 0000:00:00.0:   bridge window [mem 0x01200000-0x012fffff pref]
+[    0.347978] pci_bus 0000:00: resource 4 [io  0x1000-0x10000]
+[    0.347987] pci_bus 0000:00: resource 5 [mem 0x01000000-0x01efffff]
+[    0.347996] pci_bus 0000:01: resource 1 [mem 0x01100000-0x011fffff]
+[    0.348005] pci_bus 0000:01: resource 2 [mem 0x01200000-0x012fffff pref]
+[    0.356400] NET: Registered protocol family 2
+[    0.356994] TCP established hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.357066] TCP bind hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.357131] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.357178] TCP: reno registered
+[    0.357191] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.357218] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.357474] NET: Registered protocol family 1
+[    0.357530] PCI: CLS 64 bytes, default 64
+[    0.448838] hw perfevents: enabled with ARMv7 Cortex-A9 PMU driver, 7 counters available
+[    0.449817] pureg-dummy: no parameters
+[    0.451306] Bus freq driver module loaded
+[    0.457160] VFS: Disk quotas dquot_6.5.2
+[    0.457415] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.459053] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.459778] aufs 3.10-20141215
+[    0.459797] msgmni has been set to 980
+[    0.463386] io scheduler noop registered
+[    0.463395] io scheduler deadline registered
+[    0.463555] io scheduler cfq registered (default)
+[    0.463853] imx-weim 21b8000.weim: WEIM driver registered.
+[    0.466193] mxc_sdc_fb fb.27: register mxc display driver hdmi
+[    0.466242] mxc_hdmi 20e0000.hdmi_video: Detected HDMI controller 0x13:0x1a:0xa0:0xc1
+[    0.466265] fbcvt: 1280x720@60: CVT Name - .921M9
+[    0.482153] imx-ipuv3 2400000.ipu: IPU DMFC DP HIGH RESOLUTION: 1(0,1), 5B(2~5), 5F(6,7)
+[    0.540824] Console: switching to colour frame buffer device 160x45
+[    0.576646] mxc_sdc_fb fb.28: register mxc display driver hdmi
+[    0.576661] mxc_hdmi 20e0000.hdmi_video: Error only one HDMI output support now!
+[    0.576673] mxc_sdc_fb fb.28: NO mxc display driver found!
+[    0.578860] imx-sdma 20ec000.sdma: no iram assigned, using external mem
+[    0.581768] imx-sdma 20ec000.sdma: initialized
+[    0.582321] imx-sdma 20ec000.sdma: loaded firmware 1.1
+[    0.631014] Serial: IMX driver
+[    0.631314] 2020000.serial: ttymxc0 at MMIO 0x2020000 (irq = 58) is a IMX
+[    1.209790] console [ttymxc0] enabled
+[    1.212871] 21e8000.serial: ttymxc1 at MMIO 0x21e8000 (irq = 59) is a IMX
+[    1.218731] 21ec000.serial: ttymxc2 at MMIO 0x21ec000 (irq = 60) is a IMX
+[    1.224629] 21f0000.serial: ttymxc3 at MMIO 0x21f0000 (irq = 61) is a IMX
+[    1.230435] serial: Freescale lpuart driver
+[    1.234064] [drm] Initialized drm 1.1.0 20060810
+[    1.243942] brd: module loaded
+[    1.249272] loop: module loaded
+[    1.253483] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.258720] ehci-pci: EHCI PCI platform driver
+[    1.270404] ci_hdrc ci_hdrc.1: doesn't support gadget
+[    1.274208] ci_hdrc ci_hdrc.1: EHCI Host Controller
+[    1.277814] ci_hdrc ci_hdrc.1: new USB bus registered, assigned bus number 1
+[    1.301985] ci_hdrc ci_hdrc.1: USB 2.0 started, EHCI 1.00
+[    1.306673] hub 1-0:1.0: USB hub found
+[    1.309147] hub 1-0:1.0: 1 port detected
+[    1.313111] snvs_rtc 20cc034.snvs-rtc-lp: rtc core: registered 20cc034.snvs-rtc-lp as rtc0
+[    1.320210] i2c /dev entries driver
+[    1.323222] mxc_v4l2_output v4l2_out.32: V4L2 device registered as video16
+[    1.328944] mxc_v4l2_output v4l2_out.32: V4L2 device registered as video17
+[    1.335537] imx2-wdt 20bc000.wdog: IMX2+ Watchdog Timer enabled. timeout=60s (nowayout=0)
+[    1.342844] cpuidle: using governor ladder
+[    1.345652] cpuidle: using governor menu
+[    1.348322] sdhci: Secure Digital Host Controller Interface driver
+[    1.353233] sdhci: Copyright(c) Pierre Ossman
+[    1.356295] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.361778] mmc0: no vqmmc regulator found
+[    1.364617] mmc0: no vmmc regulator found
+[    1.411979] mmc0: SDHCI controller on 2194000.usdhc [2194000.usdhc] using ADMA
+[    1.420750] mmc1: no vqmmc regulator found
+[    1.423589] mmc1: no vmmc regulator found
+[    1.471974] mmc1: SDHCI controller on 2198000.usdhc [2198000.usdhc] using ADMA
+[    1.480555] mxc_vdoa 21e4000.vdoa: i.MX Video Data Order Adapter(VDOA) driver probed
+[    1.494716] mxc_asrc 2034000.asrc: mxc_asrc registered
+[    1.503410] mxc_vpu 2040000.vpu: VPU initialized
+[    1.511209] leds-gpio leds.18: pins are not configured from the driver
+[    1.516710] ledtrig-cpu: registered to indicate activity on CPUs
+[    1.524704] usbcore: registered new interface driver usbhid
+[    1.528982] usbhid: USB HID core driver
+[    1.538979] imx-audio-hdmi sound-hdmi.26:  hdmi-hifi <-> hdmi_audio.16 mapping ok
+[    1.546274] TCP: cubic registered
+[    1.548691] NET: Registered protocol family 10
+[    1.552754] sit: IPv6 over IPv4 tunneling driver
+[    1.556719] NET: Registered protocol family 17
+[    1.559934] 8021q: 802.1Q VLAN Support v1.8
+[    1.562967] Key type dns_resolver registered
+[    1.566102] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+[    1.574788] snvs_rtc 20cc034.snvs-rtc-lp: setting system clock to 1970-01-01 00:00:00 UTC (0)
+[    1.592505] ALSA device list:
+[    1.594192]   #0: imx-hdmi-soc
+[    1.597487] mmc1: new high speed SDHC card at address aaaa
+[    1.608591] Freeing unused kernel memory: 9708K (80651000 - 80fcc000)
+[    1.613930] mmcblk0: mmc1:aaaa SL08G 7.40 GiB 
+[    1.618368]  mmcblk0: p1 p2 p3 p4
+[    1.845491] kjournald starting.  Commit interval 5 seconds
+[    1.852687] EXT3-fs (mmcblk0p4): using internal journal
+[    1.856614] EXT3-fs (mmcblk0p4): mounted filesystem with ordered data mode
+[    2.443381] kjournald starting.  Commit interval 5 seconds
+[    2.451542] EXT3-fs (mmcblk0p3): using internal journal
+[    2.455532] EXT3-fs (mmcblk0p3): mounted filesystem with ordered data mode
+[    3.299638] udevd[141]: starting version 182
+[    3.679023] Loading modules backported from Linux version next-20150903-0-ga672f92
+[    3.698890] g_acm_ms gadget: Mass Storage Function, version: 2009/09/11
+[    3.728113] g_acm_ms gadget: Number of LUNs=1
+[    3.731185]  lun0: LUN: file: /dev/mmcblk0p4
+[    3.749601] Backport generated by backports.git backports-20150903-0-g7b34ea2
+[    3.825356] g_acm_ms gadget: Composite Gadget (ACM + MS), version: 2011/10/10
+[    3.831198] g_acm_ms gadget: g_acm_ms ready
+[    4.102045] cfg80211: World regulatory domain updated:
+[    4.105894] cfg80211:  DFS Master region: unset
+[    4.108948] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp), (dfs_cac_time)
+[    4.450687] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (N/A, 2000 mBm), (N/A)
+[    4.703883] cfg80211:   (2457000 KHz - 2482000 KHz @ 40000 KHz), (N/A, 2000 mBm), (N/A)
+[    4.710595] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (N/A, 2000 mBm), (N/A)
+[    4.934577] cfg80211:   (5170000 KHz - 5250000 KHz @ 160000 KHz), (N/A, 2000 mBm), (N/A)
+[    4.941377] cfg80211:   (5250000 KHz - 5330000 KHz @ 160000 KHz), (N/A, 2000 mBm), (0 s)
+[    4.992022] cfg80211:   (5490000 KHz - 5730000 KHz @ 160000 KHz), (N/A, 2000 mBm), (0 s)
+[    4.998823] cfg80211:   (5735000 KHz - 5835000 KHz @ 80000 KHz), (N/A, 2000 mBm), (N/A)
+[    5.022992] cfg80211:   (57240000 KHz - 63720000 KHz @ 2160000 KHz), (N/A, 0 mBm), (N/A)
+[    5.162683] PCI: enabling device 0000:01:00.0 (0140 -> 0142)
+[    5.447876] EXT4-fs (mmcblk0p4): mounted filesystem with ordered data mode. Opts: (null)
+[    5.574973] ath: EEPROM regdomain: 0x0
+[    5.574983] ath: EEPROM indicates default country code should be used
+[    5.574987] ath: doing EEPROM country->regdmn map search
+[    5.574994] ath: country maps to regdmn code: 0x3a
+[    5.574998] ath: Country alpha2 being used: US
+[    5.575002] ath: Regpair used: 0x3a
+[    5.613404] ieee80211 phy0: Selected rate control algorithm 'minstrel_ht'
+[    5.615259] cfg80211: Regulatory domain changed to country: US
+[    5.624502] ieee80211 phy0: Atheros AR9300 Rev:3 mem=0xa0c40000, irq=155
+[    5.619798] cfg80211:  DFS Master region: FCC
+[    5.652064] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp), (dfs_cac_time)
+[    5.682004] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (N/A, 3000 mBm), (N/A)
+[    5.723072] cfg80211:   (5170000 KHz - 5250000 KHz @ 80000 KHz), (N/A, 1700 mBm), (N/A)
+[    5.772114] cfg80211:   (5250000 KHz - 5330000 KHz @ 80000 KHz), (N/A, 2300 mBm), (0 s)
+[    5.778827] cfg80211:   (5735000 KHz - 5835000 KHz @ 80000 KHz), (N/A, 3000 mBm), (N/A)
+[    5.832124] cfg80211:   (57240000 KHz - 63720000 KHz @ 2160000 KHz), (N/A, 4000 mBm), (N/A)

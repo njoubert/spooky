@@ -253,44 +253,79 @@ class SoloModule(spooky.modules.SpookyModule):
     }
     self.main.modules.trigger('update_partial_state', 'solo', [(attr_name, value)])
 
+
+  def ahrs_reset_home(self):
+
+    msg = self.vehicle.message_factory.command_long_encode(
+      0, # target system
+      0, # target component
+      mavutil.mavlink.MAV_CMD_DO_SET_HOME, # command
+      0,            # confirmation
+      1,            # param 1
+      0,            # param 2
+      0,            # param 3
+      0,            # param 4
+      0,            # param 5
+      0,            # param 6
+      0             # param 7
+      )
+
+    # send command to vehicle
+    self.vehicle.send_mavlink(msg)
+
+    self._update_vehicle_home()
+
+  def _request_home_position(self):
+    '''
+    Sends a mavlink command to request the home location.
+    Relies on the existence of a listener for the HOME_POSITION message.
+    '''
+    msg = self.vehicle.message_factory.command_long_encode(
+      0, # target system
+      0, # target component
+      mavutil.mavlink.MAV_CMD_GET_HOME_POSITION, # command
+      0,            # confirmation
+      2,            # param 1
+      0,            # param 2
+      0,            # param 3
+      0,            # param 4
+      0,            # param 5
+      0,            # param 6
+      0             # param 7
+      )
+
+    # send command to vehicle
+    self.vehicle.send_mavlink(msg)
+
+    print "Requested home location."
+
   def _update_vehicle_home(self):
-    '''Internal call to update our vehicle home location'''
-    if not self.vehicle:
-      print "_update_vehicle_home: no vehicle attached"
-      return
 
-    cmds = self.vehicle.commands
-    cmds.wait_ready()
+    self._request_home_position()
 
-    cmds.download()
-    cmds.wait_ready()
-    self.vehicle_home = self.vehicle.home_location
+    ### OLD CODE: WE USED TO RELY ON DRONEKIT LOCATION, BUT THIS IS ONLY FLOAT ACCURATE!
 
+    # '''Internal call to update our vehicle home location'''
+    # if not self.vehicle:
+    #   print "_update_vehicle_home: no vehicle attached"
+    #   return
 
-    ###### NJ HACK: HERE WE RE-SEND THE HOME LOCATION, WHICH ROUNDS TO NEAREST FLOAT
-    
-    self.vehicle.home_location = self.vehicle_home
+    # cmds = self.vehicle.commands
+    # cmds.wait_ready()
+    # cmds.download()
+    # cmds.wait_ready()
 
-    # Send MAVLink update.
-    self.vehicle.send_mavlink(self.vehicle.message_factory.command_long_encode(
-        0, 0,  # target system, target component
-        mavutil.mavlink.MAV_CMD_DO_SET_HOME,  # command
-        0,  # confirmation
-        2,  # param 1: 1 to use current position, 2 to use the entered values.
-        0, 0, 0,  # params 2-4
-        self.vehicle_home.lat, self.vehicle_home.lon, self.vehicle_home.alt))
+    # self.vehicle_home = self.vehicle.home_location
 
-    ###########################################################################
-
-    if self.vehicle_home is not None:
-      home_location_llh = {
-        'lat'  : self.vehicle_home.lat,
-        'lon'  : self.vehicle_home.lon,
-        'alt'  : self.vehicle_home.alt,
-        'coord': 'LocationGlobalRelative'
-      }
-      self.main.modules.trigger('update_partial_state', 'solo', [('home_location', home_location_llh)])
-    print "Downloading latest HOME location:", str(self.vehicle_home)
+    # if self.vehicle_home is not None:
+    #   home_location_llh = {
+    #     'lat'  : self.vehicle_home.lat,
+    #     'lon'  : self.vehicle_home.lon,
+    #     'alt'  : self.vehicle_home.alt,
+    #     'coord': 'LocationGlobalRelative'
+    #   }
+    #   self.main.modules.trigger('update_partial_state', 'solo', [('home_location', home_location_llh)])
+    # print "Downloading latest HOME location:", str(self.vehicle_home)
 
   def connect(self):
     self.disconnect()
@@ -310,20 +345,30 @@ class SoloModule(spooky.modules.SpookyModule):
       self.vehicle.add_attribute_listener('location', self.callback_location)
       self.vehicle.add_attribute_listener('attitude', self.callback_attitude)
       self.vehicle.add_attribute_listener('mount', self.callback_mount)
-      self.vehicle.add_attribute_listener('gps_0', self.callback_gps_0)
 
-      msg = self.vehicle.message_factory.command_long_encode(
-          0, 0,    # target system, target component
-          mavutil.mavlink.MAV_CMD_DO_SET_HOME, #command
-          0, #confirmation
-          2, #param 1
-          0, # speed in metres/second
-          0, 0, 
-          37.371208169, 122.110969, 75 #param 3 - 7
-          )
+      spooky_solo = self
 
-      # send command to vehicle
-      self.vehicle.send_mavlink(msg)
+      @self.vehicle.on_message('HOME_POSITION')
+      def listener(self, name, msg):
+
+        if msg.latitude == 0 and msg.longitude == 0:
+          print "Received latest HOME location, BUT ITS BLANK. Setting to Zero"
+          spooky_solo.vehicle_home = None
+          return
+        
+        home_location = dronekit.LocationGlobal(msg.latitude / 1.0e7, msg.longitude / 1.0e7, msg.altitude / 100.0)
+
+        spooky_solo.vehicle_home = home_location
+
+        home_location_llh = {
+          'lat'  : spooky_solo.vehicle_home.lat,
+          'lon'  : spooky_solo.vehicle_home.lon,
+          'alt'  : spooky_solo.vehicle_home.alt,
+          'coord': 'LocationGlobal'
+        }
+        spooky_solo.main.modules.trigger('update_partial_state', 'solo', [('home_location', home_location_llh)])
+        
+        print "Received latest HOME location:", str(spooky_solo.vehicle_home)
 
       self.set_piksi_home()
 
@@ -526,11 +571,11 @@ class SoloModule(spooky.modules.SpookyModule):
                                                     1, 1,    # target system, target component
                                                     mavutil.mavlink.MAV_FRAME_GLOBAL_RELATIVE_ALT_INT,
                                                     mavutil.mavlink.MAV_CMD_DO_SET_ROI, #command
-                                                    0, #confirmation
+                                                    0, #current
                                                     0, #autocontinue
                                                     0, 0, 0, 0, #params 1-4
-                                                    llh[0],
-                                                    llh[1],
+                                                    int(llh[0] * 1e7),
+                                                    int(llh[1] * 1e7),
                                                     llh[2]
                                                     )
     self.vehicle.send_mavlink(msg)
@@ -552,12 +597,12 @@ class SoloModule(spooky.modules.SpookyModule):
     '''
     Assumes NED is in "mm" integers in our spooky coordinate frame.
 
-    https://pixhawk.ethz.ch/mavlink/#SET_POSITION_TARGET_LOCAL_NED
+    https://pixhawk.ethz.ch/mavlink/#SET_POSITION_TARGET_GLOBAL_INT
 
     '''
     drone_ned = self._spooky_to_vehicle_ned(ned)
     drone_llh = self._spooky_to_vehicle_llh_relative(ned)
-    print "sendLookFromSpookyNED ned=", ned, "drone_llh=", drone_llh, "useVel=", useVel, "vel=", vel
+    print "sendLookFromSpookyNED ned=", ned, "drone_ned=", drone_ned, "drone_llh=", drone_llh, "useVel=", useVel, "vel=", vel
 
     if not self.vehicle:
       return False
@@ -586,28 +631,50 @@ class SoloModule(spooky.modules.SpookyModule):
 
     self.vehicle.send_mavlink(msg)
 
+    return True
 
-    # ignoremask = 3520 #ignore yaw stuff, and accel stuff 
-    # if not useVel:
-    #   ignoremask = ignoremask | 56
+  def sendLookFromSpookyNED_local_frame(self, ned, vel=[0,0,0], useVel=False):
+    '''
+    Assumed NED is in "mm" integers in our spooky coordinate frame.
 
+    https://pixhawk.ethz.ch/mavlink/#SET_POSITION_TARGET_LOCAL_NED
+    '''
+    drone_ned = self._spooky_to_vehicle_ned(ned)
 
-    # msg = self.vehicle.message_factory.set_position_target_local_ned_encode(
-    #     0,  # system time in ms
-    #     1,  # target system
-    #     0,  # target component
-    #     mavutil.mavlink.MAV_FRAME_LOCAL_NED,
-    #     ignoremask, # ignore
-    #     drone_ned[0],
-    #     drone_ned[1],
-    #     drone_ned[2],
-    #     vel[0], vel[1], vel[2], # velocity
-    #     0, 0, 0, # accel x,y,z
-    #     0, 0) # yaw, yaw rate
+    print "sendLookFromSpookyNED_local_frame ned=", ned, "drone_ned=", drone_ned 
 
-    # self.vehicle.send_mavlink(msg)
+    if not self.vehicle:
+      return False
+
+    if (-1*drone_ned[2]) < 0.5:
+      print "LookFrom less than 1m, cowarding out..."
+      return
+
+    ignoremask = 3520 #ignore yaw stuff, and accel stuff 
+    if not useVel:
+      ignoremask = ignoremask | 56
+
+    # N - in m
+    # E - in m
+    # D - in m
+    msg = self.vehicle.message_factory.set_position_target_local_ned_encode(
+        0,  # system time in ms
+        1,  # target system
+        0,  # target component
+        mavutil.mavlink.MAV_FRAME_LOCAL_NED,
+        ignoremask, # ignore
+        drone_ned[0],
+        drone_ned[1],
+        drone_ned[2],
+        vel[0], vel[1], vel[2], # velocity
+        0, 0, 0, # accel x,y,z
+        0, 0) # yaw, yaw rate
+
+    self.vehicle.send_mavlink(msg)
 
     return True
+
+    
 
   # def injectGPS(self, sbpPacket):
 
@@ -746,10 +813,12 @@ class SoloModule(spooky.modules.SpookyModule):
     else:
       print "No API messages received yet"
 
-  def cmd_goto(self, n, e, d, simple=False):
+  def cmd_goto(self, n, e, d, simple=False, local=False):
     print "Command to go to (%d,%d,%d) in mm ned spooky frame." % (n, e, d)
     if simple:
       print "Command Result: %s" % self.sendLookFromSpookyNED_simple([n,e,d])
+    elif local:
+      print "Command Result: %s" % self.sendLookFromSpookyNED_local_frame([n,e,d])
     else:
       print "Command Result: %s" % self.sendLookFromSpookyNED([n,e,d])
 
@@ -767,7 +836,7 @@ class SoloModule(spooky.modules.SpookyModule):
   def cmd_solo(self, args):
 
     def usage():
-      print "solo (mayday|status|connect|disconnect|arm|disarm|takeoff|goto <n> <e> <d>|lookat <n> <e> <d>|orient <r> <p> <y>|rtl|go|stop|set_home (<piksi_ip>|<n mm> <e mm> <d mm>)|ok|no|up <mm>|set_alt_comp <mm>)"
+      print "solo (mayday|status|connect|disconnect|arm|disarm|takeoff|goto[_simple|_local] <n> <e> <d>|lookat <n> <e> <d>|orient <r> <p> <y>|rtl|go|stop|set_home (<piksi_ip>|ahrs_reset_home|<n mm> <e mm> <d mm>)|ok|no|up <mm>|north <mm>|east <mm>|set_alt_comp <mm>)"
       print args
 
     if 'mayday' in args:
@@ -802,6 +871,10 @@ class SoloModule(spooky.modules.SpookyModule):
       if len(args) < 4:
         return usage()
       return self.cmd_goto(int(args[1]),int(args[2]),int(args[3]), simple=True)
+    elif 'goto_local' in args:
+      if len(args) < 4:
+        return usage()
+      return self.cmd_goto(int(args[1]),int(args[2]),int(args[3]), local=True)
     elif 'lookat' in args:
       if len(args) == 4:
         return self.cmd_lookat(int(args[1]),int(args[2]),int(args[3]))
@@ -849,6 +922,8 @@ class SoloModule(spooky.modules.SpookyModule):
       if len(args) == 2:
         return self.set_alt_comp(int(args[1]), relative=False)
       return usage()
+    elif 'ahrs_reset_home' in args:
+      return self.ahrs_reset_home()
 
 
     return usage()

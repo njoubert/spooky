@@ -1,0 +1,35 @@
+
+1980-01-06 00:55:58,131 proc_top starting
+
+2014-04-06 00:58:40,738
+   pid name                  utime  stime  pct
+   809 (python)                 30      9   4%
+    72 (mmcqd/0)                 0     29   3%
+    64 (kworker/0:2)             0     14   1%
+   106 (loop0)                   0      6   1%
+
+2014-04-06 00:58:50,738
+   pid name                  utime  stime  pct
+   876 (python)                 87     19  11%
+   885 (sn_master_snd)           0     68   7%
+   848 (pixrc_udp)               7     23   3%
+   849 (telem_down)              1     17   2%
+   875 (python)                 11      7   2%
+    72 (mmcqd/0)                 0      7   1%
+   852 (pixrc_ser)               0      5   1%
+
+2014-04-06 00:59:00,738
+   pid name                  utime  stime  pct
+   876 (python)                104      4  11%
+   885 (sn_master_snd)           0     82   8%
+   848 (pixrc_udp)               5     25   3%
+   849 (telem_down)              4     15   2%
+   875 (python)                 13      6   2%
+   943 (mfwgstv4lsrc0:s)        13      6   2%
+   872 (sshd)                    2     10   1%
+   921 (sn_sender)               3      6   1%
+    24 (ipu1_task)               0      6   1%
+    72 (mmcqd/0)                 0      6   1%
+   852 (pixrc_ser)               0      6   1%
+    13 (kworker/0:1)             0      5   1%
+   925 (sn_pktsnd)               0      5   1%

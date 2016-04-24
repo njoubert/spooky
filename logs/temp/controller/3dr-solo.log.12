@@ -1,0 +1,660 @@
+Jan  9 22:21:00 3dr_controller local1.info stm32: stm32 update starting
+Jan  9 22:21:00 3dr_controller local1.info stm32: no firmware available for update
+Jan  9 22:21:00 3dr_controller local1.info stm32: requesting stm32 version
+Jan  9 22:21:00 3dr_controller local1.info stm32: running version: 1.2.6
+Jan  9 22:21:00 3dr_controller local1.info stm32: not updating (no new firmware)
+Jan  9 22:21:00 3dr_controller local1.info stm32: writing STM_VERSION with running version 1.2.6
+Jan  9 22:21:00 3dr_controller local1.info stm32: no screen update (READY exists)
+Jan  9 22:21:01 3dr_controller local1.info net: hostapdconfig.py starting
+Jan  9 22:21:01 3dr_controller local1.info net: --channel wlan0
+Jan  9 22:21:01 3dr_controller local1.info net: can't get wlan0 frequency; defaulting to channel 0
+Jan  9 22:21:01 3dr_controller local1.info net: changing channel in /etc/hostapd.conf from 0 to 0
+Jan  9 22:21:01 3dr_controller local1.info pair: pair_server starting
+Jan  9 22:21:01 3dr_controller local1.info pair: using default check_versions=True
+Jan  9 22:21:01 3dr_controller local1.info pair: sololink version "1.3.0"
+Jan  9 22:21:01 3dr_controller local1.info pair: firmware version "1.2.6"
+
+acs_num_scans=8
+wlan0-ap:
+   Freq   Noise   OnChan   ChBusy  ExtBusy    Rxing    Txing
+Ch  MHz     dBm     msec     msec     msec     msec     msec
+ 1 2412     -95     3218      853               759        0
+ 2 2417     -95      108       13                12        0
+ 3 2422     -95      108       12                11        0
+ 4 2427     -95      108       14                11        0
+ 5 2432     -95      108       16                15        0
+ 6 2437     -95      108       30                29        0
+ 7 2442     -95      108       20                20        0
+ 8 2447     -95      108       13                11        0
+ 9 2452     -95      108        6                 5        0
+10 2457 *   -95      418       31                19        8
+11 2462     -95      108       19                19        0
+
+Jan  9 22:21:18 3dr_controller local1.info pair: pin request not from a 3DR Solo
+Jan  9 22:21:18 3dr_controller local1.info pair: ('WPS-PIN-NEEDED', 'e6e36df1-e396-130c-b7b0-002000792313', '00:20:00:79:23:13', 'ET002000792313', 'Dell', 'V310-V510 Series', 'V310-V510 Series', 'Check Op Panel on Printer', '3-0050F204-1')
+Jan  9 22:21:18 3dr_controller local1.info pair: IDLE -> IDLE
+Jan  9 22:21:23 3dr_controller local1.info pair: pin request not from a 3DR Solo
+Jan  9 22:21:23 3dr_controller local1.info pair: ('WPS-PIN-NEEDED', 'e6e36df1-e396-130c-b7b0-002000792313', '00:20:00:79:23:13', 'ET002000792313', 'Dell', 'V310-V510 Series', 'V310-V510 Series', 'Check Op Panel on Printer', '3-0050F204-1')
+Jan  9 22:21:23 3dr_controller local1.info pair: IDLE -> IDLE
+Jan  9 22:21:30 3dr_controller local1.info pair: pin request not from a 3DR Solo
+Jan  9 22:21:30 3dr_controller local1.info pair: ('WPS-PIN-NEEDED', 'e6e36df1-e396-130c-b7b0-002000792313', '00:20:00:79:23:13', 'ET002000792313', 'Dell', 'V310-V510 Series', 'V310-V510 Series', 'Check Op Panel on Printer', '3-0050F204-1')
+Jan  9 22:21:30 3dr_controller local1.info pair: IDLE -> IDLE
+Jan  9 22:21:42 3dr_controller local1.info pair: pin request not from a 3DR Solo
+Jan  9 22:21:42 3dr_controller local1.info pair: ('WPS-PIN-NEEDED', 'e6e36df1-e396-130c-b7b0-002000792313', '00:20:00:79:23:13', 'ET002000792313', 'Dell', 'V310-V510 Series', 'V310-V510 Series', 'Check Op Panel on Printer', '3-0050F204-1')
+Jan  9 22:21:42 3dr_controller local1.info pair: IDLE -> IDLE
+Jan  9 22:21:51 3dr_controller local1.info pair: pin request not from a 3DR Solo
+Jan  9 22:21:51 3dr_controller local1.info pair: ('WPS-PIN-NEEDED', 'e6e36df1-e396-130c-b7b0-002000792313', '00:20:00:79:23:13', 'ET002000792313', 'Dell', 'V310-V510 Series', 'V310-V510 Series', 'Check Op Panel on Printer', '3-0050F204-1')
+Jan  9 22:21:51 3dr_controller local1.info pair: IDLE -> IDLE
+Jan  9 22:21:57 3dr_controller local1.info pair: pin request not from a 3DR Solo
+Jan  9 22:21:57 3dr_controller local1.info pair: ('WPS-PIN-NEEDED', 'e6e36df1-e396-130c-b7b0-002000792313', '00:20:00:79:23:13', 'ET002000792313', 'Dell', 'V310-V510 Series', 'V310-V510 Series', 'Check Op Panel on Printer', '3-0050F204-1')
+Jan  9 22:21:57 3dr_controller local1.info pair: IDLE -> IDLE
+Jan  9 22:22:02 3dr_controller local1.info pair: pin request not from a 3DR Solo
+Jan  9 22:22:02 3dr_controller local1.info pair: ('WPS-PIN-NEEDED', 'e6e36df1-e396-130c-b7b0-002000792313', '00:20:00:79:23:13', 'ET002000792313', 'Dell', 'V310-V510 Series', 'V310-V510 Series', 'Check Op Panel on Printer', '3-0050F204-1')
+Jan  9 22:22:02 3dr_controller local1.info pair: IDLE -> IDLE
+Jan  9 22:22:09 3dr_controller local1.info pair: pin request not from a 3DR Solo
+Jan  9 22:22:09 3dr_controller local1.info pair: ('WPS-PIN-NEEDED', 'e6e36df1-e396-130c-b7b0-002000792313', '00:20:00:79:23:13', 'ET002000792313', 'Dell', 'V310-V510 Series', 'V310-V510 Series', 'Check Op Panel on Printer', '3-0050F204-1')
+Jan  9 22:22:09 3dr_controller local1.info pair: IDLE -> IDLE
+Jan  9 22:22:16 3dr_controller local1.info pair: pin request not from a 3DR Solo
+Jan  9 22:22:16 3dr_controller local1.info pair: ('WPS-PIN-NEEDED', 'e6e36df1-e396-130c-b7b0-002000792313', '00:20:00:79:23:13', 'ET002000792313', 'Dell', 'V310-V510 Series', 'V310-V510 Series', 'Check Op Panel on Printer', '3-0050F204-1')
+Jan  9 22:22:16 3dr_controller local1.info pair: IDLE -> IDLE
+Jan  9 22:22:21 3dr_controller local1.info pair: connection request from known solo: send CONN_ACK (yes)
+Jan  9 22:22:21 3dr_controller local1.info pair: solo version "1.3.0"; firmware "1.2.19"
+Jan  9 22:22:21 3dr_controller local1.info pair: IDLE -> CONNECTED
+Jan  9 22:22:21 3dr_controller local1.info pair: connected with ('10.1.1.10', 47913)
+Jan  9 22:22:21 3dr_controller local1.info pair: switching to runlevel.READY
+Jan  9 22:22:21 3dr_controller local1.info +719 tlm: telem_ctrl starting: built Nov 17 2015 01:38:12
+Jan  9 22:22:21 3dr_controller local1.info +725 tlm: stm32 @ 127.0.0.1:5015
+Jan  9 22:22:21 3dr_controller local1.info +729 tlm: tlog @ 127.0.0.1:14583
+Jan  9 22:22:21 3dr_controller local1.info +730 tlm: telem_dest_port = 14550
+Jan  9 22:22:21 3dr_controller local1.info +730 tlm: use_gps_time = 1
+Jan  9 22:22:21 3dr_controller local1.info +730 tlm: uplink_tos = 0x60
+Jan  9 22:22:21 3dr_controller local1.info +730 tlm: gcs_tos = 0x60
+Jan  9 22:22:21 3dr_controller local1.info +836 tlm: solo @ 10.1.1.10:14560
+Jan  9 22:22:21 3dr_controller local1.err +894 tlm: dropped 11 downlink packets
+Jan  9 22:22:23 3dr_controller local1.info video: starting
+Jan  9 22:22:23 3dr_controller local1.info video: link to solo at 10.1.1.10 is up
+Jan  9 22:22:23 3dr_controller local1.info video: starting video
+Jan  9 22:22:23 3dr_controller local1.info +720 tlm: gps time 2016-01-10 00:52:32,285
+Jan 10 00:52:32 3dr_controller local1.info +285 tlm: system time set from gps time
+Jan 10 00:52:32 3dr_controller local1.info app: starting
+Jan 10 00:52:32 3dr_controller local1.info app: waiting for connection
+Jan 10 00:52:40 3dr_controller local1.info +366 tlm: dn:1279 (1,1)1241/1 (1,154)28/14 (10,0)10/0 up:0
+Jan 10 00:52:45 3dr_controller local1.info +319 tlm: adding telem dest @ 10.1.1.153:14550
+Jan 10 00:52:50 3dr_controller local1.info +381 tlm: dn:961 (1,1)941/0 (1,154)10/9 (10,0)10/0 up:0
+Jan 10 00:53:00 3dr_controller local1.info +359 tlm: dn:962 (1,1)942/0 (1,154)10/9 (10,0)10/0 up:0
+Jan 10 00:53:10 3dr_controller local1.info +373 tlm: dn:2366 (1,1)2346/0 (1,154)10/9 (10,0)10/0 up:5
+Jan 10 00:53:20 3dr_controller local1.info +395 tlm: dn:2509 (1,1)2489/0 (1,154)10/9 (10,0)10/0 up:9
+Jan 10 00:53:25 3dr_controller local1.info +337 tlm: adding telem dest @ 10.1.1.133:14550
+Jan 10 00:53:30 3dr_controller local1.info +362 tlm: dn:2391 (1,1)2371/0 (1,154)10/9 (10,0)10/0 up:10
+Jan 10 00:53:40 3dr_controller local1.info +322 tlm: dn:2391 (1,1)2371/0 (1,154)10/9 (10,0)10/0 up:9
+Jan 10 00:53:42 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-ssid
+Jan 10 00:53:42 3dr_controller local1.info app: connection from ('10.1.1.133', 64204)
+Jan 10 00:53:42 3dr_controller local1.info app: app IP is 10.1.1.133
+Jan 10 00:53:43 3dr_controller local1.info logger: /usr/bin/sololink_config --set-ui-units imperial
+Jan 10 00:53:50 3dr_controller local1.info +387 tlm: dn:1238 (1,1)1218/0 (1,154)10/9 (10,0)10/0 up:49
+Jan 10 00:53:58 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-password
+Jan 10 00:53:59 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-country
+Jan 10 00:54:00 3dr_controller local1.info +329 tlm: dn:892 (1,1)872/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 00:54:07 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-password
+Jan 10 00:54:07 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-country
+Jan 10 00:54:10 3dr_controller local1.info +369 tlm: dn:916 (1,1)896/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 00:54:14 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-password
+Jan 10 00:54:15 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-country
+Jan 10 00:54:20 3dr_controller local1.info +319 tlm: dn:918 (1,1)898/0 (1,154)10/9 (10,0)10/0 up:25
+Jan 10 00:54:30 3dr_controller local1.info +361 tlm: dn:917 (1,1)897/0 (1,154)10/9 (10,0)10/0 up:19
+Jan 10 00:54:40 3dr_controller local1.info +310 tlm: dn:911 (1,1)891/0 (1,154)10/9 (10,0)10/0 up:19
+Jan 10 00:54:50 3dr_controller local1.info +344 tlm: dn:915 (1,1)895/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 00:55:00 3dr_controller local1.info +383 tlm: dn:917 (1,1)897/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 00:55:10 3dr_controller local1.info +319 tlm: dn:911 (1,1)891/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 00:55:20 3dr_controller local1.info +374 tlm: dn:918 (1,1)898/0 (1,154)10/9 (10,0)10/0 up:19
+Jan 10 00:55:30 3dr_controller local1.info +318 tlm: dn:911 (1,1)891/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 00:55:40 3dr_controller local1.info +351 tlm: dn:917 (1,1)897/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 00:55:50 3dr_controller local1.info +395 tlm: dn:917 (1,1)897/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 00:56:00 3dr_controller local1.info +335 tlm: dn:895 (1,1)875/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 00:56:10 3dr_controller local1.info +376 tlm: dn:935 (1,1)902/0 (1,154)23/22 (10,0)10/0 up:20
+Jan 10 00:56:20 3dr_controller local1.info +321 tlm: dn:916 (1,1)896/0 (1,154)10/9 (10,0)10/0 up:19
+Jan 10 00:56:30 3dr_controller local1.info +361 tlm: dn:924 (1,1)902/0 (1,154)12/11 (10,0)10/0 up:20
+Jan 10 00:56:40 3dr_controller local1.info +406 tlm: dn:932 (1,1)900/0 (1,154)22/18 (10,0)10/0 up:20
+Jan 10 00:56:50 3dr_controller local1.info +319 tlm: dn:917 (1,1)891/0 (1,154)16/15 (10,0)10/0 up:20
+Jan 10 00:57:00 3dr_controller local1.info +384 tlm: dn:925 (1,1)898/0 (1,154)17/16 (10,0)10/0 up:20
+Jan 10 00:57:10 3dr_controller local1.info +337 tlm: dn:270 (0,0)1/0 (1,1)263/0 (1,154)4/3 (10,0)2/0 up:13
+Jan 10 00:57:20 3dr_controller local1.info +482 tlm: dn:0 up:7
+Jan 10 00:57:28 3dr_controller local1.err +431 tlm: dropped 4294935514 downlink packets
+Jan 10 00:57:30 3dr_controller local1.info +316 tlm: dn:549 (1,1)544/1 (1,154)3/2 (10,0)2/0 up:2
+Jan 10 00:57:40 3dr_controller local1.info +382 tlm: dn:962 (1,1)927/0 (1,154)25/24 (10,0)10/0 up:10
+Jan 10 00:57:50 3dr_controller local1.info +326 tlm: dn:943 (1,1)922/0 (1,154)11/10 (10,0)10/0 up:10
+Jan 10 00:58:00 3dr_controller local1.info +392 tlm: dn:972 (1,1)951/0 (1,154)11/10 (10,0)10/0 up:10
+Jan 10 00:58:10 3dr_controller local1.info +351 tlm: dn:963 (1,1)943/0 (1,154)10/9 (10,0)10/0 up:10
+Jan 10 00:58:20 3dr_controller local1.info +325 tlm: dn:961 (1,1)941/0 (1,154)10/9 (10,0)10/0 up:10
+Jan 10 00:58:30 3dr_controller local1.info +327 tlm: dn:966 (1,1)943/0 (1,154)13/12 (10,0)10/0 up:10
+Jan 10 00:58:40 3dr_controller local1.info +349 tlm: dn:962 (1,1)941/0 (1,154)11/10 (10,0)10/0 up:10
+Jan 10 00:58:50 3dr_controller local1.info +385 tlm: dn:949 (1,1)924/0 (1,154)15/14 (10,0)10/0 up:10
+Jan 10 00:59:00 3dr_controller local1.info +358 tlm: dn:964 (1,1)937/0 (1,154)17/15 (10,0)10/0 up:10
+Jan 10 00:59:10 3dr_controller local1.info +313 tlm: dn:961 (1,1)933/0 (1,154)18/15 (10,0)10/0 up:9
+Jan 10 00:59:20 3dr_controller local1.info +341 tlm: dn:930 (1,1)901/0 (1,154)19/16 (10,0)10/0 up:10
+Jan 10 00:59:30 3dr_controller local1.info +357 tlm: dn:893 (1,1)871/0 (1,154)12/10 (10,0)10/0 up:10
+Jan 10 00:59:40 3dr_controller local1.info +346 tlm: dn:917 (1,1)897/0 (1,154)10/9 (10,0)10/0 up:10
+Jan 10 00:59:50 3dr_controller local1.info +492 tlm: dn:814 (1,1)794/0 (1,154)10/9 (10,0)10/0 up:12
+Jan 10 01:00:00 3dr_controller local1.info +363 tlm: dn:931 (1,1)908/0 (1,154)13/10 (10,0)10/0 up:10
+Jan 10 01:00:10 3dr_controller local1.info +312 tlm: dn:939 (1,1)918/0 (1,154)11/10 (10,0)10/0 up:10
+Jan 10 01:00:20 3dr_controller local1.info +492 tlm: dn:2193 (1,1)2173/0 (1,154)10/9 (10,0)10/0 up:25
+Jan 10 01:00:30 3dr_controller local1.info +322 tlm: dn:3294 (1,1)2618/0 (1,154)667/20 (10,0)9/0 up:696
+Jan 10 01:00:40 3dr_controller local1.info +310 tlm: dn:3729 (1,1)2951/0 (1,154)767/20 (10,0)11/0 up:779
+Jan 10 01:00:50 3dr_controller local1.info +317 tlm: dn:3686 (1,1)2949/0 (1,154)727/19 (10,0)10/0 up:814
+Jan 10 01:01:00 3dr_controller local1.info +316 tlm: dn:3761 (1,1)3009/0 (1,154)742/19 (10,0)10/0 up:953
+Jan 10 01:01:10 3dr_controller local1.info +328 tlm: dn:3693 (1,1)2930/0 (1,154)753/20 (10,0)10/0 up:885
+Jan 10 01:01:20 3dr_controller local1.info +310 tlm: dn:3702 (1,1)2927/0 (1,154)765/20 (10,0)10/0 up:885
+Jan 10 01:01:30 3dr_controller local1.info +311 tlm: dn:3696 (1,1)2946/0 (1,154)740/20 (10,0)10/0 up:887
+Jan 10 01:01:40 3dr_controller local1.info +311 tlm: dn:3778 (1,1)3008/0 (1,154)760/20 (10,0)10/0 up:874
+Jan 10 01:01:48 3dr_controller local1.err +655 tlm: dropped 6 downlink packets
+Jan 10 01:01:50 3dr_controller local1.info +311 tlm: dn:3690 (1,1)2958/1 (1,154)722/19 (10,0)10/0 up:865
+Jan 10 01:02:00 3dr_controller local1.info +314 tlm: dn:3700 (1,1)2946/0 (1,154)744/19 (10,0)10/0 up:828
+Jan 10 01:02:10 3dr_controller local1.info +310 tlm: dn:3614 (1,1)2903/0 (1,154)701/20 (10,0)10/0 up:734
+Jan 10 01:02:20 3dr_controller local1.info +318 tlm: dn:3708 (1,1)2958/0 (1,154)740/19 (10,0)10/0 up:750
+Jan 10 01:02:26 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-password
+Jan 10 01:02:27 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-country
+Jan 10 01:02:30 3dr_controller local1.info +315 tlm: dn:3918 (1,1)3107/0 (1,154)801/22 (10,0)10/0 up:823
+Jan 10 01:02:35 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-password
+Jan 10 01:02:35 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-country
+Jan 10 01:02:38 3dr_controller local1.err +030 tlm: dropped 1 downlink packets
+Jan 10 01:02:39 3dr_controller local1.err +047 tlm: dropped 29 downlink packets
+Jan 10 01:02:40 3dr_controller local1.info +318 tlm: dn:3841 (1,1)3062/4 (1,154)769/21 (10,0)10/0 up:785
+Jan 10 01:02:44 3dr_controller local1.err +403 tlm: dropped 6 downlink packets
+Jan 10 01:02:48 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-password
+Jan 10 01:02:48 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-country
+Jan 10 01:02:50 3dr_controller local1.info +313 tlm: dn:3867 (1,1)3095/1 (1,154)762/23 (10,0)10/0 up:826
+Jan 10 01:02:59 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-password
+Jan 10 01:02:59 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-country
+Jan 10 01:03:00 3dr_controller local1.info +315 tlm: dn:3884 (1,1)3094/0 (1,154)780/19 (10,0)10/0 up:790
+Jan 10 01:03:10 3dr_controller local1.info +318 tlm: dn:3854 (1,1)3071/0 (1,154)773/20 (10,0)10/0 up:784
+Jan 10 01:03:20 3dr_controller local1.info +321 tlm: dn:3828 (1,1)3066/0 (1,154)752/20 (10,0)10/0 up:762
+Jan 10 01:03:30 3dr_controller local1.info +313 tlm: dn:3767 (1,1)3036/0 (1,154)721/19 (10,0)10/0 up:759
+Jan 10 01:03:40 3dr_controller local1.info +320 tlm: dn:3938 (1,1)3120/0 (1,154)808/20 (10,0)10/0 up:795
+Jan 10 01:03:50 3dr_controller local1.info +322 tlm: dn:3866 (1,1)3084/0 (1,154)772/20 (10,0)10/0 up:788
+Jan 10 01:04:00 3dr_controller local1.info +324 tlm: dn:3841 (1,1)3075/0 (1,154)756/19 (10,0)10/0 up:766
+Jan 10 01:04:10 3dr_controller local1.info +313 tlm: dn:3859 (1,1)3085/0 (1,154)764/20 (10,0)10/0 up:798
+Jan 10 01:04:11 3dr_controller local1.err +691 tlm: dropped 7 downlink packets
+Jan 10 01:04:20 3dr_controller local1.info +319 tlm: dn:3870 (1,1)3076/1 (1,154)784/20 (10,0)10/0 up:770
+Jan 10 01:04:26 3dr_controller local1.err +509 tlm: dropped 1 downlink packets
+Jan 10 01:04:30 3dr_controller local1.info +350 tlm: dn:3852 (1,1)3074/0 (1,154)768/21 (10,0)10/0 up:781
+Jan 10 01:04:31 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-password
+Jan 10 01:04:31 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-country
+Jan 10 01:04:40 3dr_controller local1.info +313 tlm: dn:3494 (1,1)2907/0 (1,154)577/17 (10,0)10/0 up:587
+Jan 10 01:04:50 3dr_controller local1.info +328 tlm: dn:2528 (1,1)2508/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:05:00 3dr_controller local1.info +322 tlm: dn:2408 (1,1)2388/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:05:10 3dr_controller local1.info +320 tlm: dn:2408 (1,1)2388/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:05:10 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-password
+Jan 10 01:05:11 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-country
+Jan 10 01:05:13 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-password
+Jan 10 01:05:13 3dr_controller local1.info logger: /usr/bin/sololink_config --get-wifi-country
+Jan 10 01:05:20 3dr_controller local1.info +326 tlm: dn:2408 (1,1)2387/0 (1,154)11/10 (10,0)10/0 up:19
+Jan 10 01:05:30 3dr_controller local1.info +316 tlm: dn:2405 (1,1)2385/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:05:40 3dr_controller local1.info +321 tlm: dn:2398 (1,1)2379/0 (1,154)10/9 (10,0)9/0 up:20
+Jan 10 01:05:50 3dr_controller local1.info +312 tlm: dn:2630 (1,1)2233/0 (1,154)386/15 (10,0)11/0 up:412
+Jan 10 01:06:00 3dr_controller local1.info +314 tlm: dn:3768 (1,1)2987/0 (1,154)771/18 (10,0)10/0 up:784
+Jan 10 01:06:10 3dr_controller local1.info +319 tlm: dn:3801 (1,1)2995/0 (1,154)796/21 (10,0)10/0 up:809
+Jan 10 01:06:20 3dr_controller local1.info +315 tlm: dn:3746 (1,1)3015/0 (1,154)722/19 (10,0)9/0 up:949
+Jan 10 01:06:30 3dr_controller local1.info +320 tlm: dn:3833 (1,1)3058/0 (1,154)764/20 (10,0)11/0 up:922
+Jan 10 01:06:40 3dr_controller local1.info +316 tlm: dn:3773 (1,1)2984/0 (1,154)779/21 (10,0)10/0 up:880
+Jan 10 01:06:50 3dr_controller local1.info +310 tlm: dn:3647 (1,1)2909/0 (1,154)728/20 (10,0)10/0 up:870
+Jan 10 01:07:00 3dr_controller local1.info +315 tlm: dn:3706 (1,1)2934/0 (1,154)762/19 (10,0)10/0 up:903
+Jan 10 01:07:10 3dr_controller local1.info +311 tlm: dn:3761 (1,1)2965/0 (1,154)786/20 (10,0)10/0 up:898
+Jan 10 01:07:20 3dr_controller local1.info +322 tlm: dn:3698 (1,1)2928/0 (1,154)760/20 (10,0)10/0 up:862
+Jan 10 01:07:28 3dr_controller local1.err +497 tlm: dropped 1 downlink packets
+Jan 10 01:07:29 3dr_controller local1.err +498 tlm: dropped 2 downlink packets
+Jan 10 01:07:30 3dr_controller local1.info +311 tlm: dn:3702 (1,1)2972/1 (1,154)720/20 (10,0)10/0 up:824
+Jan 10 01:07:40 3dr_controller local1.info +316 tlm: dn:3749 (1,1)2965/0 (1,154)774/19 (10,0)10/0 up:756
+Jan 10 01:07:50 3dr_controller local1.info +362 tlm: dn:3861 (1,1)3079/0 (1,154)772/19 (10,0)10/0 up:779
+Jan 10 01:08:00 3dr_controller local1.info +310 tlm: dn:3813 (1,1)3062/0 (1,154)741/19 (10,0)10/0 up:778
+Jan 10 01:08:10 3dr_controller local1.info +310 tlm: dn:3827 (1,1)3064/0 (1,154)753/21 (10,0)10/0 up:764
+Jan 10 01:08:18 3dr_controller local1.err +423 tlm: dropped 7 downlink packets
+Jan 10 01:08:20 3dr_controller local1.info +331 tlm: dn:3845 (1,1)3060/1 (1,154)775/20 (10,0)10/0 up:760
+Jan 10 01:08:30 3dr_controller local1.info +312 tlm: dn:3869 (1,1)3090/0 (1,154)769/19 (10,0)10/0 up:803
+Jan 10 01:08:34 3dr_controller local1.err +270 tlm: dropped 8 downlink packets
+Jan 10 01:08:40 3dr_controller local1.info +310 tlm: dn:3794 (1,1)3034/1 (1,154)750/19 (10,0)10/0 up:758
+Jan 10 01:08:50 3dr_controller local1.info +328 tlm: dn:3856 (1,1)3075/0 (1,154)771/20 (10,0)10/0 up:766
+Jan 10 01:09:00 3dr_controller local1.info +315 tlm: dn:3766 (1,1)3035/0 (1,154)721/19 (10,0)10/0 up:731
+Jan 10 01:09:10 3dr_controller local1.info +313 tlm: dn:3808 (1,1)3055/0 (1,154)743/19 (10,0)10/0 up:754
+Jan 10 01:09:20 3dr_controller local1.info +328 tlm: dn:3872 (1,1)3089/0 (1,154)773/19 (10,0)10/0 up:781
+Jan 10 01:09:30 3dr_controller local1.info +314 tlm: dn:3860 (1,1)3076/0 (1,154)774/19 (10,0)10/0 up:786
+Jan 10 01:09:37 3dr_controller local1.err +842 tlm: dropped 3 downlink packets
+Jan 10 01:09:40 3dr_controller local1.info +314 tlm: dn:3803 (1,1)3048/1 (1,154)745/19 (10,0)10/0 up:756
+Jan 10 01:09:50 3dr_controller local1.info +311 tlm: dn:3843 (1,1)3084/0 (1,154)749/20 (10,0)10/0 up:782
+Jan 10 01:10:00 3dr_controller local1.info +310 tlm: dn:3833 (1,1)3058/0 (1,154)765/20 (10,0)10/0 up:759
+Jan 10 01:10:10 3dr_controller local1.info +325 tlm: dn:3818 (1,1)3061/0 (1,154)747/20 (10,0)10/0 up:752
+Jan 10 01:10:20 3dr_controller local1.info +313 tlm: dn:3809 (1,1)3056/0 (1,154)744/20 (10,0)9/0 up:766
+Jan 10 01:10:30 3dr_controller local1.info +310 tlm: dn:3828 (1,1)3066/0 (1,154)751/20 (10,0)11/0 up:752
+Jan 10 01:10:40 3dr_controller local1.info +318 tlm: dn:3845 (1,1)3067/0 (1,154)768/19 (10,0)10/0 up:780
+Jan 10 01:10:50 3dr_controller local1.info +315 tlm: dn:3814 (1,1)3059/0 (1,154)745/19 (10,0)10/0 up:754
+Jan 10 01:10:59 3dr_controller local1.err +131 tlm: dropped 9 downlink packets
+Jan 10 01:11:00 3dr_controller local1.err +142 tlm: dropped 3 downlink packets
+Jan 10 01:11:00 3dr_controller local1.info +311 tlm: dn:3808 (1,1)3051/2 (1,154)747/20 (10,0)10/0 up:757
+Jan 10 01:11:05 3dr_controller local1.err +235 tlm: dropped 19 downlink packets
+Jan 10 01:11:06 3dr_controller local1.err +236 tlm: dropped 17 downlink packets
+Jan 10 01:11:10 3dr_controller local1.info +316 tlm: dn:3816 (1,1)3047/2 (1,154)759/19 (10,0)10/0 up:772
+Jan 10 01:11:20 3dr_controller local1.info +310 tlm: dn:3864 (1,1)3086/0 (1,154)768/20 (10,0)10/0 up:783
+Jan 10 01:11:30 3dr_controller local1.info +320 tlm: dn:3874 (1,1)3090/0 (1,154)774/20 (10,0)10/0 up:779
+Jan 10 01:11:40 3dr_controller local1.info +326 tlm: dn:3819 (1,1)3064/0 (1,154)745/18 (10,0)10/0 up:760
+Jan 10 01:11:50 3dr_controller local1.info +310 tlm: dn:3905 (1,1)3099/0 (1,154)796/20 (10,0)10/0 up:806
+Jan 10 01:12:00 3dr_controller local1.info +327 tlm: dn:3803 (1,1)3051/0 (1,154)742/19 (10,0)10/0 up:754
+Jan 10 01:12:10 3dr_controller local1.info +310 tlm: dn:3874 (1,1)3087/0 (1,154)777/20 (10,0)10/0 up:787
+Jan 10 01:12:20 3dr_controller local1.info +319 tlm: dn:3835 (1,1)3067/0 (1,154)758/20 (10,0)10/0 up:768
+Jan 10 01:12:22 3dr_controller local1.err +250 tlm: [1] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:12:23 3dr_controller local1.err +286 tlm: [1] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:12:23 3dr_controller local1.err +536 tlm: [60] sendto 10.1.1.133:14550 returned -1, expected 28: Resource temporarily unavailable
+Jan 10 01:12:27 3dr_controller local1.err +463 tlm: [10] sendto 10.1.1.153:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:12:27 3dr_controller local1.err +542 tlm: [5] sendto 10.1.1.133:14550 returned -1, expected 20: Resource temporarily unavailable
+Jan 10 01:12:30 3dr_controller local1.info +328 tlm: dn:3496 (1,1)2939/2 (1,154)547/22 (10,0)10/0 up:650
+Jan 10 01:12:30 3dr_controller local1.err +566 tlm: [90] sendto 10.1.1.133:14550 returned -1, expected 28: Resource temporarily unavailable
+Jan 10 01:12:30 3dr_controller local1.err +728 tlm: [72] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:12:31 3dr_controller local1.err +661 tlm: [203] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:12:31 3dr_controller local1.err +733 tlm: [214] sendto 10.1.1.153:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:12:32 3dr_controller local1.err +695 tlm: [127] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:12:32 3dr_controller local1.err +793 tlm: [209] sendto 10.1.1.153:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:12:34 3dr_controller local1.err +907 tlm: [62] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:12:34 3dr_controller local1.err +914 tlm: [65] sendto 10.1.1.153:14550 returned -1, expected 20: Resource temporarily unavailable
+Jan 10 01:12:36 3dr_controller local1.err +159 tlm: [31] sendto 10.1.1.153:14550 returned -1, expected 16: Resource temporarily unavailable
+Jan 10 01:12:36 3dr_controller local1.err +654 tlm: [32] sendto 10.1.1.133:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:12:37 3dr_controller local1.err +253 tlm: [172] sendto 10.1.1.153:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:12:37 3dr_controller local1.err +718 tlm: [121] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:12:38 3dr_controller local1.err +789 tlm: dropped 1 downlink packets
+Jan 10 01:12:39 3dr_controller local1.err +904 tlm: [176] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:12:40 3dr_controller local1.info +320 tlm: dn:3207 (1,1)2789/1 (1,154)408/20 (10,0)10/0 up:412
+Jan 10 01:12:41 3dr_controller local1.err +401 tlm: [5] sendto 10.1.1.153:14550 returned -1, expected 20: Resource temporarily unavailable
+Jan 10 01:12:41 3dr_controller local1.err +792 tlm: [87] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:12:43 3dr_controller local1.err +082 tlm: [154] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:12:43 3dr_controller local1.err +740 tlm: [85] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:12:44 3dr_controller local1.err +336 tlm: [109] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:12:48 3dr_controller local1.err +304 tlm: [36] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:12:49 3dr_controller local1.err +326 tlm: [62] sendto 10.1.1.153:14550 returned -1, expected 10: Resource temporarily unavailable
+Jan 10 01:12:49 3dr_controller local1.err +428 tlm: [43] sendto 10.1.1.133:14550 returned -1, expected 16: Resource temporarily unavailable
+Jan 10 01:12:50 3dr_controller local1.info +315 tlm: dn:3187 (1,1)2771/0 (1,154)406/20 (10,0)10/0 up:449
+Jan 10 01:12:50 3dr_controller local1.err +331 tlm: [82] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:12:54 3dr_controller local1.err +041 tlm: [89] sendto 10.1.1.153:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:12:54 3dr_controller local1.err +783 tlm: [144] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:12:55 3dr_controller local1.err +309 tlm: [83] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:12:55 3dr_controller local1.err +805 tlm: [28] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:12:56 3dr_controller local1.err +357 tlm: [70] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:12:57 3dr_controller local1.err +456 tlm: [26] sendto 10.1.1.153:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:12:57 3dr_controller local1.err +959 tlm: [17] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:12:58 3dr_controller local1.err +457 tlm: [61] sendto 10.1.1.153:14550 returned -1, expected 14: Resource temporarily unavailable
+Jan 10 01:12:58 3dr_controller local1.err +964 tlm: [93] sendto 10.1.1.133:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:12:59 3dr_controller local1.err +785 tlm: [156] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:13:00 3dr_controller local1.info +311 tlm: dn:3321 (1,1)2833/0 (1,154)478/19 (10,0)10/0 up:496
+Jan 10 01:13:00 3dr_controller local1.err +897 tlm: [47] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:13:00 3dr_controller local1.err +921 tlm: [31] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:02 3dr_controller local1.err +030 tlm: [11] sendto 10.1.1.133:14550 returned -1, expected 29: Resource temporarily unavailable
+Jan 10 01:13:02 3dr_controller local1.err +055 tlm: [73] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:13:03 3dr_controller local1.err +118 tlm: [116] sendto 10.1.1.153:14550 returned -1, expected 11: Resource temporarily unavailable
+Jan 10 01:13:03 3dr_controller local1.err +257 tlm: [83] sendto 10.1.1.133:14550 returned -1, expected 32: Resource temporarily unavailable
+Jan 10 01:13:04 3dr_controller local1.err +139 tlm: [118] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:13:04 3dr_controller local1.err +258 tlm: [156] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:13:05 3dr_controller local1.err +284 tlm: [165] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:13:05 3dr_controller local1.err +571 tlm: [162] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:13:06 3dr_controller local1.err +321 tlm: [103] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:13:06 3dr_controller local1.err +936 tlm: [77] sendto 10.1.1.133:14550 returned -1, expected 29: Resource temporarily unavailable
+Jan 10 01:13:07 3dr_controller local1.err +869 tlm: [173] sendto 10.1.1.153:14550 returned -1, expected 32: Resource temporarily unavailable
+Jan 10 01:13:07 3dr_controller local1.err +963 tlm: [102] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:13:08 3dr_controller local1.err +873 tlm: [85] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:13:08 3dr_controller local1.err +974 tlm: [76] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:10 3dr_controller local1.info +313 tlm: dn:3629 (1,1)2994/0 (1,154)625/21 (10,0)10/0 up:658
+Jan 10 01:13:11 3dr_controller local1.err +675 tlm: [154] sendto 10.1.1.153:14550 returned -1, expected 29: Resource temporarily unavailable
+Jan 10 01:13:11 3dr_controller local1.err +834 tlm: [127] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:13:12 3dr_controller local1.err +173 tlm: [0] sendto 10.1.1.10:14560: Resource temporarily unavailable
+Jan 10 01:13:12 3dr_controller local1.err +676 tlm: [178] sendto 10.1.1.153:14550 returned -1, expected 14: Resource temporarily unavailable
+Jan 10 01:13:12 3dr_controller local1.err +848 tlm: [209] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:13:13 3dr_controller local1.err +808 tlm: [332] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:13 3dr_controller local1.err +962 tlm: [381] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:13:14 3dr_controller local1.err +809 tlm: [275] sendto 10.1.1.153:14550 returned -1, expected 10: Resource temporarily unavailable
+Jan 10 01:13:14 3dr_controller local1.err +976 tlm: [203] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:15 3dr_controller local1.err +842 tlm: [352] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:13:15 3dr_controller local1.err +977 tlm: [281] sendto 10.1.1.133:14550 returned -1, expected 20: Resource temporarily unavailable
+Jan 10 01:13:16 3dr_controller local1.err +864 tlm: [177] sendto 10.1.1.153:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:13:16 3dr_controller local1.err +998 tlm: [112] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:13:17 3dr_controller local1.err +866 tlm: [252] sendto 10.1.1.153:14550 returned -1, expected 12: Resource temporarily unavailable
+Jan 10 01:13:18 3dr_controller local1.err +002 tlm: [198] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:13:18 3dr_controller local1.err +954 tlm: [235] sendto 10.1.1.153:14550 returned -1, expected 32: Resource temporarily unavailable
+Jan 10 01:13:19 3dr_controller local1.err +022 tlm: [178] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:13:19 3dr_controller local1.err +958 tlm: [228] sendto 10.1.1.153:14550 returned -1, expected 11: Resource temporarily unavailable
+Jan 10 01:13:20 3dr_controller local1.err +033 tlm: [153] sendto 10.1.1.133:14550 returned -1, expected 11: Resource temporarily unavailable
+Jan 10 01:13:20 3dr_controller local1.info +316 tlm: dn:3338 (1,1)2849/4 (1,154)478/21 (10,0)10/0 (44,1)1/0 up:616
+Jan 10 01:13:20 3dr_controller local1.err +968 tlm: [186] sendto 10.1.1.153:14550 returned -1, expected 14: Resource temporarily unavailable
+Jan 10 01:13:21 3dr_controller local1.err +045 tlm: [185] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:13:22 3dr_controller local1.err +003 tlm: [159] sendto 10.1.1.153:14550 returned -1, expected 12: Resource temporarily unavailable
+Jan 10 01:13:22 3dr_controller local1.err +190 tlm: [70] sendto 10.1.1.133:14550 returned -1, expected 16: Resource temporarily unavailable
+Jan 10 01:13:23 3dr_controller local1.err +003 tlm: [147] sendto 10.1.1.153:14550 returned -1, expected 28: Resource temporarily unavailable
+Jan 10 01:13:24 3dr_controller local1.err +017 tlm: [109] sendto 10.1.1.153:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:13:24 3dr_controller local1.err +150 tlm: [121] sendto 10.1.1.133:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:13:25 3dr_controller local1.err +039 tlm: [156] sendto 10.1.1.153:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:13:25 3dr_controller local1.err +255 tlm: [114] sendto 10.1.1.133:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:13:26 3dr_controller local1.err +043 tlm: [137] sendto 10.1.1.153:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:13:26 3dr_controller local1.err +299 tlm: [51] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:13:27 3dr_controller local1.err +074 tlm: [147] sendto 10.1.1.153:14550 returned -1, expected 20: Resource temporarily unavailable
+Jan 10 01:13:27 3dr_controller local1.err +377 tlm: [65] sendto 10.1.1.133:14550 returned -1, expected 10: Resource temporarily unavailable
+Jan 10 01:13:28 3dr_controller local1.err +090 tlm: [125] sendto 10.1.1.153:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:13:28 3dr_controller local1.err +561 tlm: [28] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:29 3dr_controller local1.err +153 tlm: [119] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:29 3dr_controller local1.err +842 tlm: [93] sendto 10.1.1.133:14550 returned -1, expected 32: Resource temporarily unavailable
+Jan 10 01:13:30 3dr_controller local1.err +198 tlm: [176] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:30 3dr_controller local1.info +316 tlm: dn:2370 (1,1)2350/0 (1,154)11/10 (10,0)9/0 up:6
+Jan 10 01:13:31 3dr_controller local1.err +240 tlm: [143] sendto 10.1.1.153:14550 returned -1, expected 20: Resource temporarily unavailable
+Jan 10 01:13:31 3dr_controller local1.err +382 tlm: [109] sendto 10.1.1.133:14550 returned -1, expected 32: Resource temporarily unavailable
+Jan 10 01:13:32 3dr_controller local1.err +310 tlm: [144] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:32 3dr_controller local1.err +465 tlm: [60] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:33 3dr_controller local1.err +314 tlm: [159] sendto 10.1.1.153:14550 returned -1, expected 29: Resource temporarily unavailable
+Jan 10 01:13:33 3dr_controller local1.err +586 tlm: [74] sendto 10.1.1.133:14550 returned -1, expected 11: Resource temporarily unavailable
+Jan 10 01:13:34 3dr_controller local1.err +364 tlm: [147] sendto 10.1.1.153:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:13:34 3dr_controller local1.err +712 tlm: [114] sendto 10.1.1.133:14550 returned -1, expected 16: Resource temporarily unavailable
+Jan 10 01:13:35 3dr_controller local1.err +372 tlm: [181] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:35 3dr_controller local1.err +731 tlm: [114] sendto 10.1.1.133:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:13:36 3dr_controller local1.err +396 tlm: [158] sendto 10.1.1.153:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:13:36 3dr_controller local1.err +907 tlm: [62] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:13:37 3dr_controller local1.err +541 tlm: [123] sendto 10.1.1.153:14550 returned -1, expected 12: Resource temporarily unavailable
+Jan 10 01:13:37 3dr_controller local1.err +963 tlm: [63] sendto 10.1.1.133:14550 returned -1, expected 16: Resource temporarily unavailable
+Jan 10 01:13:38 3dr_controller local1.err +558 tlm: [163] sendto 10.1.1.153:14550 returned -1, expected 11: Resource temporarily unavailable
+Jan 10 01:13:39 3dr_controller local1.err +092 tlm: [65] sendto 10.1.1.133:14550 returned -1, expected 16: Resource temporarily unavailable
+Jan 10 01:13:39 3dr_controller local1.err +595 tlm: [160] sendto 10.1.1.153:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:13:40 3dr_controller local1.err +098 tlm: [83] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:40 3dr_controller local1.info +310 tlm: dn:2380 (1,1)2360/0 (1,154)10/9 (10,0)10/0 up:9
+Jan 10 01:13:40 3dr_controller local1.err +618 tlm: [115] sendto 10.1.1.153:14550 returned -1, expected 11: Resource temporarily unavailable
+Jan 10 01:13:41 3dr_controller local1.err +297 tlm: [38] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:13:41 3dr_controller local1.err +628 tlm: [144] sendto 10.1.1.153:14550 returned -1, expected 12: Resource temporarily unavailable
+Jan 10 01:13:42 3dr_controller local1.err +412 tlm: [77] sendto 10.1.1.133:14550 returned -1, expected 11: Resource temporarily unavailable
+Jan 10 01:13:42 3dr_controller local1.err +649 tlm: [126] sendto 10.1.1.153:14550 returned -1, expected 38: Resource temporarily unavailable
+Jan 10 01:13:43 3dr_controller local1.err +453 tlm: [37] sendto 10.1.1.133:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:13:43 3dr_controller local1.err +650 tlm: [135] sendto 10.1.1.153:14550 returned -1, expected 26: Resource temporarily unavailable
+Jan 10 01:13:44 3dr_controller local1.err +543 tlm: [31] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:44 3dr_controller local1.err +651 tlm: [133] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:13:45 3dr_controller local1.err +641 tlm: [95] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:45 3dr_controller local1.err +665 tlm: [154] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:46 3dr_controller local1.err +666 tlm: [161] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:50 3dr_controller local1.info +326 tlm: dn:2381 (1,1)2360/0 (1,154)10/9 (10,0)11/0 up:10
+Jan 10 01:13:51 3dr_controller local1.err +960 tlm: [28] sendto 10.1.1.153:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:13:52 3dr_controller local1.err +774 tlm: [131] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:13:52 3dr_controller local1.err +972 tlm: [155] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:13:53 3dr_controller local1.err +805 tlm: [151] sendto 10.1.1.133:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:13:54 3dr_controller local1.err +053 tlm: [141] sendto 10.1.1.153:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:13:54 3dr_controller local1.err +808 tlm: [62] sendto 10.1.1.133:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:13:55 3dr_controller local1.err +079 tlm: [147] sendto 10.1.1.153:14550 returned -1, expected 28: Resource temporarily unavailable
+Jan 10 01:13:56 3dr_controller local1.err +137 tlm: [172] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:13:56 3dr_controller local1.err +410 tlm: [127] sendto 10.1.1.133:14550 returned -1, expected 10: Resource temporarily unavailable
+Jan 10 01:13:57 3dr_controller local1.err +149 tlm: [137] sendto 10.1.1.153:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:13:57 3dr_controller local1.err +890 tlm: [124] sendto 10.1.1.133:14550 returned -1, expected 26: Resource temporarily unavailable
+Jan 10 01:13:58 3dr_controller local1.err +162 tlm: [143] sendto 10.1.1.153:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:13:59 3dr_controller local1.err +245 tlm: [151] sendto 10.1.1.153:14550 returned -1, expected 16: Resource temporarily unavailable
+Jan 10 01:13:59 3dr_controller local1.err +516 tlm: [114] sendto 10.1.1.133:14550 returned -1, expected 50: Resource temporarily unavailable
+Jan 10 01:14:00 3dr_controller local1.info +314 tlm: dn:2372 (1,1)2353/0 (1,154)10/9 (10,0)9/0 up:6
+Jan 10 01:14:00 3dr_controller local1.err +355 tlm: [137] sendto 10.1.1.153:14550 returned -1, expected 11: Resource temporarily unavailable
+Jan 10 01:14:00 3dr_controller local1.err +719 tlm: [46] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:14:01 3dr_controller local1.err +357 tlm: [165] sendto 10.1.1.153:14550 returned -1, expected 12: Resource temporarily unavailable
+Jan 10 01:14:01 3dr_controller local1.err +788 tlm: [91] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:02 3dr_controller local1.err +370 tlm: [135] sendto 10.1.1.153:14550 returned -1, expected 14: Resource temporarily unavailable
+Jan 10 01:14:03 3dr_controller local1.err +287 tlm: [91] sendto 10.1.1.133:14550 returned -1, expected 29: Resource temporarily unavailable
+Jan 10 01:14:03 3dr_controller local1.err +438 tlm: [145] sendto 10.1.1.153:14550 returned -1, expected 20: Resource temporarily unavailable
+Jan 10 01:14:04 3dr_controller local1.err +411 tlm: [90] sendto 10.1.1.133:14550 returned -1, expected 12: Resource temporarily unavailable
+Jan 10 01:14:04 3dr_controller local1.err +481 tlm: [163] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:14:05 3dr_controller local1.err +445 tlm: [69] sendto 10.1.1.133:14550 returned -1, expected 12: Resource temporarily unavailable
+Jan 10 01:14:05 3dr_controller local1.err +489 tlm: [170] sendto 10.1.1.153:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:06 3dr_controller local1.err +506 tlm: [171] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:06 3dr_controller local1.err +558 tlm: [99] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:07 3dr_controller local1.err +574 tlm: [257] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:07 3dr_controller local1.err +583 tlm: [188] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:08 3dr_controller local1.err +632 tlm: [236] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:08 3dr_controller local1.err +739 tlm: [161] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:09 3dr_controller local1.err +669 tlm: [138] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:10 3dr_controller local1.err +178 tlm: [166] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:10 3dr_controller local1.info +364 tlm: dn:2674 (1,1)2653/0 (1,154)10/9 (10,0)11/0 up:37
+Jan 10 01:14:10 3dr_controller local1.err +674 tlm: [230] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:11 3dr_controller local1.err +669 tlm: [207] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:11 3dr_controller local1.err +696 tlm: [179] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:14:12 3dr_controller local1.err +706 tlm: [197] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:14:12 3dr_controller local1.err +718 tlm: [102] sendto 10.1.1.133:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:14:13 3dr_controller local1.err +708 tlm: [137] sendto 10.1.1.153:14550 returned -1, expected 38: Resource temporarily unavailable
+Jan 10 01:14:14 3dr_controller local1.err +466 tlm: [165] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:14 3dr_controller local1.err +718 tlm: [163] sendto 10.1.1.153:14550 returned -1, expected 12: Resource temporarily unavailable
+Jan 10 01:14:15 3dr_controller local1.err +710 tlm: [159] sendto 10.1.1.133:14550 returned -1, expected 28: Resource temporarily unavailable
+Jan 10 01:14:15 3dr_controller local1.err +768 tlm: [208] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:14:16 3dr_controller local1.err +717 tlm: [143] sendto 10.1.1.133:14550 returned -1, expected 29: Resource temporarily unavailable
+Jan 10 01:14:16 3dr_controller local1.err +846 tlm: [226] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:17 3dr_controller local1.err +804 tlm: [165] sendto 10.1.1.133:14550 returned -1, expected 20: Resource temporarily unavailable
+Jan 10 01:14:17 3dr_controller local1.err +848 tlm: [255] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:18 3dr_controller local1.err +876 tlm: [208] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:14:18 3dr_controller local1.err +877 tlm: [143] sendto 10.1.1.133:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:14:19 3dr_controller local1.err +876 tlm: [244] sendto 10.1.1.153:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:14:19 3dr_controller local1.err +877 tlm: [162] sendto 10.1.1.133:14550 returned -1, expected 29: Resource temporarily unavailable
+Jan 10 01:14:20 3dr_controller local1.info +310 tlm: dn:2992 (1,1)2736/0 (1,154)246/17 (10,0)10/0 up:370
+Jan 10 01:14:20 3dr_controller local1.err +909 tlm: [225] sendto 10.1.1.153:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:20 3dr_controller local1.err +956 tlm: [114] sendto 10.1.1.133:14550 returned -1, expected 10: Resource temporarily unavailable
+Jan 10 01:14:21 3dr_controller local1.err +944 tlm: [203] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:22 3dr_controller local1.err +061 tlm: [157] sendto 10.1.1.133:14550 returned -1, expected 14: Resource temporarily unavailable
+Jan 10 01:14:22 3dr_controller local1.err +982 tlm: [255] sendto 10.1.1.153:14550 returned -1, expected 12: Resource temporarily unavailable
+Jan 10 01:14:23 3dr_controller local1.err +070 tlm: [212] sendto 10.1.1.133:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:14:23 3dr_controller local1.err +994 tlm: [250] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:24 3dr_controller local1.err +252 tlm: [158] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:25 3dr_controller local1.err +095 tlm: [230] sendto 10.1.1.153:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:25 3dr_controller local1.err +253 tlm: [266] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:26 3dr_controller local1.err +145 tlm: [310] sendto 10.1.1.153:14550 returned -1, expected 14: Resource temporarily unavailable
+Jan 10 01:14:26 3dr_controller local1.err +258 tlm: [155] sendto 10.1.1.133:14550 returned -1, expected 17: Resource temporarily unavailable
+Jan 10 01:14:27 3dr_controller local1.err +163 tlm: [199] sendto 10.1.1.153:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:27 3dr_controller local1.err +884 tlm: [219] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:28 3dr_controller local1.err +198 tlm: [212] sendto 10.1.1.153:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:28 3dr_controller local1.err +905 tlm: [221] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:29 3dr_controller local1.err +215 tlm: [240] sendto 10.1.1.153:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:14:29 3dr_controller local1.err +925 tlm: [150] sendto 10.1.1.133:14550 returned -1, expected 20: Resource temporarily unavailable
+Jan 10 01:14:30 3dr_controller local1.err +217 tlm: [244] sendto 10.1.1.153:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:14:30 3dr_controller local1.info +319 tlm: dn:3123 (1,1)2743/0 (1,154)371/19 (10,0)9/0 up:416
+Jan 10 01:14:31 3dr_controller local1.err +140 tlm: [218] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:31 3dr_controller local1.err +217 tlm: [247] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:32 3dr_controller local1.err +252 tlm: [288] sendto 10.1.1.153:14550 returned -1, expected 10: Resource temporarily unavailable
+Jan 10 01:14:32 3dr_controller local1.err +518 tlm: [224] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:33 3dr_controller local1.err +297 tlm: [195] sendto 10.1.1.153:14550 returned -1, expected 16: Resource temporarily unavailable
+Jan 10 01:14:33 3dr_controller local1.err +522 tlm: [168] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:14:34 3dr_controller local1.err +332 tlm: [196] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:34 3dr_controller local1.err +535 tlm: [98] sendto 10.1.1.133:14550 returned -1, expected 20: Resource temporarily unavailable
+Jan 10 01:14:35 3dr_controller local1.err +334 tlm: [151] sendto 10.1.1.153:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:35 3dr_controller local1.err +888 tlm: [91] sendto 10.1.1.133:14550 returned -1, expected 32: Resource temporarily unavailable
+Jan 10 01:14:36 3dr_controller local1.err +335 tlm: [200] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:36 3dr_controller local1.err +946 tlm: [181] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:37 3dr_controller local1.err +343 tlm: [228] sendto 10.1.1.153:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:14:37 3dr_controller local1.err +948 tlm: [181] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:38 3dr_controller local1.err +366 tlm: [215] sendto 10.1.1.153:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:39 3dr_controller local1.err +120 tlm: [174] sendto 10.1.1.133:14550 returned -1, expected 12: Resource temporarily unavailable
+Jan 10 01:14:39 3dr_controller local1.err +414 tlm: [304] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:40 3dr_controller local1.err +182 tlm: [275] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:40 3dr_controller local1.info +310 tlm: dn:3195 (1,1)2809/0 (1,154)376/19 (10,0)10/0 up:391
+Jan 10 01:14:40 3dr_controller local1.err +415 tlm: [328] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:41 3dr_controller local1.err +190 tlm: [259] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:41 3dr_controller local1.err +416 tlm: [303] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:42 3dr_controller local1.err +201 tlm: [189] sendto 10.1.1.133:14550 returned -1, expected 34: Resource temporarily unavailable
+Jan 10 01:14:42 3dr_controller local1.err +417 tlm: [233] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:43 3dr_controller local1.err +243 tlm: [197] sendto 10.1.1.133:14550 returned -1, expected 11: Resource temporarily unavailable
+Jan 10 01:14:43 3dr_controller local1.err +437 tlm: [237] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:44 3dr_controller local1.err +244 tlm: [155] sendto 10.1.1.133:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:14:44 3dr_controller local1.err +474 tlm: [204] sendto 10.1.1.153:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:14:45 3dr_controller local1.err +248 tlm: [205] sendto 10.1.1.133:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:14:45 3dr_controller local1.err +530 tlm: [220] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:14:46 3dr_controller local1.err +441 tlm: [116] sendto 10.1.1.133:14550 returned -1, expected 22: Resource temporarily unavailable
+Jan 10 01:14:46 3dr_controller local1.err +539 tlm: [198] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:14:47 3dr_controller local1.err +458 tlm: [172] sendto 10.1.1.133:14550 returned -1, expected 14: Resource temporarily unavailable
+Jan 10 01:14:47 3dr_controller local1.err +539 tlm: [214] sendto 10.1.1.153:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:14:48 3dr_controller local1.err +466 tlm: [164] sendto 10.1.1.133:14550 returned -1, expected 39: Resource temporarily unavailable
+Jan 10 01:14:48 3dr_controller local1.err +543 tlm: [205] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:49 3dr_controller local1.err +471 tlm: [160] sendto 10.1.1.133:14550 returned -1, expected 30: Resource temporarily unavailable
+Jan 10 01:14:49 3dr_controller local1.err +550 tlm: [201] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:50 3dr_controller local1.info +311 tlm: dn:2884 (1,1)2645/0 (1,154)229/19 (10,0)10/0 up:210
+Jan 10 01:14:50 3dr_controller local1.err +532 tlm: [127] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:50 3dr_controller local1.err +560 tlm: [183] sendto 10.1.1.153:14550 returned -1, expected 11: Resource temporarily unavailable
+Jan 10 01:14:51 3dr_controller local1.err +546 tlm: [219] sendto 10.1.1.133:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:51 3dr_controller local1.err +581 tlm: [238] sendto 10.1.1.153:14550 returned -1, expected 36: Resource temporarily unavailable
+Jan 10 01:14:52 3dr_controller local1.err +156 tlm: [98] sendto 10.1.1.10:14560: Resource temporarily unavailable
+Jan 10 01:14:52 3dr_controller local1.err +550 tlm: [120] sendto 10.1.1.133:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:52 3dr_controller local1.err +583 tlm: [237] sendto 10.1.1.153:14550 returned -1, expected 33: Resource temporarily unavailable
+Jan 10 01:14:55 3dr_controller local1.err +558 tlm: dropped 1 downlink packets
+Jan 10 01:14:56 3dr_controller local1.err +841 tlm: dropped 1 downlink packets
+Jan 10 01:14:57 3dr_controller local1.err +772 tlm: [18] sendto 10.1.1.153:14550 returned -1, expected 12: Resource temporarily unavailable
+Jan 10 01:14:57 3dr_controller local1.err +776 tlm: [17] sendto 10.1.1.133:14550 returned -1, expected 11: Resource temporarily unavailable
+Jan 10 01:14:57 3dr_controller local1.err +841 tlm: dropped 308 downlink packets
+Jan 10 01:14:58 3dr_controller local1.err +854 tlm: dropped 141 downlink packets
+Jan 10 01:15:00 3dr_controller local1.info +336 tlm: dn:2947 (1,1)2511/29 (1,154)426/25 (10,0)10/1 up:1368
+Jan 10 01:15:10 3dr_controller local1.info +320 tlm: dn:2521 (1,1)2501/0 (1,154)10/9 (10,0)10/0 up:14
+Jan 10 01:15:20 3dr_controller local1.info +315 tlm: dn:2240 (1,1)2055/0 (1,154)175/13 (10,0)10/0 up:192
+Jan 10 01:15:30 3dr_controller local1.info +317 tlm: dn:3827 (1,1)3025/0 (1,154)792/19 (10,0)10/0 up:825
+Jan 10 01:15:31 3dr_controller local1.err +797 tlm: dropped 12 downlink packets
+Jan 10 01:15:32 3dr_controller local1.err +799 tlm: dropped 4 downlink packets
+Jan 10 01:15:40 3dr_controller local1.info +313 tlm: dn:3845 (1,1)3068/2 (1,154)767/20 (10,0)10/0 up:804
+Jan 10 01:15:50 3dr_controller local1.info +317 tlm: dn:3636 (1,1)2969/0 (1,154)657/18 (10,0)10/0 up:657
+Jan 10 01:16:00 3dr_controller local1.info +316 tlm: dn:2418 (1,1)2200/0 (1,154)208/12 (10,0)10/0 up:225
+Jan 10 01:16:02 3dr_controller local1.err +722 tlm: dropped 1 downlink packets
+Jan 10 01:16:10 3dr_controller local1.info +317 tlm: dn:3850 (1,1)3051/1 (1,154)789/19 (10,0)10/0 up:802
+Jan 10 01:16:20 3dr_controller local1.info +311 tlm: dn:3863 (1,1)3080/0 (1,154)773/20 (10,0)10/0 up:787
+Jan 10 01:16:30 3dr_controller local1.info +325 tlm: dn:3820 (1,1)3057/0 (1,154)753/19 (10,0)10/0 up:759
+Jan 10 01:16:40 3dr_controller local1.info +316 tlm: dn:3862 (1,1)3083/0 (1,154)769/20 (10,0)10/0 up:778
+Jan 10 01:16:50 3dr_controller local1.info +334 tlm: dn:3815 (1,1)3060/0 (1,154)745/19 (10,0)10/0 up:755
+Jan 10 01:17:00 3dr_controller local1.info +322 tlm: dn:3856 (1,1)3080/0 (1,154)766/19 (10,0)10/0 up:777
+Jan 10 01:17:10 3dr_controller local1.info +314 tlm: dn:3886 (1,1)3092/0 (1,154)784/19 (10,0)10/0 up:793
+Jan 10 01:17:20 3dr_controller local1.info +311 tlm: dn:3870 (1,1)3092/0 (1,154)768/20 (10,0)10/0 up:800
+Jan 10 01:17:30 3dr_controller local1.info +319 tlm: dn:3890 (1,1)3091/0 (1,154)789/20 (10,0)10/0 up:778
+Jan 10 01:17:40 3dr_controller local1.info +313 tlm: dn:3819 (1,1)3057/0 (1,154)752/19 (10,0)10/0 up:784
+Jan 10 01:17:50 3dr_controller local1.info +325 tlm: dn:3896 (1,1)3093/0 (1,154)793/20 (10,0)10/0 up:780
+Jan 10 01:18:00 3dr_controller local1.info +310 tlm: dn:3843 (1,1)3082/0 (1,154)751/20 (10,0)10/0 up:778
+Jan 10 01:18:10 3dr_controller local1.info +326 tlm: dn:3887 (1,1)3088/0 (1,154)789/20 (10,0)10/0 up:781
+Jan 10 01:18:20 3dr_controller local1.info +323 tlm: dn:3799 (1,1)3050/0 (1,154)739/20 (10,0)10/0 up:748
+Jan 10 01:18:30 3dr_controller local1.info +312 tlm: dn:3825 (1,1)3064/0 (1,154)751/20 (10,0)10/0 up:779
+Jan 10 01:18:40 3dr_controller local1.info +347 tlm: dn:3873 (1,1)3081/0 (1,154)782/20 (10,0)10/0 up:775
+Jan 10 01:18:50 3dr_controller local1.info +326 tlm: dn:3856 (1,1)3077/0 (1,154)769/19 (10,0)10/0 up:779
+Jan 10 01:19:00 3dr_controller local1.info +318 tlm: dn:3852 (1,1)3078/0 (1,154)764/19 (10,0)10/0 up:772
+Jan 10 01:19:10 3dr_controller local1.info +314 tlm: dn:3856 (1,1)3079/0 (1,154)767/19 (10,0)10/0 up:777
+Jan 10 01:19:20 3dr_controller local1.info +327 tlm: dn:3900 (1,1)3103/0 (1,154)787/19 (10,0)10/0 up:796
+Jan 10 01:19:30 3dr_controller local1.info +317 tlm: dn:3836 (1,1)3061/0 (1,154)765/19 (10,0)10/0 up:775
+Jan 10 01:19:40 3dr_controller local1.info +325 tlm: dn:3901 (1,1)3099/0 (1,154)792/20 (10,0)10/0 up:803
+Jan 10 01:19:50 3dr_controller local1.info +316 tlm: dn:3850 (1,1)3068/0 (1,154)772/18 (10,0)10/0 up:783
+Jan 10 01:20:00 3dr_controller local1.info +333 tlm: dn:3849 (1,1)3077/0 (1,154)762/19 (10,0)10/0 up:772
+Jan 10 01:20:10 3dr_controller local1.info +311 tlm: dn:3861 (1,1)3082/0 (1,154)769/19 (10,0)10/0 up:805
+Jan 10 01:20:20 3dr_controller local1.info +310 tlm: dn:3904 (1,1)3100/0 (1,154)794/19 (10,0)10/0 up:776
+Jan 10 01:20:30 3dr_controller local1.info +325 tlm: dn:3857 (1,1)3076/0 (1,154)771/20 (10,0)10/0 up:781
+Jan 10 01:20:40 3dr_controller local1.info +314 tlm: dn:3858 (1,1)3078/0 (1,154)770/20 (10,0)10/0 up:779
+Jan 10 01:20:50 3dr_controller local1.info +319 tlm: dn:3808 (1,1)3056/0 (1,154)742/19 (10,0)10/0 up:755
+Jan 10 01:21:00 3dr_controller local1.info +316 tlm: dn:3998 (1,1)3151/0 (1,154)837/20 (10,0)10/0 up:852
+Jan 10 01:21:10 3dr_controller local1.info +341 tlm: dn:3862 (1,1)3083/0 (1,154)769/19 (10,0)10/0 up:776
+Jan 10 01:21:20 3dr_controller local1.info +318 tlm: dn:3888 (1,1)3094/0 (1,154)784/21 (10,0)10/0 up:803
+Jan 10 01:21:30 3dr_controller local1.info +321 tlm: dn:3843 (1,1)3069/0 (1,154)764/19 (10,0)10/0 up:773
+Jan 10 01:21:40 3dr_controller local1.info +314 tlm: dn:3924 (1,1)3110/0 (1,154)804/20 (10,0)10/0 up:814
+Jan 10 01:21:50 3dr_controller local1.info +311 tlm: dn:3832 (1,1)3065/0 (1,154)757/19 (10,0)10/0 up:767
+Jan 10 01:22:00 3dr_controller local1.info +310 tlm: dn:3871 (1,1)3087/0 (1,154)774/19 (10,0)10/0 up:785
+Jan 10 01:22:10 3dr_controller local1.info +310 tlm: dn:3856 (1,1)3077/0 (1,154)769/18 (10,0)10/0 up:779
+Jan 10 01:22:20 3dr_controller local1.info +311 tlm: dn:3898 (1,1)3100/0 (1,154)788/20 (10,0)10/0 up:807
+Jan 10 01:22:30 3dr_controller local1.info +338 tlm: dn:3899 (1,1)3097/0 (1,154)792/19 (10,0)10/0 up:794
+Jan 10 01:22:40 3dr_controller local1.info +321 tlm: dn:3924 (1,1)3112/0 (1,154)802/19 (10,0)10/0 up:827
+Jan 10 01:22:50 3dr_controller local1.info +310 tlm: dn:3889 (1,1)3096/0 (1,154)783/19 (10,0)10/0 up:794
+Jan 10 01:23:00 3dr_controller local1.info +322 tlm: dn:3855 (1,1)3079/0 (1,154)766/19 (10,0)10/0 up:774
+Jan 10 01:23:10 3dr_controller local1.info +319 tlm: dn:3881 (1,1)3092/0 (1,154)779/19 (10,0)10/0 up:789
+Jan 10 01:23:20 3dr_controller local1.info +327 tlm: dn:3906 (1,1)3101/0 (1,154)795/19 (10,0)10/0 up:805
+Jan 10 01:23:30 3dr_controller local1.info +344 tlm: dn:3906 (1,1)3102/0 (1,154)794/19 (10,0)10/0 up:819
+Jan 10 01:23:40 3dr_controller local1.info +312 tlm: dn:3935 (1,1)3116/0 (1,154)809/21 (10,0)10/0 up:823
+Jan 10 01:23:50 3dr_controller local1.info +322 tlm: dn:3819 (1,1)3062/0 (1,154)747/18 (10,0)10/0 up:757
+Jan 10 01:24:00 3dr_controller local1.info +310 tlm: dn:3871 (1,1)3086/0 (1,154)775/18 (10,0)10/0 up:808
+Jan 10 01:24:10 3dr_controller local1.info +318 tlm: dn:3873 (1,1)3093/0 (1,154)770/19 (10,0)10/0 up:760
+Jan 10 01:24:20 3dr_controller local1.info +322 tlm: dn:3821 (1,1)3062/0 (1,154)749/19 (10,0)10/0 up:758
+Jan 10 01:24:30 3dr_controller local1.info +310 tlm: dn:3846 (1,1)3070/0 (1,154)766/19 (10,0)10/0 up:802
+Jan 10 01:24:40 3dr_controller local1.info +341 tlm: dn:3906 (1,1)3102/0 (1,154)794/19 (10,0)10/0 up:777
+Jan 10 01:24:50 3dr_controller local1.info +312 tlm: dn:3797 (1,1)3048/0 (1,154)739/19 (10,0)10/0 up:776
+Jan 10 01:25:00 3dr_controller local1.info +312 tlm: dn:3874 (1,1)3090/0 (1,154)774/21 (10,0)10/0 up:780
+Jan 10 01:25:10 3dr_controller local1.info +340 tlm: dn:3663 (1,1)2986/0 (1,154)667/18 (10,0)10/0 up:655
+Jan 10 01:25:20 3dr_controller local1.info +342 tlm: dn:2511 (1,1)2491/0 (1,154)10/9 (10,0)10/0 up:14
+Jan 10 01:25:30 3dr_controller local1.info +326 tlm: dn:2324 (1,1)2092/0 (1,154)222/14 (10,0)10/0 up:247
+Jan 10 01:25:40 3dr_controller local1.info +315 tlm: dn:3716 (1,1)2967/0 (1,154)739/19 (10,0)10/0 up:748
+Jan 10 01:25:50 3dr_controller local1.info +323 tlm: dn:2933 (1,1)2684/0 (1,154)239/14 (10,0)10/0 up:247
+Jan 10 01:26:00 3dr_controller local1.info +313 tlm: dn:2404 (1,1)2384/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:26:10 3dr_controller local1.info +329 tlm: dn:2409 (1,1)2389/0 (1,154)10/9 (10,0)10/0 up:19
+Jan 10 01:26:20 3dr_controller local1.info +322 tlm: dn:2406 (1,1)2386/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:26:30 3dr_controller local1.info +331 tlm: dn:2417 (1,1)2397/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:26:40 3dr_controller local1.info +315 tlm: dn:2402 (1,1)2383/0 (1,154)10/9 (10,0)9/0 up:20
+Jan 10 01:26:50 3dr_controller local1.info +326 tlm: dn:2423 (1,1)2400/0 (1,154)12/11 (10,0)11/0 up:19
+Jan 10 01:27:00 3dr_controller local1.info +327 tlm: dn:2411 (1,1)2391/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:27:10 3dr_controller local1.info +311 tlm: dn:2408 (1,1)2388/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:27:20 3dr_controller local1.info +316 tlm: dn:2405 (1,1)2385/0 (1,154)10/9 (10,0)10/0 up:19
+Jan 10 01:27:30 3dr_controller local1.info +312 tlm: dn:2407 (1,1)2387/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:27:40 3dr_controller local1.info +310 tlm: dn:2410 (1,1)2390/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:27:50 3dr_controller local1.info +315 tlm: dn:2405 (1,1)2382/0 (1,154)13/12 (10,0)10/0 up:20
+Jan 10 01:28:00 3dr_controller local1.info +314 tlm: dn:2419 (1,1)2389/0 (1,154)20/19 (10,0)10/0 up:19
+Jan 10 01:28:10 3dr_controller local1.info +313 tlm: dn:2408 (1,1)2387/0 (1,154)11/10 (10,0)10/0 up:20
+Jan 10 01:28:20 3dr_controller local1.info +321 tlm: dn:2409 (1,1)2389/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:28:30 3dr_controller local1.info +319 tlm: dn:2020 (1,1)2000/0 (1,154)10/9 (10,0)10/0 up:22
+Jan 10 01:28:40 3dr_controller local1.info +312 tlm: dn:3644 (1,1)2890/0 (1,154)745/21 (10,0)9/0 up:769
+Jan 10 01:28:50 3dr_controller local1.info +317 tlm: dn:3753 (1,1)2967/0 (1,154)775/20 (10,0)11/0 up:781
+Jan 10 01:29:00 3dr_controller local1.info +319 tlm: dn:3750 (1,1)2999/0 (1,154)742/19 (10,0)9/0 up:874
+Jan 10 01:29:10 3dr_controller local1.info +316 tlm: dn:3814 (1,1)3034/0 (1,154)769/19 (10,0)11/0 up:940
+Jan 10 01:29:12 3dr_controller local1.err +231 tlm: dropped 1 downlink packets
+Jan 10 01:29:13 3dr_controller local1.err +238 tlm: dropped 16 downlink packets
+Jan 10 01:29:20 3dr_controller local1.info +314 tlm: dn:3728 (1,1)2952/2 (1,154)766/19 (10,0)10/0 up:909
+Jan 10 01:29:30 3dr_controller local1.info +313 tlm: dn:3744 (1,1)2986/0 (1,154)748/19 (10,0)10/0 up:879
+Jan 10 01:29:40 3dr_controller local1.info +320 tlm: dn:3778 (1,1)2990/0 (1,154)778/20 (10,0)10/0 up:872
+Jan 10 01:29:50 3dr_controller local1.info +310 tlm: dn:3693 (1,1)2948/0 (1,154)735/19 (10,0)10/0 up:892
+Jan 10 01:30:00 3dr_controller local1.info +336 tlm: dn:3765 (1,1)3014/0 (1,154)741/19 (10,0)10/0 up:869
+Jan 10 01:30:10 3dr_controller local1.info +318 tlm: dn:3752 (1,1)2981/0 (1,154)761/19 (10,0)10/0 up:851
+Jan 10 01:30:20 3dr_controller local1.info +311 tlm: dn:3706 (1,1)2948/0 (1,154)748/19 (10,0)10/0 up:811
+Jan 10 01:30:30 3dr_controller local1.info +319 tlm: dn:3736 (1,1)2988/0 (1,154)738/19 (10,0)10/0 up:728
+Jan 10 01:30:40 3dr_controller local1.info +311 tlm: dn:3789 (1,1)3003/0 (1,154)776/19 (10,0)10/0 up:788
+Jan 10 01:30:50 3dr_controller local1.info +310 tlm: dn:3711 (1,1)2952/0 (1,154)749/20 (10,0)10/0 up:760
+Jan 10 01:31:00 3dr_controller local1.info +315 tlm: dn:3625 (1,1)2911/1 (1,154)705/20 (10,0)9/0 up:769
+Jan 10 01:31:10 3dr_controller local1.info +310 tlm: dn:3786 (1,1)2988/0 (1,154)788/19 (10,0)10/0 up:792
+Jan 10 01:31:20 3dr_controller local1.info +311 tlm: dn:3719 (1,1)2963/0 (1,154)746/19 (10,0)10/0 up:762
+Jan 10 01:31:30 3dr_controller local1.info +314 tlm: dn:3757 (1,1)2971/0 (1,154)775/19 (10,0)11/0 up:781
+Jan 10 01:31:40 3dr_controller local1.info +324 tlm: dn:3895 (1,1)3100/0 (1,154)785/20 (10,0)10/0 up:773
+Jan 10 01:31:50 3dr_controller local1.info +310 tlm: dn:3874 (1,1)3094/0 (1,154)771/20 (10,0)9/0 up:790
+Jan 10 01:32:00 3dr_controller local1.info +321 tlm: dn:3825 (1,1)3062/0 (1,154)752/19 (10,0)11/0 up:753
+Jan 10 01:32:10 3dr_controller local1.info +311 tlm: dn:3848 (1,1)3071/0 (1,154)768/19 (10,0)9/0 up:777
+Jan 10 01:32:20 3dr_controller local1.info +318 tlm: dn:3817 (1,1)3060/0 (1,154)746/19 (10,0)11/0 up:755
+Jan 10 01:32:30 3dr_controller local1.info +317 tlm: dn:3864 (1,1)3078/0 (1,154)776/19 (10,0)10/0 up:786
+Jan 10 01:32:40 3dr_controller local1.info +328 tlm: dn:3827 (1,1)3066/0 (1,154)751/19 (10,0)10/0 up:761
+Jan 10 01:32:50 3dr_controller local1.info +310 tlm: dn:3059 (1,1)2701/0 (1,154)349/14 (10,0)9/0 up:371
+Jan 10 01:33:00 3dr_controller local1.info +315 tlm: dn:2530 (1,1)2509/0 (1,154)10/9 (10,0)11/0 up:19
+Jan 10 01:33:10 3dr_controller local1.info +319 tlm: dn:2415 (1,1)2395/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:33:20 3dr_controller local1.info +311 tlm: dn:2413 (1,1)2393/0 (1,154)10/9 (10,0)10/0 up:20
+Jan 10 01:33:30 3dr_controller local1.info +319 tlm: dn:2320 (1,1)2087/0 (1,154)223/14 (10,0)10/0 up:244
+Jan 10 01:33:40 3dr_controller local1.info +325 tlm: dn:3696 (1,1)2946/0 (1,154)740/20 (10,0)10/0 up:753
+Jan 10 01:33:50 3dr_controller local1.info +311 tlm: dn:3801 (1,1)3000/0 (1,154)791/19 (10,0)10/0 up:825
+Jan 10 01:34:00 3dr_controller local1.info +310 tlm: dn:3808 (1,1)3041/0 (1,154)757/19 (10,0)10/0 up:895
+Jan 10 01:34:10 3dr_controller local1.info +333 tlm: dn:3847 (1,1)3066/0 (1,154)771/19 (10,0)10/0 up:954
+Jan 10 01:34:20 3dr_controller local1.info +312 tlm: dn:3747 (1,1)2971/0 (1,154)767/20 (10,0)9/0 up:888
+Jan 10 01:34:30 3dr_controller local1.info +310 tlm: dn:3741 (1,1)2971/0 (1,154)760/19 (10,0)10/0 up:856
+Jan 10 01:34:40 3dr_controller local1.info +310 tlm: dn:3663 (1,1)2935/0 (1,154)718/19 (10,0)10/0 up:860
+Jan 10 01:34:50 3dr_controller local1.info +310 tlm: dn:3763 (1,1)3006/0 (1,154)746/20 (10,0)11/0 up:863
+Jan 10 01:35:00 3dr_controller local1.info +310 tlm: dn:3744 (1,1)2986/0 (1,154)748/19 (10,0)10/0 up:873
+Jan 10 01:35:10 3dr_controller local1.info +323 tlm: dn:3705 (1,1)2941/0 (1,154)754/19 (10,0)10/0 up:843
+Jan 10 01:35:20 3dr_controller local1.info +312 tlm: dn:3686 (1,1)2951/0 (1,154)725/20 (10,0)10/0 up:764
+Jan 10 01:35:30 3dr_controller local1.info +321 tlm: dn:3709 (1,1)2953/1 (1,154)747/19 (10,0)9/0 up:732
+Jan 10 01:35:40 3dr_controller local1.info +314 tlm: dn:3746 (1,1)2959/0 (1,154)776/20 (10,0)11/0 up:796
+Jan 10 01:35:50 3dr_controller local1.info +310 tlm: dn:3601 (1,1)2870/0 (1,154)721/20 (10,0)10/0 up:740
+Jan 10 01:36:00 3dr_controller local1.info +311 tlm: dn:3665 (1,1)2902/0 (1,154)753/20 (10,0)10/0 up:763
+Jan 10 01:36:10 3dr_controller local1.info +323 tlm: dn:3661 (1,1)2915/0 (1,154)736/19 (10,0)10/0 up:751
+Jan 10 01:36:20 3dr_controller local1.info +314 tlm: dn:3794 (1,1)3003/0 (1,154)781/22 (10,0)10/0 up:787
+Jan 10 01:36:30 3dr_controller local1.info +313 tlm: dn:3909 (1,1)3107/1 (1,154)792/22 (10,0)10/0 up:804
+Jan 10 01:36:40 3dr_controller local1.info +323 tlm: dn:3775 (1,1)3043/0 (1,154)722/19 (10,0)10/0 up:735
+Jan 10 01:36:50 3dr_controller local1.info +310 tlm: dn:3888 (1,1)3100/0 (1,154)779/20 (10,0)9/0 up:813
+Jan 10 01:37:00 3dr_controller local1.info +310 tlm: dn:3860 (1,1)3086/0 (1,154)764/20 (10,0)10/0 up:783
+Jan 10 01:37:10 3dr_controller local1.info +346 tlm: dn:3938 (0,0)1/0 (1,1)3132/0 (1,154)794/23 (10,0)11/0 up:777
+Jan 10 01:37:20 3dr_controller local1.info +341 tlm: dn:396 (1,1)318/0 (1,154)77/2 (10,0)1/0 up:303
+Jan 10 01:37:30 3dr_controller local1.info +439 tlm: dn:0 up:125
+Jan 10 01:37:40 3dr_controller local1.info +441 tlm: dn:0 up:0
+Jan 10 01:37:50 3dr_controller local1.info +444 tlm: dn:0 up:0
+Jan 10 01:38:00 3dr_controller local1.info +446 tlm: dn:0 up:0
+Jan 10 01:38:10 3dr_controller local1.info +449 tlm: dn:0 up:0
+Jan 10 01:38:20 3dr_controller local1.info +452 tlm: dn:0 up:0
+Jan 10 01:38:30 3dr_controller local1.info +454 tlm: dn:0 up:0
+Jan 10 01:38:40 3dr_controller local1.info +457 tlm: dn:0 up:0
+Jan 10 01:38:50 3dr_controller local1.info +459 tlm: dn:0 up:0
+Jan 10 01:39:00 3dr_controller local1.info +462 tlm: dn:0 up:0
+Jan 10 01:39:10 3dr_controller local1.info +464 tlm: dn:0 up:0
+Jan 10 01:39:20 3dr_controller local1.info +467 tlm: dn:0 up:0
+Jan 10 01:39:30 3dr_controller local1.info +470 tlm: dn:0 up:0
+Jan 10 01:39:40 3dr_controller local1.info +472 tlm: dn:0 up:0
+Jan 10 01:39:50 3dr_controller local1.info +475 tlm: dn:0 up:0
+Jan 10 01:40:00 3dr_controller local1.info +477 tlm: dn:0 up:0
+Jan 10 01:40:10 3dr_controller local1.info +480 tlm: dn:0 up:0
+Jan 10 01:40:20 3dr_controller local1.info +483 tlm: dn:0 up:0
+Jan 10 01:40:30 3dr_controller local1.info +485 tlm: dn:0 up:0
+Jan 10 01:40:40 3dr_controller local1.info +488 tlm: dn:0 up:0
+Jan 10 01:40:50 3dr_controller local1.info +490 tlm: dn:0 up:0
+Jan 10 01:41:00 3dr_controller local1.info +493 tlm: dn:0 up:0
+Jan 10 01:41:07 3dr_controller local1.info video: terminate

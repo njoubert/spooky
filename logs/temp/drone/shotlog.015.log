@@ -1,0 +1,6 @@
+Jan  6 00:53:27 3dr_solo local2.info shot: mode_callback:  lastMode is LOITER, newMode is STABILIZE
+Jan  6 00:53:27 3dr_solo local2.info shot: vehicle changed to mode STABILIZE
+Jan  6 00:53:27 3dr_solo local2.info shot: sending STABILIZE to Artoo as mode
+Jan  6 00:53:33 3dr_solo local2.info shot: mode_callback:  lastMode is STABILIZE, newMode is LOITER
+Jan  6 00:53:33 3dr_solo local2.info shot: vehicle changed to mode LOITER
+Jan  6 00:53:33 3dr_solo local2.info shot: sending FLY to Artoo as mode

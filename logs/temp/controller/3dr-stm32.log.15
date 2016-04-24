@@ -1,0 +1,138 @@
+2015-04-21 01:31:07,744 pkt  INFO     
+2015-04-21 01:31:07,745 pkt  INFO     stm32 starting: built Apr 21 2015 00:41:43
+2015-04-21 01:31:07,746 pkt  INFO     PKT: opened port 5005
+2015-04-21 01:31:07,747 pkt  INFO     PKT: opened port 5015
+2015-04-21 01:31:07,747 pkt  INFO     PKT: opened port 5012
+2015-04-21 01:31:07,747 pkt  INFO     PKT: opened port 5013
+2015-04-21 01:31:07,747 pkt  INFO     PKT: opened port 5014
+2015-04-21 01:31:07,747 pkt  INFO     PKT: opened port 5016
+2015-04-21 01:31:07,756 pkt  INFO     PKT: opened port 5017
+2015-04-21 01:31:07,756 pkt  INFO     PKT: opened port 5018
+2015-04-21 01:31:07,756 pkt  INFO     PKT: opened port 5019
+2015-04-21 01:31:07,759 pkt  INFO     Opened serial port /dev/ttymxc1
+2015-04-21 01:31:07,799 srv  INFO     downstream_thread: starting
+2015-04-21 01:31:07,799 srv  INFO     listen_thread: starting (id=1992598608)
+2015-04-21 01:31:07,877 pkt  INFO     SYS: Unique ID: 97779504
+2015-04-21 01:31:07,877 pkt  INFO     SYS: Hardware Ver: 943259651
+2015-04-21 01:31:07,877 pkt  INFO     SYS: Software Ver: v0.6.14
+2015-04-21 01:31:07,877 pkt  INFO     SYS: (try 2)
+2015-04-21 01:31:17,874 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:31:27,876 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:31:34,326 pkt  INFO     STM32 requests shutdown
+2015-04-21 01:31:01,709 pkt  INFO     
+2015-04-21 01:31:01,727 pkt  INFO     stm32 starting: built Apr 21 2015 00:41:43
+2015-04-21 01:31:01,729 pkt  INFO     PKT: opened port 5005
+2015-04-21 01:31:01,729 pkt  INFO     PKT: opened port 5015
+2015-04-21 01:31:01,729 pkt  INFO     PKT: opened port 5012
+2015-04-21 01:31:01,729 pkt  INFO     PKT: opened port 5013
+2015-04-21 01:31:01,729 pkt  INFO     PKT: opened port 5014
+2015-04-21 01:31:01,729 pkt  INFO     PKT: opened port 5016
+2015-04-21 01:31:01,729 pkt  INFO     PKT: opened port 5017
+2015-04-21 01:31:01,729 pkt  INFO     PKT: opened port 5018
+2015-04-21 01:31:01,729 pkt  INFO     PKT: opened port 5019
+2015-04-21 01:31:01,734 pkt  INFO     Opened serial port /dev/ttymxc1
+2015-04-21 01:31:01,774 srv  INFO     downstream_thread: starting
+2015-04-21 01:31:01,774 srv  INFO     listen_thread: starting (id=1992565840)
+2015-04-21 01:31:01,857 pkt  INFO     SYS: Unique ID: 97779504
+2015-04-21 01:31:01,857 pkt  INFO     SYS: Hardware Ver: 943259651
+2015-04-21 01:31:01,857 pkt  INFO     SYS: Software Ver: v0.6.14
+2015-04-21 01:31:01,857 pkt  INFO     SYS: (try 2)
+2015-04-21 01:31:11,834 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:31:21,740 pkt  INFO     Pair request going down
+2015-04-21 01:31:21,836 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:31:31,838 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:31:41,839 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:31:48,596 pkt  INFO     Pair confirm going up for "Solo"
+2015-04-21 01:31:51,841 pkt  INFO     up: 5, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:31:58,885 pkt  INFO     Pair result going down
+2015-04-21 01:31:59,875 pkt  INFO     Got Solo IP: 10.1.1.10
+2015-04-21 01:31:59,925 srv  INFO     listen_thread: adding client 18
+2015-04-21 01:32:01,844 pkt  INFO     up: 2548, 0.25 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:32:05,847 srv  INFO     listen_thread: adding client 19
+2015-04-21 01:32:11,846 pkt  INFO     up: 13026, 1.27 KB/s; down: 6161, 0.60 KB/s
+2015-04-21 01:32:21,848 pkt  INFO     up: 13000, 1.27 KB/s; down: 23359, 2.28 KB/s
+2015-04-21 01:32:31,850 pkt  INFO     up: 13000, 1.27 KB/s; down: 23300, 2.27 KB/s
+2015-04-21 01:32:41,852 pkt  INFO     up: 13000, 1.27 KB/s; down: 23300, 2.28 KB/s
+2015-04-21 01:32:51,853 pkt  INFO     up: 13000, 1.27 KB/s; down: 23359, 2.28 KB/s
+2015-04-21 01:33:01,855 pkt  INFO     up: 13000, 1.27 KB/s; down: 23250, 2.27 KB/s
+2015-04-21 01:33:11,857 pkt  INFO     up: 13000, 1.27 KB/s; down: 23300, 2.27 KB/s
+2015-04-21 01:33:19,907 srv  INFO     downstream_thread: deleting client 18
+2015-04-21 01:33:21,859 pkt  INFO     up: 12922, 1.26 KB/s; down: 23376, 2.28 KB/s
+2015-04-21 01:33:31,860 pkt  INFO     up: 12948, 1.26 KB/s; down: 23385, 2.28 KB/s
+2015-04-21 01:33:41,862 pkt  INFO     up: 13000, 1.27 KB/s; down: 23122, 2.26 KB/s
+2015-04-21 01:33:51,865 pkt  INFO     up: 13026, 1.27 KB/s; down: 23377, 2.28 KB/s
+2015-04-21 01:34:01,866 pkt  INFO     up: 13000, 1.27 KB/s; down: 23385, 2.28 KB/s
+2015-04-21 01:34:11,868 pkt  INFO     up: 12974, 1.27 KB/s; down: 23385, 2.28 KB/s
+2015-04-21 01:34:21,870 pkt  INFO     up: 12974, 1.27 KB/s; down: 23181, 2.26 KB/s
+2015-04-21 01:34:31,872 pkt  INFO     up: 13000, 1.27 KB/s; down: 23385, 2.28 KB/s
+2015-04-21 01:34:41,873 pkt  INFO     up: 13000, 1.27 KB/s; down: 23320, 2.28 KB/s
+2015-04-21 01:34:51,875 pkt  INFO     up: 13000, 1.27 KB/s; down: 23394, 2.28 KB/s
+2015-04-21 01:35:01,877 pkt  INFO     up: 13000, 1.27 KB/s; down: 23122, 2.26 KB/s
+2015-04-21 01:35:11,879 pkt  INFO     up: 13000, 1.27 KB/s; down: 23385, 2.28 KB/s
+2015-04-21 01:35:21,881 pkt  INFO     up: 13000, 1.27 KB/s; down: 22282, 2.18 KB/s
+2015-04-21 01:35:31,883 pkt  INFO     up: 13000, 1.27 KB/s; down: 21400, 2.09 KB/s
+2015-04-21 01:35:41,885 pkt  INFO     up: 13000, 1.27 KB/s; down: 21514, 2.10 KB/s
+2015-04-21 01:35:51,887 pkt  INFO     up: 13164, 1.29 KB/s; down: 21378, 2.09 KB/s
+2015-04-21 01:36:01,889 pkt  INFO     up: 13000, 1.27 KB/s; down: 21020, 2.05 KB/s
+2015-04-21 01:36:11,891 pkt  INFO     up: 13000, 1.27 KB/s; down: 23105, 2.26 KB/s
+2015-04-21 01:36:21,893 pkt  INFO     up: 13015, 1.27 KB/s; down: 23571, 2.30 KB/s
+2015-04-21 01:36:31,895 pkt  INFO     up: 13000, 1.27 KB/s; down: 23385, 2.28 KB/s
+2015-04-21 01:36:38,613 pkt  INFO     STM32 requests shutdown
+2015-04-21 01:36:01,734 pkt  INFO     
+2015-04-21 01:36:01,759 pkt  INFO     stm32 starting: built Apr 21 2015 00:41:43
+2015-04-21 01:36:01,761 pkt  INFO     PKT: opened port 5005
+2015-04-21 01:36:01,761 pkt  INFO     PKT: opened port 5015
+2015-04-21 01:36:01,761 pkt  INFO     PKT: opened port 5012
+2015-04-21 01:36:01,761 pkt  INFO     PKT: opened port 5013
+2015-04-21 01:36:01,761 pkt  INFO     PKT: opened port 5014
+2015-04-21 01:36:01,761 pkt  INFO     PKT: opened port 5016
+2015-04-21 01:36:01,766 pkt  INFO     PKT: opened port 5017
+2015-04-21 01:36:01,766 pkt  INFO     PKT: opened port 5018
+2015-04-21 01:36:01,766 pkt  INFO     PKT: opened port 5019
+2015-04-21 01:36:01,767 pkt  INFO     Opened serial port /dev/ttymxc1
+2015-04-21 01:36:01,809 srv  INFO     downstream_thread: starting
+2015-04-21 01:36:01,810 srv  INFO     listen_thread: starting (id=1993348176)
+2015-04-21 01:36:04,258 pkt  INFO     STM32 requests shutdown
+2015-04-21 01:36:04,324 pkt  INFO     SYS: Unique ID: 97779504
+2015-04-21 01:36:04,324 pkt  INFO     SYS: Hardware Ver: 943259651
+2015-04-21 01:36:04,324 pkt  INFO     SYS: Software Ver: v0.6.14
+2015-04-21 01:36:04,324 pkt  INFO     SYS: (try 4)
+2015-04-21 01:36:01,712 pkt  INFO     
+2015-04-21 01:36:01,725 pkt  INFO     stm32 starting: built Apr 21 2015 00:41:43
+2015-04-21 01:36:01,726 pkt  INFO     PKT: opened port 5005
+2015-04-21 01:36:01,726 pkt  INFO     PKT: opened port 5015
+2015-04-21 01:36:01,726 pkt  INFO     PKT: opened port 5012
+2015-04-21 01:36:01,726 pkt  INFO     PKT: opened port 5013
+2015-04-21 01:36:01,727 pkt  INFO     PKT: opened port 5014
+2015-04-21 01:36:01,727 pkt  INFO     PKT: opened port 5016
+2015-04-21 01:36:01,727 pkt  INFO     PKT: opened port 5017
+2015-04-21 01:36:01,727 pkt  INFO     PKT: opened port 5018
+2015-04-21 01:36:01,727 pkt  INFO     PKT: opened port 5019
+2015-04-21 01:36:01,728 pkt  INFO     Opened serial port /dev/ttymxc1
+2015-04-21 01:36:01,778 srv  INFO     downstream_thread: starting
+2015-04-21 01:36:01,778 srv  INFO     listen_thread: starting (id=1993397328)
+2015-04-21 01:36:01,863 pkt  INFO     SYS: Unique ID: 97779504
+2015-04-21 01:36:01,863 pkt  INFO     SYS: Hardware Ver: 943259651
+2015-04-21 01:36:01,863 pkt  INFO     SYS: Software Ver: v0.6.14
+2015-04-21 01:36:01,863 pkt  INFO     SYS: (try 2)
+2015-04-21 01:36:11,849 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:36:21,851 pkt  INFO     up: 0, 0.00 KB/s; down: 0, 0.00 KB/s
+2015-04-21 01:36:25,867 pkt  INFO     Got Solo IP: 10.1.1.10
+2015-04-21 01:36:26,853 srv  INFO     listen_thread: adding client 18
+2015-04-21 01:36:31,140 srv  INFO     listen_thread: adding client 19
+2015-04-21 01:36:31,854 pkt  INFO     up: 7800, 0.76 KB/s; down: 760, 0.07 KB/s
+2015-04-21 01:36:41,856 pkt  INFO     up: 13000, 1.27 KB/s; down: 32235, 3.15 KB/s
+2015-04-21 01:36:51,858 pkt  INFO     up: 13000, 1.27 KB/s; down: 22287, 2.18 KB/s
+2015-04-21 01:37:01,859 pkt  INFO     up: 13000, 1.27 KB/s; down: 22733, 2.22 KB/s
+2015-04-21 01:37:11,861 pkt  INFO     up: 13000, 1.27 KB/s; down: 22998, 2.25 KB/s
+2015-04-21 01:37:12,576 srv  INFO     listen_thread: adding client 20
+2015-04-21 01:37:21,863 pkt  INFO     up: 13026, 1.27 KB/s; down: 22999, 2.25 KB/s
+2015-04-21 01:37:31,865 pkt  INFO     up: 13000, 1.27 KB/s; down: 22773, 2.22 KB/s
+2015-04-21 01:37:41,867 pkt  INFO     up: 13000, 1.27 KB/s; down: 22729, 2.22 KB/s
+2015-04-21 01:37:51,869 pkt  INFO     up: 13000, 1.27 KB/s; down: 22453, 2.19 KB/s
+2015-04-21 01:38:01,871 pkt  INFO     up: 13000, 1.27 KB/s; down: 22632, 2.21 KB/s
+2015-04-21 01:38:11,874 pkt  INFO     up: 13000, 1.27 KB/s; down: 23250, 2.27 KB/s
+2015-04-21 01:38:21,878 pkt  INFO     up: 13000, 1.27 KB/s; down: 22635, 2.21 KB/s
+2015-04-21 01:38:31,880 pkt  INFO     up: 13000, 1.27 KB/s; down: 23152, 2.26 KB/s
+2015-04-21 01:38:32,251 srv  INFO     downstream_thread: deleting client 18
+2015-04-21 01:38:35,598 pkt  INFO     Updater message going down
