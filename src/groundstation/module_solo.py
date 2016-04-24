@@ -337,8 +337,8 @@ class SoloModule(spooky.modules.SpookyModule):
       
       print "Vehicle Connected! Setting airpspeed and downloading commands..."
       
-      self.vehicle.groundspeed = 1# self.groundspeed # Make it move SLOWLY
-      self.vehicle.airspeed = 1 #self.airspeed
+      self.vehicle.groundspeed = self.groundspeed # Make it move SLOWLY
+      self.vehicle.airspeed = self.airspeed
 
       self._update_vehicle_home()
 
@@ -369,6 +369,16 @@ class SoloModule(spooky.modules.SpookyModule):
         spooky_solo.main.modules.trigger('update_partial_state', 'solo', [('home_location', home_location_llh)])
         
         print "Received latest HOME location:", str(spooky_solo.vehicle_home)
+
+      @self.vehicle.on_message('GOPRO_SET_RESPONSE')
+      def listener(self, name, msg):
+        print name
+        print msg
+
+      @self.vehicle.on_message('GOPRO_GET_RESPONSE')
+      def listener(self, name, msg):
+        print name
+        print msg
 
       self.set_piksi_home()
 
@@ -675,6 +685,83 @@ class SoloModule(spooky.modules.SpookyModule):
     return True
 
     
+  def gopro_cmd(self, args):
+    print args
+
+    if not self.vehicle:
+      print "No vehicle connected"
+      return
+
+    if args[1] == "start":
+      print "Starting gopro"
+
+      msg = self.vehicle.message_factory.gopro_set_request_encode(
+        0,
+        mavutil.mavlink.MAV_COMP_ID_GIMBAL,
+        mavutil.mavlink.GOPRO_COMMAND_SHUTTER,
+        [1,1,1,1]
+        )
+
+      self.vehicle.send_mavlink(msg)
+
+    if args[1] == "stop":
+      print "Starting gopro"
+
+      msg = self.vehicle.message_factory.gopro_set_request_encode(
+        0,
+        mavutil.mavlink.MAV_COMP_ID_GIMBAL,
+        mavutil.mavlink.GOPRO_COMMAND_SHUTTER,
+        [0,0,0,0]
+        )
+
+      self.vehicle.send_mavlink(msg)
+
+    if args[1] == "info":
+      print "Requesting GOPRO info"
+
+      print "  COMMAND_MODEL = ", mavutil.mavlink.GOPRO_COMMAND_MODEL
+      msg = self.vehicle.message_factory.gopro_get_request_encode(
+        0,
+        mavutil.mavlink.MAV_COMP_ID_GIMBAL,
+        mavutil.mavlink.GOPRO_COMMAND_MODEL
+        )
+
+      self.vehicle.send_mavlink(msg)
+
+      print "  COMMAND_VIDEO_SETTINGS = ", mavutil.mavlink.GOPRO_COMMAND_VIDEO_SETTINGS
+      msg = self.vehicle.message_factory.gopro_get_request_encode(
+        0,
+        mavutil.mavlink.MAV_COMP_ID_GIMBAL,
+        mavutil.mavlink.GOPRO_COMMAND_VIDEO_SETTINGS
+        )
+
+      self.vehicle.send_mavlink(msg)
+
+
+    if args[1] == "fov":
+      if len(args) < 3:
+        print "specify wide|medium|narrow"
+        return
+
+      fov_mapping = {
+        "wide": mavutil.mavlink.GOPRO_FIELD_OF_VIEW_WIDE,
+        "medium": mavutil.mavlink.GOPRO_FIELD_OF_VIEW_MEDIUM,
+        "narrow": mavutil.mavlink.GOPRO_FIELD_OF_VIEW_NARROW,
+      }
+      if not args[2] in fov_mapping:
+        print "specify wide|medium|narrow"
+        return
+   
+      msg = self.vehicle.message_factory.gopro_set_request_encode(
+        0,
+        mavutil.mavlink.MAV_COMP_ID_GIMBAL,
+        mavutil.mavlink.GOPRO_COMMAND_VIDEO_SETTINGS,
+        [3,7,fov_mapping[args[2]]  ,0]
+        )
+
+      self.vehicle.send_mavlink(msg)
+
+
 
   # def injectGPS(self, sbpPacket):
 
@@ -843,6 +930,11 @@ class SoloModule(spooky.modules.SpookyModule):
       return self.MAYDAY_stop_solo()
     elif 'status' in args:
       return self.cmd_status()
+    elif 'gopro' in args:
+      if len(args) == 1:
+        print "solo gopro <start|stop|info|fov [wide|medium|narrow]>"
+        return
+      return self.gopro_cmd(args)
     elif 'connect' in args:
       return self.connect()
     elif 'disconnect' in args:
