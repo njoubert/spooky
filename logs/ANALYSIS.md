@@ -50,3 +50,7 @@
 ![state0000924](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000924.full.png)
 ## state0000925.pickle
 ![state0000925](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000925.full.png)
+## state0001053.pickle
+![state0001053](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0001053.full.png)
+## state0001054.pickle
+![state0001054](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0001054.full.png)

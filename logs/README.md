@@ -33,7 +33,8 @@ To generate images, run ```python log_graph.py``` in this directory.
 | state0000923 | - | Apr 18 | Stationary points, in Gates lawn | | | ![state0000923](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000923.iconic.png) |
 | state0000924 | - | Apr 18 | Walking (mostly stationary) in Gates lawn | | | ![state0000924](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000924.iconic.png) |
 | state0000925 | - | Apr 18 | Walking (mostly stationary) and flying in Gates lawn | | | ![state0000925](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0000925.iconic.png) |
-
+| state0001053 | - | Apr 24 | Flying with subjects stationary and playing catch 01 | | | ![state0001053](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0001053.iconic.png) |
+| state0001054 | - | Apr 24 | Flying with subjects stationary and playing catch 01 | | | ![state0001054](https://raw.githubusercontent.com/njoubert/spooky/master/logs/state0001054.iconic.png) |
 
 
 
