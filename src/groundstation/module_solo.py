@@ -692,6 +692,28 @@ class SoloModule(spooky.modules.SpookyModule):
       print "No vehicle connected"
       return
 
+    if args[1] == "off":
+
+      msg = self.vehicle.message_factory.gopro_set_request_encode(
+        0,
+        mavutil.mavlink.MAV_COMP_ID_GIMBAL,
+        mavutil.mavlink.GOPRO_COMMAND_POWER,
+        [0,0,0,0]
+        )
+
+      self.vehicle.send_mavlink(msg)
+
+    if args[1] == "on":
+
+      msg = self.vehicle.message_factory.gopro_set_request_encode(
+        0,
+        mavutil.mavlink.MAV_COMP_ID_GIMBAL,
+        mavutil.mavlink.GOPRO_COMMAND_POWER,
+        [1,1,1,1]
+        )
+
+      self.vehicle.send_mavlink(msg)
+
     if args[1] == "start":
       print "Starting gopro"
 
