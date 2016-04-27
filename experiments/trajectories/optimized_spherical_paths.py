@@ -25,6 +25,8 @@ C1 = np.array([-96.5,-42.6,-1.3])
 params = {
   'min_dist':1, 
   'nsamples':50, 
+  'coord':'NED_mm',
+  'force_paths_only_go_up':True
 }
 
 position_trajectories = osp.calculate_position_trajectory_as_optimized_blend_of_spherical_trajectories(
@@ -77,7 +79,24 @@ def calculate_position_trajectory_as_optimized_blend_of_spherical_trajectories(A
     '''
     nsamples = params['nsamples'] if 'nsamples' in params else 50
     min_dist = params['minDist'] if 'minDist' in params else 1
+    coord = params['coord'] if 'coord' in params else 'NED_mm'
+    force_paths_only_go_up = params['force_paths_only_go_up'] if 'force_paths_only_go_up' else False
     
+    if force_paths_only_go_up:
+        # We adjust both people positions DOWN so the path never goes down.
+        if coord == 'NED_mm':
+            # in NED, a larger means lower 
+            lowest_person_down = np.min([A[2], B[2]])
+            lowest_camera_down = np.min([C0[2], C1[2]])
+            if lowest_person_down < lowest_camera_down:
+                print "Adjusting both people's Z positions down to %f from %s" % (lowest_camera_down, lowest_person_down)
+                A[2] = lowest_camera_down
+                B[2] = lowest_camera_down
+        else:
+            print "UNKNOWN COOD SYSTEM!"
+            assert False
+
+
     # Set up interpolation vector
     u = np.c_[np.linspace(0,1,num=nsamples)]
 

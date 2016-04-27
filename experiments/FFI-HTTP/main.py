@@ -283,7 +283,7 @@ def get_optimized_blended_spherical_trajectory():
 
   print "P: ", P_cameraPose
   T_cameraPose = c_[t, t, t]
-  P_positionSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose, T_cameraPose)
+  P_positionSpline = trajectoryAPI.compute_easing_spline_trajectory(P_cameraPose, T_cameraPose, num_timesteps=100)
 
   data = {
     'positionSpline': P_positionSpline.tolist(),
