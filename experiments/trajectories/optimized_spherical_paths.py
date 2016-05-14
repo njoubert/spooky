@@ -33,7 +33,7 @@ position_trajectories = osp.calculate_position_trajectory_as_optimized_blend_of_
     PA, PB, C0, C1, osp.real_optimizer_unconstrained_at_endpoints, params)
 
 ## sigma is the resulting 3D trajectory.
-sigma, wA, sigmaAvg, sigmaA, sigmaB = position_trajectories
+sigma, wA, sigmaAvg, sigmaA, sigmaB, u = position_trajectories
 
 
 '''

@@ -826,6 +826,8 @@ class SoloModule(spooky.modules.SpookyModule):
       self.cleared_to_execute.clear()
 
     msg = msg['payload']
+    
+    self.main.modules.trigger('update_partial_state', 'CAM_API', [('shotName', msg['shotName'])])
 
     self.last_api_msg = msg
 

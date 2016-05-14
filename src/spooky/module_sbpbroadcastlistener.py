@@ -59,15 +59,20 @@ class SBPUDPBroadcastListenerHandlerThread(spooky.modules.SpookyModule):
     self.data_callback = None
     self.daemon = True
     self.dying = False
+    self.send_raw = True
 
-  def set_data_callback(self, data_callback):
+  def set_data_callback(self, data_callback, send_raw=True):
     print "set data callback", data_callback
     self.data_callback = data_callback
+    self.send_raw = send_raw
 
   def handle_incoming(self, msg, **metadata):
     try:
       if self.data_callback:
-        self.data_callback(msg.pack())
+        if self.send_raw:
+          self.data_callback(msg.pack())
+        else:
+          self.data_callback(msg)
     except Queue.Full:
       print "SBPUDPBroadcastListener: Could not perform callback, queue is full"
 
