@@ -138,10 +138,6 @@ class GroundStation(CommandLineHandler):
     else:
       self.modules.trigger("cmd_update")
 
-  def record_base_position(self, msg):
-    if msg.msg_type == SBP_MSG_BASE_POS_LLH:
-      if self.systemstate:
-        self.systemstate.update_partial_state('base_station', [('surveyed_pos', (msg.lat, msg.lon, msg.height))])
 
   def configure_network_from_config(self):
     '''
@@ -162,8 +158,7 @@ class GroundStation(CommandLineHandler):
        self.modules.load_module('odroidperson_sbp', instance_name=client)
        self.modules.load_module('odroidperson_mav', instance_name=client)
 
-    bcastmodule = self.modules.load_module('sbpbroadcastlistener')
-    bcastmodule.set_data_callback(self.record_base_position, send_raw=False)
+    self.modules.load_module('basestation_sbp')
 
     solo = self.modules.load_module('solo', waitTimeout=15.0)    
     

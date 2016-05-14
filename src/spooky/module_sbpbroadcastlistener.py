@@ -60,6 +60,9 @@ class SBPUDPBroadcastListenerHandlerThread(spooky.modules.SpookyModule):
     self.daemon = True
     self.dying = False
     self.send_raw = True
+    self.base_sbp_relay_port = self.main.config.get_my("base-pos-relay-port")
+    self.bind_ip = self.main.config.get_my("my-ip")
+
 
   def set_data_callback(self, data_callback, send_raw=True):
     print "set data callback", data_callback
@@ -71,6 +74,7 @@ class SBPUDPBroadcastListenerHandlerThread(spooky.modules.SpookyModule):
       if self.data_callback:
         if self.send_raw:
           self.data_callback(msg.pack())
+          self.relay_udp.sendto(msg.to_binary(), (self.bind_ip, self.base_sbp_relay_port))
         else:
           self.data_callback(msg)
     except Queue.Full:
@@ -82,11 +86,17 @@ class SBPUDPBroadcastListenerHandlerThread(spooky.modules.SpookyModule):
       with SBPUDPBroadcastDriver(self.port) as driver:
         with Handler(Framer(driver.read, None, verbose=True)) as source:
 
-          source.add_callback(self.handle_incoming)
-          self.ready()
+          with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as relay_udp:
+            relay_udp.setblocking(1)
+            relay_udp.settimeout(0.05)
+            self.relay_udp = relay_udp
 
-          while not self.wait_on_stop(1.0):
-            pass
+
+            source.add_callback(self.handle_incoming)
+            self.ready()
+
+            while not self.wait_on_stop(1.0):
+              pass
 
     except Exception:
       traceback.print_exc()

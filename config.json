@@ -17,11 +17,13 @@
 		"solo-sbp-relay-send-port": 18002,
 		"solo-sbp-relay-recv-port": 18003,
 		"survey-base-pos-automatically": true,
-		"survey-num-samples":600
+		"survey-num-samples":600,
+		"base-pos-relay-port":21500
 	},
 
 	"solo_sbp_pump": {
-		"dronekit-device":       "0.0.0.0:14552"	
+		"dronekit-device":       "0.0.0.0:14552",
+		"my-ip": "192.168.2.1"
 	},
 	"NETWORK": {
 		"server": "192.168.2.1",
