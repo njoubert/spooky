@@ -37,6 +37,7 @@ class BaseStationSBPModule(spooky.modules.SpookyModule):
 
   def record_base_position(self, msg, **metadata):
     if msg.msg_type == SBP_MSG_BASE_POS_LLH:
+      self.last_update = time.time()
       self.main.modules.trigger('update_partial_state', 'base_station', [('surveyed_pos', (msg.lat, msg.lon, msg.height))])
 
 

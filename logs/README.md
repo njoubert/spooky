@@ -52,4 +52,3 @@ To generate images, run ```python log_graph.py``` in this directory.
 
 
 
-
