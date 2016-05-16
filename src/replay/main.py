@@ -19,6 +19,7 @@ import copy
 import pprint
 
 import numpy as np
+from numpy import linalg
 import spooky.coords
 
 def replay_log(logfile, dest, 
@@ -69,7 +70,7 @@ def replay_log(logfile, dest,
         state_udp_out.setblocking(1)
 
 
-        calibratedNEDOffset = None
+        calibratedNEDOffset = {}
 
 
         while True:
@@ -119,30 +120,35 @@ def replay_log(logfile, dest,
                         'e':rel_ned[1],
                         'd':rel_ned[2]
                       }
-                      print fakebaseline
-                      person["SPPGPSBaseline"] = fakebaseline 
-
+                      print p, "fake baseline", fakebaseline
+                      person["SPPGPSBaseline"] = fakebaseline
 
                       # HERE WE GENERATE A CALIBRATED NED BASELINE FROM THE SURVEYED GPS TO THE NORMAL GPS
                       # WE CALIBRATE AGAINST THE INITIAL BASELINE SO WE ONLY SEE DRIFT NOT BIAS
 
                       if person["MsgBaselineNED"] and person["MsgBaselineNED"]["flags"] == 1:
                         real_baseline = np.array([float(person["MsgBaselineNED"]['n']), float(person["MsgBaselineNED"]['e']), float(person["MsgBaselineNED"]['d'])])
-                        print real_baseline / 1000.0
-                        if calibratedNEDOffset is None:
-                          pass
-                          #calibratedNEDOffset = rel_ned - 
+                        real_baseline = real_baseline / 1000.0
+                        if p not in calibratedNEDOffset:
+                          calibratedNEDOffset[p] = rel_ned - real_baseline
+                          print "CALIBRAITNG"
+                          print rel_ned
+                          print real_baseline
+                          print calibratedNEDOffset[p]
 
 
-                      if calibratedNEDOffset is not None:
-                        calibrated_rel_ned = rel_ned - calibratedNEDOffset
+                      if p in calibratedNEDOffset:
+                        calibrated_rel_ned = rel_ned - calibratedNEDOffset[p]
 
                         calibfakebaseline = {
                           'n':calibrated_rel_ned[0],
                           'e':calibrated_rel_ned[1],
                           'd':calibrated_rel_ned[2]
                         }
-                        person["SPPGPSBaseline_calibrated"] = calibfakebaseline 
+                        person["SPPGPSBaseline_calibrated"] = calibfakebaseline
+                        print p, "fake calib baseline",  calibrated_rel_ned 
+                        print p, "real baseline", real_baseline
+                        print p, "error", linalg.norm(calibrated_rel_ned - real_baseline)
 
                       
                 data = json.dumps(state)
