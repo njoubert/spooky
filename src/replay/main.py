@@ -55,7 +55,7 @@ def generate_fake_SPP_GPS_Baselines(nextState, verbose=True):
         # HERE WE GENERATE A CALIBRATED NED BASELINE FROM THE SURVEYED GPS TO THE NORMAL GPS
         # WE CALIBRATE AGAINST THE INITIAL BASELINE SO WE ONLY SEE DRIFT NOT BIAS
 
-        if person["MsgBaselineNED"] and person["MsgBaselineNED"]["flags"] == 1:
+        if "MsgBaselineNED" in person and person["MsgBaselineNED"]["flags"] == 1:
           real_baseline = np.array([float(person["MsgBaselineNED"]['n']), float(person["MsgBaselineNED"]['e']), float(person["MsgBaselineNED"]['d'])])
           real_baseline = real_baseline
           if p not in calibratedNEDOffset:
