@@ -113,7 +113,7 @@ def replay_log(logfile, dest,
                       llh_rel = [float(basePos[0]),float(basePos[1]),float(basePos[2])] 
                       llh = [float(personPos['lat'])/1.0e7,float(personPos['lon'])/1.0e7,float(personPos['alt'])/1e3]
 
-                      rel_ned = spooky.coords.llh2ned(llh, llh_rel)
+                      rel_ned = spooky.coords.llh2ned(llh, llh_rel)*1000
                       
                       fakebaseline = {
                         'n':rel_ned[0],
@@ -128,7 +128,7 @@ def replay_log(logfile, dest,
 
                       if person["MsgBaselineNED"] and person["MsgBaselineNED"]["flags"] == 1:
                         real_baseline = np.array([float(person["MsgBaselineNED"]['n']), float(person["MsgBaselineNED"]['e']), float(person["MsgBaselineNED"]['d'])])
-                        real_baseline = real_baseline / 1000.0
+                        real_baseline = real_baseline
                         if p not in calibratedNEDOffset:
                           calibratedNEDOffset[p] = rel_ned - real_baseline
                           print "CALIBRAITNG"
