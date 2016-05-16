@@ -10,6 +10,9 @@ def scale_longitude(llh):
     return numpy.cos(llh[0] * numpy.pi / 180.0)
 
 def llh2ned(llh, llh_ref):
+    '''
+    Returns NED in Meters
+    '''
     diffs = numpy.subtract(llh,llh_ref)
     diffs[0] = diffs[0] * LOCATION_SCALING_FACTOR
     diffs[1] = diffs[1] * LOCATION_SCALING_FACTOR * scale_longitude(llh_ref)

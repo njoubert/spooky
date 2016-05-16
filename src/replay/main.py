@@ -18,6 +18,9 @@ import json
 import copy
 import pprint
 
+import numpy as np
+import spooky.coords
+
 def replay_log(logfile, dest, 
     startTime=0.0, 
     debug=False, 
@@ -65,6 +68,10 @@ def replay_log(logfile, dest,
       with closing(socket.socket(socket.AF_INET, socket.SOCK_DGRAM)) as state_udp_out:
         state_udp_out.setblocking(1)
 
+
+        calibratedNEDOffset = None
+
+
         while True:
 
           # FFWD:
@@ -84,11 +91,60 @@ def replay_log(logfile, dest,
                 
                 nextState = pickle.load(f)
 
+
+                # REMOVE SOLO 
                 if "solo" in nextState:
                   del nextState["solo"]
                 if "solo_sbp" in nextState:
                   del nextState["solo_sbp"]
 
+                # CREATE FAKE NED FOR NORMAL GPS
+
+                if "base_station" in nextState and "surveyed_pos" in nextState["base_station"]:
+                  for p in ['192.168.2.51','192.168.2.52']:
+                    person = nextState[p]
+                    if "GLOBAL_POSITION_INT" in person:
+
+                      basePos = nextState["base_station"]["surveyed_pos"]
+                      personPos = person["GLOBAL_POSITION_INT"]
+                      
+                      # HERE WE GENERATE A NED BASELINE FROM THE SURVEYED GPS TO THE NORMAL GPS
+                      llh_rel = [float(basePos[0]),float(basePos[1]),float(basePos[2])] 
+                      llh = [float(personPos['lat'])/1.0e7,float(personPos['lon'])/1.0e7,float(personPos['alt'])/1e3]
+
+                      rel_ned = spooky.coords.llh2ned(llh, llh_rel)
+                      
+                      fakebaseline = {
+                        'n':rel_ned[0],
+                        'e':rel_ned[1],
+                        'd':rel_ned[2]
+                      }
+                      print fakebaseline
+                      person["SPPGPSBaseline"] = fakebaseline 
+
+
+                      # HERE WE GENERATE A CALIBRATED NED BASELINE FROM THE SURVEYED GPS TO THE NORMAL GPS
+                      # WE CALIBRATE AGAINST THE INITIAL BASELINE SO WE ONLY SEE DRIFT NOT BIAS
+
+                      if person["MsgBaselineNED"] and person["MsgBaselineNED"]["flags"] == 1:
+                        real_baseline = np.array([float(person["MsgBaselineNED"]['n']), float(person["MsgBaselineNED"]['e']), float(person["MsgBaselineNED"]['d'])])
+                        print real_baseline / 1000.0
+                        if calibratedNEDOffset is None:
+                          pass
+                          #calibratedNEDOffset = rel_ned - 
+
+
+                      if calibratedNEDOffset is not None:
+                        calibrated_rel_ned = rel_ned - calibratedNEDOffset
+
+                        calibfakebaseline = {
+                          'n':calibrated_rel_ned[0],
+                          'e':calibrated_rel_ned[1],
+                          'd':calibrated_rel_ned[2]
+                        }
+                        person["SPPGPSBaseline_calibrated"] = calibfakebaseline 
+
+                      
                 data = json.dumps(state)
                 try:
                   n = state_udp_out.sendto(data, dest)  
@@ -155,6 +211,7 @@ def main():
                       help="don't loop the log")
   parser.add_argument("log", nargs=1, type=str,
                       help="specify the logfile to load",)
+
   args = parser.parse_args()
 
   replay_log(args.log[0],(args.ip[0],args.port[0]), startTime=args.start[0], debug=args.debug, infoOnly=args.info,loop=(not args.dontloop), speedup=args.speedup[0], end=args.end[0])
