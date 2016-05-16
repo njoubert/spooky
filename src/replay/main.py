@@ -22,6 +22,66 @@ import numpy as np
 from numpy import linalg
 import spooky.coords
 
+calibratedNEDOffset = {}
+
+def generate_fake_SPP_GPS_Baselines(nextState, verbose=True):
+
+  global calibratedNEDOffset
+  # CREATE FAKE NED FOR NORMAL GPS
+
+  if "base_station" in nextState and "surveyed_pos" in nextState["base_station"]:
+    for p in ['192.168.2.51','192.168.2.52']:
+      person = nextState[p]
+      if "GLOBAL_POSITION_INT" in person:
+
+        basePos = nextState["base_station"]["surveyed_pos"]
+        personPos = person["GLOBAL_POSITION_INT"]
+        
+        # HERE WE GENERATE A NED BASELINE FROM THE SURVEYED GPS TO THE NORMAL GPS
+        llh_rel = [float(basePos[0]),float(basePos[1]),float(basePos[2])] 
+        llh = [float(personPos['lat'])/1.0e7,float(personPos['lon'])/1.0e7,float(personPos['alt'])/1e3]
+
+        rel_ned = spooky.coords.llh2ned(llh, llh_rel)*1000
+        
+        fakebaseline = {
+          'n':rel_ned[0],
+          'e':rel_ned[1],
+          'd':rel_ned[2]
+        }
+        if verbose:
+          print p, "fake baseline", fakebaseline
+        person["SPPGPSBaseline"] = fakebaseline
+
+        # HERE WE GENERATE A CALIBRATED NED BASELINE FROM THE SURVEYED GPS TO THE NORMAL GPS
+        # WE CALIBRATE AGAINST THE INITIAL BASELINE SO WE ONLY SEE DRIFT NOT BIAS
+
+        if person["MsgBaselineNED"] and person["MsgBaselineNED"]["flags"] == 1:
+          real_baseline = np.array([float(person["MsgBaselineNED"]['n']), float(person["MsgBaselineNED"]['e']), float(person["MsgBaselineNED"]['d'])])
+          real_baseline = real_baseline
+          if p not in calibratedNEDOffset:
+            calibratedNEDOffset[p] = rel_ned - real_baseline
+            if verbose:
+              print "CALIBRAITNG"
+              print rel_ned
+              print real_baseline
+              print calibratedNEDOffset[p]
+
+
+        if p in calibratedNEDOffset:
+          calibrated_rel_ned = rel_ned - calibratedNEDOffset[p]
+
+          calibfakebaseline = {
+            'n':calibrated_rel_ned[0],
+            'e':calibrated_rel_ned[1],
+            'd':calibrated_rel_ned[2]
+          }
+          person["SPPGPSBaseline_calibrated"] = calibfakebaseline
+          if verbose:
+            print p, "fake calib baseline",  calibrated_rel_ned 
+            print p, "real baseline", real_baseline
+            print p, "error", linalg.norm(calibrated_rel_ned - real_baseline)
+
+
 def replay_log(logfile, dest, 
     startTime=0.0, 
     debug=False, 
@@ -70,7 +130,7 @@ def replay_log(logfile, dest,
         state_udp_out.setblocking(1)
 
 
-        calibratedNEDOffset = {}
+
 
 
         while True:
@@ -101,55 +161,7 @@ def replay_log(logfile, dest,
 
                 # CREATE FAKE NED FOR NORMAL GPS
 
-                if "base_station" in nextState and "surveyed_pos" in nextState["base_station"]:
-                  for p in ['192.168.2.51','192.168.2.52']:
-                    person = nextState[p]
-                    if "GLOBAL_POSITION_INT" in person:
-
-                      basePos = nextState["base_station"]["surveyed_pos"]
-                      personPos = person["GLOBAL_POSITION_INT"]
-                      
-                      # HERE WE GENERATE A NED BASELINE FROM THE SURVEYED GPS TO THE NORMAL GPS
-                      llh_rel = [float(basePos[0]),float(basePos[1]),float(basePos[2])] 
-                      llh = [float(personPos['lat'])/1.0e7,float(personPos['lon'])/1.0e7,float(personPos['alt'])/1e3]
-
-                      rel_ned = spooky.coords.llh2ned(llh, llh_rel)*1000
-                      
-                      fakebaseline = {
-                        'n':rel_ned[0],
-                        'e':rel_ned[1],
-                        'd':rel_ned[2]
-                      }
-                      print p, "fake baseline", fakebaseline
-                      person["SPPGPSBaseline"] = fakebaseline
-
-                      # HERE WE GENERATE A CALIBRATED NED BASELINE FROM THE SURVEYED GPS TO THE NORMAL GPS
-                      # WE CALIBRATE AGAINST THE INITIAL BASELINE SO WE ONLY SEE DRIFT NOT BIAS
-
-                      if person["MsgBaselineNED"] and person["MsgBaselineNED"]["flags"] == 1:
-                        real_baseline = np.array([float(person["MsgBaselineNED"]['n']), float(person["MsgBaselineNED"]['e']), float(person["MsgBaselineNED"]['d'])])
-                        real_baseline = real_baseline
-                        if p not in calibratedNEDOffset:
-                          calibratedNEDOffset[p] = rel_ned - real_baseline
-                          print "CALIBRAITNG"
-                          print rel_ned
-                          print real_baseline
-                          print calibratedNEDOffset[p]
-
-
-                      if p in calibratedNEDOffset:
-                        calibrated_rel_ned = rel_ned - calibratedNEDOffset[p]
-
-                        calibfakebaseline = {
-                          'n':calibrated_rel_ned[0],
-                          'e':calibrated_rel_ned[1],
-                          'd':calibrated_rel_ned[2]
-                        }
-                        person["SPPGPSBaseline_calibrated"] = calibfakebaseline
-                        print p, "fake calib baseline",  calibrated_rel_ned 
-                        print p, "real baseline", real_baseline
-                        print p, "error", linalg.norm(calibrated_rel_ned - real_baseline)
-
+                generate_fake_SPP_GPS_Baselines(nextState)
                       
                 data = json.dumps(state)
                 try:
