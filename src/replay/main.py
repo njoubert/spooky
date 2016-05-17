@@ -153,7 +153,7 @@ def replay_log(logfile, dest,
 
           # SEND:
           try:
-
+            doNextLoop = False
             while True:
                 
                 nextState = pickle.load(f)
@@ -171,8 +171,14 @@ def replay_log(logfile, dest,
                 count = 1
                 firstCalib = generate_fake_SPP_GPS_Baselines(nextState)
 
-                if firstCalib:
+                if doNextLoop:
+                  doNextLoop = False
                   count = 60
+
+                if firstCalib:
+                  firstCalib = False
+                  doNextLoop = True
+
                 while count > 0:                      
                   data = json.dumps(state)
                   try:
