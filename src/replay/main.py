@@ -26,11 +26,12 @@ calibratedNEDOffset = {}
 
 def reset_fake_calib():
   global calibratedNEDOffset
-  
+
   calibratedNEDOffset = {}
 
 def generate_fake_SPP_GPS_Baselines(nextState, verbose=True):
 
+  firstCalib = False
   global calibratedNEDOffset
   # CREATE FAKE NED FOR NORMAL GPS
 
@@ -65,6 +66,7 @@ def generate_fake_SPP_GPS_Baselines(nextState, verbose=True):
           real_baseline = real_baseline
           if p not in calibratedNEDOffset:
             calibratedNEDOffset[p] = rel_ned - real_baseline
+            firstCalib = True
             if verbose:
               print "CALIBRAITNG"
               print rel_ned
@@ -85,6 +87,8 @@ def generate_fake_SPP_GPS_Baselines(nextState, verbose=True):
             print p, "fake calib baseline",  calibrated_rel_ned 
             print p, "real baseline", real_baseline
             print p, "error", linalg.norm(calibrated_rel_ned - real_baseline)
+
+  return firstCalib
 
 
 def replay_log(logfile, dest, 
@@ -135,9 +139,6 @@ def replay_log(logfile, dest,
         state_udp_out.setblocking(1)
 
 
-
-
-
         while True:
 
           # FFWD:
@@ -166,26 +167,36 @@ def replay_log(logfile, dest,
 
                 # CREATE FAKE NED FOR NORMAL GPS
 
-                generate_fake_SPP_GPS_Baselines(nextState)
-                      
-                data = json.dumps(state)
-                try:
-                  n = state_udp_out.sendto(data, dest)  
-                  if len(data) != n:
-                    print("State Output did not send all data!" % self)
-                except socket.error as e:
-                  print "Socket error! %s" % str(e)
+                
+                count = 1
+                firstCalib = generate_fake_SPP_GPS_Baselines(nextState)
 
-                if debug:
-                  pp.pprint(state)
+                if firstCalib:
+                  count = 60
+                while count > 0:                      
+                  data = json.dumps(state)
+                  try:
+                    n = state_udp_out.sendto(data, dest)  
+                    if len(data) != n:
+                      print("State Output did not send all data!" % self)
+                  except socket.error as e:
+                    print "Socket error! %s" % str(e)
 
-                timediff = (nextState['_timestamp'] - state['_timestamp'])/speedup
-                startdiff = state['_timestamp'] - firstStamp
-                if (end > 0.0 and startdiff > end):
-                  break
-                print("Sending state %.2fs from log beginning, then sleeping for %.3fs" % (startdiff, timediff))
+                  if debug:
+                    pp.pprint(state)
+
+                  timediff = (nextState['_timestamp'] - state['_timestamp'])/speedup
+                  startdiff = state['_timestamp'] - firstStamp
+                  if (end > 0.0 and startdiff > end):
+                    break
+                  print("Sending state %.2fs from log beginning, then sleeping for %.3fs" % (startdiff, timediff))
+                  
+                  time.sleep(timediff)
+                  count -= 1
+                  if count > 0:
+                    print "RESENDING ANOTHER", count
+
                 state = nextState
-                time.sleep(timediff)
               
           except EOFError:
             if not loop:
