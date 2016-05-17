@@ -24,6 +24,11 @@ import spooky.coords
 
 calibratedNEDOffset = {}
 
+def reset_fake_calib():
+  global calibratedNEDOffset
+  
+  calibratedNEDOffset = {}
+
 def generate_fake_SPP_GPS_Baselines(nextState, verbose=True):
 
   global calibratedNEDOffset
@@ -39,7 +44,7 @@ def generate_fake_SPP_GPS_Baselines(nextState, verbose=True):
         
         # HERE WE GENERATE A NED BASELINE FROM THE SURVEYED GPS TO THE NORMAL GPS
         llh_rel = [float(basePos[0]),float(basePos[1]),float(basePos[2])] 
-        llh = [float(personPos['lat'])/1.0e7,float(personPos['lon'])/1.0e7,float(personPos['alt'])/1e3]
+        llh = [float(personPos['lat'])/1.0e7,float(personPos['lon'])/1.0e7,float(personPos['relative_alt'])/1e3]
 
         rel_ned = spooky.coords.llh2ned(llh, llh_rel)*1000
         
